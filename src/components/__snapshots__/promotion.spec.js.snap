@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Promotion should render nothing without crashing 1`] = `""`;
+
+exports[`Promotion should render without crashing 1`] = `
+<div
+  className="notification is-link"
+>
+  <div
+    className="columns is-vcentered is-centered"
+  >
+    <div
+      className="column is-one-quarter"
+    >
+      <h1
+        className="title has-text-centered is-1"
+      >
+        5
+         
+        <FontAwesomeIcon
+          border={false}
+          className=""
+          fixedWidth={false}
+          flip={null}
+          icon={
+            Array [
+              "fas",
+              "badge-percent",
+            ]
+          }
+          inverse={false}
+          listItem={false}
+          mask={null}
+          pull={null}
+          pulse={false}
+          rotation={null}
+          size={null}
+          spin={false}
+          swapOpacity={false}
+          symbol={false}
+          title=""
+          transform={null}
+        />
+         Off!
+      </h1>
+    </div>
+    <div
+      className="column is-half"
+    >
+      Sample promo goes on until end of 
+      October
+      ! Register now for a 
+      5
+      %!
+    </div>
+  </div>
+</div>
+`;

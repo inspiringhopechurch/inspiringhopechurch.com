@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Blog should render without crashing 1`] = `
+<Fragment>
+  <section
+    className="hero is-halfheight"
+  >
+    <div
+      className="hero-body"
+    >
+      <div
+        className="container has-text-centered"
+      >
+        <h1
+          className="title has-text-white"
+        >
+          Latest Blog Posts
+        </h1>
+      </div>
+    </div>
+  </section>
+  <section
+    className="box blog-content"
+  >
+    <div
+      className="columns is-multiline is-centered"
+    >
+      <BlogItem
+        blogDate="23 January, 2019"
+        blogExcerpt="Getting ansible working with doas on FreeBSD 11 Problem: I was unable to get ansible working with my privelege escalation tool of choice…"
+        blogSlug="getting-ansible-working-with-doas-on-freebsd-11"
+        blogTitle="Getting ansible working with doas on FreeBSD 11"
+        key="7b63ce9c-cced-5ba0-a373-67bb9b2cd53f"
+        onBlogIndex={true}
+      />
+      <BlogItem
+        blogDate="04 April, 2019"
+        blogExcerpt="When you run ansible you may get this : Though the docs mention hostfile and host_file is mentioned in old online tutorials, they are…"
+        blogSlug="ansible-ignores-inventory-defined-in-config-file"
+        blogTitle="Solution to ansible can't find inventory defined in ansible.cfg"
+        key="787b4534-0bdc-59fd-b448-dd9cd6912e96"
+        onBlogIndex={true}
+      />
+    </div>
+  </section>
+</Fragment>
+`;

@@ -1,0 +1,20 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Layout should render without crashing 1`] = `
+<Fragment>
+  <SEO
+    article={false}
+    banner={null}
+    desc={null}
+    pathname={null}
+    title={null}
+  />
+  <Header
+    mobileMenuActive={false}
+    mobileMenuHandler={[Function]}
+  />
+  <Footer
+    copyrightOwner="Inspiring Hope Church"
+  />
+</Fragment>
+`;

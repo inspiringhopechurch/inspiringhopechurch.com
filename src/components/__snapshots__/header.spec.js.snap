@@ -1,0 +1,105 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Header should render without crashing 1`] = `
+<header>
+  <nav
+    aria-label="main navigation"
+    className="navbar is-fixed-top"
+    role="navigation"
+  >
+    <div
+      className="container"
+    >
+      <div
+        className="navbar-brand"
+      >
+        <mockConstructor
+          className="navbar-item"
+          to="/"
+        >
+          <img
+            alt="Inspiring Hope Logo"
+            src="test-file-stub"
+          />
+        </mockConstructor>
+        <button
+          aria-expanded="false"
+          aria-label="menu"
+          className="navbar-burger "
+          data-target="nav-menu"
+          onClick={[MockFunction]}
+        >
+          <span
+            aria-hidden="true"
+          />
+          <span
+            aria-hidden="true"
+          />
+          <span
+            aria-hidden="true"
+          />
+        </button>
+      </div>
+      <div
+        className="navbar-menu "
+        id="nav-menu"
+      >
+        <div
+          className="navbar-start"
+        >
+          <mockConstructor
+            className="navbar-item"
+            to="/"
+          >
+            Home
+          </mockConstructor>
+          <div
+            className="navbar-item has-dropdown is-hoverable"
+          >
+            <mockConstructor
+              className="navbar-link"
+              to="/about"
+            >
+              About Us
+            </mockConstructor>
+            <div
+              className="navbar-dropdown"
+            >
+              <mockConstructor
+                className="navbar-item"
+                to="/about"
+              >
+                Who We Are
+              </mockConstructor>
+              <mockConstructor
+                className="navbar-item"
+                to="/about/beliefs"
+              >
+                Our Beliefs
+              </mockConstructor>
+              <mockConstructor
+                className="navbar-item"
+                to="/about/mission"
+              >
+                Our Mission
+              </mockConstructor>
+            </div>
+          </div>
+          <a
+            className="navbar-item"
+            href="https://cms.inspiringhopechurch.com/"
+          >
+            News
+          </a>
+          <mockConstructor
+            className="navbar-item"
+            to="/contact"
+          >
+            Contact
+          </mockConstructor>
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+`;

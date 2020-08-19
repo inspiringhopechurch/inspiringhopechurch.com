@@ -1,0 +1,58 @@
+@charset "utf-8"
+
+@import "../styles/_myvariables.sass"
+@import "bulma/sass/form/shared.sass"
+@import "bulma/sass/form/input-textarea.sass"
+@import "bulma/sass/form/tools.sass"
+@import "bulma/sass/grid/tiles.sass"
+
+.index-page
+    .button
+        transition: color $transition-time
+        @each $name, $pair in $colors
+            $color: nth($pair, 1)
+            &.is-#{$name}
+                text-transform: uppercase
+                &:hover
+                    color: $white
+
+    &.about-us .button
+        @each $name, $pair in $colors
+            &.is-#{$name}:hover
+                color: $turquoise
+
+    &.subscriptions
+        padding: 3rem 0
+
+    .hero-body
+        background: rgba(32, 30, 85, .425)
+        h1
+            background-color: $dark-blue
+            padding: 1rem
+
+    .hero-underlay
+        background: url('../assets/edwin-andrade-6liebVeAfrY-unsplash.jpg') no-repeat center top // fixed // Photo by SpaceX on Unsplash
+        background-size: cover
+        transition: padding .75s, background 1s
+
+        @include from($tablet)
+            background: url('../assets/edwin-andrade-6liebVeAfrY-unsplash.jpg') no-repeat center top // fixed // Photo by SpaceX on Unsplash
+            background-size: cover
+            background-position-y: bottom
+
+    .container
+        h1, h2
+            text-shadow: 0 2px 3px rgba(10, 10, 10, 0.5)
+            transition: background-color $transition-time, color $transition-time, text-shadow $transition-time
+
+    .modal-content
+        @include from($tablet)
+            width: 75%
+
+    .index-content
+        position: relative
+        video:focus
+            outline: none
+        // @include from($tablet)
+        // &:last-of-type
+        //     margin: 1.5rem 1.75rem

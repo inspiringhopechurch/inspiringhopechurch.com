@@ -1,0 +1,262 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ContactForm should render without crashing 1`] = `
+<div
+  className="contact-form column is-two-thirds-tablet is-two-fifths-widescreen"
+>
+  <h1
+    className="title is-uppercase has-text-link has-text-centered"
+  >
+    Get in touch
+  </h1>
+  <div
+    className="notification"
+  >
+    <button
+      aria-label="clear notification"
+      className="delete"
+      onClick={[Function]}
+    />
+  </div>
+  <form
+    data-testid="contact-form"
+    id="contact-form"
+    method="post"
+    onSubmit={[Function]}
+  >
+    <div
+      className="field"
+    >
+      <div
+        className=""
+      >
+        <div
+          className="field"
+        >
+          <div
+            className="control is-expanded has-icons-left"
+          >
+            <input
+              className="input"
+              data-testid="fullName"
+              id="fullName"
+              name="fullName"
+              onChange={[Function]}
+              placeholder="Full Name"
+              required={true}
+              type="text"
+              value=""
+            />
+            <span
+              className="icon is-left is-small"
+            >
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Array [
+                    "fas",
+                    "user",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size="1x"
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                transform="down-6 right-12"
+              />
+            </span>
+          </div>
+          <p
+            className="help"
+            id="fullNameError"
+          >
+             
+          </p>
+        </div>
+        <div
+          className="field"
+        >
+          <div
+            className="control is-expanded has-icons-left"
+          >
+            <input
+              className="input"
+              data-testid="email"
+              id="email"
+              name="email"
+              onChange={[Function]}
+              placeholder="Email"
+              required={true}
+              type="email"
+              value=""
+            />
+            <span
+              className="icon is-left is-small"
+            >
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Array [
+                    "fas",
+                    "envelope",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size="1x"
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                transform="down-6 right-12"
+              />
+            </span>
+          </div>
+          <p
+            className="help"
+            id="emailError"
+          >
+             
+          </p>
+        </div>
+      </div>
+    </div>
+    <div
+      className="field"
+    >
+      <div
+        className="control has-icons-left"
+      >
+        <input
+          className="input"
+          data-testid="messageSubject"
+          id="messageSubject"
+          name="messageSubject"
+          onChange={[Function]}
+          placeholder="Subject"
+          required={true}
+          type="text"
+          value=""
+        />
+        <span
+          className="icon is-left is-small"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon={
+              Array [
+                "fas",
+                "comment-alt-lines",
+              ]
+            }
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="1x"
+            spin={false}
+            swapOpacity={false}
+            symbol={false}
+            title=""
+            transform="down-6 right-12"
+          />
+        </span>
+      </div>
+      <p
+        className="help"
+        id="messageSubjectError"
+      >
+         
+      </p>
+    </div>
+    <div
+      className="field"
+    >
+      <div
+        className="control"
+      >
+        <textarea
+          className="textarea"
+          data-testid="messageBody"
+          id="messageBody"
+          name="messageBody"
+          onChange={[Function]}
+          placeholder="Message"
+          required={true}
+          rows="10"
+          value=""
+        />
+      </div>
+      <p
+        className="help"
+        id="messageBodyError"
+      >
+         
+      </p>
+    </div>
+    <div
+      className="field"
+    >
+      <div
+        className="control"
+      >
+        <button
+          className="button is-link is-outlined is-fullwidth"
+          data-testid="form-submit"
+          disabled={true}
+          id="form-submit"
+          type="submit"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon={
+              Array [
+                "fas",
+                "paper-plane",
+              ]
+            }
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull="left"
+            pulse={false}
+            rotation={null}
+            size="1x"
+            spin={false}
+            swapOpacity={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+          Send Message
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+`;

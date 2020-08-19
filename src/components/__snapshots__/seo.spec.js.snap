@@ -1,0 +1,197 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SEO should render without crashing 1`] = `
+<SEO
+  article={false}
+  banner={null}
+  desc={null}
+  pathname={null}
+  title={null}
+>
+  <mockConstructor
+    render={[Function]}
+  >
+    <HelmetWrapper
+      defer={false}
+      encodeSpecialCharacters={true}
+      title="Test Company Site"
+    >
+      <SideEffect(NullComponent)
+        defer={false}
+        encodeSpecialCharacters={true}
+        htmlAttributes={
+          Object {
+            "class": "has-navbar-fixed-top",
+            "lang": "en",
+          }
+        }
+        link={
+          Array [
+            Object {
+              "href": "https://inspiringhopechurch.com/",
+              "rel": "canonical",
+            },
+          ]
+        }
+        meta={
+          Array [
+            Object {
+              "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+              "name": "description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+              "name": "image",
+            },
+            Object {
+              "content": "TestCompany",
+              "name": "apple-mobile-web-app-title",
+            },
+            Object {
+              "content": "TestCompany",
+              "name": "application-name",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/",
+              "property": "og:url",
+            },
+            Object {
+              "content": null,
+              "property": "og:type",
+            },
+            Object {
+              "content": "Test Company Site",
+              "property": "og:title",
+            },
+            Object {
+              "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+              "property": "og:description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+              "property": "og:image",
+            },
+            Object {
+              "content": "summary_large_image",
+              "name": "twitter:card",
+            },
+            Object {
+              "content": undefined,
+              "name": "twitter:creator",
+            },
+            Object {
+              "content": "Test Company Site",
+              "name": "twitter:title",
+            },
+            Object {
+              "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+              "name": "twitter:description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+              "name": "twitter:image",
+            },
+          ]
+        }
+        script={
+          Array [
+            Object {
+              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com/\\",\\"url\\":\\"https://inspiringhopechurch.com/\\",\\"name\\":\\"Test Company Site\\",\\"alternateName\\":\\"Test Company Site\\"}]",
+              "type": "application/ld+json",
+            },
+          ]
+        }
+        title="Test Company Site"
+      >
+        <NullComponent
+          defer={false}
+          encodeSpecialCharacters={true}
+          htmlAttributes={
+            Object {
+              "class": "has-navbar-fixed-top",
+              "lang": "en",
+            }
+          }
+          link={
+            Array [
+              Object {
+                "href": "https://inspiringhopechurch.com/",
+                "rel": "canonical",
+              },
+            ]
+          }
+          meta={
+            Array [
+              Object {
+                "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+                "name": "description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+                "name": "image",
+              },
+              Object {
+                "content": "TestCompany",
+                "name": "apple-mobile-web-app-title",
+              },
+              Object {
+                "content": "TestCompany",
+                "name": "application-name",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/",
+                "property": "og:url",
+              },
+              Object {
+                "content": null,
+                "property": "og:type",
+              },
+              Object {
+                "content": "Test Company Site",
+                "property": "og:title",
+              },
+              Object {
+                "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+                "property": "og:description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+                "property": "og:image",
+              },
+              Object {
+                "content": "summary_large_image",
+                "name": "twitter:card",
+              },
+              Object {
+                "content": undefined,
+                "name": "twitter:creator",
+              },
+              Object {
+                "content": "Test Company Site",
+                "name": "twitter:title",
+              },
+              Object {
+                "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+                "name": "twitter:description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+                "name": "twitter:image",
+              },
+            ]
+          }
+          script={
+            Array [
+              Object {
+                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com/\\",\\"url\\":\\"https://inspiringhopechurch.com/\\",\\"name\\":\\"Test Company Site\\",\\"alternateName\\":\\"Test Company Site\\"}]",
+                "type": "application/ld+json",
+              },
+            ]
+          }
+          title="Test Company Site"
+        />
+      </SideEffect(NullComponent)>
+    </HelmetWrapper>
+  </mockConstructor>
+</SEO>
+`;

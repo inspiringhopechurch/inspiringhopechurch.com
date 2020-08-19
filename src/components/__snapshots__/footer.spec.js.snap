@@ -1,0 +1,112 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Footer should render without crashing 1`] = `
+<Footer
+  copyrightOwner="Inspiring Hope Church"
+>
+  <footer
+    className="footer"
+  >
+    <section
+      className="copyright"
+    >
+      <div
+        className="container columns is-vcentered content is-small"
+      >
+        <div
+          className="column"
+        >
+          <p>
+            © 
+            Inspiring Hope Church
+            . Proudly serving Jesus in Hamilton, Ohio since 2020.
+          </p>
+        </div>
+        <div
+          className="column is-narrow"
+        >
+          <div
+            className="navbar-end is-flex"
+          >
+            <a
+              className="button is-primary is-outlined"
+              href="https://facebook.com/InspiringHopeChurch"
+              title="Link to Inspiring Hope Church facebook page"
+            >
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Array [
+                    "fab",
+                    "facebook-f",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size={null}
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                transform={null}
+              >
+                <svg
+                  aria-hidden="true"
+                  className="svg-inline--fa fa-facebook-f fa-w-10 "
+                  data-icon="facebook-f"
+                  data-prefix="fab"
+                  focusable="false"
+                  role="img"
+                  style={Object {}}
+                  viewBox="0 0 320 512"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <path
+                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                    fill="currentColor"
+                    style={Object {}}
+                  />
+                </svg>
+              </FontAwesomeIcon>
+            </a>
+            <a
+              className="navbar-item"
+              href="/sitemap.xml"
+              title="XML Sitemap"
+            >
+              Sitemap
+            </a>
+            <a
+              className="navbar-item"
+              href="/feed.xml"
+              title="XML RSS Feed"
+            >
+              RSS
+            </a>
+            <a
+              className="navbar-item"
+              href="/feed.json"
+              title="JSON Feed"
+            >
+              JSON
+            </a>
+            <a
+              className="navbar-item"
+              href="//orbitsolutions.dev"
+            >
+              Made by ORB IT Solutions.
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </footer>
+</Footer>
+`;

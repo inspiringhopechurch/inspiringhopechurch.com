@@ -1,0 +1,260 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Index should render without crashing 1`] = `
+<Fragment>
+  <section
+    className="index-page hero is-large"
+  >
+    <div
+      className="hero-underlay"
+    >
+      <div
+        className="hero-body"
+      >
+        <div
+          className="container"
+        >
+          <div
+            className="columns is-vcentered"
+          >
+            <div
+              className="column is-three-quarters"
+            >
+              <h1
+                className="title has-text-white is-1 is-bold is-spaced"
+              >
+                Welcome to Inspiring Hope Church.
+              </h1>
+              <h2
+                className="subtitle has-text-white is-4 is-muted"
+              >
+                We are a church dedicated to inspiring others to discover hope in Jesus.
+              </h2>
+              <p
+                className="control"
+              >
+                <mockConstructor
+                  className="button is-info is-medium"
+                  to="/contact"
+                >
+                  Say Hello
+                </mockConstructor>
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="index-page subscriptions box index-content notification is-link is-radiusless mb-0"
+  >
+    <div
+      className="container"
+    >
+      <figure
+        className="image is-16by9"
+      >
+        <video
+          className="has-ratio"
+          controls={true}
+          height="100%"
+          id="hero-video"
+          poster="test-file-stub"
+          preload="metadata"
+          width="100%"
+        >
+          <source
+            src="/assets/inspiring_hope_hero.mp4"
+            type="video/mp4; codecs=\\"avc1.42E01E, mp4a.40.2\\""
+          />
+        </video>
+      </figure>
+    </div>
+    <p
+      className="content mt-6 is-size-4 has-text-centered"
+    >
+      Learn more about Inspiring Hope Church by watching this message from Pastor Ben.
+    </p>
+  </section>
+  <section
+    className="index-page about-us box index-content is-radiusless mb-0"
+  >
+    <Promotion
+      promoDiscount={25}
+      promoEndDate="May 31, 2019 23:59:59"
+    />
+    <div
+      className="columns content"
+    >
+      <div
+        className="column is-full"
+      >
+        <h1
+          className="has-text-centered is-size-1 is-uppercase"
+        >
+          Who We Are
+        </h1>
+      </div>
+    </div>
+    <div
+      className="columns is-multiline is-vcentered"
+    >
+      <ServiceItem
+        iconSize="2x"
+        key="Mission0"
+        serviceDescription={
+          <React.Fragment>
+            We exist to 
+            <em>
+              inspire hope
+            </em>
+             by helping people discover God’s purpose for their lives through a relationship with Jesus.
+          </React.Fragment>
+        }
+        serviceName="Mission"
+      />
+      <ServiceItem
+        iconSize="2x"
+        key="Strategy1"
+        serviceDescription={
+          <React.Fragment>
+            We will do this by inspiring people to 
+            <em>
+              Follow
+            </em>
+             Jesus, 
+            <em>
+              Live
+            </em>
+             in community, 
+            <em>
+              Serve
+            </em>
+             
+            those around them and 
+            <em>
+              Expand
+            </em>
+             God’s kingdom.
+          </React.Fragment>
+        }
+        serviceName="Strategy"
+      />
+      <ServiceItem
+        iconSize="2x"
+        key="Values2"
+        serviceDescription="Our values describe our passions and define the heart with which will will accomplish our mission and vision."
+        serviceName="Values"
+      />
+    </div>
+    <div
+      className="columns"
+    >
+      <div
+        className="column is-full"
+      >
+        <p
+          className="control has-text-centered"
+        >
+          <mockConstructor
+            className="button is-link has-text-weight-light is-medium"
+            to="/about"
+          >
+            Learn More
+          </mockConstructor>
+        </p>
+      </div>
+    </div>
+  </section>
+  <section
+    className="index-page subscriptions box index-content notification is-link is-radiusless mb-0"
+  >
+    <div
+      className="columns content is-multiline is-mobile is-centered is-vcentered"
+    >
+      <div
+        className="column is-narrow"
+      >
+        <label
+          className="content"
+          htmlFor="subscribe"
+        >
+          Get Inspiring Hope's latest updates.
+        </label>
+      </div>
+      <div
+        className="column is-narrow"
+      >
+        <form>
+          <div
+            className="field has-addons"
+          >
+            <div
+              className="control"
+            >
+              <input
+                className="input is-info"
+                id="subscribe"
+                name="subscribe"
+                onChange={[Function]}
+                placeholder="Sign up for newsletter"
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              className="control"
+            >
+              <button
+                className="button is-info"
+                onClick={[Function]}
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </section>
+  <section
+    className="index-page box index-content is-radiusless is-shadowless"
+  >
+    <div
+      className="columns content"
+    >
+      <div
+        className="column is-full"
+      >
+        <h1
+          className="is-size-1 has-text-centered is-uppercase"
+        >
+          What We're Up To
+        </h1>
+      </div>
+    </div>
+    <div
+      className="columns is-multiline is-centered"
+    >
+      <BlogItem
+        blogDate="23 January, 2019"
+        blogExcerpt="Getting ansible working with doas on FreeBSD 11 Problem: I was unable to get ansible working with my privelege escalation tool of choice…"
+        blogSlug="getting-ansible-working-with-doas-on-freebsd-11"
+        blogTitle="Getting ansible working with doas on FreeBSD 11"
+        key="7b63ce9c-cced-5ba0-a373-67bb9b2cd53f"
+        onBlogIndex={false}
+      />
+      <BlogItem
+        blogDate="04 April, 2019"
+        blogExcerpt="When you run ansible you may get this : Though the docs mention hostfile and host_file is mentioned in old online tutorials, they are…"
+        blogSlug="ansible-ignores-inventory-defined-in-config-file"
+        blogTitle="Solution to ansible can't find inventory defined in ansible.cfg"
+        key="787b4534-0bdc-59fd-b448-dd9cd6912e96"
+        onBlogIndex={false}
+      />
+    </div>
+  </section>
+</Fragment>
+`;

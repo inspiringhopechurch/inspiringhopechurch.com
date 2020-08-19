@@ -1,0 +1,150 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Contact should render without crashing 1`] = `
+<Fragment>
+  <section
+    className="contact-page hero is-halfheight"
+  >
+    <div
+      className="hero-body"
+    >
+      <div
+        className="container has-text-centered"
+      >
+        <h1
+          className="title is-size-1-mobile"
+        >
+          Contact Us
+        </h1>
+      </div>
+    </div>
+  </section>
+  <section
+    className="contact-page box contact-content is-shadowless is-halfheight"
+  >
+    <div
+      className="columns is-centered"
+    >
+      <div
+        className="column is-one-third-tablet"
+      >
+        <h1
+          className="title has-text-link is-uppercase"
+        >
+          Have Questions?
+        </h1>
+        <p
+          className="content"
+        >
+          Do you have questions about Inspiring Hope Church? Would like to join one of our groups? 
+          <br />
+          Please feel free to call, reach us on facebook, or use the form on this page to get in touch!
+        </p>
+        <p
+          className="content"
+        >
+          <FontAwesomeIcon
+            border={false}
+            className=""
+            fixedWidth={false}
+            flip={null}
+            icon={
+              Array [
+                "fas",
+                "map-marker-alt",
+              ]
+            }
+            inverse={false}
+            listItem={false}
+            mask={null}
+            pull={null}
+            pulse={false}
+            rotation={null}
+            size="lg"
+            spin={false}
+            swapOpacity={false}
+            symbol={false}
+            title=""
+            transform={null}
+          />
+           Based in Hamilton, Ohio.
+        </p>
+        <p
+          className="content"
+        >
+          <a
+            href="tel:19189318591"
+            title="Get in touch!"
+          >
+            <FontAwesomeIcon
+              border={false}
+              className=""
+              fixedWidth={false}
+              flip="horizontal"
+              icon={
+                Array [
+                  "fas",
+                  "phone",
+                ]
+              }
+              inverse={false}
+              listItem={false}
+              mask={null}
+              pull={null}
+              pulse={false}
+              rotation={null}
+              size="lg"
+              spin={false}
+              swapOpacity={false}
+              symbol={false}
+              title=""
+              transform={null}
+            />
+             1 (918) 931-8591
+          </a>
+        </p>
+        <p
+          className="content"
+        >
+          <a
+            href="https://www.facebook.com/inspiringhopechurch/"
+            title="Link to Facebook page"
+          >
+            <FontAwesomeIcon
+              border={false}
+              className=""
+              fixedWidth={false}
+              flip={null}
+              icon={
+                Array [
+                  "fab",
+                  "facebook-f",
+                ]
+              }
+              inverse={false}
+              listItem={false}
+              mask={null}
+              pull={null}
+              pulse={false}
+              rotation={null}
+              size="lg"
+              spin={false}
+              swapOpacity={false}
+              symbol={false}
+              title=""
+              transform={null}
+            />
+             Inspiring Hope Facebook page
+          </a>
+        </p>
+      </div>
+      <ContactForm
+        bodyValidationMsg="Tell us how we can be of service to you"
+        emailValidationMsg="Please enter your email"
+        nameValidationMsg="Please enter your full name"
+        subjectValidationMsg="Need a quote? Want to meet? Let us know in the subject."
+      />
+    </div>
+  </section>
+</Fragment>
+`;
