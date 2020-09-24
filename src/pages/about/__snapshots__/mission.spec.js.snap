@@ -49,7 +49,7 @@ exports[`Mission should render without crashing 1`] = `
           </span>
         </h2>
         <p
-          className="subtitle is-size-3 is-uppercase"
+          className="subtitle is-size-3"
         >
           We exist to 
           <em>

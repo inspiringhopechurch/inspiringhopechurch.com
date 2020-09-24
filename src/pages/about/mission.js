@@ -19,7 +19,7 @@ const About = () => {
             <h2 className={`is-size-2 is-uppercase`}>
               <span className={`has-text-weight-light`}>Our</span> <span className={`decorated`}>Mission</span>
             </h2>
-            <p className={`subtitle is-size-3 is-uppercase`}>
+            <p className={`subtitle is-size-3`}>
               We exist to <em>inspire</em> hope by helping people discover God’s purpose for their lives through a
               relationship with Jesus!
             </p>

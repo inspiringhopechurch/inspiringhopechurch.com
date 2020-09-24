@@ -137,8 +137,13 @@ const About = () => {
               dignity and is worthy of respect and Christian love.
             </p>
             <div className="tags">
-              Genesis 2:7,15-25; James 3:9; John 3:36; Romans 3:23, 6:23; 1 Corinthians 2:14; Ephesians 2:1-3; 1 John
-              1:8
+              <span className="tag">Genesis 2:7,15-25</span>
+              <span className="tag">James 3:9</span>
+              <span className="tag">John 3:36</span>
+              <span className="tag">Romans 3:23, 6:23</span>
+              <span className="tag">1 Corinthians 2:14</span>
+              <span className="tag">Ephesians 2:1-3</span>
+              <span className="tag">1 John 1:8</span>
             </div>
 
             <h2 className={`is-size-4 is-uppercase`}>4. Salvation</h2>
@@ -153,7 +158,10 @@ const About = () => {
               Jesus. It is a change of heart wrought by the Holy Spirit through conviction of sin, to which the sinner
               responds in repentance toward God and faith in the Lord Jesus Christ.
             </p>
-            <div className="tags">John 3:3-8; Titus 3:5</div>
+            <div className="tags">
+              <span className="tag">John 3:3-8</span>
+              <span className="tag">Titus 3:5</span>
+            </div>
             <p className={`content`}>
               Repentance and faith are inseparable experiences of grace. Repentance is a genuine turning from sin toward
               God. Faith is the acceptance of Jesus Christ and surrender of one’s entire person to Him as Lord and
@@ -162,19 +170,30 @@ const About = () => {
               requirements of the law. Justification brings the believer into a personal relationship of peace and favor
               with God.
             </p>
-            <div className="tags">Acts 20:20-21; Romans 5:1</div>
+            <div className="tags">
+              <span className="tag">Acts 20:20-21</span>
+              <span className="tag">Romans 5:1</span>
+            </div>
             <p className={`content`}>
               Sanctification is the experience, beginning at the new birth, by which the believer is set apart to God’s
               purposes, and is enabled to progress toward Christ-likeness through the presence and power of the Holy
               Spirit indwelling in him. Growth in grace should continue throughout the believer’s life.
             </p>
             <div className="tags">
-              Acts 20:32; 1 Corinthians 1:2,30, 6:11; 2 Thessalonians 2:13; Hebrews 2:11; 1 Peter 1:2
+              <span className="tag">Acts 20:32</span>
+              <span className="tag">1 Corinthians 1:2,30, 6:11</span>
+              <span className="tag">2 Thessalonians 2:13</span>
+              <span className="tag">Hebrews 2:11</span>
+              <span className="tag">1 Peter 1:2</span>
             </div>
             <p className={`content`}>
               Glorification is the culmination of salvation and is the final blessed and abiding state of the redeemed.
             </p>
-            <div className="tags">Romans 8:16-17; 2 Peter 1:4; 1 John 3:2-3</div>
+            <div className="tags">
+              <span className="tag">Romans 8:16-17</span>
+              <span className="tag">2 Peter 1:4</span>
+              <span className="tag">1 John 3:2-3</span>
+            </div>
 
             <h2 className={`is-size-4 is-uppercase`}>5. Resurrection</h2>
 
@@ -183,7 +202,12 @@ const About = () => {
               Jesus Christ during this life will be raised to everlasting life in Heaven, but those who did not
               surrender their lives to Jesus Christ in this life will be raised to everlasting condemnation in Hell.
             </p>
-            <div className="tags">Acts 24:15; Hebrews 9:27; 1 Thessalonians 4:13-17; Revelation 20:15, 21:8</div>
+            <div className="tags">
+              <span className="tag">Acts 24:15</span>
+              <span className="tag">Hebrews 9:27</span>
+              <span className="tag">1 Thessalonians 4:13-17</span>
+              <span className="tag">Revelation 20:15, 21:8</span>
+            </div>
 
             <h2 className={`is-size-4 is-uppercase`}>6. The Church</h2>
 
@@ -203,8 +227,13 @@ const About = () => {
               of all the ages.
             </p>
             <div className="tags">
-              1 Corinthians 12:12-13; 2 Corinthians 11:2; Ephesians 5:23-32; Revelation 19:7-8; Ephesians 1:22, 4:15;
-              Colossians 1:18; 1 Timothy 3:1-15
+              <span className="tag">1 Corinthians 12:12-13</span>
+              <span className="tag">2 Corinthians 11:2</span>
+              <span className="tag">Ephesians 5:23-32</span>
+              <span className="tag">Revelation 19:7-8</span>
+              <span className="tag">Ephesians 1:22, 4:15</span>
+              <span className="tag">Colossians 1:18</span>
+              <span className="tag">1 Timothy 3:1-15</span>
             </div>
 
             <h2 className={`is-size-4 is-uppercase`}>7. Baptism and the Lord’s Supper</h2>
@@ -218,7 +247,12 @@ const About = () => {
               Supper. The Lord’s Supper is a symbolic act of obedience whereby followers of Christ, through partaking of
               the bread and the fruit of the vine, remember the death of the Redeemer and anticipate His second coming.
             </p>
-            <div className="tags">Acts 2:38-42, 8:36-39; Romans 6:1-11; Acts 2:41-42; 1 Corinthians 10:16, 11:23</div>
+            <div className="tags">
+              <span className="tag">Acts 2:38-42, 8:36-39</span>
+              <span className="tag">Romans 6:1-11</span>
+              <span className="tag">Acts 2:41-42</span>
+              <span className="tag">1 Corinthians 10:16, 11:23</span>
+            </div>
           </div>
         </div>
       </section>
