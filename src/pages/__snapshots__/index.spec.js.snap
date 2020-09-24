@@ -161,7 +161,7 @@ exports[`Index should render without crashing 1`] = `
             className="button is-link has-text-weight-light is-medium"
             to="/about"
           >
-            Learn More
+            Learn More ...
           </mockConstructor>
         </p>
       </div>

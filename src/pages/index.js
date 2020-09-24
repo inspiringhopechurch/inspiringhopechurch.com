@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import ServiceItem from "../components/serviceItem";
 import BlogItem from "../components/blogItem";
 import Promotion from "../components/promotion";
+import LoaderIcon from "../components/loader-icon";
 import "./index.sass";
 import videoPoster from "../assets/ihc_video.png";
 
@@ -10,6 +11,7 @@ export default ({ data }) => {
   const defaultMsg = "Get Inspiring Hope's latest updates.";
   const [message, setMessage] = useState(defaultMsg);
   const [emailAddress, setEmailAddress] = useState("");
+  const [formSentIndicator, setFormSentIndicator] = useState(false);
 
   const { edges } = data.allMarkdownRemark;
 
@@ -19,6 +21,7 @@ export default ({ data }) => {
   };
 
   const handleSubmit = (event) => {
+    setFormSentIndicator(true);
     event.preventDefault();
 
     const cmsUrl = "https://cms.inspiringhopechurch.com";
@@ -26,6 +29,7 @@ export default ({ data }) => {
 
     if (emailAddress === "") {
       setMessage(defaultMsg);
+      setFormSentIndicator(false);
       return;
     }
 
@@ -57,6 +61,7 @@ export default ({ data }) => {
         } else {
           setMessage(<>We encountered an error. Please check your email address and try again.</>);
         }
+        setFormSentIndicator(false);
       })
       .catch(() => {
         setMessage(
@@ -64,6 +69,7 @@ export default ({ data }) => {
             We encountered an error. Please use the <Link to="/contact">contact form</Link> to let us know.
           </>
         );
+        setFormSentIndicator(false);
       });
   };
 
@@ -163,7 +169,7 @@ export default ({ data }) => {
           <div className={`column is-full`}>
             <p className={`control has-text-centered`}>
               <Link className={`button is-link has-text-weight-light is-medium`} to="/about">
-                Learn More
+                Learn More ...
               </Link>
             </p>
           </div>
@@ -193,7 +199,7 @@ export default ({ data }) => {
                 </div>
                 <div className={`control`}>
                   <button type="submit" className={`button is-info`} onClick={handleSubmit}>
-                    Sign Up
+                    {formSentIndicator ? <LoaderIcon /> : "Sign Up"}
                   </button>
                 </div>
               </div>
