@@ -52,4 +52,5 @@ module.exports = {
     `gatsby-plugin-react-helmet`,
   ],
 };
+//    `gatsby-plugin-prettier-build`,
 // `@wardpeet/gatsby-plugin-static-site`,
