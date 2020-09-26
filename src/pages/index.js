@@ -140,6 +140,8 @@ export default ({ data }) => {
             >
               <source src="/assets/inspiring_hope_hero.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
               {/* <source src="/assets/inspiring_hope_hero.webm" type="video/webm; codecs=vp8, vorbis" /> */}
+              <track default kind="captions" srclang="en" src="/assets/captions.vtt" />
+              Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
             </video>
           </figure>
         </div>

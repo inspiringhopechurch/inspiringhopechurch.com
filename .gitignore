@@ -70,3 +70,5 @@ yarn-error.log
 
 # Bing Site ownership verfification file
 static/BingSiteAuth.xml
+# Nova editor
+.nova
