@@ -8,7 +8,7 @@ exports[`Header should render without crashing 1`] = `
     role="navigation"
   >
     <div
-      className="container"
+      className="container px-2"
     >
       <div
         className="navbar-brand"
@@ -45,7 +45,7 @@ exports[`Header should render without crashing 1`] = `
         id="nav-menu"
       >
         <div
-          className="navbar-start"
+          className="navbar-start pr-5"
         >
           <mockConstructor
             className="navbar-item"

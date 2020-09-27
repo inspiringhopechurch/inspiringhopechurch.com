@@ -11,27 +11,7 @@ import {
   faPaperPlane,
   faPhone,
 } from "@fortawesome/pro-solid-svg-icons";
-import {
-  faFacebook,
-  faFacebookF,
-  faTwitter,
-  faLinkedinIn,
-  faReact,
-  faNode,
-  faLaravel,
-  faDocker,
-  faFreebsd,
-  faFedora,
-  faJenkins,
-  faWindows,
-  faUbuntu,
-  faSass,
-  faStripe,
-  faBlackberry,
-  faGit,
-  faDigitalOcean,
-  faLinode,
-} from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faFacebookF, faTwitter, faLinkedinIn, faStripe } from "@fortawesome/free-brands-svg-icons";
 
 // Initialize icon library to use throughout our app
 library.add(
@@ -49,19 +29,5 @@ library.add(
   faFacebookF,
   faTwitter,
   faLinkedinIn,
-  faReact,
-  faNode,
-  faLaravel,
-  faDocker,
-  faFreebsd,
-  faFedora,
-  faJenkins,
-  faWindows,
-  faUbuntu,
-  faSass,
-  faStripe,
-  faBlackberry,
-  faGit,
-  faDigitalOcean,
-  faLinode
+  faStripe
 );

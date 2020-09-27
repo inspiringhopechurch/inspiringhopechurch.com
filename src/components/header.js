@@ -7,7 +7,7 @@ import logo from "../assets/logo.svg";
 const Header = (props) => (
   <header>
     <nav className={`navbar is-fixed-top`} role="navigation" aria-label="main navigation">
-      <div className={`container`}>
+      <div className={`container px-2`}>
         <div className="navbar-brand">
           <Link className="navbar-item" to="/">
             <img src={logo} alt="Inspiring Hope Logo" />
@@ -26,7 +26,7 @@ const Header = (props) => (
           </button>
         </div>
         <div id="nav-menu" className={`navbar-menu ${props.mobileMenuActive ? "is-active" : ""}`}>
-          <div className="navbar-start">
+          <div className="navbar-start pr-5">
             <Link className="navbar-item" to="/">
               Home
             </Link>

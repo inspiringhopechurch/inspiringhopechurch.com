@@ -1,6 +1,8 @@
 import React from "react";
 import { mount, shallow } from "enzyme";
 import Promotion from "./promotion";
+// Import fontawesome library files
+import "./icons";
 
 describe("Promotion", () => {
   const discount = 5,

@@ -145,7 +145,7 @@ export default ({ data }) => {
             </video>
           </figure>
         </div>
-        <p className={`content mt-6 is-size-4 has-text-centered`}>
+        <p className={`container is-fluid mt-6 is-size-4 has-text-centered`}>
           Learn more about Inspiring Hope Church by watching this message from Pastor Ben.
         </p>
       </section>
@@ -178,9 +178,11 @@ export default ({ data }) => {
         </div>
       </section>
 
-      <section className={`index-page subscriptions box index-content notification is-link is-radiusless mb-0`}>
-        <div className={`columns content is-multiline is-mobile is-centered is-vcentered`}>
-          <div className={`column is-narrow`}>
+      <section
+        className={`index-page subscriptions box index-content notification is-link is-radiusless is-clipped mb-0`}
+      >
+        <div className={`columns is-multiline is-mobile is-centered is-vcentered has-text-centered`}>
+          <div className={`column container is-fluid is-narrow`}>
             <label htmlFor="subscribe" className="content">
               {message}
             </label>
