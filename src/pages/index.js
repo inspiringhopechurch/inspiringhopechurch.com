@@ -6,6 +6,8 @@ import Promotion from "../components/promotion";
 import LoaderIcon from "../components/loader-icon";
 import "./index.sass";
 import videoPoster from "../assets/ihc_video.png";
+import captionEn from "file-loader!../assets/captions.en.vtt";
+import captionEs from "file-loader!../assets/captions.es.vtt";
 
 export default ({ data }) => {
   const defaultMsg = "Get Inspiring Hope's latest updates.";
@@ -140,7 +142,8 @@ export default ({ data }) => {
             >
               <source src="/assets/inspiring_hope_hero.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
               {/* <source src="/assets/inspiring_hope_hero.webm" type="video/webm; codecs=vp8, vorbis" /> */}
-              <track default kind="captions" srclang="en" src="/assets/captions.vtt" />
+              <track kind="captions" srcLang="en" label="English" src={captionEn} />
+              <track kind="captions" srcLang="es" label="Español" src={captionEs} />
               Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
             </video>
           </figure>
