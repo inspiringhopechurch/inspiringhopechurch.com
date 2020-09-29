@@ -33,12 +33,12 @@ const About = () => {
                   northeast Oklahoma. They met in high school and have been married 14 years. God has blessed them with
                   four children:
                 </p>
-                <ol className="is-lower-roman">
+                <ul className="circle">
                   <li>Peyton - 11</li>
                   <li>Channing - 9</li>
                   <li>Teagan - 6</li>
                   <li>Sterling - 2</li>
-                </ol>
+                </ul>
                 <p className={`content`}>
                   Their family enjoys spending time together, playing games and having weekly movie nights.
                 </p>

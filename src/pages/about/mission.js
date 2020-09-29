@@ -69,7 +69,7 @@ const About = () => {
             <hr />
 
             <h2 className={`is-size-2 is-uppercase`}>
-              <span className={`has-text-weight-light`}>Our</span> <span className={`decorated`}>Strategy</span>
+              <span className={`has-text-weight-light`}>Our</span> <span className={`decorated`}>Vision</span>
             </h2>
             <p className={`subtitle is-size-3`}>
               Our values drive our decisions and our decisions will inspire hope in the lives of those in our church,
