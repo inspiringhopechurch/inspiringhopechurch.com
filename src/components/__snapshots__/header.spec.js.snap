@@ -46,6 +46,9 @@ exports[`Header should render without crashing 1`] = `
       >
         <div
           className="navbar-start pr-5"
+          onClick={[MockFunction]}
+          onKeyPress={[MockFunction]}
+          role="none"
         >
           <mockConstructor
             className="navbar-item"

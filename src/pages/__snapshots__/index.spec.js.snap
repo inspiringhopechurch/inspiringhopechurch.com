@@ -69,10 +69,16 @@ exports[`Index should render without crashing 1`] = `
             type="video/mp4; codecs=\\"avc1.42E01E, mp4a.40.2\\""
           />
           <track
-            default={true}
             kind="captions"
-            src="/assets/captions.vtt"
-            srclang="en"
+            label="English"
+            src="test-file-stub"
+            srcLang="en"
+          />
+          <track
+            kind="captions"
+            label="Español"
+            src="test-file-stub"
+            srcLang="es"
           />
           Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
         </video>

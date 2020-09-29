@@ -110,7 +110,7 @@ exports[`Mission should render without crashing 1`] = `
           <span
             className="decorated"
           >
-            Strategy
+            Vision
           </span>
         </h2>
         <p

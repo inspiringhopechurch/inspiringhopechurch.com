@@ -68,8 +68,8 @@ exports[`About should render without crashing 1`] = `
             >
               Ben and Brittany Mangrum moved to Hamilton, Ohio in January of 2020. They are both originally from northeast Oklahoma. They met in high school and have been married 14 years. God has blessed them with four children:
             </p>
-            <ol
-              className="is-lower-roman"
+            <ul
+              className="circle"
             >
               <li>
                 Peyton - 11
@@ -83,7 +83,7 @@ exports[`About should render without crashing 1`] = `
               <li>
                 Sterling - 2
               </li>
-            </ol>
+            </ul>
             <p
               className="content"
             >

@@ -4,6 +4,7 @@ import Header from "./header";
 
 describe("Header", () => {
   const handleMenu = jest.fn();
+  const hideMenu = jest.fn();
   let menuActive;
 
   beforeEach(() => {
@@ -11,12 +12,16 @@ describe("Header", () => {
   });
 
   it("should render without crashing", () => {
-    const myHeader = shallow(<Header mobileMenuHandler={handleMenu} mobileMenuActive={menuActive} />);
+    const myHeader = shallow(
+      <Header toggleMenuHandler={handleMenu} hideMenuHandler={hideMenu} mobileMenuActive={menuActive} />
+    );
     expect(myHeader).toMatchSnapshot();
   });
 
   it("should change mobile menu icon and show menu on click", () => {
-    const myHeader = mount(<Header mobileMenuHandler={handleMenu} mobileMenuActive={menuActive} />);
+    const myHeader = mount(
+      <Header toggleMenuHandler={handleMenu} hideMenuHandler={hideMenu} mobileMenuActive={menuActive} />
+    );
 
     expect(myHeader.find("button.is-active")).toHaveLength(0);
     expect(myHeader.find("#nav-menu.is-active")).toHaveLength(0);
