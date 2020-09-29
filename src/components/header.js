@@ -25,14 +25,13 @@ const Header = (props) => (
             <span aria-hidden="true" />
           </button>
         </div>
-        <div
-          id="nav-menu"
-          role="menuitem"
-          className={`navbar-menu ${props.mobileMenuActive ? "is-active" : ""}`}
-          onClick={props.hideMenuHandler}
-          onKeyPress={props.hideMenuHandler}
-        >
-          <div className="navbar-start pr-5">
+        <div id="nav-menu" className={`navbar-menu ${props.mobileMenuActive ? "is-active" : ""}`}>
+          <div
+            className="navbar-start pr-5"
+            role="none"
+            onClick={props.hideMenuHandler}
+            onKeyPress={props.hideMenuHandler}
+          >
             <Link className="navbar-item" to="/">
               Home
             </Link>
