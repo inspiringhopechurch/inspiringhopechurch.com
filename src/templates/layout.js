@@ -10,9 +10,15 @@ class Layout extends React.Component {
     mobileMenuActive: false,
   };
 
-  handleMenu = () => {
+  toggleMenu = () => {
     this.setState({
       mobileMenuActive: !this.state.mobileMenuActive,
+    });
+  };
+
+  hideMenu = () => {
+    this.setState({
+      mobileMenuActive: false,
     });
   };
 
@@ -21,7 +27,11 @@ class Layout extends React.Component {
       <>
         <SEO />
 
-        <Header mobileMenuHandler={this.handleMenu} mobileMenuActive={this.state.mobileMenuActive} />
+        <Header
+          mobileMenuActive={this.state.mobileMenuActive}
+          toggleMenuHandler={this.toggleMenu}
+          hideMenuHandler={this.hideMenu}
+        />
 
         {this.props.children}
 

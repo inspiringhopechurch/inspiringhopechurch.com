@@ -18,14 +18,20 @@ const Header = (props) => (
             aria-label="menu"
             aria-expanded="false"
             data-target="nav-menu"
-            onClick={props.mobileMenuHandler}
+            onClick={props.toggleMenuHandler}
           >
             <span aria-hidden="true" />
             <span aria-hidden="true" />
             <span aria-hidden="true" />
           </button>
         </div>
-        <div id="nav-menu" className={`navbar-menu ${props.mobileMenuActive ? "is-active" : ""}`}>
+        <div
+          id="nav-menu"
+          role="menuitem"
+          className={`navbar-menu ${props.mobileMenuActive ? "is-active" : ""}`}
+          onClick={props.hideMenuHandler}
+          onKeyPress={props.hideMenuHandler}
+        >
           <div className="navbar-start pr-5">
             <Link className="navbar-item" to="/">
               Home
@@ -67,7 +73,8 @@ const Header = (props) => (
 );
 
 Header.propTypes = {
-  mobileMenuHandler: PropTypes.func.isRequired,
+  toggleMenuHandler: PropTypes.func.isRequired,
+  hideMenuHandler: PropTypes.func.isRequired,
   mobileMenuActive: PropTypes.bool.isRequired,
 };
 
