@@ -75,35 +75,6 @@ export default ({ data }) => {
       });
   };
 
-  const services = [
-      {
-        name: "Mission",
-        size: "2x",
-        descr: (
-          <>
-            We exist to <em>inspire hope</em> by helping people discover God’s purpose for their lives through a
-            relationship with Jesus.
-          </>
-        ),
-      },
-      {
-        name: "Strategy",
-        size: "2x",
-        descr: (
-          <>
-            We will do this by inspiring people to <em>Follow</em> Jesus, <em>Live</em> in community, <em>Serve</em>{" "}
-            those around them and <em>Expand</em> God’s kingdom.
-          </>
-        ),
-      },
-      {
-        name: "Values",
-        size: "2x",
-        descr: `Our values describe our passions and define the heart with which will will accomplish our mission and vision.`,
-      },
-    ],
-    invalidChars = /^[^a-zA-Z]+|[^\w:.-]+/g;
-
   return (
     <>
       <section className={`index-page hero is-large`}>
@@ -160,15 +131,21 @@ export default ({ data }) => {
             <h1 className={`has-text-centered is-size-1 is-uppercase`}>Who We Are</h1>
           </div>
         </div>
-        <div className={`columns is-multiline is-vcentered`}>
-          {services.map((service, idx) => (
-            <ServiceItem
-              key={service.name.replace(invalidChars, "") + idx}
-              serviceName={service.name}
-              icon={service.icon}
-              serviceDescription={service.descr}
-            />
-          ))}
+        <div className={`columns is-multiline`}>
+          <ServiceItem serviceName={"Mission"}>
+            We exist to <em>inspire hope</em> by helping people discover God’s purpose for their lives through a
+            relationship with Jesus.
+          </ServiceItem>
+
+          <ServiceItem serviceName={"Strategy"}>
+            We will do this by inspiring people to <em>Follow</em> Jesus, <em>Live</em> in community, <em>Serve</em>{" "}
+            those around them and <em>Expand</em> God’s kingdom.
+          </ServiceItem>
+
+          <ServiceItem serviceName={"Values"}>
+            Our values describe our passions and define the heart with which will will accomplish our mission and
+            vision.
+          </ServiceItem>
         </div>
         <div className={`columns`}>
           <div className={`column is-full`}>

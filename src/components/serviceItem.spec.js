@@ -6,9 +6,8 @@ import ServiceItem from "./serviceItem";
 describe("ServiceItem", () => {
   const secureDesc = (
       <>
-        Applications need solid infrastructure. In our increasingly
-        cloud-centric world we have the expertise to deploy your site or
-        application quickly <strong>and</strong> <em>securely</em>
+        Applications need solid infrastructure. In our increasingly cloud-centric world we have the expertise to deploy
+        your site or application quickly <strong>and</strong> <em>securely</em>
       </>
     ),
     services = [
@@ -31,12 +30,15 @@ describe("ServiceItem", () => {
 
   it("should render without crashing", () => {
     const wrapper = shallow(
-      <ServiceItem
-        icon={services[0].icon}
-        serviceName={services[0].name}
-        serviceDescription={services[0].descr}
-      />
+      <ServiceItem icon={services[0].icon} serviceName={services[0].name}>
+        {services[0].descr}
+      </ServiceItem>
     );
+    expect(wrapper).toMatchSnapshot();
+  });
+
+  it("should render without crashing without icons", () => {
+    const wrapper = shallow(<ServiceItem serviceName={services[1].name}>{services[1].descr}</ServiceItem>);
     expect(wrapper).toMatchSnapshot();
   });
 });

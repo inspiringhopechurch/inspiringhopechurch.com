@@ -111,55 +111,47 @@ exports[`Index should render without crashing 1`] = `
       </div>
     </div>
     <div
-      className="columns is-multiline is-vcentered"
+      className="columns is-multiline"
     >
       <ServiceItem
         iconSize="2x"
-        key="Mission0"
-        serviceDescription={
-          <React.Fragment>
-            We exist to 
-            <em>
-              inspire hope
-            </em>
-             by helping people discover God’s purpose for their lives through a relationship with Jesus.
-          </React.Fragment>
-        }
         serviceName="Mission"
-      />
+      >
+        We exist to 
+        <em>
+          inspire hope
+        </em>
+         by helping people discover God’s purpose for their lives through a relationship with Jesus.
+      </ServiceItem>
       <ServiceItem
         iconSize="2x"
-        key="Strategy1"
-        serviceDescription={
-          <React.Fragment>
-            We will do this by inspiring people to 
-            <em>
-              Follow
-            </em>
-             Jesus, 
-            <em>
-              Live
-            </em>
-             in community, 
-            <em>
-              Serve
-            </em>
-             
-            those around them and 
-            <em>
-              Expand
-            </em>
-             God’s kingdom.
-          </React.Fragment>
-        }
         serviceName="Strategy"
-      />
+      >
+        We will do this by inspiring people to 
+        <em>
+          Follow
+        </em>
+         Jesus, 
+        <em>
+          Live
+        </em>
+         in community, 
+        <em>
+          Serve
+        </em>
+         
+        those around them and 
+        <em>
+          Expand
+        </em>
+         God’s kingdom.
+      </ServiceItem>
       <ServiceItem
         iconSize="2x"
-        key="Values2"
-        serviceDescription="Our values describe our passions and define the heart with which will will accomplish our mission and vision."
         serviceName="Values"
-      />
+      >
+        Our values describe our passions and define the heart with which will will accomplish our mission and vision.
+      </ServiceItem>
     </div>
     <div
       className="columns"
