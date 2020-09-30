@@ -1,0 +1,16 @@
+@charset "utf-8"
+
+.accordion
+    > button
+        all: inherit
+        width: 100%
+        position: relative
+        cursor: pointer
+    svg
+        position: absolute
+        right: 3px
+        top: 3px
+    &.expanded + div
+        display: block
+    & + div
+        display: none
