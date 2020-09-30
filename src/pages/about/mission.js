@@ -1,7 +1,7 @@
 import React from "react";
 import { RefTagger } from "../../components/reftagger";
 
-const About = () => {
+const Mission = () => {
   return (
     <>
       <section className={`about-page hero is-halfheight`}>
@@ -70,7 +70,7 @@ const About = () => {
             <hr />
 
             <h2 className={`is-size-2 is-uppercase`}>
-              <span className={`has-text-weight-light`}>Our</span> <span className={`decorated`}>Vision</span>
+              <span className={`has-text-weight-light`}>Our</span> <span className={`decorated`}>Values</span>
             </h2>
             <p className={`subtitle is-size-3`}>
               Our values drive our decisions and our decisions will inspire hope in the lives of those in our church,
@@ -148,4 +148,4 @@ const About = () => {
 };
 
 // Default export is rendered when user visits page.
-export default About;
+export default Mission;

@@ -244,31 +244,13 @@ const Beliefs = () => {
                   redeemed of all the ages.
                 </p>
                 <div className="tags">
-                  <span className="tag">
-                    <span data-tooltip="" />1 Corinthians 12:12-13
-                  </span>
-                  <span className="tag">
-                    <span data-tooltip="" />2 Corinthians 11:2
-                  </span>
-                  <span className="tag">
-                    <span data-tooltip="" />
-                    Ephesians 5:23-32
-                  </span>
-                  <span className="tag">
-                    <span data-tooltip="" />
-                    Revelation 19:7-8
-                  </span>
-                  <span className="tag">
-                    <span data-tooltip="" />
-                    Ephesians 1:22, 4:15
-                  </span>
-                  <span className="tag">
-                    <span data-tooltip="" />
-                    Colossians 1:18
-                  </span>
-                  <span className="tag">
-                    <span data-tooltip="" />1 Timothy 3:1-15
-                  </span>
+                  <span className="tag">1 Corinthians 12:12-13</span>
+                  <span className="tag">2 Corinthians 11:2</span>
+                  <span className="tag">Ephesians 5:23-32</span>
+                  <span className="tag">Revelation 19:7-8</span>
+                  <span className="tag">Ephesians 1:22, 4:15</span>
+                  <span className="tag">Colossians 1:18</span>
+                  <span className="tag">1 Timothy 3:1-15</span>
                 </div>
               </div>
             </Accordion>
