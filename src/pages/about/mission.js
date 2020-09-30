@@ -1,4 +1,5 @@
 import React from "react";
+import { RefTagger } from "../../components/reftagger";
 
 const About = () => {
   return (
@@ -141,6 +142,7 @@ const About = () => {
           </div>
         </div>
       </section>
+      <RefTagger bibleVersion="HCSB" />
     </>
   );
 };

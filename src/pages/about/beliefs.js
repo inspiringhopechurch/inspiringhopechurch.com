@@ -1,5 +1,6 @@
 import React from "react";
 import Accordion from "../../components/accordion";
+import { RefTagger } from "../../components/reftagger";
 
 const Beliefs = () => {
   return (
@@ -295,6 +296,7 @@ const Beliefs = () => {
           </div>
         </div>
       </section>
+      <RefTagger bibleVersion="HCSB" />
     </>
   );
 };
