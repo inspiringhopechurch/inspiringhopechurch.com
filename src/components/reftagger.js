@@ -1,3 +1,4 @@
+// Code taken from https://github.com/Faithlife/react-reftagger
 import { useState, useEffect } from "react";
 
 const addScript = (setScriptAdded) => {

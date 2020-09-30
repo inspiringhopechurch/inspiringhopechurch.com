@@ -1,15 +1,20 @@
 @charset "utf-8"
 
+@import "../styles/_myvariables.sass"
+
 .accordion
     > button
         all: inherit
         width: 100%
         position: relative
         cursor: pointer
-    svg
-        position: absolute
-        right: 3px
-        top: 3px
+        svg
+            position: absolute
+            right: 3px
+            top: 3px
+        &:focus
+            svg
+                outline: 1px solid $dark-blue
     &.expanded + div
         display: block
     & + div
