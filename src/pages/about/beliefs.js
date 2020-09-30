@@ -29,9 +29,9 @@ const Beliefs = () => {
                 </p>
                 <div className="tags">
                   <span className="tag">1 Corinthians 2:7-14</span>
-                  <span className="tag">2 Peter 1:20-21; </span>
-                  <span className="tag">1 Corinthians 2:13; </span>
-                  <span className="tag">1 Thessalonians 2:13; </span>
+                  <span className="tag">2 Peter 1:20-21</span>
+                  <span className="tag">1 Corinthians 2:13</span>
+                  <span className="tag">1 Thessalonians 2:13</span>
                   <span className="tag">2 Timothy 3:16-17</span>
                   <span className="tag">Matthew 5:18, 24:35</span>
                   <span className="tag">John 10:35</span>
