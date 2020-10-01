@@ -65,13 +65,13 @@ export default class ContactForm extends React.Component {
 
       // send data to API endpoint
       // axios
-      // .post("/contact-form", {
+      // .post("/contact-us", {
       //   fullname: fullName,
       //   email: email,
       //   subject: messageSubject,
       //   message: messageBody,
       // })
-      fetch(withPrefix("/contact-form"), {
+      fetch(withPrefix("/contact-us"), {
         method: "POST",
         headers: {
           accept: "application/json",
