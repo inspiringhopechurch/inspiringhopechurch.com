@@ -111,8 +111,8 @@ export default ({ data }) => {
               preload="metadata"
               poster={videoPoster}
             >
-              <source src="/assets/inspiring_hope_hero.mp4" type='video/mp4; codecs="avc1.42E01E, mp4a.40.2"' />
-              {/* <source src="/assets/inspiring_hope_hero.webm" type="video/webm; codecs=vp8, vorbis" /> */}
+              <source src="/assets/inspiring_hope_intro.webm" type="video/webm" />
+              <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
               <track kind="captions" srcLang="en" label="English" src={captionEn} />
               <track kind="captions" srcLang="es" label="Español" src={captionEs} />
               Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
