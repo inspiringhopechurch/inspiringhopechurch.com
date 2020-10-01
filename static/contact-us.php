@@ -1,6 +1,7 @@
 <?php
   // Set e-mail recipient
-  $recipient = "orbit@thebennettproject.com";
+  // $recipient = "ben@inspiringhopechurch.com";
+  $recipient = "admin@inspiringhopechurch.com";
 
   // Check all form inputs using check_input function
   $fullname = check_input($_POST['fullname'], "Enter your name");
@@ -17,7 +18,7 @@
   }
 
   // Message for the e-mail
-  $message = "You have a new inquiry from orb-it.solutions!
+  $message = "New message from inspiringhopechurch.com!
 
   Name: $fullname
   E-mail: $email
@@ -33,10 +34,7 @@
 
   // Send data back to page on success
   $success_msg =
-  "<h4 class='contact-info-title'>Thank you!</h4>
-  <p class='lead'>
-    We'll get in touch as soon as we have a response.
-  </p>";
+  "Thank you! We'll get in touch as soon as we can!";
   header('HTTP/1.1 200 OK');
   header('Content-type: application/json');
   echo json_encode($success_msg);

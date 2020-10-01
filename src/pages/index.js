@@ -192,7 +192,7 @@ export default ({ data }) => {
         </div>
       </section>
 
-      <section className={`index-page box index-content is-radiusless is-shadowless`}>
+      {/* <section className={`index-page box index-content is-radiusless is-shadowless`}>
         <div className={`columns content`}>
           <div className={`column is-full`}>
             <h1 className={`is-size-1 has-text-centered is-uppercase`}>What We're Up To</h1>
@@ -209,7 +209,7 @@ export default ({ data }) => {
             />
           ))}
         </div>
-      </section>
+      </section> */}
     </>
   );
 };

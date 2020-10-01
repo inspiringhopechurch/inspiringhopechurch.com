@@ -51,9 +51,9 @@ const Header = (props) => (
                 </Link>
               </div>
             </div>
-            <a className="navbar-item" href="https://cms.inspiringhopechurch.com/">
+            {/* <a className="navbar-item" href="https://cms.inspiringhopechurch.com/">
               News
-            </a>
+            </a> */}
             <Link className="navbar-item" to="/contact">
               Contact
             </Link>
