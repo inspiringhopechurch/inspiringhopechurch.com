@@ -1,17 +1,17 @@
 {
   "name": "inspiring-hope-church",
   "private": true,
-  "description": "Inspiring Hope Church",
+  "description": "Inspiring Hope Church static website",
   "version": "1.0.0",
   "license": "MIT",
   "author": "ORB IT Solutions LLC",
   "homepage": "https://inspiringhopechurch.com",
   "repository": {
     "type": "git",
-    "url": "https://code.orb-it.solutions/orb-it-solutions/orbitsolutions.gatsby.git"
+    "url": "https://code.orbitsolutions.dev/Inspiring-Hope/inspiringhope.gatsby.git"
   },
   "bugs": {
-    "url": "https://code.orb-it.solutions/orb-it-solutions/orbitsolutions.gatsby/issues"
+    "url": "https://code.orbitsolutions.dev/Inspiring-Hope/inspiringhope.gatsby/issues"
   },
   "scripts": {
     "build": "gatsby build",
