@@ -1,7 +1,7 @@
 <?php
   // Set e-mail recipient
-  // $recipient = "ben@inspiringhopechurch.com";
-  $recipient = "admin@inspiringhopechurch.com";
+  $recipient = "ben@inspiringhopechurch.com";
+  // $recipient = "admin@inspiringhopechurch.com";
 
   // Check all form inputs using check_input function
   $fullname = check_input($_POST['fullname'], "Enter your name");
@@ -10,7 +10,8 @@
   $subject = check_input($_POST['subject']);
 
   // Setup From: email address properly
-  $from = '-f"' . $email . '" -F"' . $fullname . '"';
+  $headers = "From: Inspiring Hope Church <noreply@inspiringhopechurch.com>" 
+    . "\r\n" . "Reply-To: $email";
 
   // If e-mail is not valid show error message
   if (!preg_match("/([\w\-]+\@[\w\-]+\.[\w\-]+)/", $email)) {
@@ -30,11 +31,11 @@
   ";
 
   // Send the message using mail() function
-  mail($recipient, $subject, $message, null, $from);
+  mail($recipient, $subject, $message, $from);
 
   // Send data back to page on success
   $success_msg =
-  "Thank you! We'll get in touch as soon as we can!";
+  "Thank you! We'll send a reply to $email as soon as we can!";
   header('HTTP/1.1 200 OK');
   header('Content-type: application/json');
   echo json_encode($success_msg);
@@ -53,14 +54,7 @@
 
   // Send data back to page on error
   function show_error($myError) {
-    $result="
-    <div class='col-md-12 col-sm-12 col-xs-12'>
-      <div class='alert massage-box small-box alert-dismissible alert-danger' role='alert'>
-        <p>Please correct the following error: <b> $myError </b>
-          <button type='button' class='close' data-dismiss='alert' aria-label='Close'><span aria-hidden='true'>&times;</span></button>
-        </p>
-      </div>
-    </div>";
+    $result="Please correct the following error: $myError";
 
     header('HTTP/1.1 400 Bad Request');
     header('Content-type: application/json');

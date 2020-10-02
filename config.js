@@ -12,8 +12,8 @@ module.exports = {
   icon: "static/assets/favicon.png",
   favicon: "static/favicon.ico", // Manifest favicon generation
   shortName: "Inspiring Hope Church", // Shortname for manifest, must be shorter than 12 characters
-  themeColor: "#ff3860",
-  backgroundColor: "#ffffff",
+  themeColor: "#00E5FC",
+  backgroundColor: "#201E55",
   twitter: "", // Twitter Username
   linkedIn: "", // LinkedIn username
   facebook: "", // Facebook site name
