@@ -5,18 +5,18 @@ import { RefTagger } from "../../components/reftagger";
 const Beliefs = () => {
   return (
     <>
-      <section className={`about-page hero is-halfheight`}>
-        <div className={`hero-body`}>
-          <div className={`container`}>
-            <h1 className={`title is-size-2-mobile is-size-tablet`}>Our Beliefs</h1>
+      <section className="about-page hero is-halfheight">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title is-size-2-mobile is-size-tablet">Our Beliefs</h1>
           </div>
         </div>
       </section>
 
-      <section className={`box container is-shadowless`}>
-        <div className={`columns content is-centered is-medium`}>
-          <div className={`column is-two-thirds`}>
-            <h1 className={`title is-size-1 is-uppercase has-text-centered`}>What We Believe</h1>
+      <section className="box container is-shadowless">
+        <div className="columns content is-centered is-medium">
+          <div className="column is-two-thirds">
+            <h1 className="title is-size-1 is-uppercase has-text-centered">What We Believe</h1>
 
             <Accordion title="The Bible" isExpanded={true}>
               <div>
@@ -61,7 +61,7 @@ const Beliefs = () => {
                 </div>
 
                 <div className="pl-5">
-                  <h3 className={`subtitle is-size-5`}>
+                  <h3 className="subtitle is-size-5">
                     A. <span className="has-text-weight-light">The</span> <span className="decorated">Father</span>
                   </h3>
                   <p className="content">
@@ -81,7 +81,7 @@ const Beliefs = () => {
                     <span className="tag">Hebrews 12:5-9</span>
                   </div>
 
-                  <h3 className={`subtitle is-size-5`}>
+                  <h3 className="subtitle is-size-5">
                     B. <span className="has-text-weight-light">The</span> <span className="decorated">Son</span>
                   </h3>
                   <p className="content">
@@ -106,7 +106,7 @@ const Beliefs = () => {
                     <span className="tag">1 Timothy 2:5</span>
                   </div>
 
-                  <h3 className={`subtitle is-size-5`}>
+                  <h3 className="subtitle is-size-5">
                     C. <span className="has-text-weight-light">The</span> <span className="decorated">Holy Spirit</span>
                   </h3>
                   <p className="content">

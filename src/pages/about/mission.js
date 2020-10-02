@@ -4,23 +4,23 @@ import { RefTagger } from "../../components/reftagger";
 const Mission = () => {
   return (
     <>
-      <section className={`about-page hero is-halfheight`}>
-        <div className={`hero-body`}>
-          <div className={`container`}>
-            <h1 className={`title is-size-2-mobile is-size-tablet`}>Our Mission</h1>
+      <section className="about-page hero is-halfheight">
+        <div className="hero-body">
+          <div className="container">
+            <h1 className="title is-size-2-mobile is-size-tablet">Our Mission</h1>
           </div>
         </div>
       </section>
 
-      <section className={`box container is-shadowless`}>
-        <div className={`columns content is-centered is-medium`}>
-          <div className={`column is-two-thirds`}>
-            <h1 className={`has-text-centered is-size-1 is-uppercase`}>What We're About</h1>
+      <section className="box container is-shadowless">
+        <div className="columns content is-centered is-medium">
+          <div className="column is-two-thirds">
+            <h1 className="has-text-centered is-size-1 is-uppercase">What We're About</h1>
 
-            <h2 className={`is-size-2 is-uppercase`}>
-              <span className={`has-text-weight-light`}>Our</span> <span className={`decorated`}>Mission</span>
+            <h2 className="is-size-2 is-uppercase">
+              <span className="has-text-weight-light">Our</span> <span className="decorated">Mission</span>
             </h2>
-            <p className={`subtitle is-size-3`}>
+            <p className="subtitle is-size-3">
               We exist to <em>inspire</em> hope by helping people discover God’s purpose for their lives through a
               relationship with Jesus!
             </p>
@@ -69,10 +69,10 @@ const Mission = () => {
 
             <hr />
 
-            <h2 className={`is-size-2 is-uppercase`}>
-              <span className={`has-text-weight-light`}>Our</span> <span className={`decorated`}>Values</span>
+            <h2 className="is-size-2 is-uppercase">
+              <span className="has-text-weight-light">Our</span> <span className="decorated">Values</span>
             </h2>
-            <p className={`subtitle is-size-3`}>
+            <p className="subtitle is-size-3">
               Our values drive our decisions and our decisions will inspire hope in the lives of those in our church,
               community and around the world.
             </p>
