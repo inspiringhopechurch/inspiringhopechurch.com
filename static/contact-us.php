@@ -31,7 +31,7 @@
   ";
 
   // Send the message using mail() function
-  mail($recipient, $subject, $message, $from);
+  mail($recipient, $subject, $message, $headers);
 
   // Send data back to page on success
   $success_msg =
