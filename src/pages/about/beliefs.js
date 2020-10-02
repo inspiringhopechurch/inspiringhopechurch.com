@@ -20,7 +20,7 @@ const Beliefs = () => {
 
             <Accordion title="The Bible" isExpanded={true}>
               <div>
-                <p className={`content`}>
+                <p className="content">
                   The Bible was written by men divinely inspired and is the record of God’s revelation of Himself to
                   man. It is a perfect treasure of divine instruction. It has God for its author, and therefore it is
                   wholly without error. It reveals the depths of God’s love and the principles by which God judges us;
@@ -44,7 +44,7 @@ const Beliefs = () => {
 
             <Accordion title="God">
               <div>
-                <p className={`content`}>
+                <p className="content">
                   There is one and only one living and true God. He is an intelligent, spiritual, and personal Being,
                   the Creator, Redeemer, Preserver, and Ruler of the universe. God is infinite in holiness and all other
                   perfections. To Him we owe the highest love, reverence, and obedience. The eternal God reveals Himself
@@ -62,9 +62,9 @@ const Beliefs = () => {
 
                 <div className="pl-5">
                   <h3 className={`subtitle is-size-5`}>
-                    A. <span className={`has-text-weight-light`}>The</span> <span className={`decorated`}>Father</span>
+                    A. <span className="has-text-weight-light">The</span> <span className="decorated">Father</span>
                   </h3>
-                  <p className={`content`}>
+                  <p className="content">
                     God as Father reigns with providential care over His universe, His creatures, and the flow of the
                     stream of human history according to the purposes of His grace. He is all-powerful, all loving, and
                     all wise. God is Father in truth to those who become His children through faith in Jesus Christ. He
@@ -82,9 +82,9 @@ const Beliefs = () => {
                   </div>
 
                   <h3 className={`subtitle is-size-5`}>
-                    B. <span className={`has-text-weight-light`}>The</span> <span className={`decorated`}>Son</span>
+                    B. <span className="has-text-weight-light">The</span> <span className="decorated">Son</span>
                   </h3>
-                  <p className={`content`}>
+                  <p className="content">
                     God is the eternal Son of God. In His incarnation as Jesus Christ, He was conceived of the Holy
                     Spirit and born of the Virgin Mary, hence the God-Man. Jesus perfectly revealed and did the will of
                     God, taking upon Himself the demands and necessities of human nature and identifying Himself
@@ -107,10 +107,9 @@ const Beliefs = () => {
                   </div>
 
                   <h3 className={`subtitle is-size-5`}>
-                    C. <span className={`has-text-weight-light`}>The</span>{" "}
-                    <span className={`decorated`}>Holy Spirit</span>
+                    C. <span className="has-text-weight-light">The</span> <span className="decorated">Holy Spirit</span>
                   </h3>
-                  <p className={`content`}>
+                  <p className="content">
                     The Holy Spirit is the Spirit of God. He inspired holy men of old to write the Scriptures. Through
                     illumination He enables men to understand truth. He exalts Christ. He convicts of sin, of
                     righteousness, and of judgment. He calls men to the Savior and effects regeneration. He cultivates
@@ -134,7 +133,7 @@ const Beliefs = () => {
 
             <Accordion title="Man">
               <div>
-                <p className={`content`}>
+                <p className="content">
                   Man was created by the special act of God, in His own image, and is the crowning work of His creation.
                   In the beginning, man was innocent of sin and was endowed by his Creator with freedom of choice. By
                   his free choice, man sinned against God and brought sin into the human race. Through the temptation of
@@ -159,13 +158,13 @@ const Beliefs = () => {
 
             <Accordion title="Salvation">
               <div>
-                <p className={`content`}>
+                <p className="content">
                   Salvation involves the redemption of the whole man, and is offered freely to all who accept Jesus
                   Christ as Lord and Savior, who by His own blood obtained eternal redemption for the believer. In its
                   broadest sense, salvation includes regeneration, repentance and faith, sanctification, and
                   glorification.
                 </p>
-                <p className={`content`}>
+                <p className="content">
                   Regeneration, or the new birth, is a work of God’s grace whereby believers become new creatures in
                   Christ Jesus. It is a change of heart wrought by the Holy Spirit through conviction of sin, to which
                   the sinner responds in repentance toward God and faith in the Lord Jesus Christ.
@@ -174,7 +173,7 @@ const Beliefs = () => {
                   <span className="tag">John 3:3-8</span>
                   <span className="tag">Titus 3:5</span>
                 </div>
-                <p className={`content`}>
+                <p className="content">
                   Repentance and faith are inseparable experiences of grace. Repentance is a genuine turning from sin
                   toward God. Faith is the acceptance of Jesus Christ and surrender of one’s entire person to Him as
                   Lord and Savior. Justification is the declarative act of God by which, on the basis of the sufficiency
@@ -186,7 +185,7 @@ const Beliefs = () => {
                   <span className="tag">Acts 20:20-21</span>
                   <span className="tag">Romans 5:1</span>
                 </div>
-                <p className={`content`}>
+                <p className="content">
                   Sanctification is the experience, beginning at the new birth, by which the believer is set apart to
                   God’s purposes, and is enabled to progress toward Christ-likeness through the presence and power of
                   the Holy Spirit indwelling in him. Growth in grace should continue throughout the believer’s life.
@@ -198,7 +197,7 @@ const Beliefs = () => {
                   <span className="tag">Hebrews 2:11</span>
                   <span className="tag">1 Peter 1:2</span>
                 </div>
-                <p className={`content`}>
+                <p className="content">
                   Glorification is the culmination of salvation and is the final blessed and abiding state of the
                   redeemed.
                 </p>
@@ -212,7 +211,7 @@ const Beliefs = () => {
 
             <Accordion title="Resurrection">
               <div>
-                <p className={`content`}>
+                <p className="content">
                   There will be a final resurrection for all men, the just and unjust. Those who surrendered their lives
                   to Jesus Christ during this life will be raised to everlasting life in Heaven, but those who did not
                   surrender their lives to Jesus Christ in this life will be raised to everlasting condemnation in Hell.
@@ -228,18 +227,18 @@ const Beliefs = () => {
 
             <Accordion title="The Church">
               <div>
-                <p className={`content`}>
+                <p className="content">
                   A New Testament church of the Lord Jesus Christ is a local body of baptized believers who are
                   associated by covenant in the faith and fellowship of the gospel, observing the two ordinances of
                   Christ, committed to His teachings, exercising gifts, rights, and privileges invested in them by His
                   Word, and seeking to extend this message of the gospel to the ends of the earth.
                 </p>
-                <p className={`content`}>
+                <p className="content">
                   The church is an autonomous body with each member equally responsible. It operates under the Lordship
                   of Christ following Scriptural teachings. Two offices serve the church. It is led and overseen by men
                   in the office of pastor/elder and served by men and women in the office of deacon.
                 </p>
-                <p className={`content`}>
+                <p className="content">
                   The New Testament speaks also of the church body as the body of Christ, which includes all of the
                   redeemed of all the ages.
                 </p>
@@ -257,7 +256,7 @@ const Beliefs = () => {
 
             <Accordion title="Baptism and the Lord’s Supper">
               <div>
-                <p className={`content`}>
+                <p className="content">
                   Christian baptism is the immersion of a believer in water in the name of the Father, the Son, and the
                   Holy Spirit. It is an act of obedience symbolizing the believer’s faith in a crucified, buried, and
                   risen Savior; the believer’s death to sin, the burial of the old life, and the resurrection to walk in
