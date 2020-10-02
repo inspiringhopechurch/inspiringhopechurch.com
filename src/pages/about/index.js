@@ -29,18 +29,9 @@ const About = () => {
               </div>
               <div className={`column`}>
                 <p className={`content`}>
-                  Ben and Brittany Mangrum moved to Hamilton, Ohio in January of 2020. They are both originally from
-                  northeast Oklahoma. They met in high school and have been married 14 years. God has blessed them with
-                  four children:
-                </p>
-                <ul className="circle">
-                  <li>Peyton - 11</li>
-                  <li>Channing - 9</li>
-                  <li>Teagan - 6</li>
-                  <li>Sterling - 2</li>
-                </ul>
-                <p className={`content`}>
-                  Their family enjoys spending time together, playing games and having weekly movie nights.
+                  Ben and Brittany Mangrum moved to Hamilton, Ohio from northeast Oklahoma in January, 2020. God has
+                  blessed these high school sweethearts with four beautiful children (Peyton, Channing, Teagan, and
+                  Sterling). Their family enjoys spending time together by playing games and having weekly movie nights.
                 </p>
               </div>
             </div>
@@ -48,17 +39,18 @@ const About = () => {
             <div className={`columns`}>
               <div className={`column is-half`}>
                 <p className={`content`}>
-                  Ben is currently serving on staff at Grace Point Fellowship as a church plant resident while preparing
-                  to plant Inspiring Hope Church in Hamilton. Ben previously served in ministry at Crescent Valley
-                  Baptist Church in Tahlequah, Oklahoma for 7 years and the last 4 of those years as Executive Pastor.
+                  Before moving to Ohio, Ben served in ministry for seven years at Crescent Valley Baptist Church in
+                  Tahlequah, Oklahoma; the last four years he served as the Executive Pastor. While preparing to launch
+                  Inspiring Hope Church in Hamilton, Ben was a church plant resident, serving on staff with Grace Point
+                  Fellowship for a year.
                 </p>
                 <p className={`content`}>
-                  Brittany is a stay-at-home mother who works part time as an ESL teacher online. She homeschools the
-                  kids as well as serves alongside Ben in preparing to plant Inspiring Hope Church.
+                  Brittany is a stay-at-home mother, and teaches English online (ESL) part time. She homeschools their
+                  four children, and serves alongside Ben in preparing to plant Inspiring Hope Church.
                 </p>
               </div>
               <div className={`column`}>
-                <img className={`image`} alt="The Mangrum family" src={familyPic} />
+                <img className={`image`} alt="Mangrum family picture" src={familyPic} />
               </div>
             </div>
           </div>
