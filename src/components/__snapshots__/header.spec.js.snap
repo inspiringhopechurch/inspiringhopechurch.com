@@ -27,7 +27,7 @@ exports[`Header should render without crashing 1`] = `
           aria-label="menu"
           className="navbar-burger "
           data-target="nav-menu"
-          onClick={[MockFunction]}
+          onClick={[Function]}
         >
           <span
             aria-hidden="true"
@@ -46,18 +46,18 @@ exports[`Header should render without crashing 1`] = `
       >
         <div
           className="navbar-start pr-5"
-          onClick={[MockFunction]}
-          onKeyPress={[MockFunction]}
+          onClick={[Function]}
+          onKeyPress={[Function]}
           role="none"
         >
           <mockConstructor
-            className="navbar-item"
+            className="navbar-item is-active-page"
             to="/"
           >
             Home
           </mockConstructor>
           <div
-            className="navbar-item has-dropdown is-hoverable"
+            className="navbar-item  has-dropdown is-hoverable"
           >
             <mockConstructor
               className="navbar-link"
@@ -88,14 +88,8 @@ exports[`Header should render without crashing 1`] = `
               </mockConstructor>
             </div>
           </div>
-          <a
-            className="navbar-item"
-            href="https://cms.inspiringhopechurch.com/"
-          >
-            News
-          </a>
           <mockConstructor
-            className="navbar-item"
+            className="navbar-item "
             to="/contact"
           >
             Contact

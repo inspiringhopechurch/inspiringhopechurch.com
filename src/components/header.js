@@ -1,80 +1,105 @@
-import React from "react";
+import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import "./header.sass";
 import logo from "../assets/logo.svg";
 
-const Header = (props) => (
-  <header>
-    <nav className={`navbar is-fixed-top`} role="navigation" aria-label="main navigation">
-      <div className={`container px-2`}>
-        <div className="navbar-brand">
-          <Link className="navbar-item" to="/">
-            <img src={logo} alt="Inspiring Hope Logo" />
-          </Link>
+const Header = ({ location }) => {
+  const [menuIsMobile, setMenuIsMobile] = useState(false);
 
-          <button
-            className={`navbar-burger ${props.mobileMenuActive ? "is-active" : ""}`}
-            aria-label="menu"
-            aria-expanded="false"
-            data-target="nav-menu"
-            onClick={props.toggleMenuHandler}
-          >
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-            <span aria-hidden="true" />
-          </button>
-        </div>
-        <div id="nav-menu" className={`navbar-menu ${props.mobileMenuActive ? "is-active" : ""}`}>
-          <div
-            className="navbar-start pr-5"
-            role="none"
-            onClick={props.hideMenuHandler}
-            onKeyPress={props.hideMenuHandler}
-          >
-            <Link className="navbar-item" to="/">
-              Home
+  const toggleMenu = () => setMenuIsMobile(!menuIsMobile);
+  const hideMenu = () => setMenuIsMobile(false);
+
+  const homeUrl = "/",
+    aboutUrl = "/about",
+    missionUrl = "/about/mission",
+    beliefsUrl = "/about/beliefs",
+    contactUrl = "/contact";
+  //giveUrl = "/give";
+
+  return (
+    <header>
+      <nav className={`navbar is-fixed-top`} role="navigation" aria-label="main navigation">
+        <div className={`container px-2`}>
+          <div className="navbar-brand">
+            <Link className="navbar-item" to={homeUrl}>
+              <img src={logo} alt="Inspiring Hope Logo" />
             </Link>
-            <div className={`navbar-item has-dropdown is-hoverable`}>
-              <Link className="navbar-link" to="/about">
-                About Us
+
+            <button
+              className={`navbar-burger ${menuIsMobile ? "is-active" : ""}`}
+              aria-label="menu"
+              aria-expanded="false"
+              data-target="nav-menu"
+              onClick={toggleMenu}
+            >
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+              <span aria-hidden="true" />
+            </button>
+          </div>
+          <div id="nav-menu" className={`navbar-menu ${menuIsMobile ? "is-active" : ""}`}>
+            <div className="navbar-start pr-5" role="none" onClick={hideMenu} onKeyPress={hideMenu}>
+              <Link className={`navbar-item ${location.pathname === homeUrl ? "is-active-page" : ""}`} to={homeUrl}>
+                Home
               </Link>
-              <div className="navbar-dropdown">
-                <Link className="navbar-item" to="/about">
-                  Who We Are
+              <div
+                className={`navbar-item ${
+                  location.pathname.includes(aboutUrl) ? "is-active-page" : ""
+                } has-dropdown is-hoverable`}
+              >
+                <Link className="navbar-link" to={aboutUrl}>
+                  About Us
                 </Link>
-                <Link className="navbar-item" to="/about/beliefs">
-                  Our Beliefs
-                </Link>
-                <Link className="navbar-item" to="/about/mission">
-                  Our Mission
-                </Link>
+                <div className="navbar-dropdown">
+                  <Link className="navbar-item" to={aboutUrl}>
+                    Who We Are
+                  </Link>
+                  <Link className="navbar-item" to={beliefsUrl}>
+                    Our Beliefs
+                  </Link>
+                  <Link className="navbar-item" to={missionUrl}>
+                    Our Mission
+                  </Link>
+                </div>
               </div>
-            </div>
-            {/* <a className="navbar-item" href="https://cms.inspiringhopechurch.com/">
+              {/* <a className="navbar-item" href="https://cms.inspiringhopechurch.com/">
               News
             </a> */}
-            <Link className="navbar-item" to="/contact">
-              Contact
-            </Link>
-          </div>
-          {/* }
+              <Link
+                className={`navbar-item ${location.pathname.includes(contactUrl) ? "is-active-page" : ""}`}
+                to={contactUrl}
+              >
+                Contact
+              </Link>
+            </div>
+            {/* }
           <div className='navbar-end'>
-            <Link className='navbar-item' to="/give">
+            <Link className='navbar-item' to={giveUrl}>
               Give
             </Link>
           </div>
           { */}
+          </div>
         </div>
-      </div>
-    </nav>
-  </header>
-);
+      </nav>
+    </header>
+  );
+};
 
 Header.propTypes = {
-  toggleMenuHandler: PropTypes.func.isRequired,
-  hideMenuHandler: PropTypes.func.isRequired,
-  mobileMenuActive: PropTypes.bool.isRequired,
+  location: PropTypes.shape({
+    pathname: PropTypes.string.isRequired,
+    search: PropTypes.string,
+    hash: PropTypes.string,
+    host: PropTypes.string,
+    hostname: PropTypes.string,
+    href: PropTypes.string,
+    key: PropTypes.string,
+    origin: PropTypes.string,
+    port: PropTypes.string,
+    protocol: PropTypes.string,
+  }).isRequired,
 };
 
 export default Header;

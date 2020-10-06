@@ -9,11 +9,7 @@ exports[`Layout should render without crashing 1`] = `
     pathname={null}
     title={null}
   />
-  <Header
-    hideMenuHandler={[Function]}
-    mobileMenuActive={false}
-    toggleMenuHandler={[Function]}
-  />
+  <Header />
   <Footer
     copyrightOwner="Inspiring Hope Church"
   />

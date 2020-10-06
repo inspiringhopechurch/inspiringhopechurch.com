@@ -3,35 +3,80 @@ import { shallow, mount } from "enzyme";
 import Header from "./header";
 
 describe("Header", () => {
-  const handleMenu = jest.fn();
-  const hideMenu = jest.fn();
-  let menuActive;
+  let testLocation;
 
   beforeEach(() => {
-    menuActive = false;
+    testLocation = {
+      hash: "",
+      host: "localhost:8000",
+      hostname: "localhost",
+      href: "http://localhost:8000/",
+      key: "initial",
+      origin: "http://localhost:8000",
+      pathname: "/",
+      port: "8000",
+      protocol: "http:",
+      search: "",
+      state: null,
+    };
   });
 
   it("should render without crashing", () => {
-    const myHeader = shallow(
-      <Header toggleMenuHandler={handleMenu} hideMenuHandler={hideMenu} mobileMenuActive={menuActive} />
-    );
+    const myHeader = shallow(<Header location={testLocation} />);
     expect(myHeader).toMatchSnapshot();
   });
 
   it("should change mobile menu icon and show menu on click", () => {
-    const myHeader = mount(
-      <Header toggleMenuHandler={handleMenu} hideMenuHandler={hideMenu} mobileMenuActive={menuActive} />
-    );
+    const myHeader = mount(<Header location={testLocation} />);
 
     expect(myHeader.find("button.is-active")).toHaveLength(0);
     expect(myHeader.find("#nav-menu.is-active")).toHaveLength(0);
-    expect(handleMenu).toHaveBeenCalledTimes(0);
     myHeader.find("button").simulate("click");
-    expect(handleMenu).toHaveBeenCalledTimes(1);
-    expect(myHeader.prop("mobileMenuActive")).toBe(menuActive);
-    myHeader.setProps({ mobileMenuActive: !menuActive });
-    expect(myHeader.prop("mobileMenuActive")).toBe(!menuActive);
     expect(myHeader.find("button.is-active")).toHaveLength(1); // icon change
     expect(myHeader.find("#nav-menu.is-active")).toHaveLength(1); // show hidden menu
+  });
+
+  it("should make home page's menu item active", () => {
+    const myHeader = mount(<Header location={testLocation} />);
+
+    expect(myHeader.find("a.navbar-item.is-active-page")).toHaveLength(1);
+  });
+
+  it("should make about section's menu item active", () => {
+    const testLocation = {
+      hash: "",
+      host: "localhost:8000",
+      hostname: "localhost",
+      href: "http://localhost:8000/about/",
+      key: "initial",
+      origin: "http://localhost:8000/about/",
+      pathname: "/about/",
+      port: "8000",
+      protocol: "http:",
+      search: "",
+      state: null,
+    };
+    const myHeader = mount(<Header location={testLocation} />);
+
+    expect(myHeader.find("div.navbar-item.is-active-page")).toHaveLength(1);
+  });
+
+  it("should make contact page's menu item active", () => {
+    const testLocation = {
+      hash: "",
+      host: "localhost:8000",
+      hostname: "localhost",
+      href: "http://localhost:8000/contact/",
+      key: "initial",
+      origin: "http://localhost:8000/contact/",
+      pathname: "/contact/",
+      port: "8000",
+      protocol: "http:",
+      search: "",
+      state: null,
+    };
+    const myHeader = mount(<Header location={testLocation} />);
+
+    expect(myHeader.find("a.navbar-item.is-active-page")).toHaveLength(1);
   });
 });
