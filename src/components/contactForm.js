@@ -71,7 +71,7 @@ export default class ContactForm extends React.Component {
       //   subject: messageSubject,
       //   message: messageBody,
       // })
-      fetch(withPrefix("/contact-us"), {
+      const response = await fetch(withPrefix("/contact-form"), {
         method: "POST",
         headers: {
           accept: "application/json",
@@ -79,30 +79,21 @@ export default class ContactForm extends React.Component {
           "content-type": "application/x-www-form-urlencoded",
         },
         body: formData,
-      })
-        .then(function(response) {
-          // Set message from server
-          response.json().then((data) => {
-            submitMSG(data);
-          });
-          return response;
-        })
-        .then(function(response) {
-          // Reject Promise if error exists
-          if (!response.ok) {
-            throw Error(response);
-          }
-          return response;
-        })
-        .then(function(response) {
-          // Reset form if successful
-          formSuccess();
-          resetForm();
-        })
-        .catch(function(error) {
-          // Or set error states
+      });
+      const data = await response.json();
+      submitMSG(data);
+
+      if (!response.ok) {
+        try {
+          // throw Error(msg);
           formError();
-        });
+        } catch (err) {
+          console.log(err);
+        }
+      } else {
+        formSuccess();
+        resetForm();
+      }
     } else {
       this.setState({
         formSubmissionAttempt: true,
@@ -183,7 +174,7 @@ export default class ContactForm extends React.Component {
     let notificationStyles = "notification";
 
     if (formSubmittedError) {
-      notificationStyles = "notification is-link";
+      notificationStyles = "notification is-danger";
     }
 
     if (formSubmittedSuccess) {
