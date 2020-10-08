@@ -1,12 +1,11 @@
-import React from "react";
-//import axios from "axios";
+import React, { useState } from "react";
 import { withPrefix } from "gatsby";
 import { PropTypes } from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./contactForm.sass";
 
-export default class ContactForm extends React.Component {
-  state = {
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
     fullName: "",
     fullNameDirty: false,
     email: "",
@@ -15,40 +14,46 @@ export default class ContactForm extends React.Component {
     messageSubjectDirty: false,
     messageBody: "",
     messageBodyDirty: false,
-    formSubmittedError: false,
-    formSubmittedSuccess: false,
+    formSubmissionError: false,
     formSubmissionAttempt: false,
     showNotification: false,
     formMessage: "",
-  };
+  });
 
-  handleChange = (event) => {
+  /**
+   * Handles changes to the form's inputs. Should be passed to an input's
+   * onChange prop.
+   * @param {SyntheticEvent} event - Provides the value for the input being changed
+   */
+  const handleChange = (event) => {
     const target = event.target;
     const value = target.type === "checkbox" ? target.checked : target.value;
     const name = target.name;
     const nameDirty = target.name + "Dirty";
 
+    const newData = {};
+    newData[name] = value;
+
+    // 'Dirty' fields are used to indicate whether the submit button should
+    // be enabled or not. Since we only enable it when all fields are dirty,
+    // check that there is content here, and set 'dirtiness' as appropriate here.
     if (value.length > 0) {
-      // Set input values
-      this.setState({
-        [name]: value,
-        [nameDirty]: true,
-      });
+      newData[nameDirty] = true;
     } else {
-      this.setState({
-        [name]: value,
-        [nameDirty]: false,
-      });
+      newData[nameDirty] = false;
     }
+
+    // Spread 'em! Update state by overwriting changed values
+    setFormData({ ...formData, ...newData });
   };
 
-  handleSubmit = async (event) => {
+  /**
+   * Async function. Sends form data to server and waits for a response.
+   * Once the response is obtained, should update page with the server's response.
+   * @param {SyntheticEvent} event - Used to override the browser's default 'submit' behavior
+   */
+  const handleSubmit = async (event) => {
     event.preventDefault();
-
-    const formSuccess = this.formSuccess,
-      formError = this.formError,
-      resetForm = this.resetForm,
-      submitMSG = this.submitMSG;
 
     const {
       fullName,
@@ -59,18 +64,11 @@ export default class ContactForm extends React.Component {
       messageSubjectDirty,
       messageBody,
       messageBodyDirty,
-    } = this.state;
-    if (fullNameDirty && emailDirty && messageSubjectDirty && messageBodyDirty) {
-      const formData = `fullname=${fullName}&email=${email}&subject=${messageSubject}&message=${messageBody}`;
+    } = formData;
 
-      // send data to API endpoint
-      // axios
-      // .post("/contact-us", {
-      //   fullname: fullName,
-      //   email: email,
-      //   subject: messageSubject,
-      //   message: messageBody,
-      // })
+    if (fullNameDirty && emailDirty && messageSubjectDirty && messageBodyDirty) {
+      const formContent = `fullname=${fullName}&email=${email}&subject=${messageSubject}&message=${messageBody}`;
+
       const response = await fetch(withPrefix("/contact-form"), {
         method: "POST",
         headers: {
@@ -78,227 +76,196 @@ export default class ContactForm extends React.Component {
           "accept-language": "en_US",
           "content-type": "application/x-www-form-urlencoded",
         },
-        body: formData,
+        body: formContent,
       });
       const data = await response.json();
-      submitMSG(data);
 
-      if (!response.ok) {
-        try {
-          // throw Error(msg);
-          formError();
-        } catch (err) {
-          console.log(err);
-        }
-      } else {
-        formSuccess();
-        resetForm();
-      }
+      submitMSG(data, !response.ok);
     } else {
-      this.setState({
-        formSubmissionAttempt: true,
-      });
+      const newData = {};
+      newData.formSubmissionAttempt = true;
+      setFormData({ ...formData, ...newData });
     }
   };
 
-  resetForm = () => {
-    this.setState({
-      fullName: "",
-      fullNameDirty: false,
-      email: "",
-      emailDirty: false,
-      messageSubject: "",
-      messageSubjectDirty: false,
-      messageBody: "",
-      messageBodyDirty: false,
-      formSubmissionAttempt: false,
-    });
+  /**
+   * Provides flags needed to reset form fields. Should be used after successful form submissions.
+   * @returns {Object} An object containing flags set to their initial state
+   */
+  const resetForm = () => {
+    const newData = {};
+    newData.fullName = "";
+    newData.fullNameDirty = false;
+    newData.email = "";
+    newData.emailDirty = false;
+    newData.messageSubject = "";
+    newData.messageSubjectDirty = false;
+    newData.messageBody = "";
+    newData.messageBodyDirty = false;
+    newData.formSubmissionAttempt = false;
+    // Reset only some properties. e.g. showNotification is intentionally skipped.
+    // Only clearNotification() should reset that (user action only).
+    return newData;
   };
 
-  formSuccess = () => {
-    this.setState({
-      formSubmittedSuccess: true,
-      formSubmittedError: false,
-      showNotification: true,
-    });
+  /**
+   * Clears message set by server and resets formSubmissionError
+   * and showNotification flags
+   */
+  const clearNotification = () => {
+    const newData = {};
+    newData.formMessage = "";
+    newData.formSubmissionError = false;
+    // The only spot where we should clear this flag, except for initialization
+    newData.showNotification = false;
+    setFormData({ ...formData, ...newData });
   };
 
-  formError = () => {
-    this.setState({
-      formSubmittedError: true,
-      formSubmittedSuccess: false,
-      showNotification: true,
-    });
-  };
+  /**
+   * Sets server reply after form submission. Can contain
+   * either success or failure message.
+   * @param {Response} response - Reply received from server after form submission
+   * @param {boolean} error - Indicates if server response was caused by an error
+   */
+  const submitMSG = (response, error) => {
+    const newData = {};
+    newData.formSubmissionError = error;
+    newData.showNotification = true;
+    newData.formMessage = typeof response === "string" ? response : "Something unexpected occured.";
 
-  submitMSG = (response) => {
-    if (typeof response === "string") {
-      this.setState({
-        formMessage: response,
-      });
+    if (error) {
+      setFormData({ ...formData, ...newData });
     } else {
-      response.json().then((data) => {
-        this.setState({
-          formMessage: "",
-        });
-      });
+      setFormData({ ...formData, ...newData, ...resetForm() });
     }
   };
 
-  clearNotification = () => {
-    this.setState({
-      formMessage: "",
-      showNotification: false,
-      formSubmittedSuccess: false,
-      formSubmittedError: false,
-    });
-  };
+  return (
+    <div className={`contact-form column is-two-thirds-tablet is-two-fifths-widescreen`}>
+      <h1 className={`title is-uppercase has-text-link has-text-centered`}>Get in touch</h1>
 
-  render() {
-    const {
-        fullName,
-        fullNameDirty,
-        email,
-        emailDirty,
-        messageSubject,
-        messageSubjectDirty,
-        messageBody,
-        messageBodyDirty,
-        formSubmittedError,
-        formSubmittedSuccess,
-        formSubmissionAttempt,
-        formMessage,
-      } = this.state,
-      props = this.props;
+      <div
+        className={`notification ${
+          formData.showNotification ? (formData.formSubmissionError ? "is-danger" : "is-success") : ""
+        }`}
+      >
+        <button className={`delete`} onClick={clearNotification} aria-label="remove notification" />
+        {formData.formMessage}
+      </div>
 
-    let notificationStyles = "notification";
-
-    if (formSubmittedError) {
-      notificationStyles = "notification is-danger";
-    }
-
-    if (formSubmittedSuccess) {
-      notificationStyles = "notification is-success";
-    }
-
-    return (
-      <div className={`contact-form column is-two-thirds-tablet is-two-fifths-widescreen`}>
-        <h1 className={`title is-uppercase has-text-link has-text-centered`}>Get in touch</h1>
-
-        <div className={notificationStyles}>
-          <button className={`delete`} onClick={this.clearNotification} aria-label="clear notification" />
-          {formMessage}
+      <form data-testid="contact-form" id="contact-form" method="post" onSubmit={handleSubmit}>
+        <div className={`field`}>
+          {/* <div className={`field-body`}> */}
+          <div className={""}>
+            <div className={`field`}>
+              <div className={`control is-expanded has-icons-left`}>
+                <input
+                  data-testid="fullName"
+                  id="fullName"
+                  name="fullName"
+                  className={`input`}
+                  onChange={handleChange}
+                  type="text"
+                  placeholder="Full Name"
+                  value={formData.fullName}
+                  required
+                />
+                <span className={`icon is-left is-small`}>
+                  <FontAwesomeIcon icon={["fas", "user"]} size="1x" transform="down-6 right-12" />
+                </span>
+              </div>
+              <p id="fullNameError" className={`help`}>
+                {formData.formSubmissionAttempt && formData.fullNameDirty ? this.props.nameValidationMsg : " "}
+              </p>
+            </div>
+            <div className={`field`}>
+              <div className={`control is-expanded has-icons-left`}>
+                <input
+                  data-testid="email"
+                  id="email"
+                  name="email"
+                  className={`input`}
+                  onChange={handleChange}
+                  type="email"
+                  placeholder="Email"
+                  value={formData.email}
+                  required
+                />
+                <span className={`icon is-left is-small`}>
+                  <FontAwesomeIcon icon={["fas", "envelope"]} size="1x" transform="down-6 right-12" />
+                </span>
+              </div>
+              <p id="emailError" className={`help`}>
+                {formData.formSubmissionAttempt && formData.emailDirty ? this.props.emailValidationMsg : " "}
+              </p>
+            </div>
+          </div>
         </div>
 
-        <form data-testid="contact-form" id="contact-form" method="post" onSubmit={this.handleSubmit}>
-          <div className={`field`}>
-            {/* <div className={`field-body`}> */}
-            <div className={""}>
-              <div className={`field`}>
-                <div className={`control is-expanded has-icons-left`}>
-                  <input
-                    data-testid="fullName"
-                    id="fullName"
-                    name="fullName"
-                    className={`input`}
-                    onChange={this.handleChange}
-                    type="text"
-                    placeholder="Full Name"
-                    value={fullName}
-                    required
-                  />
-                  <span className={`icon is-left is-small`}>
-                    <FontAwesomeIcon icon={["fas", "user"]} size="1x" transform="down-6 right-12" />
-                  </span>
-                </div>
-                <p id="fullNameError" className={`help`}>
-                  {formSubmissionAttempt && fullNameDirty ? props.nameValidationMsg : " "}
-                </p>
-              </div>
-              <div className={`field`}>
-                <div className={`control is-expanded has-icons-left`}>
-                  <input
-                    data-testid="email"
-                    id="email"
-                    name="email"
-                    className={`input`}
-                    onChange={this.handleChange}
-                    type="email"
-                    placeholder="Email"
-                    value={email}
-                    required
-                  />
-                  <span className={`icon is-left is-small`}>
-                    <FontAwesomeIcon icon={["fas", "envelope"]} size="1x" transform="down-6 right-12" />
-                  </span>
-                </div>
-                <p id="emailError" className={`help`}>
-                  {formSubmissionAttempt && emailDirty ? props.emailValidationMsg : " "}
-                </p>
-              </div>
-            </div>
+        <div className={`field`}>
+          <div className={`control has-icons-left`}>
+            <input
+              data-testid="messageSubject"
+              id="messageSubject"
+              name="messageSubject"
+              className={`input`}
+              onChange={handleChange}
+              type="text"
+              placeholder="Subject"
+              value={formData.messageSubject}
+              required
+            />
+            <span className={`icon is-left is-small`}>
+              <FontAwesomeIcon icon={["fas", "comment-alt-lines"]} size="1x" transform="down-6 right-12" />
+            </span>
           </div>
+          <p id="messageSubjectError" className="help">
+            {formData.formSubmissionAttempt && formData.messageSubjectDirty ? this.props.subjectValidationMsg : " "}
+          </p>
+        </div>
 
-          <div className={`field`}>
-            <div className={`control has-icons-left`}>
-              <input
-                data-testid="messageSubject"
-                id="messageSubject"
-                name="messageSubject"
-                className={`input`}
-                onChange={this.handleChange}
-                type="text"
-                placeholder="Subject"
-                value={messageSubject}
-                required
-              />
-              <span className={`icon is-left is-small`}>
-                <FontAwesomeIcon icon={["fas", "comment-alt-lines"]} size="1x" transform="down-6 right-12" />
-              </span>
-            </div>
-            <p id="messageSubjectError" className="help">
-              {formSubmissionAttempt && messageSubjectDirty ? props.subjectValidationMsg : " "}
-            </p>
+        <div className={`field`}>
+          <div className={`control`}>
+            <textarea
+              data-testid="messageBody"
+              id="messageBody"
+              name="messageBody"
+              className={`textarea`}
+              placeholder="Message"
+              rows="10"
+              onChange={handleChange}
+              value={formData.messageBody}
+              required
+            />
           </div>
+          <p id="messageBodyError" className="help">
+            {formData.formSubmissionAttempt && formData.messageBodyDirty ? this.props.bodyValidationMsg : " "}
+          </p>
+        </div>
 
-          <div className={`field`}>
-            <div className={`control`}>
-              <textarea
-                data-testid="messageBody"
-                id="messageBody"
-                name="messageBody"
-                className={`textarea`}
-                placeholder="Message"
-                rows="10"
-                onChange={this.handleChange}
-                value={messageBody}
-                required
-              />
-            </div>
-            <p id="messageBodyError" className="help">
-              {formSubmissionAttempt && messageBodyDirty ? props.bodyValidationMsg : " "}
-            </p>
+        <div className={`field`}>
+          <div className={`control`}>
+            <button
+              data-testid="form-submit"
+              id="form-submit"
+              className={`button is-link is-outlined is-fullwidth`}
+              type="submit"
+              disabled={
+                !formData.emailDirty ||
+                !formData.fullNameDirty ||
+                !formData.messageSubjectDirty ||
+                !formData.messageBodyDirty
+              }
+            >
+              <FontAwesomeIcon icon={["fas", "paper-plane"]} size="1x" pull="left" />
+              Send Message
+            </button>
           </div>
-
-          <div className={`field`}>
-            <div className={`control`}>
-              <button
-                data-testid="form-submit"
-                id="form-submit"
-                className={`button is-link is-outlined is-fullwidth`}
-                type="submit"
-                disabled={!emailDirty || !fullNameDirty || !messageSubjectDirty || !messageBodyDirty}
-              >
-                <FontAwesomeIcon icon={["fas", "paper-plane"]} size="1x" pull="left" />
-                Send Message
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>
-    );
-  }
-}
+        </div>
+      </form>
+    </div>
+  );
+};
 
 ContactForm.propTypes = {
   nameValidationMsg: PropTypes.string.isRequired,
@@ -310,6 +277,8 @@ ContactForm.propTypes = {
 ContactForm.defaultProps = {
   nameValidationMsg: "Please enter your full name",
   emailValidationMsg: "Please enter your email",
-  subjectValidationMsg: "Need a quote? Want to meet? Let us know in the subject.",
-  bodyValidationMsg: "Tell us how we can be of service to you",
+  subjectValidationMsg: "Tell us why you're reaching out in the subject.",
+  bodyValidationMsg: "Tell us how we can help you here.",
 };
+
+export default ContactForm;
