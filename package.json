@@ -34,8 +34,9 @@
     "acorn": "^6.4.1",
     "babel-polyfill": "^6.26.0",
     "bulma-fluent": "^0.4.3",
+    "framer-motion": "^2.6.13",
     "gatsby": "^2.24.46",
-    "gatsby-cli": "^2.12.86",
+    "gatsby-cli": "^2.12.107",
     "gatsby-plugin-feed-generator": "git+ssh://git@code.orbitsolutions.dev:5283/orb-it-solutions/gatsby-plugin-feed-generator.git",
     "gatsby-plugin-manifest": "^2.2.42",
     "gatsby-plugin-matomo": "^0.7.0",
@@ -54,7 +55,6 @@
     "react-dom": "^16.13.1",
     "react-helmet": "^6.1.0",
     "react-refresh": "^0.8.2",
-    "react-typist": "^2.0.5",
     "typescript": "^3.4.3"
   },
   "devDependencies": {
