@@ -25,6 +25,8 @@ header button
 .navbar > .container,
 .container > .navbar
     @include from($navbar-breakpoint)
+        .navbar-item.is-hoverable:focus-within .navbar-dropdown
+            display: none
         .navbar-brand
             margin-left: 0rem
         .navbar-menu
