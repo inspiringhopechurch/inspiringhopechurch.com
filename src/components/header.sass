@@ -25,8 +25,14 @@ header button
 .navbar > .container,
 .container > .navbar
     @include from($navbar-breakpoint)
+        // Do not continue to display dropdown just because items have been clicked
+        .navbar-item.is-hoverable:focus .navbar-dropdown,
         .navbar-item.is-hoverable:focus-within .navbar-dropdown
             display: none
+        // Use the cascade to still show dropdown on hover, or when 'is-active' added
+        .navbar-item.is-active .navbar-dropdown,
+        .navbar-item.is-hoverable:hover .navbar-dropdown
+            display: block
         .navbar-brand
             margin-left: 0rem
         .navbar-menu
