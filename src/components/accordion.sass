@@ -12,10 +12,15 @@
             position: absolute
             right: 3px
             top: 3px
-        &:focus
-            svg
-                outline: 1px solid $dark-blue
-    &.expanded + div
-        display: block
-    & + div
-        display: none
+    //     &:focus
+    //         svg
+    //             outline: 1px solid $dark-blue
+    &.expanded + .accordion-content
+        max-height: var( --accordion-max-height )
+        opacity: 1
+        transition: all $accordion-transition-time ease-in
+    & + .accordion-content
+        max-height: 0
+        opacity: 0
+        overflow: hidden
+        transition: all $accordion-transition-time ease-out
