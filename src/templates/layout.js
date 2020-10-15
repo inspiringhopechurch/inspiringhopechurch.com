@@ -61,7 +61,7 @@ const Layout = ({ children, location }) => {
 
       <Header location={location} />
 
-      <AnimatePresence>
+      <AnimatePresence initial={false}>
         <motion.main
           className={currentPage === "/" ? "main-dark" : "main-light"}
           key={location.pathname}
