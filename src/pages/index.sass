@@ -8,7 +8,7 @@
 
 .index-page
     .button
-        transition: color $transition-time
+        transition: color $decoration-transition-time
         @each $name, $pair in $colors
             $color: nth($pair, 1)
             &.is-#{$name}
@@ -43,7 +43,7 @@
     .container
         h1, h2
             text-shadow: 0 2px 3px rgba(10, 10, 10, 0.5)
-            transition: background-color $transition-time, color $transition-time, text-shadow $transition-time
+            transition: background-color $decoration-transition-time, color $decoration-transition-time, text-shadow $decoration-transition-time
 
     .modal-content
         @include from($tablet)
