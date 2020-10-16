@@ -42,7 +42,6 @@ const Accordion = ({ title, children, isExpanded }) => {
 
   const invalidChars = /^[^a-zA-Z]+|[^\w:.-]+/g;
   const accordionId = title.replace(invalidChars, "-");
-  const accordionContent = document.querySelector(`[data-id='${accordionId}']`);
 
   // Check for document being available first to prevent error during
   // gatsby ssr build step: https://www.gatsbyjs.com/docs/debugging-html-builds/
