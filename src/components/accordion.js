@@ -44,6 +44,10 @@ const Accordion = ({ title, children, isExpanded }) => {
   const accordionId = title.replace(invalidChars, "-");
   const accordionContent = document.querySelector(`[data-id='${accordionId}']`);
 
+  // Check for document being available first to prevent error during
+  // gatsby ssr build step: https://www.gatsbyjs.com/docs/debugging-html-builds/
+  const accordionContent = typeof document !== `undefined` && document.querySelector(`[data-id='${accordionId}']`);
+
   // We make sure to not reset accordionHeight to a value that's less than its initial value.
   // It will be on static pages whose data will not change, so there should never be 'less'
   // content that what we start with.
