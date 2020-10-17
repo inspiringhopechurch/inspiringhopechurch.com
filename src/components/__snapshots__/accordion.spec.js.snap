@@ -58,6 +58,12 @@ exports[`Accordion should render without crashing 1`] = `
       </FontAwesomeIcon>
     </button>
   </h2>
-  Test content
+  <div
+    className="accordion-content"
+    data-id="My-Title"
+    style={Object {}}
+  >
+    Test content
+  </div>
 </Accordion>
 `;

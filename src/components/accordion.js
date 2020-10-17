@@ -3,20 +3,8 @@ import { PropTypes } from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./accordion.sass";
 
-// TODO: unit test the heck outta me
-// - Initially
-//    - accordionHeight should be 0
-//    - accordionContent should not have any custom styles set
-// - when any header is clicked/touched
-//    - expanded state variable must toggle value
-//    - accordionContent must also have expanded class set/unset based on expanded state
-//    - accordionHeight must be set
-// - when the window resizes/rotates
-//    - any custom style for accordionContent should be unset
-// - when expanded and accordionHeight > 1
-//    - there should be custom style set that sets css variable
-// - when not expanded or accordionHeight < 1
-//    - there should be no custom style set
+export const invalidChars = /^[^a-zA-Z]+|[^\w:.-]+/g;
+
 const Accordion = ({ title, children, isExpanded }) => {
   const [expanded, setExpanded] = useState(isExpanded);
   const [accordionHeight, setAccordionHeight] = useState(0);
@@ -40,7 +28,6 @@ const Accordion = ({ title, children, isExpanded }) => {
     };
   });
 
-  const invalidChars = /^[^a-zA-Z]+|[^\w:.-]+/g;
   const accordionId = title.replace(invalidChars, "-");
 
   // Check for document being available first to prevent error during

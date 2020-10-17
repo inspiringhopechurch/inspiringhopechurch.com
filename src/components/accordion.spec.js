@@ -1,6 +1,6 @@
 import React from "react";
 import { mount } from "enzyme";
-import Accordion from "./accordion";
+import Accordion, { invalidChars } from "./accordion";
 // Import fontawesome library files
 import "./icons";
 
