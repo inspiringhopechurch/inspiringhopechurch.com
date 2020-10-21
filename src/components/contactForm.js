@@ -37,7 +37,7 @@ const ContactForm = (props) => {
     // 'Dirty' fields are used to indicate whether the submit button should
     // be enabled or not. Since we only enable it when all fields are dirty,
     // check that there is content here, and set 'dirtiness' as appropriate here.
-    if (value.length > 0) {
+    if (value) {
       newData[nameDirty] = true;
     } else {
       newData[nameDirty] = false;
