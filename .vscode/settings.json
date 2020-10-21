@@ -1,7 +1,5 @@
 {
-    "workbench.colorCustomizations": {
-        "titleBar.activeBackground": "#99C47C",
-    },
-    "editor.formatOnSave": true,
-    "prettier.printWidth": 120
+  "workbench.colorCustomizations": {},
+  "editor.formatOnSave": true,
+  "prettier.printWidth": 120
 }
