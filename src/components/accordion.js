@@ -16,11 +16,13 @@ const Accordion = ({ title, children, isExpanded }) => {
 
   useEffect(() => {
     // Instead of resetting state when we resize, just remove styles, because this is simpler.
-    // TODO: debounce removing style attribute. 1 operation/sec should be sufficient
     function handleWindowResize() {
+      // TODO: debounce removing style attribute. 1 operation/sec should be sufficient
       accordionContent.removeAttribute("style");
     }
 
+    //! NOTE: DOM Event listeners set 'this' to be the target element,
+    //! and if you rely on 'this' in an event handler, a regular function is necessary
     window.addEventListener("resize", handleWindowResize);
 
     return function cleanup() {

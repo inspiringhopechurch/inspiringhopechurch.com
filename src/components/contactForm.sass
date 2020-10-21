@@ -9,12 +9,17 @@
 
 .contact-form
     .notification
-        display: none
-        // transition: transform $decoration-transition-time, display $decoration-transition-time
-        // transform: scaleY(0)
-        // transform-origin: top
+        max-height: 0
+        opacity: 0
+        overflow: hidden
+        transition: all $accordion-transition-time ease-out
+        margin-bottom: 0
+        padding: 0
         &.is-danger, &.is-success
-            display: block
-            // transform: scaleY(1)
+            max-height: 10rem
+            margin-bottom: 1.5rem
+            padding: 1.125rem
+            opacity: 1
+            transition: all $accordion-transition-time ease-in
     .button:hover
         transition: all $decoration-transition-time

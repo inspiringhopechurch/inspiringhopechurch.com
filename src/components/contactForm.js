@@ -23,11 +23,11 @@ const ContactForm = (props) => {
   /**
    * Handles changes to the form's inputs. Should be passed to an input's
    * onChange prop.
-   * @param {SyntheticEvent} event - Provides the value for the input being changed
+   * @param {React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>} event - Provides the value for the input being changed
    */
   const handleChange = (event) => {
     const target = event.target;
-    const value = target.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === "checkbox" ? /** @type {HTMLInputElement} */ (target).checked : target.value;
     const name = target.name;
     const nameDirty = target.name + "Dirty";
 
@@ -50,7 +50,7 @@ const ContactForm = (props) => {
   /**
    * Async function. Sends form data to server and waits for a response.
    * Once the response is obtained, should update page with the server's response.
-   * @param {SyntheticEvent} event - Used to override the browser's default 'submit' behavior
+   * @param {React.SyntheticEvent<HTMLFormElement>} event - Used to override the browser's default 'submit' behavior
    */
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -90,7 +90,13 @@ const ContactForm = (props) => {
 
   /**
    * Provides flags needed to reset form fields. Should be used after successful form submissions.
-   * @returns {Object} An object containing flags set to their initial state
+   * @returns {{
+   * fullName: string,fullNameDirty: boolean,
+   * email: string, emailDirty: boolean,
+   * messageSubject: string, messageSubjectDirty: boolean,
+   * messageBody: string, messageBodyDirty: boolean,
+   * formSubmissionAttempt: boolean
+   * }} An object containing flags set to their initial state
    */
   const resetForm = () => {
     const newData = {};
@@ -232,7 +238,7 @@ const ContactForm = (props) => {
               name="messageBody"
               className={`textarea`}
               placeholder="Message"
-              rows="10"
+              rows={10}
               onChange={handleChange}
               value={formData.messageBody}
               required
