@@ -52,7 +52,7 @@ const Accordion = ({ title, children, isExpanded }) => {
       </h2>
       <div
         className="accordion-content"
-        data-id={accordionId}
+        data-id={accordionId} // @ts-ignore custom css property "--accordion-max-height"
         style={expanded && accordionHeight > 1 ? { "--accordion-max-height": `${accordionHeight}px` } : {}}
       >
         {children}

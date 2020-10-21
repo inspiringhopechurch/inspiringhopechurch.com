@@ -4,7 +4,7 @@ import * as PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./contactForm.sass";
 
-const ContactForm = () => {
+const ContactForm = (props) => {
   const [formData, setFormData] = useState({
     fullName: "",
     fullNameDirty: false,
@@ -175,7 +175,7 @@ const ContactForm = () => {
                 </span>
               </div>
               <p id="fullNameError" className={`help`}>
-                {formData.formSubmissionAttempt && formData.fullNameDirty ? this.props.nameValidationMsg : " "}
+                {formData.formSubmissionAttempt && formData.fullNameDirty ? props.nameValidationMsg : " "}
               </p>
             </div>
             <div className={`field`}>
@@ -196,7 +196,7 @@ const ContactForm = () => {
                 </span>
               </div>
               <p id="emailError" className={`help`}>
-                {formData.formSubmissionAttempt && formData.emailDirty ? this.props.emailValidationMsg : " "}
+                {formData.formSubmissionAttempt && formData.emailDirty ? props.emailValidationMsg : " "}
               </p>
             </div>
           </div>
@@ -220,7 +220,7 @@ const ContactForm = () => {
             </span>
           </div>
           <p id="messageSubjectError" className="help">
-            {formData.formSubmissionAttempt && formData.messageSubjectDirty ? this.props.subjectValidationMsg : " "}
+            {formData.formSubmissionAttempt && formData.messageSubjectDirty ? props.subjectValidationMsg : " "}
           </p>
         </div>
 
@@ -239,7 +239,7 @@ const ContactForm = () => {
             />
           </div>
           <p id="messageBodyError" className="help">
-            {formData.formSubmissionAttempt && formData.messageBodyDirty ? this.props.bodyValidationMsg : " "}
+            {formData.formSubmissionAttempt && formData.messageBodyDirty ? props.bodyValidationMsg : " "}
           </p>
         </div>
 
