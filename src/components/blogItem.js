@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "gatsby";
-import { PropTypes } from "prop-types";
+import * as PropTypes from "prop-types";
 import "./blogItem.sass";
 
 const BlogItem = (props) => (

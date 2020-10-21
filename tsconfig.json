@@ -1,0 +1,13 @@
+{
+  "compilerOptions": {
+    "module": "system",
+    "moduleResolution": "node",
+    "outFile": "../../built/local/tsc.js",
+    "checkJs": true,
+    "sourceMap": true,
+    "jsx": "react",
+    "allowJs": true
+  },
+  "include": ["src/**/*"],
+  "exclude": ["node_modules", "**/*.spec.js"]
+}
