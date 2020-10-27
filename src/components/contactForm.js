@@ -27,17 +27,22 @@ const ContactForm = (props) => {
    */
   const handleChange = (event) => {
     const target = event.target;
-    const value = target.type === "checkbox" ? /** @type {HTMLInputElement} */ (target).checked : target.value;
-    const name = target.name;
-    const nameDirty = target.name + "Dirty";
+    //! Changing the user's actual (typed) input here. It's possible this is undesirable.
+    //! But instead of doing it silently in the background, I want to hear about
+    //! any issues that may arise from doing this. So we let the users see it too.
+    const value = target.type === "checkbox" ? /** @type {HTMLInputElement} */ (target).checked : target.value.trim();
+    const name = target.name.trim();
+    const nameDirty = target.name.trim() + "Dirty";
 
     const newData = {};
     newData[name] = value;
 
     // 'Dirty' fields are used to indicate whether the submit button should
-    // be enabled or not. Since we only enable it when all fields are dirty,
+    // be enabled or not. Since we only enable submitting when all fields are dirty,
     // check that there is content here, and set 'dirtiness' as appropriate here.
     if (value) {
+      // if user only passed in a space (' ') to get around the disabled submit button,
+      // we never get here.
       newData[nameDirty] = true;
     } else {
       newData[nameDirty] = false;

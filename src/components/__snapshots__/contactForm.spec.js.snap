@@ -10,10 +10,10 @@ exports[`ContactForm should render without crashing 1`] = `
     Get in touch
   </h1>
   <div
-    className="notification"
+    className="notification "
   >
     <button
-      aria-label="clear notification"
+      aria-label="remove notification"
       className="delete"
       onClick={[Function]}
     />
@@ -205,7 +205,7 @@ exports[`ContactForm should render without crashing 1`] = `
           onChange={[Function]}
           placeholder="Message"
           required={true}
-          rows="10"
+          rows={10}
           value=""
         />
       </div>

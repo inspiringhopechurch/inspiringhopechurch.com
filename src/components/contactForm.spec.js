@@ -6,19 +6,20 @@ import "./icons";
 
 describe("ContactForm", () => {
   let myForm = undefined;
-  const form = "#form-submit",
-    testName = "Test User",
-    testEmail = "test@test.com",
-    testSubject = "Test Subject",
-    testMsg = "Test message",
-    nameSelector = "#fullName",
-    emailSelector = "#email",
-    subjectSelector = "#messageSubject",
-    messageSelector = "#messageBody",
+  const name = "fullName",
+    email = "email",
+    subject = "messageSubject",
+    message = "messageBody";
+
+  const formSubmitButton = "#form-submit",
+    testName = "Test User ",
+    testEmail = "test@test.com ",
+    testSubject = " Test Subject ",
+    testMsg = " Test message",
     nameValidationTxt = "Please enter your full name",
     emailValidationTxt = "Please enter your email",
-    subjectValidationTxt = "Need a quote? Want to meet? Let us know in the subject.",
-    bodyValidationTxt = "Tell us how we can be of service to you";
+    subjectValidationTxt = "Tell us why you're reaching out in the subject.",
+    bodyValidationTxt = "Tell us how we can help you here.";
 
   beforeEach(() => {
     // myForm = shallow(<ContactForm />);
@@ -39,44 +40,58 @@ describe("ContactForm", () => {
 
   it("disables submit button when required inputs are not filled out", () => {
     myForm = mount(<ContactForm />);
-    expect(myForm.find(form).prop("disabled")).toBeTruthy();
+    expect(myForm.find(formSubmitButton).prop("disabled")).toBeTruthy();
   });
 
-  it("enables submit button when all inputs are filled in", () => {
+  it("enables submit button only when all inputs are filled in", () => {
     myForm = mount(<ContactForm />);
-    expect(myForm.find(form).prop("disabled")).toBeTruthy();
-    myForm.setState({ fullNameDirty: true });
-    myForm.setState({ emailDirty: true });
-    myForm.setState({ messageSubjectDirty: true });
-    myForm.setState({ messageBodyDirty: true });
-    expect(myForm.find(form).prop("disabled")).toBeFalsy();
+
+    expect(myForm.find(formSubmitButton).prop("disabled")).toBeTruthy();
+
+    myForm.find(`#${name}`).simulate("change", { target: { name: name, value: testName } });
+    myForm.find(`#${email}`).simulate("change", { target: { name: email, value: testEmail } });
+    myForm.find(`#${subject}`).simulate("change", { target: { name: subject, value: testSubject } });
+    expect(myForm.find(formSubmitButton).prop("disabled")).toBeTruthy();
+
+    myForm.find(`#${message}`).simulate("change", { target: { name: message, value: testMsg } });
+    expect(myForm.find(formSubmitButton).prop("disabled")).toBeFalsy();
+
+    myForm.find(`#${name}`).simulate("change", { target: { name: name, value: " " } });
+    expect(myForm.find(formSubmitButton).prop("disabled")).toBeTruthy();
+
+    myForm.find(`#${name}`).simulate("change", { target: { name: name, value: testName } });
+    expect(myForm.find(formSubmitButton).prop("disabled")).toBeFalsy();
   });
 
   it("changes inputs when values are filled in", () => {
     myForm = mount(<ContactForm />);
-    expect(myForm.find(form).prop("disabled")).toBeTruthy();
 
-    expect(myForm.find(nameSelector).prop("value").length).toBe(0);
-    myForm.find(nameSelector).simulate("change", { target: { value: testName, name: "fullName" } });
-    expect(myForm.find(nameSelector).prop("value")).toEqual(testName);
-    expect(myForm.find(nameSelector).prop("value").length).toBe(testName.length);
+    //! We keep querying myForm.find(`selector`) and don't store this in a
+    //! variable, because enzyme will not pick up changes if we do this.
+    expect(myForm.find(`#${name}`).prop("value").length).toBe(0);
+    myForm.find(`#${name}`).simulate("change", { target: { name: name, value: testName } });
+    expect(myForm.find(`#${name}`).prop("value")).not.toEqual(testName);
+    expect(myForm.find(`#${name}`).prop("value")).toEqual(testName.trim());
+    expect(myForm.find(`#${name}`).prop("value").length).toBe(testName.trim().length);
 
-    expect(myForm.find(emailSelector).prop("value").length).toBe(0);
-    myForm.find(emailSelector).simulate("change", { target: { value: testEmail, name: "email" } });
-    expect(myForm.find(emailSelector).prop("value")).toEqual(testEmail);
-    expect(myForm.find(emailSelector).prop("value").length).toBe(testEmail.length);
+    expect(myForm.find(`#${email}`).prop("value").length).toBe(0);
+    myForm.find(`#${email}`).simulate("change", { target: { name: "email", value: testEmail } });
+    expect(myForm.find(`#${email}`).prop("value")).toEqual(testEmail.trim());
+    expect(myForm.find(`#${email}`).prop("value").length).toBe(testEmail.trim().length);
 
-    expect(myForm.find(subjectSelector).prop("value").length).toBe(0);
-    myForm.find(subjectSelector).simulate("change", {
-      target: { value: testSubject, name: "messageSubject" },
+    expect(myForm.find(`#${subject}`).prop("value").length).toBe(0);
+    myForm.find(`#${subject}`).simulate("change", {
+      target: { name: "messageSubject", value: testSubject },
     });
-    expect(myForm.find(subjectSelector).prop("value")).toEqual(testSubject);
-    expect(myForm.find(subjectSelector).prop("value").length).toBe(testSubject.length);
+    expect(myForm.find(`#${subject}`).prop("value")).toEqual(testSubject.trim());
+    expect(myForm.find(`#${subject}`).prop("value").length).toBe(testSubject.trim().length);
 
-    expect(myForm.find(messageSelector).text().length).toBe(0);
-    myForm.find(messageSelector).instance().value = testMsg;
-    myForm.find(messageSelector).simulate("change");
-    expect(myForm.state("messageBody").length).toBe(testMsg.length);
-    expect(myForm.find(form).prop("disabled")).toBeFalsy();
+    expect(myForm.find(`#${message}`).text().length).toBe(0);
+    myForm.find(`#${message}`).simulate("change", {
+      target: { name: message, value: testMsg },
+    });
+    myForm.find(`#${message}`).simulate("change");
+    // Getting the value of *this* input a different way, just because I can
+    expect(myForm.find(`#${message}`).getDOMNode().value.length).toBe(testMsg.trim().length);
   });
 });
