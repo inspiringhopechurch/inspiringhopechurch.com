@@ -10,8 +10,6 @@ import {
   faUser,
   faPaperPlane,
   faPhone,
-  faPlus,
-  faMinus,
 } from "@fortawesome/pro-solid-svg-icons";
 import { faFacebook, faFacebookF, faTwitter, faLinkedinIn, faStripe } from "@fortawesome/free-brands-svg-icons";
 
@@ -27,8 +25,6 @@ library.add(
   faUser,
   faPaperPlane,
   faPhone,
-  faPlus,
-  faMinus,
   faFacebook,
   faFacebookF,
   faTwitter,

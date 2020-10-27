@@ -26,8 +26,6 @@ describe("Accordion", () => {
     expect(myAccordion.prop("isExpanded")).toBe(expanded);
     expect(myAccordion.find(`[data-id="${dataTitle}"]`)).toHaveLength(1);
     expect(expandableContainer.find(`[style]`)).toEqual(emptyObject);
-    expect(myAccordion.find(".accordion svg.fa-plus")).toHaveLength(1);
-    expect(myAccordion.find(".accordion svg.fa-minus")).toHaveLength(0);
     expect(myAccordion).toMatchSnapshot();
   });
 
@@ -40,12 +38,8 @@ describe("Accordion", () => {
     expect(myAccordion.prop("title")).toBe(title);
     expect(myAccordion.prop("isExpanded")).toBe(!expanded);
     expect(myAccordion.find(".accordion.expanded")).toHaveLength(1);
-    expect(myAccordion.find(".accordion svg.fa-plus")).toHaveLength(0);
-    expect(myAccordion.find(".accordion svg.fa-minus")).toHaveLength(1);
     myAccordion.find("button").simulate("click");
     expect(myAccordion.find(".accordion.expanded")).toHaveLength(0);
-    expect(myAccordion.find(".accordion svg.fa-plus")).toHaveLength(1);
-    expect(myAccordion.find(".accordion svg.fa-minus")).toHaveLength(0);
   });
 
   // - when any header is clicked/touched

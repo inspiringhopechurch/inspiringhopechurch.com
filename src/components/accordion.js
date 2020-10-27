@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from "react";
 import * as PropTypes from "prop-types";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./accordion.sass";
 
 export const invalidChars = /^[^a-zA-Z]+|[^\w:.-]+/g;
@@ -18,7 +17,7 @@ const Accordion = ({ title, children, isExpanded }) => {
     // Instead of resetting state when we resize, just remove styles, because this is simpler.
     function handleWindowResize() {
       // TODO: debounce removing style attribute. 1 operation/sec should be sufficient
-      accordionContent.removeAttribute("style");
+      accordionContent && accordionContent.removeAttribute("style");
     }
 
     //! NOTE: DOM Event listeners set 'this' to be the target element,
@@ -49,7 +48,7 @@ const Accordion = ({ title, children, isExpanded }) => {
     <>
       <h2 className={`accordion is-size-4 is-uppercase${expanded ? " expanded" : ""}`}>
         <button aria-expanded={expanded ? "true" : "false"} onClick={toggleAccordion}>
-          {title} <FontAwesomeIcon icon={["fas", expanded ? "minus" : "plus"]} size="sm" />
+          {title}
         </button>
       </h2>
       <div
