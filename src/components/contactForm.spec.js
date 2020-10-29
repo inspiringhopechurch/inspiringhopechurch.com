@@ -56,11 +56,14 @@ describe("ContactForm", () => {
     myForm.find(`#${message}`).simulate("change", { target: { name: message, value: testMsg } });
     expect(myForm.find(formSubmitButton).prop("disabled")).toBeFalsy();
 
-    myForm.find(`#${name}`).simulate("change", { target: { name: name, value: " " } });
-    expect(myForm.find(formSubmitButton).prop("disabled")).toBeTruthy();
+    // These tests were added when I was trimming spaces from the typed in values.
+    // Now, I'm not doing that anymore. Considering if I should be modifying user input,
+    // Or instead, give a warning message when there are trailing spaces. For now, disable
+    // myForm.find(`#${name}`).simulate("change", { target: { name: name, value: " " } });
+    // expect(myForm.find(formSubmitButton).prop("disabled")).toBeTruthy();
 
-    myForm.find(`#${name}`).simulate("change", { target: { name: name, value: testName } });
-    expect(myForm.find(formSubmitButton).prop("disabled")).toBeFalsy();
+    // myForm.find(`#${name}`).simulate("change", { target: { name: name, value: testName } });
+    // expect(myForm.find(formSubmitButton).prop("disabled")).toBeFalsy();
   });
 
   it("changes inputs when values are filled in", () => {
@@ -70,21 +73,20 @@ describe("ContactForm", () => {
     //! variable, because enzyme will not pick up changes if we do this.
     expect(myForm.find(`#${name}`).prop("value").length).toBe(0);
     myForm.find(`#${name}`).simulate("change", { target: { name: name, value: testName } });
-    expect(myForm.find(`#${name}`).prop("value")).not.toEqual(testName);
-    expect(myForm.find(`#${name}`).prop("value")).toEqual(testName.trim());
-    expect(myForm.find(`#${name}`).prop("value").length).toBe(testName.trim().length);
+    expect(myForm.find(`#${name}`).prop("value")).toEqual(testName);
+    expect(myForm.find(`#${name}`).prop("value").length).toBe(testName.length);
 
     expect(myForm.find(`#${email}`).prop("value").length).toBe(0);
     myForm.find(`#${email}`).simulate("change", { target: { name: "email", value: testEmail } });
-    expect(myForm.find(`#${email}`).prop("value")).toEqual(testEmail.trim());
-    expect(myForm.find(`#${email}`).prop("value").length).toBe(testEmail.trim().length);
+    expect(myForm.find(`#${email}`).prop("value")).toEqual(testEmail);
+    expect(myForm.find(`#${email}`).prop("value").length).toBe(testEmail.length);
 
     expect(myForm.find(`#${subject}`).prop("value").length).toBe(0);
     myForm.find(`#${subject}`).simulate("change", {
       target: { name: "messageSubject", value: testSubject },
     });
-    expect(myForm.find(`#${subject}`).prop("value")).toEqual(testSubject.trim());
-    expect(myForm.find(`#${subject}`).prop("value").length).toBe(testSubject.trim().length);
+    expect(myForm.find(`#${subject}`).prop("value")).toEqual(testSubject);
+    expect(myForm.find(`#${subject}`).prop("value").length).toBe(testSubject.length);
 
     expect(myForm.find(`#${message}`).text().length).toBe(0);
     myForm.find(`#${message}`).simulate("change", {
@@ -92,6 +94,6 @@ describe("ContactForm", () => {
     });
     myForm.find(`#${message}`).simulate("change");
     // Getting the value of *this* input a different way, just because I can
-    expect(myForm.find(`#${message}`).getDOMNode().value.length).toBe(testMsg.trim().length);
+    expect(myForm.find(`#${message}`).getDOMNode().value.length).toBe(testMsg.length);
   });
 });

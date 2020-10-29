@@ -30,9 +30,9 @@ const ContactForm = (props) => {
     //! Changing the user's actual (typed) input here. It's possible this is undesirable.
     //! But instead of doing it silently in the background, I want to hear about
     //! any issues that may arise from doing this. So we let the users see it too.
-    const value = target.type === "checkbox" ? /** @type {HTMLInputElement} */ (target).checked : target.value.trim();
-    const name = target.name.trim();
-    const nameDirty = target.name.trim() + "Dirty";
+    const value = target.type === "checkbox" ? /** @type {HTMLInputElement} */ (target).checked : target.value;
+    const name = target.name;
+    const nameDirty = target.name + "Dirty";
 
     const newData = {};
     newData[name] = value;
@@ -72,7 +72,7 @@ const ContactForm = (props) => {
     } = formData;
 
     if (fullNameDirty && emailDirty && messageSubjectDirty && messageBodyDirty) {
-      const formContent = `fullname=${fullName}&email=${email}&subject=${messageSubject}&message=${messageBody}`;
+      const formContent = `fullname=${fullName}&email=${email.trim()}&subject=${messageSubject}&message=${messageBody}`;
 
       const response = await fetch(withPrefix("/contact-form"), {
         method: "POST",
