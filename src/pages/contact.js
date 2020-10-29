@@ -2,10 +2,12 @@ import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactForm from "../components/contactForm";
 import "./contact.sass";
+import SEO from "../components/seo";
 
 const Contact = () => {
   return (
     <>
+      <SEO title="Contact Us" />
       <section className={`contact-page hero is-halfheight`}>
         <div className={`hero-body`}>
           <div className={`container has-text-centered`}>
