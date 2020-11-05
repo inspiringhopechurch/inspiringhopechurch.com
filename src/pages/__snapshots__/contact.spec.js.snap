@@ -2,6 +2,13 @@
 
 exports[`Contact should render without crashing 1`] = `
 <Fragment>
+  <SEO
+    article={false}
+    banner={null}
+    desc={null}
+    pathname={null}
+    title="Contact Us"
+  />
   <section
     className="contact-page hero is-halfheight"
   >
@@ -139,10 +146,12 @@ exports[`Contact should render without crashing 1`] = `
         </p>
       </div>
       <ContactForm
-        bodyValidationMsg="Tell us how we can be of service to you"
+        bodyValidationMsg="Tell us how we can help you."
         emailValidationMsg="Please enter your email"
+        formTitle="Get in Touch"
         nameValidationMsg="Please enter your full name"
-        subjectValidationMsg="Need a quote? Want to meet? Let us know in the subject."
+        subjectValidationMsg="Tell us why you're reaching out."
+        submitButtonTitle="Send Message"
       />
     </div>
   </section>

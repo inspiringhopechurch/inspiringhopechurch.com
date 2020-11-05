@@ -4,7 +4,25 @@ import * as PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./contactForm.sass";
 
-const ContactForm = (props) => {
+/**
+ * Renders a contact form and with a title and submission button
+ * @param {{
+ * formTitle: string,
+ * submitButtonTitle: string,
+ * nameValidationMsg: string,
+ * emailValidationMsg: string,
+ * subjectValidationMsg: string,
+ * bodyValidationMsg: string,
+ * }} props - validation messages and titles used in contact form
+ */
+const ContactForm = ({
+  formTitle,
+  submitButtonTitle,
+  nameValidationMsg,
+  emailValidationMsg,
+  subjectValidationMsg,
+  bodyValidationMsg,
+}) => {
   const [formData, setFormData] = useState({
     fullName: "",
     fullNameDirty: false,
@@ -96,7 +114,7 @@ const ContactForm = (props) => {
   /**
    * Provides flags needed to reset form fields. Should be used after successful form submissions.
    * @returns {{
-   * fullName: string,fullNameDirty: boolean,
+   * fullName: string, fullNameDirty: boolean,
    * email: string, emailDirty: boolean,
    * messageSubject: string, messageSubjectDirty: boolean,
    * messageBody: string, messageBodyDirty: boolean,
@@ -153,7 +171,7 @@ const ContactForm = (props) => {
 
   return (
     <div className={`contact-form column is-two-thirds-tablet is-two-fifths-widescreen`}>
-      <h1 className={`title is-uppercase has-text-link has-text-centered`}>Get in touch</h1>
+      <h1 className={`title is-uppercase has-text-link has-text-centered`}>{formTitle}</h1>
 
       <div
         className={`notification ${
@@ -186,7 +204,7 @@ const ContactForm = (props) => {
                 </span>
               </div>
               <p id="fullNameError" className={`help`}>
-                {formData.formSubmissionAttempt && formData.fullNameDirty ? props.nameValidationMsg : " "}
+                {formData.formSubmissionAttempt && formData.fullNameDirty ? nameValidationMsg : " "}
               </p>
             </div>
             <div className={`field`}>
@@ -207,7 +225,7 @@ const ContactForm = (props) => {
                 </span>
               </div>
               <p id="emailError" className={`help`}>
-                {formData.formSubmissionAttempt && formData.emailDirty ? props.emailValidationMsg : " "}
+                {formData.formSubmissionAttempt && formData.emailDirty ? emailValidationMsg : " "}
               </p>
             </div>
           </div>
@@ -231,7 +249,7 @@ const ContactForm = (props) => {
             </span>
           </div>
           <p id="messageSubjectError" className="help">
-            {formData.formSubmissionAttempt && formData.messageSubjectDirty ? props.subjectValidationMsg : " "}
+            {formData.formSubmissionAttempt && formData.messageSubjectDirty ? subjectValidationMsg : " "}
           </p>
         </div>
 
@@ -250,7 +268,7 @@ const ContactForm = (props) => {
             />
           </div>
           <p id="messageBodyError" className="help">
-            {formData.formSubmissionAttempt && formData.messageBodyDirty ? props.bodyValidationMsg : " "}
+            {formData.formSubmissionAttempt && formData.messageBodyDirty ? bodyValidationMsg : " "}
           </p>
         </div>
 
@@ -269,7 +287,7 @@ const ContactForm = (props) => {
               }
             >
               <FontAwesomeIcon icon={["fas", "paper-plane"]} size="1x" pull="left" />
-              Send Message
+              {submitButtonTitle}
             </button>
           </div>
         </div>
@@ -279,6 +297,8 @@ const ContactForm = (props) => {
 };
 
 ContactForm.propTypes = {
+  formTitle: PropTypes.string,
+  submitButtonTitle: PropTypes.string,
   nameValidationMsg: PropTypes.string.isRequired,
   emailValidationMsg: PropTypes.string.isRequired,
   subjectValidationMsg: PropTypes.string.isRequired,
@@ -286,10 +306,12 @@ ContactForm.propTypes = {
 };
 
 ContactForm.defaultProps = {
+  formTitle: "Get in touch",
+  submitButtonTitle: "Send Message",
   nameValidationMsg: "Please enter your full name",
   emailValidationMsg: "Please enter your email",
-  subjectValidationMsg: "Tell us why you're reaching out in the subject.",
-  bodyValidationMsg: "Tell us how we can help you here.",
+  subjectValidationMsg: "Tell us why you're reaching out.",
+  bodyValidationMsg: "Tell us how we can help you.",
 };
 
 export default ContactForm;

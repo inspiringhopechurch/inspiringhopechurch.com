@@ -18,8 +18,8 @@ describe("ContactForm", () => {
     testMsg = " Test message",
     nameValidationTxt = "Please enter your full name",
     emailValidationTxt = "Please enter your email",
-    subjectValidationTxt = "Tell us why you're reaching out in the subject.",
-    bodyValidationTxt = "Tell us how we can help you here.";
+    subjectValidationTxt = "Tell us why you're reaching out.",
+    bodyValidationTxt = "Tell us how we can help you.";
 
   beforeEach(() => {
     // myForm = shallow(<ContactForm />);

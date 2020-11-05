@@ -2,6 +2,7 @@ import React from "react";
 import Helmet from "react-helmet";
 import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
+import { validUrl } from "../utils";
 
 const SEO = ({ title, desc, banner, pathname, article }) => (
   <StaticQuery
@@ -16,7 +17,6 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
           author,
           siteLanguage,
           logo,
-          siteUrl,
           url,
           pathPrefix,
           defaultDescription,
@@ -28,7 +28,7 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
       const seo = {
         title: title ? `${title} | ${defaultTitle}` : defaultTitle,
         description: desc || defaultDescription,
-        image: `${siteUrl}/${banner || defaultBanner}`,
+        image: `${url}/${banner || defaultBanner}`,
         url: `${url}${pathname || "/"}`,
       };
       const realPrefix = pathPrefix === "/" ? "" : pathPrefix;
@@ -36,8 +36,8 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
         {
           "@context": "http://schema.org",
           "@type": "WebSite",
-          "@id": siteUrl,
-          url: siteUrl,
+          "@id": url,
+          url: url,
           name: defaultTitle,
           alternateName: titleAlt || "",
         },
@@ -68,13 +68,13 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
               name: author,
               logo: {
                 "@type": "ImageObject",
-                url: siteUrl + realPrefix + logo,
+                url: url + realPrefix + logo,
               },
             },
-            isPartOf: siteUrl,
+            isPartOf: url,
             mainEntityOfPage: {
               "@type": "WebSite",
-              "@id": siteUrl,
+              "@id": url,
             },
           },
         ];
@@ -105,7 +105,7 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
             <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={seo.image} />
 
-            <link rel="canonical" href={seo.url} />
+            <link rel="canonical" href={validUrl(seo.url) ? seo.url : ""} />
           </Helmet>
         </>
       );
@@ -140,7 +140,6 @@ const query = graphql`
         author
         siteLanguage
         logo
-        siteUrl
         url
         pathPrefix
         defaultDescription: description

@@ -7,6 +7,7 @@ context("Contact", () => {
 
   describe("Contact Page", () => {
     it("has the expected, page-specific UI elements", () => {
+      cy.get(".is-active-page").should("have.text", "Contact");
       // https://on.cypress.io/window
       cy.contains("Send Message").should("have.length", 1);
       cy.get("[data-testid=fullName]").should("be.empty");

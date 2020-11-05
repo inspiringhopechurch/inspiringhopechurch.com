@@ -1,8 +1,10 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactForm from "../components/contactForm";
-import "./contact.sass";
 import SEO from "../components/seo";
+import { validUrl } from "../utils";
+import { facebookUrl } from "../../config";
+import "./contact.sass";
 
 const Contact = () => {
   return (
@@ -33,13 +35,13 @@ const Contact = () => {
               </a>
             </p>
             <p className={`content`}>
-              <a href="https://www.facebook.com/inspiringhopechurch/" title="Link to Facebook page">
+              <a href={validUrl(facebookUrl) ? facebookUrl : ""} title="Link to Facebook page">
                 <FontAwesomeIcon icon={["fab", "facebook-f"]} size="lg" /> Inspiring Hope Facebook page
               </a>
             </p>
           </div>
 
-          <ContactForm />
+          <ContactForm formTitle={"Get in Touch"} submitButtonTitle={"Send Message"} />
         </div>
       </section>
     </>

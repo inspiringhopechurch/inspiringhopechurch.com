@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import sanitizeHtml from "sanitize-html";
 import SEO from "../components/seo";
 import "./post.sass";
 import logo from "../assets/logo.svg";
@@ -13,7 +14,7 @@ export default ({ data }) => {
     slug = post.fields.slug;
 
   function getPostHtml() {
-    return { __html: post.html };
+    return { __html: sanitizeHtml(post.html) }; // this needs to be sanitized because post.html can contain user modifiable code
   }
 
   return (

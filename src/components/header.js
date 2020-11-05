@@ -22,7 +22,7 @@ const Header = ({ location }) => {
       <nav className={`navbar is-fixed-top`} role="navigation" aria-label="main navigation">
         <div className={`container px-2`}>
           <div className="navbar-brand">
-            <Link className="navbar-item" to={homeUrl} state={{ prevPath: location.pathname }}>
+            <Link className="navbar-item" to={homeUrl} state={{ prevPath: location.pathname }} data-testid="logo-link">
               <img src={logo} alt="Inspiring Hope Logo" />
             </Link>
 

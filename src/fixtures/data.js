@@ -9,7 +9,6 @@ export default {
         author: "Test User",
         siteLanguage: "en",
         logo: "src/assets/logo.svg",
-        siteUrl: "https://inspiringhopechurch.com/",
         url: "https://inspiringhopechurch.com",
         pathPrefix: "/",
         defaultDescription:

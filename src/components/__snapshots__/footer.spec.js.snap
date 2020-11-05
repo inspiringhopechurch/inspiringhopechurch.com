@@ -30,7 +30,7 @@ exports[`Footer should render without crashing 1`] = `
           >
             <a
               className="button is-primary is-outlined"
-              href="https://facebook.com/InspiringHopeChurch"
+              href="https://www.facebook.com/inspiringhopechurch/"
               title="Link to Inspiring Hope Church facebook page"
             >
               <FontAwesomeIcon

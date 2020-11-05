@@ -1,3 +1,7 @@
 {
-  "projectId": "cfiju4"
+  "projectId": "cfiju4",
+  "retries": {
+    "runMode": 2,
+    "openMode": 0
+  }
 }

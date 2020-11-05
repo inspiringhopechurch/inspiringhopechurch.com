@@ -1,6 +1,8 @@
 import React from "react";
 import * as PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { validUrl } from "../utils";
+import { facebookUrl, title } from "../../config";
 import "./footer.sass";
 
 const Footer = (props) => (
@@ -14,7 +16,7 @@ const Footer = (props) => (
           <div className={`navbar-end is-flex`}>
             <a
               className={`button is-primary is-outlined`}
-              href="https://facebook.com/InspiringHopeChurch"
+              href={validUrl(facebookUrl) ? facebookUrl : ""}
               title="Link to Inspiring Hope Church facebook page"
             >
               <FontAwesomeIcon icon={["fab", "facebook-f"]} />
@@ -43,7 +45,7 @@ Footer.propTypes = {
 };
 
 Footer.defaultProps = {
-  copyrightOwner: "Inspiring Hope Church",
+  copyrightOwner: title,
 };
 
 export default Footer;
