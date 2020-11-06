@@ -6,7 +6,7 @@ describe("Layout", () => {
   let myLayout = undefined;
 
   beforeEach(() => {
-    myLayout = shallow(<Layout />);
+    myLayout = shallow(<Layout location={{ pathname: "/", state: { prevPath: "/about" } }} />);
   });
 
   it("should render without crashing", () => {

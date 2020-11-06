@@ -217,6 +217,7 @@ exports[`Index should render without crashing 1`] = `
             >
               <button
                 className="button is-info"
+                data-testid="submit-button"
                 onClick={[Function]}
                 type="submit"
               >
@@ -226,43 +227,6 @@ exports[`Index should render without crashing 1`] = `
           </div>
         </form>
       </div>
-    </div>
-  </section>
-  <section
-    className="index-page box index-content is-radiusless is-shadowless"
-  >
-    <div
-      className="columns content"
-    >
-      <div
-        className="column is-full"
-      >
-        <h1
-          className="is-size-1 has-text-centered is-uppercase"
-        >
-          What We're Up To
-        </h1>
-      </div>
-    </div>
-    <div
-      className="columns is-multiline is-centered"
-    >
-      <BlogItem
-        blogDate="23 January, 2019"
-        blogExcerpt="Getting ansible working with doas on FreeBSD 11 Problem: I was unable to get ansible working with my privelege escalation tool of choice…"
-        blogSlug="getting-ansible-working-with-doas-on-freebsd-11"
-        blogTitle="Getting ansible working with doas on FreeBSD 11"
-        key="7b63ce9c-cced-5ba0-a373-67bb9b2cd53f"
-        onBlogIndex={false}
-      />
-      <BlogItem
-        blogDate="04 April, 2019"
-        blogExcerpt="When you run ansible you may get this : Though the docs mention hostfile and host_file is mentioned in old online tutorials, they are…"
-        blogSlug="ansible-ignores-inventory-defined-in-config-file"
-        blogTitle="Solution to ansible can't find inventory defined in ansible.cfg"
-        key="787b4534-0bdc-59fd-b448-dd9cd6912e96"
-        onBlogIndex={false}
-      />
     </div>
   </section>
 </Fragment>

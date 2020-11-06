@@ -52,8 +52,8 @@ const Layout = ({ children, location }) => {
     },
   };
 
-  const currentPage = location.pathname;
-  const previousPage = location.state && location.state.prevPath;
+  const currentPage = location?.pathname;
+  const previousPage = location?.state?.prevPath;
 
   return (
     <>
@@ -65,9 +65,7 @@ const Layout = ({ children, location }) => {
         <motion.main
           className={currentPage === "/" ? "main-dark" : "main-light"}
           key={location.pathname}
-          variants={
-            currentPage.includes("/about") && previousPage && previousPage.includes("/about") ? variantsX : variantsY
-          }
+          variants={currentPage.includes("/about") && previousPage?.includes("/about") ? variantsX : variantsY}
           initial="initial"
           animate="enter"
           exit="exit"

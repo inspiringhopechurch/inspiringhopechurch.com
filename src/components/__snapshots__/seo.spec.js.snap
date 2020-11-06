@@ -96,7 +96,7 @@ exports[`SEO should render without crashing 1`] = `
         script={
           Array [
             Object {
-              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com/\\",\\"url\\":\\"https://inspiringhopechurch.com/\\",\\"name\\":\\"Test Company Site\\",\\"alternateName\\":\\"Test Company Site\\"}]",
+              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\",\\"url\\":\\"https://inspiringhopechurch.com\\",\\"name\\":\\"Test Company Site\\",\\"alternateName\\":\\"Test Company Site\\"}]",
               "type": "application/ld+json",
             },
           ]
@@ -183,7 +183,7 @@ exports[`SEO should render without crashing 1`] = `
           script={
             Array [
               Object {
-                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com/\\",\\"url\\":\\"https://inspiringhopechurch.com/\\",\\"name\\":\\"Test Company Site\\",\\"alternateName\\":\\"Test Company Site\\"}]",
+                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\",\\"url\\":\\"https://inspiringhopechurch.com\\",\\"name\\":\\"Test Company Site\\",\\"alternateName\\":\\"Test Company Site\\"}]",
                 "type": "application/ld+json",
               },
             ]

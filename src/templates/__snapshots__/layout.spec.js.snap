@@ -9,7 +9,51 @@ exports[`Layout should render without crashing 1`] = `
     pathname={null}
     title={null}
   />
-  <Header />
+  <Header
+    location={
+      Object {
+        "pathname": "/",
+        "state": Object {
+          "prevPath": "/about",
+        },
+      }
+    }
+  />
+  <AnimatePresence
+    initial={false}
+  >
+    <ForwardRef(MotionComponent)
+      animate="enter"
+      className="main-dark"
+      exit="exit"
+      initial="initial"
+      key="/"
+      variants={
+        Object {
+          "enter": Object {
+            "opacity": 1,
+            "transition": Object {
+              "delay": 0.25,
+              "duration": 0.25,
+              "when": "beforeChildren",
+            },
+            "y": 0,
+          },
+          "exit": Object {
+            "opacity": 0,
+            "transition": Object {
+              "duration": 0.25,
+            },
+            "y": -10,
+          },
+          "initial": Object {
+            "opacity": 0,
+            "y": 10,
+          },
+        }
+      }
+    />
+  </AnimatePresence>
   <Footer
     copyrightOwner="Inspiring Hope Church"
   />

@@ -15,6 +15,12 @@ exports[`Header should render without crashing 1`] = `
       >
         <mockConstructor
           className="navbar-item"
+          data-testid="logo-link"
+          state={
+            Object {
+              "prevPath": "/",
+            }
+          }
           to="/"
         >
           <img
@@ -52,6 +58,11 @@ exports[`Header should render without crashing 1`] = `
         >
           <mockConstructor
             className="navbar-item is-active-page"
+            state={
+              Object {
+                "prevPath": "/",
+              }
+            }
             to="/"
           >
             Home
@@ -61,6 +72,11 @@ exports[`Header should render without crashing 1`] = `
           >
             <mockConstructor
               className="navbar-link"
+              state={
+                Object {
+                  "prevPath": "/",
+                }
+              }
               to="/about"
             >
               About Us
@@ -70,18 +86,33 @@ exports[`Header should render without crashing 1`] = `
             >
               <mockConstructor
                 className="navbar-item"
+                state={
+                  Object {
+                    "prevPath": "/",
+                  }
+                }
                 to="/about"
               >
                 Who We Are
               </mockConstructor>
               <mockConstructor
                 className="navbar-item"
+                state={
+                  Object {
+                    "prevPath": "/",
+                  }
+                }
                 to="/about/beliefs"
               >
                 Our Beliefs
               </mockConstructor>
               <mockConstructor
                 className="navbar-item"
+                state={
+                  Object {
+                    "prevPath": "/",
+                  }
+                }
                 to="/about/mission"
               >
                 Our Mission
@@ -90,6 +121,11 @@ exports[`Header should render without crashing 1`] = `
           </div>
           <mockConstructor
             className="navbar-item "
+            state={
+              Object {
+                "prevPath": "/",
+              }
+            }
             to="/contact"
           >
             Contact
