@@ -10,18 +10,28 @@ import captionEn from "file-loader!../assets/captions.en.vtt";
 import captionEs from "file-loader!../assets/captions.es.vtt";
 
 export default ({ data }) => {
-  const defaultMsg = "Get Inspiring Hope's latest updates.";
+  const defaultMsg = "Get Inspiring Hope's latest updates." || <></>;
   const [message, setMessage] = useState(defaultMsg);
   const [emailAddress, setEmailAddress] = useState("");
   const [formSentIndicator, setFormSentIndicator] = useState(false);
 
   const { edges } = data.allMarkdownRemark;
 
+  /**
+   * Handles changes to the form's inputs. Should be passed to an input's
+   * onChange prop.
+   * @param {React.ChangeEvent<HTMLInputElement>} event - Provides the value for the input being changed
+   */
   const handleChange = (event) => {
     const value = event.target.value;
     setEmailAddress(value);
   };
 
+  /**
+   * (Eventual) Async function. Sends form data to server and waits for a response.
+   * Once the response is obtained, should update page with the server's response.
+   * @param {React.SyntheticEvent<HTMLButtonElement>} event - Used to override the browser's default 'submit' behavior
+   */
   const handleSubmit = (event) => {
     setFormSentIndicator(true);
     event.preventDefault();
@@ -36,7 +46,7 @@ export default ({ data }) => {
     }
 
     const values = {
-      email: emailAddress,
+      email: emailAddress.trim(),
       emailType: `subscribe`,
       labels: [],
     };
@@ -182,7 +192,7 @@ export default ({ data }) => {
                   />
                 </div>
                 <div className={`control`}>
-                  <button type="submit" className={`button is-info`} onClick={handleSubmit}>
+                  <button data-testid="submit-button" type="submit" className={`button is-info`} onClick={handleSubmit}>
                     {formSentIndicator ? <LoaderIcon /> : "Sign Up"}
                   </button>
                 </div>
