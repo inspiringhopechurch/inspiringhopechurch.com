@@ -67,7 +67,7 @@ context("Index", () => {
         el.textTracks[1].mode = "showing";
         return video;
       });
-      cy.wait(2000);
+      cy.wait(3000);
       cy.get("#hero-video").screenshot("Video after showing second subtitle track");
     });
 
