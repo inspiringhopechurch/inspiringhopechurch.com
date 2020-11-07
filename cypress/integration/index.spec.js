@@ -1,10 +1,8 @@
 /// <reference types="Cypress" />
 
-const { Children } = require("react");
-
 context("Index", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:8000");
+    cy.visit("http://localhost:9000");
   });
 
   describe("Home Page", () => {

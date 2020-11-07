@@ -23,9 +23,10 @@ context("Contact", () => {
         .and("eq", "UTF-8");
     });
 
-    it("title includes name", () => {
+    it("has the proper page title", () => {
       // https://on.cypress.io/title
       cy.title().should("include", "Inspiring Hope Church");
+      cy.title().should("include", "Contact Us | ");
     });
   });
 
@@ -34,10 +35,6 @@ context("Contact", () => {
       emailAddress = "email@email.address",
       emailSubject = "The summary to get you interested",
       emailMessage = "The thing to tell you about";
-    it("has the proper page title", () => {
-      // https://on.cypress.io/title
-      cy.title().should("include", "Contact Us | ");
-    });
 
     it("has the expected, page-specific UI elements", () => {
       // https://on.cypress.io/window
