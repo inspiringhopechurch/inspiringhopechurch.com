@@ -65,7 +65,9 @@ const Layout = ({ children, location }) => {
         <motion.main
           className={currentPage === "/" ? "main-dark" : "main-light"}
           key={location.pathname}
-          variants={currentPage.includes("/about") && previousPage?.includes("/about") ? variantsX : variantsY}
+          // Since there is a About 'section', change animations (once you've entered that section)
+          // to be in the x-axis
+          variants={currentPage?.includes("/about") && previousPage?.includes("/about") ? variantsX : variantsY}
           initial="initial"
           animate="enter"
           exit="exit"
