@@ -195,3 +195,591 @@ exports[`SEO should render without crashing 1`] = `
   </mockConstructor>
 </SEO>
 `;
+
+exports[`SEO should render without crashing as an article 1`] = `
+<SEO
+  article={true}
+  banner={null}
+  desc={null}
+  pathname={null}
+  title={null}
+>
+  <mockConstructor
+    render={[Function]}
+  >
+    <HelmetWrapper
+      defer={false}
+      encodeSpecialCharacters={true}
+      title="Test Company Site"
+    >
+      <SideEffect(NullComponent)
+        defer={false}
+        encodeSpecialCharacters={true}
+        htmlAttributes={
+          Object {
+            "class": "has-navbar-fixed-top",
+            "lang": "en",
+          }
+        }
+        link={
+          Array [
+            Object {
+              "href": "https://inspiringhopechurch.com/",
+              "rel": "canonical",
+            },
+          ]
+        }
+        meta={
+          Array [
+            Object {
+              "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+              "name": "description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+              "name": "image",
+            },
+            Object {
+              "content": "TestCompany",
+              "name": "apple-mobile-web-app-title",
+            },
+            Object {
+              "content": "TestCompany",
+              "name": "application-name",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/",
+              "property": "og:url",
+            },
+            Object {
+              "content": "article",
+              "property": "og:type",
+            },
+            Object {
+              "content": "Test Company Site",
+              "property": "og:title",
+            },
+            Object {
+              "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+              "property": "og:description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+              "property": "og:image",
+            },
+            Object {
+              "content": "summary_large_image",
+              "name": "twitter:card",
+            },
+            Object {
+              "content": undefined,
+              "name": "twitter:creator",
+            },
+            Object {
+              "content": "Test Company Site",
+              "name": "twitter:title",
+            },
+            Object {
+              "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+              "name": "twitter:description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+              "name": "twitter:image",
+            },
+          ]
+        }
+        script={
+          Array [
+            Object {
+              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/\\",\\"url\\":\\"https://inspiringhopechurch.com/\\",\\"name\\":null,\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":null,\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"},\\"description\\":\\"We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
+              "type": "application/ld+json",
+            },
+          ]
+        }
+        title="Test Company Site"
+      >
+        <NullComponent
+          defer={false}
+          encodeSpecialCharacters={true}
+          htmlAttributes={
+            Object {
+              "class": "has-navbar-fixed-top",
+              "lang": "en",
+            }
+          }
+          link={
+            Array [
+              Object {
+                "href": "https://inspiringhopechurch.com/",
+                "rel": "canonical",
+              },
+            ]
+          }
+          meta={
+            Array [
+              Object {
+                "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+                "name": "description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+                "name": "image",
+              },
+              Object {
+                "content": "TestCompany",
+                "name": "apple-mobile-web-app-title",
+              },
+              Object {
+                "content": "TestCompany",
+                "name": "application-name",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/",
+                "property": "og:url",
+              },
+              Object {
+                "content": "article",
+                "property": "og:type",
+              },
+              Object {
+                "content": "Test Company Site",
+                "property": "og:title",
+              },
+              Object {
+                "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+                "property": "og:description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+                "property": "og:image",
+              },
+              Object {
+                "content": "summary_large_image",
+                "name": "twitter:card",
+              },
+              Object {
+                "content": undefined,
+                "name": "twitter:creator",
+              },
+              Object {
+                "content": "Test Company Site",
+                "name": "twitter:title",
+              },
+              Object {
+                "content": "We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
+                "name": "twitter:description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
+                "name": "twitter:image",
+              },
+            ]
+          }
+          script={
+            Array [
+              Object {
+                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/\\",\\"url\\":\\"https://inspiringhopechurch.com/\\",\\"name\\":null,\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":null,\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"},\\"description\\":\\"We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
+                "type": "application/ld+json",
+              },
+            ]
+          }
+          title="Test Company Site"
+        />
+      </SideEffect(NullComponent)>
+    </HelmetWrapper>
+  </mockConstructor>
+</SEO>
+`;
+
+exports[`SEO should render without crashing as an article with custom props 1`] = `
+<SEO
+  article={true}
+  banner="/path/to/image.jpg"
+  desc="This website is an awesome website and you should visit it."
+  pathname="/path/to/page"
+  title="Test Page"
+>
+  <mockConstructor
+    render={[Function]}
+  >
+    <HelmetWrapper
+      defer={false}
+      encodeSpecialCharacters={true}
+      title="Test Page | Test Company Site"
+    >
+      <SideEffect(NullComponent)
+        defer={false}
+        encodeSpecialCharacters={true}
+        htmlAttributes={
+          Object {
+            "class": "has-navbar-fixed-top",
+            "lang": "en",
+          }
+        }
+        link={
+          Array [
+            Object {
+              "href": "https://inspiringhopechurch.com/path/to/page",
+              "rel": "canonical",
+            },
+          ]
+        }
+        meta={
+          Array [
+            Object {
+              "content": "This website is an awesome website and you should visit it.",
+              "name": "description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+              "name": "image",
+            },
+            Object {
+              "content": "TestCompany",
+              "name": "apple-mobile-web-app-title",
+            },
+            Object {
+              "content": "TestCompany",
+              "name": "application-name",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/path/to/page",
+              "property": "og:url",
+            },
+            Object {
+              "content": "article",
+              "property": "og:type",
+            },
+            Object {
+              "content": "Test Page | Test Company Site",
+              "property": "og:title",
+            },
+            Object {
+              "content": "This website is an awesome website and you should visit it.",
+              "property": "og:description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+              "property": "og:image",
+            },
+            Object {
+              "content": "summary_large_image",
+              "name": "twitter:card",
+            },
+            Object {
+              "content": undefined,
+              "name": "twitter:creator",
+            },
+            Object {
+              "content": "Test Page | Test Company Site",
+              "name": "twitter:title",
+            },
+            Object {
+              "content": "This website is an awesome website and you should visit it.",
+              "name": "twitter:description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+              "name": "twitter:image",
+            },
+          ]
+        }
+        script={
+          Array [
+            Object {
+              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/path/to/page\\",\\"url\\":\\"https://inspiringhopechurch.com/path/to/page\\",\\"name\\":\\"Test Page\\",\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":\\"Test Page\\",\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com//path/to/image.jpg\\"},\\"description\\":\\"This website is an awesome website and you should visit it.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
+              "type": "application/ld+json",
+            },
+          ]
+        }
+        title="Test Page | Test Company Site"
+      >
+        <NullComponent
+          defer={false}
+          encodeSpecialCharacters={true}
+          htmlAttributes={
+            Object {
+              "class": "has-navbar-fixed-top",
+              "lang": "en",
+            }
+          }
+          link={
+            Array [
+              Object {
+                "href": "https://inspiringhopechurch.com/path/to/page",
+                "rel": "canonical",
+              },
+            ]
+          }
+          meta={
+            Array [
+              Object {
+                "content": "This website is an awesome website and you should visit it.",
+                "name": "description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+                "name": "image",
+              },
+              Object {
+                "content": "TestCompany",
+                "name": "apple-mobile-web-app-title",
+              },
+              Object {
+                "content": "TestCompany",
+                "name": "application-name",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/path/to/page",
+                "property": "og:url",
+              },
+              Object {
+                "content": "article",
+                "property": "og:type",
+              },
+              Object {
+                "content": "Test Page | Test Company Site",
+                "property": "og:title",
+              },
+              Object {
+                "content": "This website is an awesome website and you should visit it.",
+                "property": "og:description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+                "property": "og:image",
+              },
+              Object {
+                "content": "summary_large_image",
+                "name": "twitter:card",
+              },
+              Object {
+                "content": undefined,
+                "name": "twitter:creator",
+              },
+              Object {
+                "content": "Test Page | Test Company Site",
+                "name": "twitter:title",
+              },
+              Object {
+                "content": "This website is an awesome website and you should visit it.",
+                "name": "twitter:description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+                "name": "twitter:image",
+              },
+            ]
+          }
+          script={
+            Array [
+              Object {
+                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/path/to/page\\",\\"url\\":\\"https://inspiringhopechurch.com/path/to/page\\",\\"name\\":\\"Test Page\\",\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":\\"Test Page\\",\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com//path/to/image.jpg\\"},\\"description\\":\\"This website is an awesome website and you should visit it.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
+                "type": "application/ld+json",
+              },
+            ]
+          }
+          title="Test Page | Test Company Site"
+        />
+      </SideEffect(NullComponent)>
+    </HelmetWrapper>
+  </mockConstructor>
+</SEO>
+`;
+
+exports[`SEO should render without crashing with custom props 1`] = `
+<SEO
+  article={false}
+  banner="/path/to/image.jpg"
+  desc="This website is an awesome website and you should visit it."
+  pathname="/path/to/page"
+  title="Test Page"
+>
+  <mockConstructor
+    render={[Function]}
+  >
+    <HelmetWrapper
+      defer={false}
+      encodeSpecialCharacters={true}
+      title="Test Page | Test Company Site"
+    >
+      <SideEffect(NullComponent)
+        defer={false}
+        encodeSpecialCharacters={true}
+        htmlAttributes={
+          Object {
+            "class": "has-navbar-fixed-top",
+            "lang": "en",
+          }
+        }
+        link={
+          Array [
+            Object {
+              "href": "https://inspiringhopechurch.com/path/to/page",
+              "rel": "canonical",
+            },
+          ]
+        }
+        meta={
+          Array [
+            Object {
+              "content": "This website is an awesome website and you should visit it.",
+              "name": "description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+              "name": "image",
+            },
+            Object {
+              "content": "TestCompany",
+              "name": "apple-mobile-web-app-title",
+            },
+            Object {
+              "content": "TestCompany",
+              "name": "application-name",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/path/to/page",
+              "property": "og:url",
+            },
+            Object {
+              "content": null,
+              "property": "og:type",
+            },
+            Object {
+              "content": "Test Page | Test Company Site",
+              "property": "og:title",
+            },
+            Object {
+              "content": "This website is an awesome website and you should visit it.",
+              "property": "og:description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+              "property": "og:image",
+            },
+            Object {
+              "content": "summary_large_image",
+              "name": "twitter:card",
+            },
+            Object {
+              "content": undefined,
+              "name": "twitter:creator",
+            },
+            Object {
+              "content": "Test Page | Test Company Site",
+              "name": "twitter:title",
+            },
+            Object {
+              "content": "This website is an awesome website and you should visit it.",
+              "name": "twitter:description",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+              "name": "twitter:image",
+            },
+          ]
+        }
+        script={
+          Array [
+            Object {
+              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\",\\"url\\":\\"https://inspiringhopechurch.com\\",\\"name\\":\\"Test Company Site\\",\\"alternateName\\":\\"Test Company Site\\"}]",
+              "type": "application/ld+json",
+            },
+          ]
+        }
+        title="Test Page | Test Company Site"
+      >
+        <NullComponent
+          defer={false}
+          encodeSpecialCharacters={true}
+          htmlAttributes={
+            Object {
+              "class": "has-navbar-fixed-top",
+              "lang": "en",
+            }
+          }
+          link={
+            Array [
+              Object {
+                "href": "https://inspiringhopechurch.com/path/to/page",
+                "rel": "canonical",
+              },
+            ]
+          }
+          meta={
+            Array [
+              Object {
+                "content": "This website is an awesome website and you should visit it.",
+                "name": "description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+                "name": "image",
+              },
+              Object {
+                "content": "TestCompany",
+                "name": "apple-mobile-web-app-title",
+              },
+              Object {
+                "content": "TestCompany",
+                "name": "application-name",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/path/to/page",
+                "property": "og:url",
+              },
+              Object {
+                "content": null,
+                "property": "og:type",
+              },
+              Object {
+                "content": "Test Page | Test Company Site",
+                "property": "og:title",
+              },
+              Object {
+                "content": "This website is an awesome website and you should visit it.",
+                "property": "og:description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+                "property": "og:image",
+              },
+              Object {
+                "content": "summary_large_image",
+                "name": "twitter:card",
+              },
+              Object {
+                "content": undefined,
+                "name": "twitter:creator",
+              },
+              Object {
+                "content": "Test Page | Test Company Site",
+                "name": "twitter:title",
+              },
+              Object {
+                "content": "This website is an awesome website and you should visit it.",
+                "name": "twitter:description",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com//path/to/image.jpg",
+                "name": "twitter:image",
+              },
+            ]
+          }
+          script={
+            Array [
+              Object {
+                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\",\\"url\\":\\"https://inspiringhopechurch.com\\",\\"name\\":\\"Test Company Site\\",\\"alternateName\\":\\"Test Company Site\\"}]",
+                "type": "application/ld+json",
+              },
+            ]
+          }
+          title="Test Page | Test Company Site"
+        />
+      </SideEffect(NullComponent)>
+    </HelmetWrapper>
+  </mockConstructor>
+</SEO>
+`;

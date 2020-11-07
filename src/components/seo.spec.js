@@ -36,4 +36,34 @@ describe("SEO", () => {
     const mySEO = mount(<SEO />);
     expect(mySEO).toMatchSnapshot();
   });
+
+  it("should render without crashing as an article", () => {
+    const mySEO = mount(<SEO article />);
+    expect(mySEO).toMatchSnapshot();
+  });
+
+  it("should render without crashing with custom props", () => {
+    const mySEO = mount(
+      <SEO
+        title="Test Page"
+        desc={"This website is an awesome website and you should visit it."}
+        pathname={"/path/to/page"}
+        banner={"/path/to/image.jpg"}
+      />
+    );
+    expect(mySEO).toMatchSnapshot();
+  });
+
+  it("should render without crashing as an article with custom props", () => {
+    const mySEO = mount(
+      <SEO
+        article
+        title="Test Page"
+        desc={"This website is an awesome website and you should visit it."}
+        pathname={"/path/to/page"}
+        banner={"/path/to/image.jpg"}
+      />
+    );
+    expect(mySEO).toMatchSnapshot();
+  });
 });
