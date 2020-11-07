@@ -1,14 +1,18 @@
 import React from "react";
+import SEO from "../../components/seo";
 import Accordion from "../../components/accordion";
 import { RefTagger } from "../../components/reftagger";
 
-const Beliefs = () => {
+const Beliefs = ({ location }) => {
+  const pageName = "Our Beliefs";
+
   return (
     <>
+      <SEO title={pageName} pathname={location.pathname} />
       <section className="about-page hero is-halfheight">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title is-size-2-mobile is-size-tablet">Our Beliefs</h1>
+            <h1 className="title is-size-2-mobile is-size-tablet">{pageName}</h1>
           </div>
         </div>
       </section>

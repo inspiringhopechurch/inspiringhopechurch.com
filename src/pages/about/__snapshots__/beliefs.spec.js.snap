@@ -2,6 +2,13 @@
 
 exports[`Beliefs should render without crashing 1`] = `
 <Fragment>
+  <SEO
+    article={false}
+    banner={null}
+    desc={null}
+    pathname="/about/beliefs"
+    title="Our Beliefs"
+  />
   <section
     className="about-page hero is-halfheight"
   >

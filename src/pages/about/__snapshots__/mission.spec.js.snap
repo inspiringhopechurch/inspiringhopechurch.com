@@ -2,6 +2,13 @@
 
 exports[`Mission should render without crashing 1`] = `
 <Fragment>
+  <SEO
+    article={false}
+    banner={null}
+    desc={null}
+    pathname="/about/mission"
+    title="Our Mission"
+  />
   <section
     className="about-page hero is-halfheight"
   >

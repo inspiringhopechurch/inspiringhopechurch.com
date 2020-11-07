@@ -1,15 +1,19 @@
 import React from "react";
+import SEO from "../../components/seo";
 import "./about.sass";
 import logo from "../../assets/logo.svg";
 import familyPic from "../../assets/mangrum_family.jpg";
 
-const About = () => {
+const About = ({ location }) => {
+  const pageName = "About Us";
+
   return (
     <>
+      <SEO title={pageName} pathname={location.pathname} />
       <section className="about-page hero is-halfheight">
         <div className="hero-body">
           <div className="container has-text-centered">
-            <h1 className="title is-size-1-mobile">About Us</h1>
+            <h1 className="title is-size-1-mobile">{pageName}</h1>
           </div>
         </div>
       </section>

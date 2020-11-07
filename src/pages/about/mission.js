@@ -1,13 +1,17 @@
 import React from "react";
 import { RefTagger } from "../../components/reftagger";
+import SEO from "../../components/seo";
 
-const Mission = () => {
+const Mission = ({ location }) => {
+  const pageName = "Our Mission";
+
   return (
     <>
+      <SEO title={pageName} pathname={location.pathname} />
       <section className="about-page hero is-halfheight">
         <div className="hero-body">
           <div className="container">
-            <h1 className="title is-size-2-mobile is-size-tablet">Our Mission</h1>
+            <h1 className="title is-size-2-mobile is-size-tablet">{pageName}</h1>
           </div>
         </div>
       </section>

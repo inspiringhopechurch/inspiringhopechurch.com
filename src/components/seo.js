@@ -28,10 +28,9 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
       const seo = {
         title: title ? `${title} | ${defaultTitle}` : defaultTitle,
         description: desc || defaultDescription,
-        image: `${url}/${banner || defaultBanner}`,
-        url: `${url}${pathname || "/"}`,
+        image: `${url}${pathPrefix}${banner || defaultBanner}`,
+        url: `${url}${pathname || pathPrefix}`,
       };
-      const realPrefix = pathPrefix === "/" ? "" : pathPrefix;
       let schemaOrgJSONLD = [
         {
           "@context": "http://schema.org",
@@ -68,7 +67,7 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
               name: author,
               logo: {
                 "@type": "ImageObject",
-                url: url + realPrefix + logo,
+                url: url + pathPrefix + logo,
               },
             },
             isPartOf: url,
