@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import sanitizeHtml from "sanitize-html";
 import SEO from "../components/seo";
 import "./post.sass";
-import logo from "../assets/logo.svg";
 
 // Default export is rendered when user visits page.
 export default ({ data }) => {
@@ -19,7 +18,7 @@ export default ({ data }) => {
 
   return (
     <>
-      <SEO title={title} desc={description || summary || excerpt} image={image || logo} pathname={slug} article />
+      <SEO title={title} desc={description || summary || excerpt} banner={image} pathname={slug} article />
       <section className={`post hero is-halfheight`}>
         <div className={`hero-body`}>
           <div className={`container`}>

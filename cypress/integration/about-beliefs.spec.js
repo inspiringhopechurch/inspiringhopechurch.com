@@ -2,7 +2,7 @@
 
 context("Beliefs", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:9000/about/beliefs");
+    cy.visit("/about/beliefs");
   });
 
   describe("Beliefs Page", () => {
@@ -11,6 +11,11 @@ context("Beliefs", () => {
       cy.document()
         .should("have.property", "charset")
         .and("eq", "UTF-8");
+    });
+
+    it("has no a11y violations on load", () => {
+      cy.injectAxe();
+      cy.checkA11y();
     });
 
     it("has the proper page title", () => {

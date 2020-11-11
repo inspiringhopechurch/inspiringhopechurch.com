@@ -2,7 +2,7 @@
 
 context("Contact", () => {
   beforeEach(() => {
-    cy.visit("http://localhost:9000/contact");
+    cy.visit("/contact");
   });
 
   describe("Contact Page", () => {
@@ -21,6 +21,11 @@ context("Contact", () => {
       cy.document()
         .should("have.property", "charset")
         .and("eq", "UTF-8");
+    });
+
+    it("has no a11y violations on load", () => {
+      cy.injectAxe();
+      cy.checkA11y();
     });
 
     it("has the proper page title", () => {

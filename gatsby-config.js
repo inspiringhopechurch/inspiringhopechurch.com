@@ -1,5 +1,30 @@
 const config = require("./config");
 
+let ghostConfig;
+
+try {
+  ghostConfig = require(`./.ghost`);
+} catch (e) {
+  ghostConfig = {
+    production: {
+      apiUrl: process.env.GHOST_API_URL,
+      contentApiKey: process.env.GHOST_CONTENT_API_KEY,
+    },
+  };
+} finally {
+  const { apiUrl, contentApiKey } =
+    process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production;
+
+  if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
+    throw new Error(`GHOST_API_URL and GHOST_CONTENT_API_KEY are required to build. Check the README.`);
+  }
+}
+
+if (process.env.NODE_ENV === `production` && config.siteUrl === `http://localhost:8000` && !process.env.SITEURL) {
+  throw new Error(`siteUrl can't be localhost and needs to be configured in siteConfig. Check the README.`); // eslint-disable-line
+}
+
+/** Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/ */
 module.exports = {
   siteMetadata: {
     ...config, // Will be used be SEO component
@@ -15,6 +40,10 @@ module.exports = {
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    {
+      resolve: `gatsby-source-ghost`,
+      options: process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production,
+    },
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
