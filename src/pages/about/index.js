@@ -1,10 +1,11 @@
 import React from "react";
+import Img from "gatsby-image";
+import { graphql } from "gatsby";
 import SEO from "../../components/seo";
 import "./about.sass";
 import logo from "../../assets/logo.svg";
-import familyPic from "../../assets/mangrum_family.jpg";
 
-const About = ({ location }) => {
+const About = ({ location, data }) => {
   const pageName = "About Us";
 
   return (
@@ -54,7 +55,8 @@ const About = ({ location }) => {
                 </p>
               </div>
               <div className="column">
-                <img className="image" alt="The Mangrum family" src={familyPic} />
+                {/* <Img className="image" alt="The Mangrum family" fixed={data.file.childImageSharp.fixed} /> */}
+                <Img className="image" alt="The Mangrum family" fluid={data.file.childImageSharp.fluid} />
               </div>
             </div>
           </div>
@@ -66,3 +68,18 @@ const About = ({ location }) => {
 
 // Default export is rendered when user visits page.
 export default About;
+
+export const query = graphql`
+  query {
+    file(relativePath: { eq: "assets/mangrum_family.jpg" }) {
+      childImageSharp {
+        fixed(width: 750) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+        fluid(maxWidth: 1500) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
+  }
+`;

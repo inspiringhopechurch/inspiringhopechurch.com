@@ -52,11 +52,15 @@ exports[`SEO should render without crashing 1`] = `
               "name": "application-name",
             },
             Object {
+              "content": "Test Company Site",
+              "property": "og:site_name",
+            },
+            Object {
               "content": "https://inspiringhopechurch.com/",
               "property": "og:url",
             },
             Object {
-              "content": null,
+              "content": "website",
               "property": "og:type",
             },
             Object {
@@ -76,10 +80,6 @@ exports[`SEO should render without crashing 1`] = `
               "name": "twitter:card",
             },
             Object {
-              "content": undefined,
-              "name": "twitter:creator",
-            },
-            Object {
               "content": "Test Company Site",
               "name": "twitter:title",
             },
@@ -90,6 +90,18 @@ exports[`SEO should render without crashing 1`] = `
             Object {
               "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
               "name": "twitter:image",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/",
+              "name": "twitter:url",
+            },
+            Object {
+              "content": "@inspiringhope",
+              "name": "twitter:creator",
+            },
+            Object {
+              "content": "https://twitter.com/inspiringhope/",
+              "name": "twitter:site",
             },
           ]
         }
@@ -139,11 +151,15 @@ exports[`SEO should render without crashing 1`] = `
                 "name": "application-name",
               },
               Object {
+                "content": "Test Company Site",
+                "property": "og:site_name",
+              },
+              Object {
                 "content": "https://inspiringhopechurch.com/",
                 "property": "og:url",
               },
               Object {
-                "content": null,
+                "content": "website",
                 "property": "og:type",
               },
               Object {
@@ -163,10 +179,6 @@ exports[`SEO should render without crashing 1`] = `
                 "name": "twitter:card",
               },
               Object {
-                "content": undefined,
-                "name": "twitter:creator",
-              },
-              Object {
                 "content": "Test Company Site",
                 "name": "twitter:title",
               },
@@ -177,6 +189,18 @@ exports[`SEO should render without crashing 1`] = `
               Object {
                 "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
                 "name": "twitter:image",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/",
+                "name": "twitter:url",
+              },
+              Object {
+                "content": "@inspiringhope",
+                "name": "twitter:creator",
+              },
+              Object {
+                "content": "https://twitter.com/inspiringhope/",
+                "name": "twitter:site",
               },
             ]
           }
@@ -248,6 +272,10 @@ exports[`SEO should render without crashing as an article 1`] = `
               "name": "application-name",
             },
             Object {
+              "content": "Test Company Site",
+              "property": "og:site_name",
+            },
+            Object {
               "content": "https://inspiringhopechurch.com/",
               "property": "og:url",
             },
@@ -272,10 +300,6 @@ exports[`SEO should render without crashing as an article 1`] = `
               "name": "twitter:card",
             },
             Object {
-              "content": undefined,
-              "name": "twitter:creator",
-            },
-            Object {
               "content": "Test Company Site",
               "name": "twitter:title",
             },
@@ -286,6 +310,18 @@ exports[`SEO should render without crashing as an article 1`] = `
             Object {
               "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
               "name": "twitter:image",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/",
+              "name": "twitter:url",
+            },
+            Object {
+              "content": "@inspiringhope",
+              "name": "twitter:creator",
+            },
+            Object {
+              "content": "https://twitter.com/inspiringhope/",
+              "name": "twitter:site",
             },
           ]
         }
@@ -335,6 +371,10 @@ exports[`SEO should render without crashing as an article 1`] = `
                 "name": "application-name",
               },
               Object {
+                "content": "Test Company Site",
+                "property": "og:site_name",
+              },
+              Object {
                 "content": "https://inspiringhopechurch.com/",
                 "property": "og:url",
               },
@@ -359,10 +399,6 @@ exports[`SEO should render without crashing as an article 1`] = `
                 "name": "twitter:card",
               },
               Object {
-                "content": undefined,
-                "name": "twitter:creator",
-              },
-              Object {
                 "content": "Test Company Site",
                 "name": "twitter:title",
               },
@@ -373,6 +409,18 @@ exports[`SEO should render without crashing as an article 1`] = `
               Object {
                 "content": "https://inspiringhopechurch.com/src/assets/logo.svg",
                 "name": "twitter:image",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/",
+                "name": "twitter:url",
+              },
+              Object {
+                "content": "@inspiringhope",
+                "name": "twitter:creator",
+              },
+              Object {
+                "content": "https://twitter.com/inspiringhope/",
+                "name": "twitter:site",
               },
             ]
           }
@@ -444,6 +492,10 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
               "name": "application-name",
             },
             Object {
+              "content": "Test Page | Test Company Site",
+              "property": "og:site_name",
+            },
+            Object {
               "content": "https://inspiringhopechurch.com/path/to/page",
               "property": "og:url",
             },
@@ -468,10 +520,6 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
               "name": "twitter:card",
             },
             Object {
-              "content": undefined,
-              "name": "twitter:creator",
-            },
-            Object {
               "content": "Test Page | Test Company Site",
               "name": "twitter:title",
             },
@@ -482,6 +530,18 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
             Object {
               "content": "https://inspiringhopechurch.com//path/to/image.jpg",
               "name": "twitter:image",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/path/to/page",
+              "name": "twitter:url",
+            },
+            Object {
+              "content": "@inspiringhope",
+              "name": "twitter:creator",
+            },
+            Object {
+              "content": "https://twitter.com/inspiringhope/",
+              "name": "twitter:site",
             },
           ]
         }
@@ -531,6 +591,10 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
                 "name": "application-name",
               },
               Object {
+                "content": "Test Page | Test Company Site",
+                "property": "og:site_name",
+              },
+              Object {
                 "content": "https://inspiringhopechurch.com/path/to/page",
                 "property": "og:url",
               },
@@ -555,10 +619,6 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
                 "name": "twitter:card",
               },
               Object {
-                "content": undefined,
-                "name": "twitter:creator",
-              },
-              Object {
                 "content": "Test Page | Test Company Site",
                 "name": "twitter:title",
               },
@@ -569,6 +629,18 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
               Object {
                 "content": "https://inspiringhopechurch.com//path/to/image.jpg",
                 "name": "twitter:image",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/path/to/page",
+                "name": "twitter:url",
+              },
+              Object {
+                "content": "@inspiringhope",
+                "name": "twitter:creator",
+              },
+              Object {
+                "content": "https://twitter.com/inspiringhope/",
+                "name": "twitter:site",
               },
             ]
           }
@@ -640,11 +712,15 @@ exports[`SEO should render without crashing with custom props 1`] = `
               "name": "application-name",
             },
             Object {
+              "content": "Test Page | Test Company Site",
+              "property": "og:site_name",
+            },
+            Object {
               "content": "https://inspiringhopechurch.com/path/to/page",
               "property": "og:url",
             },
             Object {
-              "content": null,
+              "content": "website",
               "property": "og:type",
             },
             Object {
@@ -664,10 +740,6 @@ exports[`SEO should render without crashing with custom props 1`] = `
               "name": "twitter:card",
             },
             Object {
-              "content": undefined,
-              "name": "twitter:creator",
-            },
-            Object {
               "content": "Test Page | Test Company Site",
               "name": "twitter:title",
             },
@@ -678,6 +750,18 @@ exports[`SEO should render without crashing with custom props 1`] = `
             Object {
               "content": "https://inspiringhopechurch.com//path/to/image.jpg",
               "name": "twitter:image",
+            },
+            Object {
+              "content": "https://inspiringhopechurch.com/path/to/page",
+              "name": "twitter:url",
+            },
+            Object {
+              "content": "@inspiringhope",
+              "name": "twitter:creator",
+            },
+            Object {
+              "content": "https://twitter.com/inspiringhope/",
+              "name": "twitter:site",
             },
           ]
         }
@@ -727,11 +811,15 @@ exports[`SEO should render without crashing with custom props 1`] = `
                 "name": "application-name",
               },
               Object {
+                "content": "Test Page | Test Company Site",
+                "property": "og:site_name",
+              },
+              Object {
                 "content": "https://inspiringhopechurch.com/path/to/page",
                 "property": "og:url",
               },
               Object {
-                "content": null,
+                "content": "website",
                 "property": "og:type",
               },
               Object {
@@ -751,10 +839,6 @@ exports[`SEO should render without crashing with custom props 1`] = `
                 "name": "twitter:card",
               },
               Object {
-                "content": undefined,
-                "name": "twitter:creator",
-              },
-              Object {
                 "content": "Test Page | Test Company Site",
                 "name": "twitter:title",
               },
@@ -765,6 +849,18 @@ exports[`SEO should render without crashing with custom props 1`] = `
               Object {
                 "content": "https://inspiringhopechurch.com//path/to/image.jpg",
                 "name": "twitter:image",
+              },
+              Object {
+                "content": "https://inspiringhopechurch.com/path/to/page",
+                "name": "twitter:url",
+              },
+              Object {
+                "content": "@inspiringhope",
+                "name": "twitter:creator",
+              },
+              Object {
+                "content": "https://twitter.com/inspiringhope/",
+                "name": "twitter:site",
               },
             ]
           }

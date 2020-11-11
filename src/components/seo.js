@@ -46,8 +46,8 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
           {
             "@context": "http://schema.org",
             "@type": "BlogPosting",
-            "@id": seo.url,
-            url: seo.url,
+            "@id": validUrl(seo.url) ? seo.url : "",
+            url: validUrl(seo.url) ? seo.url : "",
             name: title,
             alternateName: titleAlt || "",
             headline: title,
@@ -91,18 +91,21 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
             <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
 
             {/* OpenGraph  */}
-            <meta property="og:url" content={seo.url} />
-            <meta property="og:type" content={article ? "article" : null} />
+            <meta property="og:site_name" content={seo.title} />
+            <meta property="og:url" content={validUrl(seo.url) ? seo.url : ""} />
+            <meta property="og:type" content={article ? "article" : "website"} />
             <meta property="og:title" content={seo.title} />
             <meta property="og:description" content={seo.description} />
             <meta property="og:image" content={seo.image} />
 
             {/* Twitter Card */}
             <meta name="twitter:card" content="summary_large_image" />
-            <meta name="twitter:creator" content={twitter} />
             <meta name="twitter:title" content={seo.title} />
             <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={seo.image} />
+            <meta name="twitter:url" content={validUrl(seo.url) ? seo.url : ""} />
+            {twitter && <meta name="twitter:creator" content={twitter} />}
+            {twitter && <meta name="twitter:site" content={`https://twitter.com/${twitter.replace(/^@/, ``)}/`} />}
 
             <link rel="canonical" href={validUrl(seo.url) ? seo.url : ""} />
           </Helmet>

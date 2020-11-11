@@ -97,10 +97,24 @@ exports[`About should render without crashing 1`] = `
           <div
             className="column"
           >
-            <img
+            <Image
+              Tag="div"
               alt="The Mangrum family"
               className="image"
-              src="test-file-stub"
+              durationFadeIn={500}
+              fadeIn={true}
+              fluid={
+                Object {
+                  "aspectRatio": 1.3345195729537367,
+                  "sizes": "(max-width: 1500px) 100vw, 1500px",
+                  "src": "/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg",
+                  "srcSet": "/static/2d816ba796e3a2f678b37125218f0b03/01f8d/mangrum_family.jpg 375w,
+/static/2d816ba796e3a2f678b37125218f0b03/f9913/mangrum_family.jpg 750w,
+/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg 1500w,
+/static/2d816ba796e3a2f678b37125218f0b03/c2bdc/mangrum_family.jpg 1506w",
+                }
+              }
+              loading="lazy"
             />
           </div>
         </div>
