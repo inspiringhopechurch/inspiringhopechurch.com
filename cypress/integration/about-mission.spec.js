@@ -1,4 +1,5 @@
 /// <reference types="Cypress" />
+import terminalLog from "../support/terminalLog";
 
 context("Mission", () => {
   beforeEach(() => {
@@ -15,7 +16,7 @@ context("Mission", () => {
 
     it("has no a11y violations on load", () => {
       cy.injectAxe();
-      cy.checkA11y();
+      cy.checkA11y(null, null, terminalLog);
     });
 
     it("has the proper page title", () => {
