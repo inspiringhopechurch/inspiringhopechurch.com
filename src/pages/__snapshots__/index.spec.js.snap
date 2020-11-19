@@ -229,5 +229,57 @@ exports[`Index should render without crashing 1`] = `
       </div>
     </div>
   </section>
+  <section
+    className="index-page box index-content is-radiusless is-shadowless"
+  >
+    <div
+      className="columns content"
+    >
+      <div
+        className="column is-full"
+      >
+        <h1
+          className="is-size-1 has-text-centered is-uppercase"
+        >
+          What We're Up To
+        </h1>
+      </div>
+    </div>
+    <div
+      className="columns is-multiline is-centered"
+    >
+      <BlogItem
+        blogDate="01 June, 2020"
+        blogExcerpt="The summer is off to a great start! Even though it is definitely different this
+year, we have taken advantage of our state opening up some. We've made some more
+connections by meeting more neighbors, talking and working with local pastors on
+the same mission, and really trying to get involved in the community. Our parks
+have opened back up so we've visited the playgrounds a couple of times. We are
+planning on doing some community outreaches this next month by providing our
+local community worker"
+        blogImage="https://cms.inspiringhopechurch.com/content/images/2020/08/1280x1280-5.jpg"
+        blogLink="/blog/our-church-planting-journey-volume-6"
+        blogTitle="Our Church Planting Journey: Volume 6"
+        key="Ghost__Post__5f4aba3168998602af191113"
+        onBlogIndex={false}
+      />
+      <BlogItem
+        blogDate="16 May, 2020"
+        blogExcerpt="Update...
+The last couple of months have been so different than we had expected them to
+be. Even in the midst of different, we have found an overwhelming peace with
+where God has us and what He is doing. We have clung to our faith and the things
+we could control and we prayed and let go and let God work in the ways we
+couldn’t. In April we celebrated Ben’s birthday by surprising him with a zoom
+call with many of his friends to wish him a happy birthday. Thank you to all of
+you who were able to b"
+        blogImage="https://images.unsplash.com/photo-1518183261945-b0a0f1e1b4ed?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ"
+        blogLink="/blog/our-church-planting-journey-volume-5"
+        blogTitle="Our Church Planting Journey: Volume 5"
+        key="Ghost__Post__5f4ab4bc68998602af1910dc"
+        onBlogIndex={false}
+      />
+    </div>
+  </section>
 </Fragment>
 `;

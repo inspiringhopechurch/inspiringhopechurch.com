@@ -10,11 +10,16 @@ const BlogItem = (props) => (
     } ${props.onBlogIndex ? "is-three-fifths" : ""}`}
   >
     <h2 className={`title is-5`}>
-      <Link to={props.blogSlug}>{props.blogTitle}</Link>
+      <Link to={props.blogLink}>{props.blogTitle}</Link>
     </h2>
+    {props.blogImage && (
+      <figure className="image is-5by4 is-marginless">
+        <img src={props.blogImage} />
+      </figure>
+    )}
     <h3 className={`title is-7`}>{props.blogDate}</h3>
-    <p>{props.blogExcerpt}</p>
-    <Link className={`button is-outlined is-link`} to={props.blogSlug}>
+    <p>{props.blogExcerpt}...</p>
+    <Link className={`button is-outlined is-link`} to={props.blogLink}>
       Read Post
     </Link>
   </div>
@@ -22,9 +27,10 @@ const BlogItem = (props) => (
 
 BlogItem.propTypes = {
   blogExcerpt: PropTypes.string.isRequired,
+  blogImage: PropTypes.string,
   blogTitle: PropTypes.string.isRequired,
   blogDate: PropTypes.string.isRequired,
-  blogSlug: PropTypes.string.isRequired,
+  blogLink: PropTypes.string.isRequired,
   onBlogIndex: PropTypes.bool,
 };
 

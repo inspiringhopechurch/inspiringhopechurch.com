@@ -4,7 +4,7 @@ import BlogItem from "../components/blogItem";
 import "./blog.sass";
 
 const Blog = ({ data }) => {
-  const { edges } = data.allMarkdownRemark;
+  const { edges } = data.allGhostPost;
 
   return (
     <>
@@ -19,10 +19,10 @@ const Blog = ({ data }) => {
         <div className={`columns is-multiline is-centered`}>
           {edges.map(({ node }) => (
             <BlogItem
-              blogTitle={node.frontmatter.title}
-              blogDate={node.frontmatter.date}
+              blogTitle={node.title}
+              blogDate={node.published_at_pretty}
               blogExcerpt={node.excerpt}
-              blogSlug={node.fields.slug}
+              blogLink={`/blog/${node.slug}`}
               onBlogIndex={true}
               key={node.id}
             />
@@ -34,20 +34,11 @@ const Blog = ({ data }) => {
 };
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(sort: { order: DESC, fields: frontmatter___date }) {
+  query BlogPostQuery {
+    allGhostPost(sort: { order: DESC, fields: [published_at] }) {
       edges {
         node {
-          frontmatter {
-            path
-            title
-            date(formatString: "DD MMMM, YYYY")
-          }
-          excerpt(pruneLength: 350)
-          id
-          fields {
-            slug
-          }
+          ...GhostPostFields
         }
       }
     }

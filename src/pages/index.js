@@ -15,7 +15,7 @@ export default ({ data }) => {
   const [emailAddress, setEmailAddress] = useState("");
   const [formSentIndicator, setFormSentIndicator] = useState(false);
 
-  const { edges } = data.allMarkdownRemark;
+  const { edges } = data.allGhostPost;
 
   /**
    * Handles changes to the form's inputs. Should be passed to an input's
@@ -202,7 +202,7 @@ export default ({ data }) => {
         </div>
       </section>
 
-      {/* <section className={`index-page box index-content is-radiusless is-shadowless`}>
+      <section className={`index-page box index-content is-radiusless is-shadowless`}>
         <div className={`columns content`}>
           <div className={`column is-full`}>
             <h1 className={`is-size-1 has-text-centered is-uppercase`}>What We're Up To</h1>
@@ -211,34 +211,26 @@ export default ({ data }) => {
         <div className={`columns is-multiline is-centered`}>
           {edges.map(({ node }) => (
             <BlogItem
-              blogTitle={node.frontmatter.title}
-              blogDate={node.frontmatter.date}
+              blogTitle={node.title}
+              blogImage={node.feature_image}
+              blogDate={node.published_at_pretty}
               blogExcerpt={node.excerpt}
-              blogSlug={node.fields.slug}
+              blogLink={`/blog/${node.slug}`}
               key={node.id}
             />
           ))}
         </div>
-      </section> */}
+      </section>
     </>
   );
 };
 
 export const query = graphql`
-  query {
-    allMarkdownRemark(limit: 3, sort: { order: DESC, fields: frontmatter___date }) {
+  query GhostPostQuery {
+    allGhostPost(sort: { order: DESC, fields: [published_at] }, limit: 3, skip: 0) {
       edges {
         node {
-          frontmatter {
-            path
-            title
-            date(formatString: "MMMM DD, YYYY")
-          }
-          excerpt
-          id
-          fields {
-            slug
-          }
+          ...GhostPostFields
         }
       }
     }

@@ -26,19 +26,32 @@ exports[`Blog should render without crashing 1`] = `
       className="columns is-multiline is-centered"
     >
       <BlogItem
-        blogDate="23 January, 2019"
-        blogExcerpt="Getting ansible working with doas on FreeBSD 11 Problem: I was unable to get ansible working with my privelege escalation tool of choice…"
-        blogSlug="getting-ansible-working-with-doas-on-freebsd-11"
-        blogTitle="Getting ansible working with doas on FreeBSD 11"
-        key="7b63ce9c-cced-5ba0-a373-67bb9b2cd53f"
+        blogDate="01 June, 2020"
+        blogExcerpt="The summer is off to a great start! Even though it is definitely different this
+year, we have taken advantage of our state opening up some. We've made some more
+connections by meeting more neighbors, talking and working with local pastors on
+the same mission, and really trying to get involved in the community. Our parks
+have opened back up so we've visited the playgrounds a couple of times. We are
+planning on doing some community outreaches this next month by providing our
+local community worker"
+        blogLink="/blog/our-church-planting-journey-volume-6"
+        blogTitle="Our Church Planting Journey: Volume 6"
+        key="Ghost__Post__5f4aba3168998602af191113"
         onBlogIndex={true}
       />
       <BlogItem
-        blogDate="04 April, 2019"
-        blogExcerpt="When you run ansible you may get this : Though the docs mention hostfile and host_file is mentioned in old online tutorials, they are…"
-        blogSlug="ansible-ignores-inventory-defined-in-config-file"
-        blogTitle="Solution to ansible can't find inventory defined in ansible.cfg"
-        key="787b4534-0bdc-59fd-b448-dd9cd6912e96"
+        blogDate="16 May, 2020"
+        blogExcerpt="Update...
+The last couple of months have been so different than we had expected them to
+be. Even in the midst of different, we have found an overwhelming peace with
+where God has us and what He is doing. We have clung to our faith and the things
+we could control and we prayed and let go and let God work in the ways we
+couldn’t. In April we celebrated Ben’s birthday by surprising him with a zoom
+call with many of his friends to wish him a happy birthday. Thank you to all of
+you who were able to b"
+        blogLink="/blog/our-church-planting-journey-volume-5"
+        blogTitle="Our Church Planting Journey: Volume 5"
+        key="Ghost__Post__5f4ab4bc68998602af1910dc"
         onBlogIndex={true}
       />
     </div>

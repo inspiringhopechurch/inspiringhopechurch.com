@@ -8,7 +8,7 @@ exports[`BlogItem should render without crashing 1`] = `
     className="title is-5"
   >
     <mockConstructor
-      to="test-excerpt-for-blog-post"
+      to="https://linktosite.com"
     >
       Test Title
     </mockConstructor>
@@ -20,10 +20,11 @@ exports[`BlogItem should render without crashing 1`] = `
   </h3>
   <p>
     Test excerpt for blog post
+    ...
   </p>
   <mockConstructor
     className="button is-outlined is-link"
-    to="test-excerpt-for-blog-post"
+    to="https://linktosite.com"
   >
     Read Post
   </mockConstructor>
