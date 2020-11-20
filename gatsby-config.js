@@ -71,7 +71,6 @@ module.exports = {
       },
     },
     `@wardpeet/gatsby-plugin-static-site`,
-    `gatsby-transformer-remark`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`, // list after manifest plugin
