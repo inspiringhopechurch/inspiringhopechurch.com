@@ -14,7 +14,7 @@ exports[`Blog should render without crashing 1`] = `
         <h1
           className="title has-text-white"
         >
-          Latest Blog Posts
+          Latest News
         </h1>
       </div>
     </div>
