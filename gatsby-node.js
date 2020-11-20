@@ -19,46 +19,77 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
-exports.createPages = ({ graphql, actions }) => {
+exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   // graphql function call returns a promise
-  return graphql(`
+  const result = await graphql(`
     {
-      allMarkdownRemark(sort: { order: ASC, fields: [frontmatter___date] }) {
+      allGhostPost(sort: { order: ASC, fields: published_at }) {
         edges {
           node {
-            id
-            fields {
-              slug
-            }
+            slug
+          }
+        }
+      }
+      allGhostTag(sort: { order: ASC, fields: name }) {
+        edges {
+          node {
+            slug
+            url
+            postCount
+          }
+        }
+      }
+      allGhostAuthor(sort: { order: ASC, fields: name }) {
+        edges {
+          node {
+            slug
+            url
+            postCount
+          }
+        }
+      }
+      allGhostPage(sort: { order: ASC, fields: published_at }) {
+        edges {
+          node {
+            slug
+            url
           }
         }
       }
     }
-  `).then((result) => {
-    // if there are errors, reject promise and give error
-    // msg as reason for rejection
-    if (result.errors) {
-      return Promise.reject(result.errors);
-    }
-    const posts = result.data.allMarkdownRemark.edges;
-    // create post pages
-    posts.forEach(({ node }, idx) => {
-      // Setup for pagination
-      const prev = idx === 0 ? null : posts[idx - 1].node;
-      const next = idx === posts.length - 1 ? null : posts[idx + 1].node;
+  `);
 
-      createPage({
-        path: node.fields.slug,
-        component: path.resolve("./src/templates/post.js"),
-        context: {
-          // Data passed to context is available in page
-          // queries in GraphQL variables
-          slug: node.fields.slug,
-          prev: prev,
-          next: next,
-        },
-      });
+  // Check for any errors
+  if (result.errors) {
+    throw new Error(result.errors);
+  }
+
+  // Extract query results
+  const tags = result.data.allGhostTag.edges;
+  const authors = result.data.allGhostAuthor.edges;
+  const pages = result.data.allGhostPage.edges;
+  const posts = result.data.allGhostPost.edges;
+
+  // Create post pages
+  posts.forEach(({ node }, idx) => {
+    // This part here defines, that our posts will use
+    // a `/blog/:slug/` permalink.
+    node.url = `/blog/${node.slug}/`;
+    // Setup for pagination
+    const prev = idx === 0 ? null : posts[idx - 1].node;
+    const next = idx === posts.length - 1 ? null : posts[idx + 1].node;
+
+    createPage({
+      path: node.url,
+      component: path.resolve("./src/templates/post.js"),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.slug,
+        prev: prev,
+        next: next,
+      },
     });
   });
 };

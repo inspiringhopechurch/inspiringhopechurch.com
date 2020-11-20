@@ -14,7 +14,8 @@ const Header = ({ location }) => {
     aboutUrl = "/about",
     missionUrl = "/about/mission",
     beliefsUrl = "/about/beliefs",
-    contactUrl = "/contact";
+    contactUrl = "/contact",
+    blogUrl = "/blog";
   //giveUrl = "/give";
 
   return (
@@ -67,9 +68,13 @@ const Header = ({ location }) => {
                   </Link>
                 </div>
               </div>
-              {/* <a className="navbar-item" href="https://cms.inspiringhopechurch.com/">
-              News
-            </a> */}
+              <Link
+                className={`navbar-item ${location.pathname.includes(blogUrl) ? "is-active-page" : ""}`}
+                to={blogUrl}
+                state={{ prevPath: location.pathname }}
+              >
+                News
+              </Link>
               <Link
                 className={`navbar-item ${location.pathname.includes(contactUrl) ? "is-active-page" : ""}`}
                 to={contactUrl}
