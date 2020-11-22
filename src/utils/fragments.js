@@ -41,8 +41,8 @@ export const ghostAuthorFields = graphql`
 `;
 
 // Used for single posts
-export const ghostPostFields = graphql`
-  fragment GhostPostFields on GhostPost {
+export const ghostPostFieldsMain = graphql`
+  fragment GhostPostFieldsMain on GhostPost {
     # Main fields
     id
     title
@@ -129,6 +129,22 @@ export const ghostPostFields = graphql`
     codeinjection_styles
     comment_id
     reading_time
+  }
+`;
+
+export const ghostPostFields = graphql`
+  fragment GhostPostFields on GhostPost {
+    ...GhostPostFieldsMain
+    # ImgSharp
+    featureImageSharp {
+      base
+      publicURL
+      childImageSharp {
+        fluid(maxWidth: 1040, quality: 90) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
   }
 `;
 
@@ -220,6 +236,21 @@ export const ghostPageFields = graphql`
     codeinjection_styles
     comment_id
     reading_time
+
+    # ImgSharp
+    featureImageSharp {
+      base
+      publicURL
+      imageMeta {
+        width
+        height
+      }
+      childImageSharp {
+        fluid(maxWidth: 1040) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
+    }
   }
 `;
 
@@ -241,6 +272,21 @@ export const ghostSettingsFields = graphql`
     navigation {
       label
       url
+    }
+
+    # ImgSharp
+    coverImageSharp {
+      base
+      publicURL
+      imageMeta {
+        width
+        height
+      }
+      childImageSharp {
+        fluid(maxWidth: 1040, quality: 90) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+      }
     }
   }
 `;

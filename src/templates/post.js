@@ -13,7 +13,7 @@ export default ({ data }) => {
       published_at_pretty,
       reading_time,
       slug,
-      feature_image,
+      featureImageSharp,
       meta_description,
       meta_title,
       subtitle,
@@ -35,14 +35,15 @@ export default ({ data }) => {
       <SEO
         title={meta_title || title}
         desc={meta_description || excerpt}
-        banner={feature_image}
+        banner={featureImageSharp.publicURL}
         pathname={slug}
         article
       />
       <section className={`post hero is-halfheight`}>
+        // TODO: Put Img tag here
         <div
           className={`hero-body`}
-          style={{ background: `url('${feature_image}') center top`, backgroundSize: "cover" }}
+          style={{ background: `url('${featureImageSharp.publicURL}') center top`, backgroundSize: "cover" }}
         >
           <div className={`container`}>
             <h1 className={`title has-text-white is-3`}>{title}</h1>
@@ -50,7 +51,7 @@ export default ({ data }) => {
           </div>
         </div>
       </section>
-      <section className={`box blog-content`}>
+      <section className={`box post-content`}>
         <div className={`columns is-centered`}>
           <div className={`column is-4-tablet is-2-fullhd is-3-desktop`}>
             <div className={`tags has-addons`}>

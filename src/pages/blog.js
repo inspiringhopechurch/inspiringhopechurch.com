@@ -8,18 +8,20 @@ const Blog = ({ data }) => {
 
   return (
     <>
-      <section className={`hero is-halfheight`}>
+      <section className={`hero is-link is-halfheight`}>
         <div className={`hero-body`}>
           <div className={`container has-text-centered`}>
             <h1 className={`title has-text-white`}>Latest News</h1>
           </div>
         </div>
       </section>
-      <section className={`box blog-content`}>
+      <section className={`box is-shadowless blog-content container`}>
         <div className={`columns is-multiline is-centered`}>
           {edges.map(({ node }) => (
             <BlogItem
               blogTitle={node.title}
+              // blogImage={node.feature_image}
+              blogImage={node.featureImageSharp.childImageSharp.fluid}
               blogDate={node.published_at_pretty}
               blogExcerpt={node.excerpt}
               blogLink={`/blog/${node.slug}`}

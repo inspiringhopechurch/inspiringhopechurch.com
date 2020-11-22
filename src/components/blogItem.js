@@ -1,20 +1,26 @@
 import React from "react";
+import Img from "gatsby-image";
 import { Link } from "gatsby";
 import * as PropTypes from "prop-types";
 import "./blogItem.sass";
 
 const BlogItem = (props) => (
   <div
-    className={`column content ${props.blogTitle.length > 50 ? "is-full-tablet" : ""} ${
-      props.onBlogIndex ? "" : "is-one-third-desktop"
-    } ${props.onBlogIndex ? "is-three-fifths" : ""}`}
+    className={`column content ${props.onBlogIndex ? "is-medium" : ""} ${
+      props.blogTitle.length > 50 ? "is-full-tablet" : ""
+    } ${props.onBlogIndex ? "" : "is-one-third-desktop"} ${props.onBlogIndex ? "is-6" : ""}`}
   >
+    {props.onBlogIndex && props.blogImage && (
+      <figure className="image is-marginless">
+        <Img alt="" fluid={props.blogImage} />
+      </figure>
+    )}
     <h2 className={`title is-5`}>
       <Link to={props.blogLink}>{props.blogTitle}</Link>
     </h2>
-    {props.blogImage && (
-      <figure className="image is-5by4 is-marginless">
-        <img src={props.blogImage} />
+    {!props.onBlogIndex && props.blogImage && (
+      <figure className="image is-marginless">
+        <Img alt="" fluid={props.blogImage} />
       </figure>
     )}
     <h3 className={`title is-7`}>{props.blogDate}</h3>
