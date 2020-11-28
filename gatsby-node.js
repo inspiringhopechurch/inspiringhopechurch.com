@@ -71,11 +71,28 @@ exports.createPages = async ({ graphql, actions }) => {
   const pages = result.data.allGhostPage.edges;
   const posts = result.data.allGhostPost.edges;
 
+  // Create pages
+  pages.forEach(({ node }) => {
+    // This part here defines, that our pages will use
+    // a `/pages/:slug` permalink.
+    node.url = `/pages/${node.slug}`;
+
+    createPage({
+      path: node.url,
+      component: path.resolve(`./src/templates/page.js`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.slug,
+      },
+    });
+  });
+
   // Create post pages
   posts.forEach(({ node }, idx) => {
     // This part here defines, that our posts will use
-    // a `/blog/:slug/` permalink.
-    node.url = `/blog/${node.slug}/`;
+    // a `/blog/:slug` permalink.
+    node.url = `/blog/${node.slug}`;
     // Setup for pagination
     const prev = idx === 0 ? null : posts[idx - 1].node;
     const next = idx === posts.length - 1 ? null : posts[idx + 1].node;
