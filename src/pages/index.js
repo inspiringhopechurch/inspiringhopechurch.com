@@ -212,7 +212,7 @@ export default ({ data }) => {
           {edges.map(({ node }) => (
             <BlogItem
               blogTitle={node.title}
-              blogImage={node.feature_image}
+              blogImage={node.featureImageSharp.childImageSharp.fluid}
               blogDate={node.published_at_pretty}
               blogExcerpt={node.excerpt}
               blogLink={`/blog/${node.slug}`}
@@ -230,7 +230,7 @@ export const query = graphql`
     allGhostPost(sort: { order: DESC, fields: [published_at] }, limit: 3, skip: 0) {
       edges {
         node {
-          ...GhostPostFields
+          ...GhostPostFieldsForIndex
         }
       }
     }

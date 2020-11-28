@@ -148,6 +148,30 @@ export const ghostPostFields = graphql`
   }
 `;
 
+export const ghostPostFieldsForIndex = graphql`
+  fragment GhostPostFieldsForIndex on GhostPost {
+    ...GhostPostFieldsMain
+
+    # ImgSharp
+    featureImageSharp {
+      base
+      publicURL
+      childImageSharp {
+        fluid(maxWidth: 500, quality: 90) {
+          ...GatsbyImageSharpFluid_withWebp
+        }
+        fixed(height: 325, quality: 90) {
+          ...GatsbyImageSharpFixed_withWebp
+        }
+
+        resize(height: 500, width: 500) {
+          src
+        }
+      }
+    }
+  }
+`;
+
 // Used for single pages
 export const ghostPageFields = graphql`
   fragment GhostPageFields on GhostPage {
@@ -241,10 +265,6 @@ export const ghostPageFields = graphql`
     featureImageSharp {
       base
       publicURL
-      imageMeta {
-        width
-        height
-      }
       childImageSharp {
         fluid(maxWidth: 1040) {
           ...GatsbyImageSharpFluid_withWebp

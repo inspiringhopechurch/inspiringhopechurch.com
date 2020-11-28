@@ -40,7 +40,7 @@ export default ({ data }) => {
         article
       />
       <section className={`post hero is-halfheight`}>
-        // TODO: Put Img tag here
+        {/* // TODO: Put Img tag here */}
         <div
           className={`hero-body`}
           style={{ background: `url('${featureImageSharp.publicURL}') center top`, backgroundSize: "cover" }}

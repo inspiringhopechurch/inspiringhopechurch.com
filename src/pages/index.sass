@@ -49,8 +49,11 @@
         @include from($tablet)
             width: 75%
 
-    .index-content
+    &.index-content
         position: relative
+        figure
+            overflow: hidden
+            max-height: 21.875rem
         video:focus
             outline: none
         // @include from($tablet)
