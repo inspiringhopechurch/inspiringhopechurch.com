@@ -2,6 +2,7 @@ import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import SEO from "../components/seo";
+import "../pages/about/about.sass";
 import sanitizeHtml from "sanitize-html";
 
 /**
@@ -10,8 +11,9 @@ import sanitizeHtml from "sanitize-html";
  * This file renders a single page and loads all the content.
  *
  */
-export default ({ data, location }) => {
+const Page = ({ data, location }) => {
   const page = data.ghostPage;
+  const pageName = page.title;
 
   function getPostHtml() {
     return {
@@ -27,18 +29,25 @@ export default ({ data, location }) => {
       <SEO
         title={page.meta_title || page.title}
         desc={page.meta_description || page.excerpt}
-        banner={page.featureImageSharp.publicURL}
+        banner={page.featureImageSharp?.publicURL}
         pathname={page.slug}
         article
       />
-      <div className="container">
-        <article className="content">
-          <h1 className="content-title">{page.title}</h1>
 
+      <section className="about-page hero is-halfheight">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <h1 className="title is-size-1-mobile">{pageName}</h1>
+          </div>
+        </div>
+      </section>
+
+      <section className="box container is-shadowless">
+        <div className="columns content is-medium is-centered">
           {/* The main page content */}
-          <section className="content-body load-external-scripts" dangerouslySetInnerHTML={getPostHtml()} />
-        </article>
-      </div>
+          <div dangerouslySetInnerHTML={getPostHtml()} />
+        </div>
+      </section>
     </>
   );
 };
@@ -55,7 +64,7 @@ Page.propTypes = {
   location: PropTypes.object.isRequired,
 };
 
-// export default Page;
+export default Page;
 
 export const postQuery = graphql`
   query($slug: String!) {
