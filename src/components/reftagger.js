@@ -6,7 +6,7 @@ const addScript = (setScriptAdded) => {
   const el = document.createElement("script");
   el.type = "text/javascript";
   el.async = true;
-  el.src = "https://api.reftagger.com/v2/RefTagger.js";
+  el.src = "../assets/refTagger.js";
   document.getElementsByTagName("body")[0].appendChild(el);
 };
 
@@ -29,8 +29,8 @@ export const RefTagger = (props) => {
     !scriptAdded && addScript(setScriptAdded);
     window && !window.refTagger && addRefTagger(props);
     window.refTagger && window.refTagger.tag && window.refTagger.tag();
-    return () => window.refTagger.tag();
-  }, []);
+    return () => window.refTagger && window.refTagger.tag && window.refTagger.tag();
+  }, [scriptAdded, props]);
 
   return null;
 };
