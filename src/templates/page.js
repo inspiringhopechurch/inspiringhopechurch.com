@@ -1,9 +1,9 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import sanitizeHtml from "sanitize-html";
 import SEO from "../components/seo";
 import "../pages/about/about.sass";
-import sanitizeHtml from "sanitize-html";
 
 /**
  * Single page (/:slug)

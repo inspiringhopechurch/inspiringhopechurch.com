@@ -11,7 +11,7 @@ const Blog = ({ data }) => {
       <section className={`hero is-link is-halfheight`}>
         <div className={`hero-body`}>
           <div className={`container has-text-centered`}>
-            <h1 className={`title has-text-white`}>Latest News</h1>
+            <h1 className={`title has-text-white`}>Inspiring Moments</h1>
           </div>
         </div>
       </section>

@@ -15,7 +15,7 @@ export default ({ data }) => {
   const [emailAddress, setEmailAddress] = useState("");
   const [formSentIndicator, setFormSentIndicator] = useState(false);
 
-  const { edges } = data.allGhostPost;
+  const posts = data.allGhostPost.edges;
   const whoWeAreSection = data.ghostPage;
 
   /**
@@ -191,11 +191,11 @@ export default ({ data }) => {
       <section className={`index-page box index-content is-radiusless is-shadowless`}>
         <div className={`columns content`}>
           <div className={`column is-full`}>
-            <h1 className={`is-size-1 has-text-centered is-uppercase`}>What We're Up To</h1>
+            <h1 className={`is-size-1 has-text-centered is-uppercase`}>Inspiring Moments</h1>
           </div>
         </div>
         <div className={`columns is-multiline is-centered`}>
-          {edges.map(({ node }) => (
+          {posts.map(({ node }) => (
             <BlogItem
               blogTitle={node.title}
               blogImage={node.featureImageSharp.childImageSharp.fluid}
