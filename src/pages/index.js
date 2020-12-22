@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
+import config from "../../config"
 import BlogItem from "../components/blogItem";
 import Promotion from "../components/promotion";
 import LoaderIcon from "../components/loader-icon";
@@ -201,7 +202,7 @@ export default ({ data }) => {
               blogImage={node.featureImageSharp.childImageSharp.fluid}
               blogDate={node.published_at_pretty}
               blogExcerpt={node.excerpt}
-              blogLink={`/blog/${node.slug}`}
+              blogLink={`${config.postPrefix}/${node.slug}`}
               key={node.id}
             />
           ))}

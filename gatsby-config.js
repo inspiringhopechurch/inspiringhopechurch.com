@@ -105,6 +105,56 @@ module.exports = {
     `gatsby-plugin-remove-serviceworker`, // properly remove offline service worker
     {
       resolve: "gatsby-plugin-feed-generator",
+      options: {
+        generator: `GatsbyJS`,
+        rss: true,
+        json: true,
+        siteQuery: `
+        {
+          site {
+            siteMetadata {
+              title
+              description
+              siteUrl
+              author
+              postPrefix
+            }
+          }
+        }
+      `,
+        feeds: [
+        {
+          name: `feed`, // name of feed file. e.g. feed.json or feed.xml
+          query: `
+          {
+            allGhostPost(sort: { order: DESC, fields: published_at }, limit: 100) {
+              edges {
+                node {
+                  title
+                  published_at
+                  slug
+                  tags {
+                    name
+                  }
+                  html
+                }
+              }
+            }
+          }
+          `,
+          normalize: ({ query: { site, allGhostPost } }) => {
+              return allGhostPost.edges.map(edge => {
+                return {
+                    title: edge.node.title,
+                    date: edge.node.published_at,
+                    html: edge.node.html,
+                    url: `${site.siteMetadata.siteUrl}${site.siteMetadata.postPrefix}/${edge.node.slug}`
+                }
+              })
+          },
+        }
+        ]
+      }
     },
     `gatsby-plugin-robots-txt`,
     `gatsby-plugin-react-helmet`,

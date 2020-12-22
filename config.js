@@ -1,5 +1,5 @@
 module.exports = {
-  author: "ORB IT Solutions LLC", // Author for schemaORGJSONLD
+  author: "Inspiring Hope Church", // Author for schemaORGJSONLD
   title: "Inspiring Hope Church", // Site Title
   titleAlt: "Inspiring Hope Church", // Title for JSONLD
   description:
@@ -7,12 +7,13 @@ module.exports = {
   url: "https://inspiringhopechurch.com", // Site domain without trailing slash
   siteUrl: "https://inspiringhopechurch.com/", // Site domain with trailing slash
   pathPrefix: "/",
+  postPrefix: "/blog",
   siteLanguage: "en", // Language Tag on <html> element
   logo: "src/assets/logo.svg",
   banner: "src/assets/logo.svg",
   icon: "static/assets/favicon.png",
   favicon: "static/favicon.ico", // Manifest favicon generation
-  shortName: "InspHopeCh", // Shortname for manifest, must be shorter than 12 characters
+  shortName: "Inspiring", // Shortname for manifest, must be shorter than 12 characters
   themeColor: "#00E5FC",
   backgroundColor: "#201E55",
   twitter: "", // Twitter Username

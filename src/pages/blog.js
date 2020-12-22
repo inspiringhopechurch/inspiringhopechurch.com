@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import config from "../../config"
 import BlogItem from "../components/blogItem";
 import "./blog.sass";
 
@@ -24,7 +25,7 @@ const Blog = ({ data }) => {
               blogImage={node.featureImageSharp.childImageSharp.fluid}
               blogDate={node.published_at_pretty}
               blogExcerpt={node.excerpt}
-              blogLink={`/blog/${node.slug}`}
+              blogLink={`${config.postPrefix}/${node.slug}`}
               onBlogIndex={true}
               key={node.id}
             />

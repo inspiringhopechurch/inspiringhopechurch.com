@@ -77,6 +77,10 @@ exports.createPages = async ({ graphql, actions }) => {
     // a `/pages/:slug` permalink.
     node.url = `/pages/${node.slug}`;
 
+    if (node.slug === "home-who-we-are" || node.slug === "authors" || node.slug === "newsletter") {
+      return;
+    }
+    
     createPage({
       path: node.url,
       component: path.resolve(`./src/templates/page.js`),

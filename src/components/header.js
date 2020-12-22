@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import config from "../../config"
 import "./header.sass";
 import logo from "../assets/logo.svg";
 
@@ -15,7 +16,7 @@ const Header = ({ location }) => {
     missionUrl = "/about/mission",
     beliefsUrl = "/about/beliefs",
     contactUrl = "/contact",
-    blogUrl = "/blog";
+    blogUrl = config.postPrefix;
   //giveUrl = "/give";
 
   return (
