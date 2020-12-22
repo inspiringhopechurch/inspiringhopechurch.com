@@ -6,7 +6,7 @@ const addScript = (setScriptAdded) => {
   const el = document.createElement("script");
   el.type = "text/javascript";
   el.async = true;
-  el.src = "../assets/refTagger.js";
+  el.src = "https://api.reftagger.com/v2/RefTagger.js";
   document.getElementsByTagName("body")[0].appendChild(el);
 };
 
