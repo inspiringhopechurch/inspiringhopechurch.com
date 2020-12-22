@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
-import ServiceItem from "../components/serviceItem";
 import BlogItem from "../components/blogItem";
 import Promotion from "../components/promotion";
 import LoaderIcon from "../components/loader-icon";
+import { cleanHtml } from "../utils";
 import "./index.sass";
 import videoPoster from "../assets/ihc_video.png";
 import captionEn from "file-loader!../assets/captions.en.vtt";
@@ -16,6 +16,7 @@ export default ({ data }) => {
   const [formSentIndicator, setFormSentIndicator] = useState(false);
 
   const { edges } = data.allGhostPost;
+  const whoWeAreSection = data.ghostPage;
 
   /**
    * Handles changes to the form's inputs. Should be passed to an input's
@@ -138,25 +139,10 @@ export default ({ data }) => {
         <Promotion promoEndDate="May 31, 2019 23:59:59" promoDiscount={25} />
         <div className={`columns content`}>
           <div className={`column is-full`}>
-            <h1 className={`has-text-centered is-size-1 is-uppercase`}>Who We Are</h1>
+            <h1 className={`has-text-centered is-size-1 is-uppercase`}>{whoWeAreSection.title}</h1>
           </div>
         </div>
-        <div className={`columns is-multiline`}>
-          <ServiceItem serviceName={"Mission"}>
-            We exist to <em>inspire hope</em> by helping people discover God’s purpose for their lives through a
-            relationship with Jesus.
-          </ServiceItem>
-
-          <ServiceItem serviceName={"Strategy"}>
-            We will do this by inspiring people to <em>Follow</em> Jesus, <em>Live</em> in community, <em>Serve</em>{" "}
-            those around them and <em>Expand</em> God’s kingdom.
-          </ServiceItem>
-
-          <ServiceItem serviceName={"Values"}>
-            Our values describe our passions and define the heart with which will will accomplish our mission and
-            vision.
-          </ServiceItem>
-        </div>
+        <div class="columns is-multiline" dangerouslySetInnerHTML={cleanHtml(whoWeAreSection.html)} />
         <div className={`columns`}>
           <div className={`column is-full`}>
             <p className={`control has-text-centered`}>
@@ -233,6 +219,10 @@ export const query = graphql`
           ...GhostPostFieldsForIndex
         }
       }
+    }
+    ghostPage(title: {eq: "Who We Are"}) {
+      html
+      title
     }
   }
 `;
