@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import sanitizeHtml from "sanitize-html";
+import { cleanHtml } from "../utils";
 import SEO from "../components/seo";
 import "./post.sass";
 
@@ -19,15 +19,6 @@ export default ({ data }) => {
       subtitle,
       title,
     } = post;
-
-  function getPostHtml() {
-    return {
-      __html: sanitizeHtml(html, {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-        allowedAttributes: { img: ["src", "srcset", "alt"], "*": ["class", "id"] },
-      }),
-    }; // this needs to be sanitized because post.html can contain user modifiable code
-  }
 
   // TODO: Fix SEO generation here
   return (
@@ -81,7 +72,7 @@ export default ({ data }) => {
 
           <div
             className={`column content is-half-desktop is-two-thirds-tablet`}
-            dangerouslySetInnerHTML={getPostHtml()}
+            dangerouslySetInnerHTML={cleanHtml(html)}
           />
         </div>
       </section>

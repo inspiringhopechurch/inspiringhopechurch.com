@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import sanitizeHtml from "sanitize-html";
+import { cleanHtml } from "../utils";
 import SEO from "../components/seo";
 import "../pages/about/about.sass";
 
@@ -14,15 +14,6 @@ import "../pages/about/about.sass";
 const Page = ({ data, location }) => {
   const page = data.ghostPage;
   const pageName = page.title;
-
-  function getPostHtml() {
-    return {
-      __html: sanitizeHtml(page.html, {
-        allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-        allowedAttributes: { img: ["src", "srcset", "alt"], "*": ["class", "id"] },
-      }),
-    }; // this needs to be sanitized because post.html can contain user modifiable code
-  }
 
   return (
     <>
@@ -45,7 +36,7 @@ const Page = ({ data, location }) => {
       <section className="box container is-shadowless">
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
-          <div dangerouslySetInnerHTML={getPostHtml()} />
+          <div dangerouslySetInnerHTML={cleanHtml(page.html)} />
         </div>
       </section>
     </>
