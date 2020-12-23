@@ -1,9 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
+import ContactForm from "../components/contactForm";
 import { cleanHtml } from "../utils";
 import SEO from "../components/seo";
-import "../pages/about/about.sass";
+import { RefTagger } from "../components/reftagger";
+import "./page.sass";
 
 /**
  * Single page (/:slug)
@@ -25,7 +27,7 @@ const Page = ({ data, location }) => {
         article
       />
 
-      <section className="about-page hero is-halfheight">
+      <section className="generated-page hero is-halfheight">
         <div className="hero-body">
           <div className="container has-text-centered">
             <h1 className="title is-size-1-mobile">{pageName}</h1>
@@ -36,8 +38,17 @@ const Page = ({ data, location }) => {
       <section className="box container is-shadowless">
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
-          <div dangerouslySetInnerHTML={cleanHtml(page.html)} />
+          <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
+          { (location.pathname === '/about/missions' || location.pathname === '/about/beliefs') && <RefTagger bibleVersion="HCSB" />}
         </div>
+        
+        { location.pathname === '/get-connected' && (
+          <div className="columns content is-medium is-centered">
+            <div className={`column is-two-thirds`}>
+              <ContactForm formTitle={"Get in Touch"} submitButtonTitle={"Send Message"} />
+            </div>
+          </div>
+        )}
       </section>
     </>
   );

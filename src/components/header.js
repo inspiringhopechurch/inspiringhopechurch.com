@@ -12,12 +12,14 @@ const Header = ({ location }) => {
   const hideMenu = () => setMenuIsMobile(false);
 
   const homeUrl = "/",
-    aboutUrl = "/about",
-    missionUrl = "/about/mission",
-    beliefsUrl = "/about/beliefs",
-    contactUrl = "/contact",
-    blogUrl = config.postPrefix;
-  //giveUrl = "/give";
+    blogUrl      = config.postPrefix,
+    aboutUrl     = "/about",
+    missionUrl   = "/about/mission",
+    beliefsUrl   = "/about/beliefs",
+    partnersUrl  = "/about/partners",
+    contactUrl   = "/contact",
+    // giveUrl      = "/give",
+    getConnected = "/get-connected";
 
   return (
     <header>
@@ -49,6 +51,13 @@ const Header = ({ location }) => {
               >
                 Home
               </Link>
+              <Link
+                className={`navbar-item ${location.pathname.includes(getConnected) ? "is-active-page" : ""}`}
+                to={getConnected}
+                state={{ prevPath: location.pathname }}
+              >
+                Get Connected
+              </Link>
               <div
                 className={`navbar-item ${
                   location.pathname.includes(aboutUrl) ? "is-active-page" : ""
@@ -66,6 +75,9 @@ const Header = ({ location }) => {
                   </Link>
                   <Link className="navbar-item" to={missionUrl} state={{ prevPath: location.pathname }}>
                     Our Mission
+                  </Link>
+                  <Link className="navbar-item" to={partnersUrl} state={{ prevPath: location.pathname }}>
+                    Our Partners
                   </Link>
                 </div>
               </div>

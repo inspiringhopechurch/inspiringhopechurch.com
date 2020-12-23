@@ -1,5 +1,6 @@
 // following gatsbyjs tutorial
 const path = require("path");
+const config = require("./config");
 const { createFilePath } = require("gatsby-source-filesystem");
 
 exports.onCreateNode = ({ node, getNode, actions }) => {
@@ -54,6 +55,10 @@ exports.createPages = async ({ graphql, actions }) => {
           node {
             slug
             url
+            primary_tag {
+              slug
+              name
+            }
           }
         }
       }
@@ -73,11 +78,23 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create pages
   pages.forEach(({ node }) => {
-    // This part here defines, that our pages will use
-    // a `/pages/:slug` permalink.
-    node.url = `/pages/${node.slug}`;
+    // This part here defines our pages' permalink
+    // pattern. e.g `/:category/:slug`. 
+    // If the 1st part of the slug before the '-' matches
+    // the tag's slug, we'll set this as the url prefix.
+    // this is a way to automatically build urls
+    // TESTME! This bit is testable. Prime unit test fodder.
+    const pageSlug = node.primary_tag?.slug;
+    const slugUrl = node.slug.split(`${pageSlug}-`)[1];
+    const slugCategory = node.slug.split(`-${slugUrl}`)[0];
+    
+    if (pageSlug && pageSlug === slugCategory) {
+      node.url = slugUrl ? `${slugCategory}/${slugUrl}` : slugCategory;
+    } else {
+      node.url = node.slug;
+    }
 
-    if (node.slug === "home-who-we-are" || node.slug === "authors" || node.slug === "newsletter") {
+    if (pageSlug === "home-page" || node.slug === "authors" || node.slug === "newsletter") {
       return;
     }
     
@@ -96,7 +113,7 @@ exports.createPages = async ({ graphql, actions }) => {
   posts.forEach(({ node }, idx) => {
     // This part here defines, that our posts will use
     // a `/blog/:slug` permalink.
-    node.url = `/blog/${node.slug}`;
+    node.url = `${config.postPrefix}/${node.slug}`;
     // Setup for pagination
     const prev = idx === 0 ? null : posts[idx - 1].node;
     const next = idx === posts.length - 1 ? null : posts[idx + 1].node;
