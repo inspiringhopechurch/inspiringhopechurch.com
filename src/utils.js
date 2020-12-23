@@ -16,8 +16,8 @@ export function validUrl(url) {
 export function cleanHtml(markup) {
   return {
     __html: sanitizeHtml(markup, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img"]),
-      allowedAttributes: { img: ["src", "srcset", "alt"], "*": ["class", "id"] },
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "button"]),
+      allowedAttributes: { img: ["src", "srcset", "alt"], div: ["data-id"], "*": ["class", "id", "data-id"] },
     }),
   };
 }
