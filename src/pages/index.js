@@ -143,7 +143,7 @@ export default ({ data }) => {
             <h1 className={`has-text-centered is-size-1 is-uppercase`}>{whoWeAreSection.title}</h1>
           </div>
         </div>
-        <div class="columns is-multiline" dangerouslySetInnerHTML={cleanHtml(whoWeAreSection.html)} />
+        <div className="columns is-multiline" dangerouslySetInnerHTML={cleanHtml(whoWeAreSection.html)} />
         <div className={`columns`}>
           <div className={`column is-full`}>
             <p className={`control has-text-centered`}>

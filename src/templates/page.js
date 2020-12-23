@@ -39,7 +39,7 @@ const Page = ({ data, location }) => {
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
           <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
-          { (location.pathname === '/about/missions' || location.pathname === '/about/beliefs') && <RefTagger bibleVersion="HCSB" />}
+          { location && (location.pathname === '/about/missions' || location.pathname === '/about/beliefs') && <RefTagger bibleVersion="HCSB" />}
         </div>
         
         { location.pathname === '/get-connected' && (
