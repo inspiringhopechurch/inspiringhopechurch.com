@@ -41,7 +41,9 @@ const Contact = () => {
             </p>
           </div>
 
-          <ContactForm formTitle={"Get in Touch"} submitButtonTitle={"Send Message"} />
+          <div className={`column is-two-thirds-tablet is-two-fifths-widescreen`}>
+            <ContactForm formTitle={"Get in Touch"} submitButtonTitle={"Send Message"} />
+          </div>
         </div>
       </section>
     </>

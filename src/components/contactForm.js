@@ -170,7 +170,7 @@ const ContactForm = ({
   };
 
   return (
-    <div className={`contact-form column is-two-thirds-tablet is-two-fifths-widescreen`}>
+    <div className={`contact-form`}>
       <h1 className={`title is-uppercase has-text-link has-text-centered`}>{formTitle}</h1>
 
       <div
