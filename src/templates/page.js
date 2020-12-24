@@ -5,6 +5,7 @@ import ContactForm from "../components/contactForm";
 import { cleanHtml } from "../utils";
 import SEO from "../components/seo";
 import { RefTagger } from "../components/reftagger";
+import Accordion from "../components/accordion";
 import "./page.sass";
 
 /**
@@ -16,7 +17,31 @@ import "./page.sass";
 const Page = ({ data, location }) => {
   const page = data.ghostPage;
   const pageName = page.title;
-
+  const isBeliefPage = location?.pathname.includes('/about/beliefs');
+  let accordionContent = {};
+  let accordionHeader = '';
+  const isBrowser = typeof document !== 'undefined';
+  
+  // Since we don't have access to the DOM when server-side rendering,
+  // only run the code below if in the browser.
+  if ( isBeliefPage && isBrowser ) {
+    const beliefsList = page.html.split(/<!--kg-card-begin: .*?-->/);
+    
+    let temporaryEl = document.createElement('div');
+    // Skip the first entry (0) because its empty
+    for (let idx=1; idx < beliefsList.length; idx++) {
+      temporaryEl.innerHTML = cleanHtml(beliefsList[idx]).__html;
+      if (idx === 1 && (temporaryEl.firstChild.tagName.toLowerCase() === 'h1') ) {
+        accordionHeader = temporaryEl.innerHTML;
+      } else if (temporaryEl.firstChild.tagName.toLowerCase() === 'h2') {
+        // Increment the beliefsList index because, the way this is set up in Ghost,
+        // we *should* have an h2 tag, followed directly by the accordion content in a div. 
+        accordionContent[temporaryEl.firstChild.innerText] = cleanHtml(beliefsList[++idx]).__html;
+      }
+    }
+  }
+  
+  
   return (
     <>
       <SEO
@@ -38,7 +63,19 @@ const Page = ({ data, location }) => {
       <section className="box container is-shadowless">
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
-          <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
+          {isBeliefPage ? 
+            (isBrowser ?
+              <div className="column is-two-thirds">
+                {<div dangerouslySetInnerHTML={{__html: accordionHeader}} />}
+                {Object.keys(accordionContent).map((title, idx) => (
+                  <Accordion key={title} title={title} isExpanded={idx === 0 ? true : false}>
+                    <div dangerouslySetInnerHTML={{__html: accordionContent[title]}} />
+                  </Accordion>
+                ))}
+              </div> :
+              <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
+            ) :
+            <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />}
           { location && (location.pathname === '/about/missions' || location.pathname === '/about/beliefs') && <RefTagger bibleVersion="HCSB" />}
         </div>
         
