@@ -32,7 +32,7 @@ const Page = ({ data, location }) => {
     for (let idx=1; idx < beliefsList.length; idx++) {
       temporaryEl.innerHTML = cleanHtml(beliefsList[idx]).__html;
       if (idx === 1 && (temporaryEl.firstChild.tagName.toLowerCase() === 'h1') ) {
-        accordionHeader = temporaryEl.innerHTML;
+        accordionHeader = temporaryEl.firstChild.innerText;
       } else if (temporaryEl.firstChild.tagName.toLowerCase() === 'h2') {
         // Increment the beliefsList index because, the way this is set up in Ghost,
         // we *should* have an h2 tag, followed directly by the accordion content in a div. 
@@ -66,7 +66,7 @@ const Page = ({ data, location }) => {
           {isBeliefPage ? 
             (isBrowser ?
               <div className="column is-two-thirds">
-                {<div dangerouslySetInnerHTML={{__html: accordionHeader}} />}
+                {<h1 className="title is-size-1 is-uppercase has-text-centered" dangerouslySetInnerHTML={{__html: accordionHeader}} />}
                 {Object.keys(accordionContent).map((title, idx) => (
                   <Accordion key={title} title={title} isExpanded={idx === 0 ? true : false}>
                     <div dangerouslySetInnerHTML={{__html: accordionContent[title]}} />
