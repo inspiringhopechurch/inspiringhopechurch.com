@@ -16,8 +16,14 @@ export function validUrl(url) {
 export function cleanHtml(markup) {
   return {
     __html: sanitizeHtml(markup, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["img", "button"]),
-      allowedAttributes: { img: ["src", "srcset", "alt"], div: ["data-id"], "*": ["class", "id", "data-id"] },
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "iframe",   "img", "button"]),
+      allowedAttributes: { 
+        a: ["href"],
+        img: ["src", "srcset", "alt"],
+        "*": ["class", "id", "data-*"],
+        iframe: ['src']
+      },
+      allowedIframeHostnames: ['www.youtube.com'],
     }),
   };
 }

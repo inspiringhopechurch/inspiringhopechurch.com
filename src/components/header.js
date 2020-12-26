@@ -18,7 +18,7 @@ const Header = ({ location }) => {
     beliefsUrl   = "/about/beliefs",
     partnersUrl  = "/about/partners",
     contactUrl   = "/contact",
-    // giveUrl      = "/give",
+    giveUrl      = "/give",
     getConnected = "/get-connected";
 
   return (
@@ -96,13 +96,11 @@ const Header = ({ location }) => {
                 Contact
               </Link>
             </div>
-            {/* }
           <div className='navbar-end'>
             <Link className='navbar-item' to={giveUrl} state={{ prevPath: location.pathname }}>
               Give
             </Link>
           </div>
-          { */}
           </div>
         </div>
       </nav>
