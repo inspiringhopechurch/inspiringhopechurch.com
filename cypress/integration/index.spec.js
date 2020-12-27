@@ -30,16 +30,19 @@ context("Index", () => {
         .children()
         .should("have.length", 1);
       cy.get(".is-active-page").should("have.text", "Home");
+      cy.get('.navbar-start > [href="/get-connected"]').should("have.text", "Get Connected");
       cy.get('.navbar-start > [href="/contact"]').should("have.text", "Contact");
+      cy.get('.navbar-end > [href="/give"]').should("have.text", "Give");
       cy.get(".navbar-link").should("have.text", "About Us");
       cy.get(".navbar-dropdown")
         .invoke("show")
         .children()
         .should(($items) => {
-          expect($items, "menu entries").to.have.length(3);
+          expect($items, "menu entries").to.have.length(4);
           expect($items.eq(0), "first").to.contain("Who We Are");
           expect($items.eq(1), "second").to.contain("Our Beliefs");
           expect($items.eq(2), "third").to.contain("Our Mission");
+          expect($items.eq(3), "third").to.contain("Our Partners");
         });
       cy.get(".navbar-dropdown")
         .invoke("hide")
