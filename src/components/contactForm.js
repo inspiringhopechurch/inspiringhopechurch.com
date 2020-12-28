@@ -187,7 +187,7 @@ const ContactForm = ({
           {/* <div className={`field-body`}> */}
           <div className={""}>
             <div className={`field`}>
-              <label className="label" htmlFor="fullName">Full Name</label>
+              <label className="label" htmlFor="fullName">Name</label>
               <div className={`control is-expanded has-icons-left`}>
                 <input
                   data-testid="fullName"
@@ -218,7 +218,7 @@ const ContactForm = ({
                   className={`input`}
                   onChange={handleChange}
                   type="email"
-                  placeholder="Email"
+                  placeholder="Email Address"
                   value={formData.email}
                   required
                 />
@@ -243,7 +243,7 @@ const ContactForm = ({
               className={`input`}
               onChange={handleChange}
               type="text"
-              placeholder="Subject"
+              placeholder="Email Subject Line"
               value={formData.messageSubject}
               required
             />
@@ -264,7 +264,7 @@ const ContactForm = ({
               id="messageBody"
               name="messageBody"
               className={`textarea`}
-              placeholder="Message"
+              placeholder="Send us your message here."
               rows={10}
               onChange={handleChange}
               value={formData.messageBody}
