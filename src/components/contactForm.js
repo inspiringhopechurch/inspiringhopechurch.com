@@ -187,6 +187,7 @@ const ContactForm = ({
           {/* <div className={`field-body`}> */}
           <div className={""}>
             <div className={`field`}>
+              <label className="label" htmlFor="fullName">Full Name</label>
               <div className={`control is-expanded has-icons-left`}>
                 <input
                   data-testid="fullName"
@@ -208,6 +209,7 @@ const ContactForm = ({
               </p>
             </div>
             <div className={`field`}>
+              <label className="label" htmlFor="email">Email</label>
               <div className={`control is-expanded has-icons-left`}>
                 <input
                   data-testid="email"
@@ -232,6 +234,7 @@ const ContactForm = ({
         </div>
 
         <div className={`field`}>
+          <label className="label" htmlFor="messageSubject">Subject</label>
           <div className={`control has-icons-left`}>
             <input
               data-testid="messageSubject"
@@ -254,6 +257,7 @@ const ContactForm = ({
         </div>
 
         <div className={`field`}>
+          <label className="label" htmlFor="messageBody">Message</label>
           <div className={`control`}>
             <textarea
               data-testid="messageBody"

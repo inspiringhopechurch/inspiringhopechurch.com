@@ -136,12 +136,12 @@ const Mission = ({ location }) => {
               </dt>
               <dd>
                 We value an intentional lifestyle of multiplication because inspiring others doesn’t happen by accident.
+                <div className="tags">
+                  <span className="tag">Matthew 28:19-20</span>
+                  <span className="tag">Isaiah 54:2-3</span>
+                  <span className="tag">2 Timothy 2:2</span>
+                </div>
               </dd>
-              <div className="tags">
-                <span className="tag">Matthew 28:19-20</span>
-                <span className="tag">Isaiah 54:2-3</span>
-                <span className="tag">2 Timothy 2:2</span>
-              </div>
             </dl>
           </div>
         </div>

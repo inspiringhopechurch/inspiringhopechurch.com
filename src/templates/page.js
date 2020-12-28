@@ -21,12 +21,12 @@ const Page = ({ data, location }) => {
   let accordionContent = {};
   let accordionHeader = '';
   const isBrowser = typeof document !== 'undefined';
-  
+
   // Since we don't have access to the DOM when server-side rendering,
   // only run the code below if in the browser.
   if ( isBeliefPage && isBrowser ) {
     const beliefsList = page.html.split(/<!--kg-card-begin: .*?-->/);
-    
+
     let temporaryEl = document.createElement('div');
     // Skip the first entry (0) because its empty
     for (let idx=1; idx < beliefsList.length; idx++) {
@@ -40,8 +40,8 @@ const Page = ({ data, location }) => {
       }
     }
   }
-  
-  
+
+
   return (
     <>
       <SEO
@@ -76,9 +76,9 @@ const Page = ({ data, location }) => {
               <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
             ) :
             <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />}
-          { location && (location.pathname === '/about/missions' || location.pathname === '/about/beliefs') && <RefTagger bibleVersion="HCSB" />}
+          { location && (location.pathname.includes('/about/mission') || location.pathname.includes('/about/beliefs')) && <RefTagger bibleVersion="HCSB" />}
         </div>
-        
+
         { location.pathname === '/get-connected' && (
           <div className="columns content is-medium is-centered">
             <div className={`column is-two-thirds`}>
