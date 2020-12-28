@@ -1,11 +1,11 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import ContactForm from "../components/contactForm";
 import { cleanHtml } from "../utils";
-import SEO from "../components/seo";
 import { RefTagger } from "../components/reftagger";
+import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
+import SEO from "../components/seo";
 import "./page.sass";
 
 /**
@@ -18,6 +18,7 @@ const Page = ({ data, location }) => {
   const page = data.ghostPage;
   const pageName = page.title;
   const isBeliefPage = location?.pathname.includes('/about/beliefs');
+  const isMissionPage = location?.pathname.includes('/about/mission');
   let accordionContent = {};
   let accordionHeader = '';
   const isBrowser = typeof document !== 'undefined';
@@ -76,7 +77,7 @@ const Page = ({ data, location }) => {
               <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
             ) :
             <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />}
-          { location && (location.pathname.includes('/about/mission') || location.pathname.includes('/about/beliefs')) && <RefTagger bibleVersion="HCSB" />}
+          { location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
 
         { location.pathname === '/get-connected' && (
