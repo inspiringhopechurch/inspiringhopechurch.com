@@ -43,7 +43,7 @@ const Header = ({ location }) => {
             </button>
           </div>
           <div id="nav-menu" className={`navbar-menu ${menuIsMobile ? "is-active" : ""}`}>
-            <div className="navbar-start pr-5" role="none" onClick={hideMenu} onKeyPress={hideMenu}>
+            <div className="navbar-start" role="none" onClick={hideMenu} onKeyPress={hideMenu}>
               <Link
                 className={`navbar-item ${location.pathname === homeUrl ? "is-active-page" : ""}`}
                 to={homeUrl}
