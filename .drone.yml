@@ -1,0 +1,32 @@
+---
+kind: pipeline
+type: docker
+name: inspiringhope
+
+steps:
+- name: build
+  image: node:14.15.3-alpine
+  environment:
+    GHOST_API_URL:
+      from_secret: ghost_api_url
+    GHOST_CONTENT_API_KEY:
+      from_secret: ghost_content_api_key
+    NPM_AUTH_TOKEN:
+      from_secret: npm_auth_token
+  commands:
+  - apk add git autoconf automake pkgconfig libpng libjpeg libtool gcc g++ make file nasm
+  - npm i -g gatsby-cli
+  - npm i
+  - gatsby build
+  - gatsby serve &
+  - npm run integration
+# - name: notify
+#     image: drillster/drone-email
+#     host: mail.inspiringhopechurch.com
+#     username: orville
+#     password:
+#       from_secret: mail_password
+#     from: drone@inspiringhopechurch.com
+#     recipients: [ admin@inspiringhopechurch.com  ]
+#     when:
+#       status: [ changed, failure ]

@@ -1,5 +1,5 @@
 {
-  "baseUrl": "https://dev.inspiringhopechurch.com",
+  "baseUrl": "http://localhost:9000",
   "projectId": "cfiju4",
   "retries": {
     "runMode": 2,
