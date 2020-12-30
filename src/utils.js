@@ -24,6 +24,9 @@ export function cleanHtml(markup) {
         iframe: ['src']
       },
       allowedIframeHostnames: ['www.youtube.com'],
+      transformTags: {
+        'table': sanitizeHtml.simpleTransform('table', {class: 'table is-size-6 is-striped is-narrow'}),
+      }
     }),
   };
 }
