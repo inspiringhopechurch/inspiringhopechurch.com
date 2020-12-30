@@ -1,7 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import { cleanHtml, cleanHtmlForVideo } from "../utils";
+import { cleanHtml, cleanHtmlForVideo, generateVideoSnippet } from "../utils";
 import { RefTagger } from "../components/reftagger";
 import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
@@ -45,47 +45,14 @@ const Page = ({ data, location }) => {
     }
   }
 
+  // We search for a placeholder section for our native video playback here, and generate
+  // the necessary code. This EXACT code needs to be present in Ghost for this to work.
   if (isGivePage) {
-    const howToGiveOnlineVideoPlaceholder=`<div class=\"container\" data-id=\"how_to_give_online\"></div>`;
-    const textToGiveVideoPlaceholder=`<div class=\"container\" data-id=\"text_to_give\"></div>`;
+    const howToGiveOnlineVideoPlaceholder=`<div class="container" data-id="how_to_give_online"></div>`;
+    const textToGiveVideoPlaceholder=`<div class="container" data-id="text_to_give"></div>`;
 
-    const howToGiveOnlineVideo = `<div class="container" data-id="how_to_give_online">
-      <figure className="image is-16by9">
-        <video
-          class="has-ratio"
-          controls="${true}"
-          id="hero-video"
-          width="100%"
-          height="100%"
-          preload="metadata"
-          poster="${howToVideoPoster}"
-        >
-          <source src="/assets/how_to_give_online.webm" type="video/webm" />
-          <source src="/assets/how_to_give_online.mp4" type="video/mp4" />
-          <track kind="captions" srcLang="en" label="English" src={captionEn} />
-          <track kind="captions" srcLang="es" label="Español" src={captionEs} />
-          Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
-        </video>
-      </figure></div>`;
-
-    const textToGiveVideo = `<div class="container" data-id="text_to_give">
-      <figure className="image is-16by9">
-        <video
-          class="has-ratio"
-          controls="${true}"
-          id="hero-video"
-          width="100%"
-          height="100%"
-          preload="metadata"
-          poster="${textToVideoPoster}"
-        >
-          <source src="/assets/text_to_give.webm" type="video/webm" />
-          <source src="/assets/text_to_give.mp4" type="video/mp4" />
-          <track kind="captions" srcLang="en" label="English" src={captionEn} />
-          <track kind="captions" srcLang="es" label="Español" src={captionEs} />
-          Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
-        </video>
-      </figure></div>`;
+    const howToGiveOnlineVideo = generateVideoSnippet("how_to_give_online", howToVideoPoster);
+    const textToGiveVideo = generateVideoSnippet("text_to_give", textToVideoPoster);
 
       page.html = page.html.replace(howToGiveOnlineVideoPlaceholder, howToGiveOnlineVideo);
       page.html = page.html.replace(textToGiveVideoPlaceholder,textToGiveVideo);
@@ -126,6 +93,7 @@ const Page = ({ data, location }) => {
               <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
             ) :
             <div className="column is-two-thirds" dangerouslySetInnerHTML={isGivePage ? cleanHtmlForVideo(page.html) : cleanHtml(page.html)} />}
+            {/* cleanHtmlForVideo is used explicitly on the give page to remove the video embed iframe during sanitization. */}
           { location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
 

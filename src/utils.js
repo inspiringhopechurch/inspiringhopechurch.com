@@ -47,3 +47,30 @@ export function cleanHtmlForVideo(markup) {
     }),
   };
 }
+
+/** Generates an html snippet for a video file.
+ * @param {string} videoName name used for video file. Also used as prefix
+ * for the caption file.
+ * @param {string} posterName name of file used as image poster.
+ * @returns {string} HTML snippet for video playback.
+ */
+export function generateVideoSnippet(videoName, posterName) {
+  return `<div class="container" data-id="${videoName}">
+    <figure className="image is-16by9">
+      <video
+        class="has-ratio"
+        controls="${true}"
+        id="${videoName}-video"
+        width="100%"
+        height="100%"
+        preload="metadata"
+        poster="${posterName}"
+      >
+        <source src="/assets/${videoName}.webm" type="video/webm" />
+        <source src="/assets/${videoName}.mp4" type="video/mp4" />
+        <track kind="captions" srcLang="en" label="English" src="${videoName}.en.vtt" />
+        <track kind="captions" srcLang="es" label="Español" src="${videoName}.es.vtt" />
+        Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
+      </video>
+    </figure></div>`;
+}
