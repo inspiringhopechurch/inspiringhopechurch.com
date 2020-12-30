@@ -27,3 +27,23 @@ export function cleanHtml(markup) {
     }),
   };
 }
+
+/** Sanitizes html markup that is passed in and retains video specific tags.
+ * This should be used on any content that is user modifiable.
+ * @param {string} markup string representation of html from untrusted source
+ */
+export function cleanHtmlForVideo(markup) {
+  return {
+    __html: sanitizeHtml(markup, {
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "img", "button", "source", "track", "video"]),
+      allowedAttributes: { 
+        a: ["href"],
+        img: ["src", "srcset", "alt"],
+        "*": ["class", "id", "data-*"],
+        video: ["controls", "width", "height", "poster", "preload"],
+        source: ["src", "type"],
+        track: ["kind", "src", "srcLang", "label"]
+      },
+    }),
+  };
+}

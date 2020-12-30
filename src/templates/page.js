@@ -1,11 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import { cleanHtml } from "../utils";
+import { cleanHtml, cleanHtmlForVideo } from "../utils";
 import { RefTagger } from "../components/reftagger";
 import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
 import SEO from "../components/seo";
+import howToVideoPoster from "../assets/how_to_give_online.jpg";
+import textToVideoPoster from "../assets/text_to_give.jpg";
 import "./page.sass";
 
 /**
@@ -19,6 +21,7 @@ const Page = ({ data, location }) => {
   const pageName = page.title;
   const isBeliefPage = location?.pathname.includes('/about/beliefs');
   const isMissionPage = location?.pathname.includes('/about/mission');
+  const isGivePage = location?.pathname.includes('/give');
   let accordionContent = {};
   let accordionHeader = '';
   const isBrowser = typeof document !== 'undefined';
@@ -40,6 +43,52 @@ const Page = ({ data, location }) => {
         accordionContent[temporaryEl.firstChild.innerText] = cleanHtml(beliefsList[++idx]).__html;
       }
     }
+  }
+
+  if (isGivePage) {
+    const howToGiveOnlineVideoPlaceholder=`<div class=\"container\" data-id=\"how_to_give_online\"></div>`;
+    const textToGiveVideoPlaceholder=`<div class=\"container\" data-id=\"text_to_give\"></div>`;
+
+    const howToGiveOnlineVideo = `<div class="container" data-id="how_to_give_online">
+      <figure className="image is-16by9">
+        <video
+          class="has-ratio"
+          controls="${true}"
+          id="hero-video"
+          width="100%"
+          height="100%"
+          preload="metadata"
+          poster="${howToVideoPoster}"
+        >
+          <source src="/assets/how_to_give_online.webm" type="video/webm" />
+          <source src="/assets/how_to_give_online.mp4" type="video/mp4" />
+          <track kind="captions" srcLang="en" label="English" src={captionEn} />
+          <track kind="captions" srcLang="es" label="Español" src={captionEs} />
+          Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
+        </video>
+      </figure></div>`;
+
+    const textToGiveVideo = `<div class="container" data-id="text_to_give">
+      <figure className="image is-16by9">
+        <video
+          class="has-ratio"
+          controls="${true}"
+          id="hero-video"
+          width="100%"
+          height="100%"
+          preload="metadata"
+          poster="${textToVideoPoster}"
+        >
+          <source src="/assets/text_to_give.webm" type="video/webm" />
+          <source src="/assets/text_to_give.mp4" type="video/mp4" />
+          <track kind="captions" srcLang="en" label="English" src={captionEn} />
+          <track kind="captions" srcLang="es" label="Español" src={captionEs} />
+          Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
+        </video>
+      </figure></div>`;
+
+      page.html = page.html.replace(howToGiveOnlineVideoPlaceholder, howToGiveOnlineVideo);
+      page.html = page.html.replace(textToGiveVideoPlaceholder,textToGiveVideo);
   }
 
 
@@ -76,7 +125,7 @@ const Page = ({ data, location }) => {
               </div> :
               <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
             ) :
-            <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />}
+            <div className="column is-two-thirds" dangerouslySetInnerHTML={isGivePage ? cleanHtmlForVideo(page.html) : cleanHtml(page.html)} />}
           { location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
 
