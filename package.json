@@ -19,7 +19,8 @@
     "format": "prettier --write src/**/*.{js,jsx}",
     "start": "npm run develop",
     "serve": "gatsby serve",
-    "integration": "cypress open",
+    "cypress": "cypress open",
+    "integration": "cypress run --headless --record",
     "test": "jest",
     "test-coverage": "jest --coverage --collectCoverageFrom=src/**/*.js"
   },
