@@ -16,6 +16,7 @@ steps:
       from_secret: npm_auth_token
     CYPRESS_RECORD_KEY:
       from_secret: cypress_record_key
+    CI: true
   commands:
   # - apk add git autoconf automake pkgconfig libpng libjpeg libtool gcc g++ make file nasm
   # - npm i -g gatsby-cli
@@ -23,7 +24,13 @@ steps:
   - npm i
   - gatsby build
   - gatsby serve &
-  - npm run integration
+  - npm run integration -- --parallel
+  when:
+    branch:
+    - master
+    event:
+    - push
+    - merge
 # - name: notify
 #     image: drillster/drone-email
 #     host: mail.inspiringhopechurch.com
@@ -34,3 +41,5 @@ steps:
 #     recipients: [ admin@inspiringhopechurch.com  ]
 #     when:
 #       status: [ changed, failure ]
+node:
+  cypress: parallel
