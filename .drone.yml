@@ -123,6 +123,7 @@ steps:
     status:
     - changed
     - failure
+    - success
 
 node:
   cypress: parallel
