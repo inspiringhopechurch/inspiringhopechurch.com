@@ -1,11 +1,10 @@
 ---
 kind: pipeline
 type: docker
-name: inspiringhope
+name: inspiringhopechurch
 
 steps:
-- name: build
-  # image: cypress/browsers:node14.15.0-chrome86-ff82
+- name: build production
   image: mastrbennett/node-gatsby
   environment:
     GHOST_API_URL:
@@ -33,7 +32,37 @@ steps:
     - merge
     - custom
 
-- name: deploy
+- name: build development
+  # image: cypress/browsers:node14.15.0-chrome86-ff82
+  image: mastrbennett/node-gatsby
+  environment:
+    GHOST_API_URL:
+      from_secret: ghost_api_url
+    GHOST_CONTENT_API_KEY:
+      from_secret: ghost_content_api_key
+    NPM_AUTH_TOKEN:
+      from_secret: npm_auth_token
+    CYPRESS_RECORD_KEY:
+      from_secret: cypress_record_key
+    CI: true
+  commands:
+  # - apk add git autoconf automake pkgconfig libpng libjpeg libtool gcc g++ make file nasm
+  # - npm i -g gatsby-cli
+  - git pull origin develop
+  - npm i
+  - gatsby build
+  - gatsby serve &
+  - npm run integration -- --parallel
+  when:
+    branch:
+    - develop
+    event:
+    - push
+    - merge
+    - custom
+
+# Deploy develop branch to development folder - dev.inspiringhopechurch.com
+- name: deploy development
   image: appleboy/drone-scp
   settings:
     host: inspiringhopechurch.com
@@ -47,6 +76,28 @@ steps:
     source: public/*
     strip_components: 1
   when:
+    branch:
+    - develop
+    status:
+    - success
+
+# Deploy master branch to production folder - inspiringhopechurch.com
+- name: deploy production
+  image: appleboy/drone-scp
+  settings:
+    host: inspiringhopechurch.com
+    username:
+      from_secret: ssh_deploy_user
+    key:
+      from_secret: ssh_deploy_key
+    port: 22
+    target: /var/www/inspiringhopechurch.com/public
+    rm: true
+    source: public/*
+    strip_components: 1
+  when:
+    branch:
+    - master
     status:
     - success
 
