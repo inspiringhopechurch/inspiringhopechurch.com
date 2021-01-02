@@ -45,6 +45,7 @@ steps:
     target: /var/www/${DRONE_REPO_NAME}/public
     rm: true
     source: public/*
+    strip_components: 1
 
 # - name: notify
 #     image: drillster/drone-email
