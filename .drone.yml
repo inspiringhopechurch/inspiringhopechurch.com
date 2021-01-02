@@ -44,7 +44,7 @@ steps:
     port: 22
     target: /var/www/${DRONE_REPO_NAME}/public
     rm: true
-    source: public
+    source: public/*
 
 # - name: notify
 #     image: drillster/drone-email
