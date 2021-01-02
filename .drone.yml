@@ -46,20 +46,32 @@ steps:
     rm: true
     source: public/*
     strip_components: 1
-    when:
-      status: [ success ]
+  when:
+    status:
+    - success
 
 - name: notify
-    image: drillster/drone-email
-    host: smtp.gmail.com
-    username:
-      from_secret: mail_address
-    password:
-      from_secret: mail_password
+  image: drillster/drone-email
+  environment:
+    EMAIL_USERNAME:
+      from_secret: email_username
+    EMAIL_PASSWORD:
+      from_secret: email_password
+  settings:
+    host: smtp.mailgun.org
+    port: 465
     from: drone@inspiringhopechurch.com
-    recipients: [ admin@inspiringhopechurch.com  ]
-    when:
-      status: [ changed, failure, success ]
+    subject: >
+      {{ repo.name }} website deployment is a {{ build.status }}
+    recipients:
+    - admin@inspiringhopechurch.com
+    - ben@inspiringhopechurch.com
+    - mdharri2@gmail.com
+    - amanda.fisch13@gmail.com
+  when:
+    status:
+    - changed
+    - failure
 
 node:
   cypress: parallel
