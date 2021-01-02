@@ -23,8 +23,8 @@ steps:
   - git pull origin master
   - npm i
   - gatsby build
-  # - gatsby serve &
-  # - npm run integration -- --parallel
+  - gatsby serve &
+  - npm run integration -- --parallel
   when:
     branch:
     - master
@@ -46,16 +46,20 @@ steps:
     rm: true
     source: public/*
     strip_components: 1
+    when:
+      status: [ success ]
 
-# - name: notify
-#     image: drillster/drone-email
-#     host: mail.inspiringhopechurch.com
-#     username: orville
-#     password:
-#       from_secret: mail_password
-#     from: drone@inspiringhopechurch.com
-#     recipients: [ admin@inspiringhopechurch.com  ]
-#     when:
-#       status: [ changed, failure ]
+- name: notify
+    image: drillster/drone-email
+    host: smtp.gmail.com
+    username:
+      from_secret: mail_address
+    password:
+      from_secret: mail_password
+    from: drone@inspiringhopechurch.com
+    recipients: [ admin@inspiringhopechurch.com  ]
+    when:
+      status: [ changed, failure, success ]
+
 node:
   cypress: parallel
