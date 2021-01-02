@@ -23,8 +23,8 @@ steps:
   - git pull origin master
   - npm i
   - gatsby build
-  - gatsby serve &
-  - npm run integration -- --parallel
+  # - gatsby serve &
+  # - npm run integration -- --parallel
   when:
     branch:
     - master
@@ -32,6 +32,20 @@ steps:
     - push
     - merge
     - custom
+
+- name: deploy
+  image: appleboy/drone-scp
+  settings:
+    host: inspiringhopechurch.com
+    username:
+      from_secret: ssh_deploy_user
+    key:
+      from_secret: ssh_deploy_key
+    port: 22
+    target: /var/www/${DRONE_REPO_NAME}/public
+    rm: true
+    source: public
+
 # - name: notify
 #     image: drillster/drone-email
 #     host: mail.inspiringhopechurch.com
