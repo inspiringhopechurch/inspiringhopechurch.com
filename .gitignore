@@ -33,7 +33,7 @@ bower_components
 build/Release
 
 # Dependency directories
-node_modules/
+node_modules*/
 jspm_packages/
 
 # Typescript v1 declaration files
@@ -70,7 +70,10 @@ yarn-error.log
 
 # Bing Site ownership verfification file
 static/BingSiteAuth.xml
+
 # Nova editor
 .nova
+
+# Cypress Test Suite
 cypress/videos
 cypress/screenshots
