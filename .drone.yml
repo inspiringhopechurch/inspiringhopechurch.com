@@ -49,7 +49,7 @@ steps:
   # - apk add git autoconf automake pkgconfig libpng libjpeg libtool gcc g++ make file nasm
   # - npm i -g gatsby-cli
   - git pull origin develop
-  - npm i
+  - npm ci
   - gatsby build
   - gatsby serve &
   - npm run integration -- --parallel
