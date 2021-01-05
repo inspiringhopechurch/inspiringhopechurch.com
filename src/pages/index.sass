@@ -25,20 +25,20 @@
         padding: 3rem 0
 
     .hero-body
-        background: rgba(32, 30, 85, .425)
+        background: rgba(88, 202, 221, .5)
         h1
-            background-color: $dark-blue
             padding: 1rem
+            svg g
+                fill: currentColor
+                stroke: currentColor
 
     .hero-underlay
-        background: url('../assets/edwin-andrade-6liebVeAfrY-unsplash.jpg') no-repeat center top // fixed // Photo by SpaceX on Unsplash
+        background: url('../assets/hero_baptism.jpg') no-repeat center top // fixed // Photo by SpaceX on Unsplash
         background-size: cover
         transition: padding .75s, background 1s
 
         @include from($tablet)
-            background: url('../assets/edwin-andrade-6liebVeAfrY-unsplash.jpg') no-repeat center top // fixed // Photo by SpaceX on Unsplash
-            background-size: cover
-            background-position-y: bottom
+            background-attachment: fixed
 
     .container
         h1, h2
