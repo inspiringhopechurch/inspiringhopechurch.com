@@ -20,10 +20,10 @@ steps:
   # - apk add git autoconf automake pkgconfig libpng libjpeg libtool gcc g++ make file nasm
   # - npm i -g gatsby-cli
   - git pull origin master
-  - npm i
+  - npm ci
   - gatsby build
-  - gatsby serve &
-  - npm run integration -- --parallel
+  - gatsby serve --no-color &
+  - npm run integration -- --record --parallel
   when:
     branch:
     - master
@@ -46,13 +46,11 @@ steps:
       from_secret: cypress_record_key
     CI: true
   commands:
-  # - apk add git autoconf automake pkgconfig libpng libjpeg libtool gcc g++ make file nasm
-  # - npm i -g gatsby-cli
   - git pull origin develop
   - npm ci
   - gatsby build
-  - gatsby serve &
-  - npm run integration -- --parallel
+  - gatsby serve --no-color &
+  - npm run integration -- --record --parallel
   when:
     branch:
     - develop
@@ -123,7 +121,6 @@ steps:
     status:
     - changed
     - failure
-    - success
 
 node:
   cypress: parallel
