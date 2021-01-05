@@ -97,6 +97,7 @@ export default ({ data }) => {
                 <div className={`column`}>
                   <h1 className={`has-text-white`}>
                     <svg xmlns="http://www.w3.org/2000/svg" stroke-miterlimit="10" stroke-width=".4" viewBox="0 0 5691 1280">
+                      <title>Inspiring Hope Church</title>
                       <g fill="#221f53" stroke="#221f53">
                         <path id="logo-church" stroke-width="4" d="M4116 1256c-46 0-82-38-81-87a83 83 0 01145-57l10-10c-62-63-171-24-170 69s112 131 171 65l-9-9a88 88 0 01-66 29zm333-93h-122v-89h-15v192h15v-90h122v90h15v-192h-15v89zm293 23c1 46-24 70-63 70-41 0-65-26-65-71v-111h-14v112c0 54 33 83 79 83s78-29 78-85v-109h-14zm300-57c-1-36-30-54-69-55h-80v192h14v-79h63l61 79h18l-63-82c32-4 56-23 56-55zm-135 45v-87h65c35 0 55 17 55 42 0 28-23 45-55 45zm353 82c-46 0-81-38-81-87a83 83 0 01145-57l10-10c-61-63-171-24-170 69s112 131 172 65l-10-9a88 88 0 01-66 29zm334-93h-123v-89h-14v192h14v-90h123v90h14v-192h-14v89z"/>
                       </g>
