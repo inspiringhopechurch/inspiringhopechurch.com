@@ -22,47 +22,66 @@ header button
 .navbar.is-fixed-top
     box-shadow: $navbar-shadow
 
-.navbar > .container,
-.container > .navbar
-    @include from($navbar-breakpoint)
-        // Do not continue to display dropdown just because items have been clicked
-        .navbar-item.is-hoverable:focus .navbar-dropdown,
-        .navbar-item.is-hoverable:focus-within .navbar-dropdown
-            display: none
-        // Use the cascade to still show dropdown on hover, or when 'is-active' added
-        .navbar-item.is-active .navbar-dropdown,
-        .navbar-item.is-hoverable:hover .navbar-dropdown
-            display: block
-        .navbar-brand
-            margin-left: 0rem
-        .navbar-menu
-            margin-right: .75rem
-        .navbar-item
-            text-transform: uppercase
-            font-weight: 600
-            font-size: .875rem
-        .navbar-start
-            margin-left: auto
-            margin-right: inherit
-            > .navbar-item
-                &.is-active-page:before
-                    opacity: 1
-                    transform: scale(1)
-                &:before
-                    opacity: 0
-                    content: ""
-                    display: block
-                    width: 100%
-                    border-bottom: 4px solid $turquoise
-                    position: absolute
-                    left: 0
-                    bottom: 0
-                    transform: scale(0)
-                    transition: all $decoration-transition-time
-                    z-index: 1
-                &:hover
-                    background-color: inherit
-                    transition: all $decoration-transition-time
-                    &:before
+header
+    .navbar > .container,
+    .container > .navbar
+        .navbar-brand .navbar-item
+            transition: all $logo-transition-time $logo-transition-delay, fill $logo-transition-time
+            color: $turquoise
+            svg
+                height: 4rem
+                position: relative
+                top: -.5rem
+                fill: currentColor
+            &:hover
+                color: $white
+                background-color: $turquoise
+        @include from($navbar-breakpoint)
+            // Do not continue to display dropdown just because items have been clicked
+            .navbar-item.is-hoverable:focus .navbar-dropdown,
+            .navbar-item.is-hoverable:focus-within .navbar-dropdown
+                display: none
+            // Use the cascade to still show dropdown on hover, or when 'is-active' added
+            .navbar-item.is-active .navbar-dropdown,
+            .navbar-item.is-hoverable:hover .navbar-dropdown
+                display: block
+            .navbar-brand
+                margin-left: 0rem
+            .navbar-menu
+                margin-right: .25rem
+            .navbar-item
+                text-transform: uppercase
+                // font-weight: 600
+                // font-size: .875rem
+            .navbar-end
+                .navbar-item
+                    font-weight: 600
+            .navbar-start
+                margin-left: auto
+                margin-right: inherit
+            .navbar-end
+                // margin-right: auto
+                margin-left: inherit
+            .navbar-start, .navbar-end
+                > .navbar-item
+                    &.is-active-page:before
                         opacity: 1
                         transform: scale(1)
+                    &:before
+                        opacity: 0
+                        content: ""
+                        display: block
+                        width: 100%
+                        border-bottom: 4px solid $link-hover
+                        position: absolute
+                        left: 0
+                        bottom: 0
+                        transform: scale(0)
+                        transition: all $decoration-transition-time
+                        z-index: 1
+                    &:hover
+                        background-color: inherit
+                        transition: all $decoration-transition-time
+                        &:before
+                            opacity: 1
+                            transform: scale(1)

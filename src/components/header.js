@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import config from "../../config"
 import "./header.sass";
-import logo from "../assets/logo.svg";
+// import logo from "../assets/logo_icon.svg";
 
 const Header = ({ location }) => {
   const [menuIsMobile, setMenuIsMobile] = useState(false);
@@ -27,7 +27,10 @@ const Header = ({ location }) => {
         <div className={`container px-2`}>
           <div className="navbar-brand">
             <Link className="navbar-item" to={homeUrl} state={{ prevPath: location.pathname }} data-testid="logo-link">
-              <img src={logo} alt="Inspiring Hope Logo" />
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2892 4200" fill="#58cadd">
+                <title>Inspiring Hope Church Icon</title>
+                <path d="M1766 1515V0h-640v1053l640 462zM640 702V0H0v240l640 462zm486 663v1978a263 263 0 00100 208l484 374a33 33 0 0053-26V1827zM0 552v2494a265 265 0 00100 209l485 374a33 33 0 0055-29V1014zM2252 0v1800a33 33 0 01-52 27l-434-314v312l377 275a261 261 0 01109 213v1300a260 260 0 00100 208l484 374a33 33 0 0053-26V0z"/>
+              </svg>
             </Link>
 
             <button
@@ -96,8 +99,12 @@ const Header = ({ location }) => {
                 Contact
               </Link>
             </div>
-          <div className='navbar-end'>
-            <Link className='navbar-item' to={giveUrl} state={{ prevPath: location.pathname }}>
+          <div className="navbar-end" role="none" onClick={hideMenu} onKeyPress={hideMenu}>
+            <Link
+                className={`navbar-item ${location.pathname.includes(giveUrl) ? "is-active-page" : ""}`}
+                to={giveUrl}
+                state={{ prevPath: location.pathname }}
+            >
               Give
             </Link>
           </div>
