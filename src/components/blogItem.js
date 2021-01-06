@@ -34,6 +34,15 @@ const BlogItem = (props) => (
 BlogItem.propTypes = {
   blogExcerpt: PropTypes.string.isRequired,
   blogImage: PropTypes.string,
+  blogImageObj: PropTypes.shape({
+      aspectRatio: PropTypes.number,
+      base64: PropTypes.string,
+      sizes: PropTypes.string,
+      src: PropTypes.string,
+      srcSet: PropTypes.string,
+      srcSetWebp: PropTypes.string,
+      srcWebp: PropTypes.string,
+  }),
   blogTitle: PropTypes.string.isRequired,
   blogDate: PropTypes.string.isRequired,
   blogLink: PropTypes.string.isRequired,
