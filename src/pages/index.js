@@ -130,9 +130,7 @@ export default ({ data }) => {
       </section>
 
     {bibleVerseSection && (
-      <section className={`index-page verse-content is-radiusless mb-0`}>
-        <div dangerouslySetInnerHTML={cleanHtml(bibleVerseSection.html)} />
-      </section>
+      <section className={`index-page verse-content has-text-centered`} dangerouslySetInnerHTML={cleanHtml(bibleVerseSection.html)} />
     )}
 
       <section className={`index-page video-content is-radiusless mb-0`}>
@@ -246,7 +244,7 @@ export const query = graphql`
         }
       }
     }
-    allGhostPage(filter: {slug: {glob: "home-*"}}) {
+    allGhostPage(filter: {tags: {elemMatch: {name: {eq: "Home Page"}}}}) {
       edges {
         node {
           html

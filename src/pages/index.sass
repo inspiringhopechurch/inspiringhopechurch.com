@@ -21,9 +21,6 @@
             &.is-#{$name}:hover
                 color: $turquoise
 
-    &.subscriptions
-        padding: 3rem 0
-
     .hero-body
         background: rgba(88, 202, 221, .5)
         h1
@@ -49,6 +46,17 @@
         @include from($tablet)
             width: 75%
 
+    &.subscriptions
+        padding: 3rem 0
+
+    &.verse-content
+        padding: 2rem 1rem
+        @include from($tablet)
+            padding: 3rem 0
+        h2, p:first-child
+            @include from($tablet)
+                font-size: 2.5rem
+
     &.video-content
         position: relative
         figure
@@ -59,7 +67,7 @@
         // @include from($tablet)
         // &:last-of-type
         //     margin: 1.5rem 1.75rem
-    
+
     // Include serviceItem css to style 'Who We Are' section
     .media-content h2
         color: $dark-blue
