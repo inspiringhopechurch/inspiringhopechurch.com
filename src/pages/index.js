@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import config from "../../config"
 import BlogItem from "../components/blogItem";
-import Promotion from "../components/promotion";
 import LoaderIcon from "../components/loader-icon";
 import { cleanHtml } from "../utils";
 import "./index.sass";
@@ -17,7 +16,24 @@ export default ({ data }) => {
   const [formSentIndicator, setFormSentIndicator] = useState(false);
 
   const posts = data.allGhostPost.edges;
-  const whoWeAreSection = data.ghostPage;
+  const pages = data.allGhostPage.edges;
+
+  /**
+   * Finds the item in an array that contains a given slug. This slug
+   * corresponds to a particular slice of content in Ghost will will be
+   * used on this page.
+   * @param {Object} page - Object that represents a gatsby page content.
+   * @param {string} query - string that corresponds to a Ghost slug.
+   */
+  const findGhostSection = (page, query) => {
+    return (page.node.slug === query) ? page.node : undefined;
+  }
+
+  const bibleVerseSection = pages.find((page) => findGhostSection(page, "home-page-verse")).node;
+  const weeklyGatheringSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering")).node;
+  const careSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering-covid-care")).node;
+  const kidsSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering-inspire-kids")).node;
+  const whoWeAreSection = pages.find((page) => findGhostSection(page, "home-who-we-are")).node;
 
   /**
    * Handles changes to the form's inputs. Should be passed to an input's
@@ -113,7 +129,13 @@ export default ({ data }) => {
         </div>
       </section>
 
-      <section className={`index-page subscriptions box index-content notification is-link is-radiusless mb-0`}>
+    {bibleVerseSection && (
+      <section className={`index-page verse-content is-radiusless mb-0`}>
+        <div dangerouslySetInnerHTML={cleanHtml(bibleVerseSection.html)} />
+      </section>
+    )}
+
+      <section className={`index-page video-content is-radiusless mb-0`}>
         <div>
           <figure className={`image is-16by9`}>
             <video
@@ -138,8 +160,8 @@ export default ({ data }) => {
         </p>
       </section>
 
-      <section className={`index-page about-us box index-content is-radiusless mb-0`}>
-        <Promotion promoEndDate="May 31, 2019 23:59:59" promoDiscount={25} />
+    {whoWeAreSection && (
+      <section className={`index-page about-us box is-radiusless mb-0`}>
         <div className={`columns content`}>
           <div className={`column is-full`}>
             <h1 className={`has-text-centered is-size-1 is-uppercase`}>{whoWeAreSection.title}</h1>
@@ -156,9 +178,10 @@ export default ({ data }) => {
           </div>
         </div>
       </section>
+    )}
 
       <section
-        className={`index-page subscriptions box index-content notification is-link is-radiusless is-clipped mb-0`}
+        className={`index-page subscriptions box notification is-link is-radiusless is-clipped mb-0`}
       >
         <div className={`columns is-multiline is-mobile is-centered is-vcentered has-text-centered`}>
           <div className={`column container is-fluid is-narrow`}>
@@ -191,7 +214,7 @@ export default ({ data }) => {
         </div>
       </section>
 
-      <section className={`index-page box index-content is-radiusless is-shadowless`}>
+      <section className={`index-page box is-radiusless is-shadowless`}>
         <div className={`columns content`}>
           <div className={`column is-full`}>
             <h1 className={`is-size-1 has-text-centered is-uppercase`}>Inspiring Moments</h1>
@@ -223,9 +246,14 @@ export const query = graphql`
         }
       }
     }
-    ghostPage(title: {eq: "Who We Are"}) {
-      html
-      title
+    allGhostPage(filter: {slug: {glob: "home-*"}}) {
+      edges {
+        node {
+          html
+          title
+          slug
+        }
+      }
     }
   }
 `;
