@@ -10,17 +10,17 @@ const BlogItem = (props) => (
       props.blogTitle.length > 50 ? "is-full-tablet" : ""
     } ${props.onBlogIndex ? "" : "is-one-third-desktop"} ${props.onBlogIndex ? "is-6" : ""}`}
   >
-    {props.onBlogIndex && props.blogImage && (
+    {props.onBlogIndex && (props.blogImage || props.blogImageObj) && (
       <figure className="image is-marginless">
-        <Img alt="" fluid={props.blogImage} />
+        <Img alt="" fluid={props.blogImage || props.blogImageObj} />
       </figure>
     )}
     <h2 className={`title is-5`}>
       <Link to={props.blogLink}>{props.blogTitle}</Link>
     </h2>
-    {!props.onBlogIndex && props.blogImage && (
+    {!props.onBlogIndex && (props.blogImage || props.blogImageObj) && (
       <figure className="image is-marginless">
-        <Img alt="" fluid={props.blogImage} />
+        <Img alt="" fluid={props.blogImage || props.blogImageObj} />
       </figure>
     )}
     <h3 className={`title is-7`}>{props.blogDate}</h3>
