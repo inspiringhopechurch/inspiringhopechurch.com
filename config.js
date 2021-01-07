@@ -11,7 +11,7 @@ module.exports = {
   siteLanguage: "en", // Language Tag on <html> element
   logo: "src/assets/logo.svg",
   banner: "src/assets/logo.svg",
-  icon: "static/assets/favicon.png",
+  icon: "static/favicon.png",
   favicon: "static/favicon.ico", // Manifest favicon generation
   shortName: "Inspiring", // Shortname for manifest, must be shorter than 12 characters
   themeColor: "#58CADD",
