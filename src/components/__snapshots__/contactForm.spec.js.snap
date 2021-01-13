@@ -2,7 +2,7 @@
 
 exports[`ContactForm should render without crashing 1`] = `
 <div
-  className="contact-form column is-two-thirds-tablet is-two-fifths-widescreen"
+  className="contact-form"
 >
   <h1
     className="title is-uppercase has-text-link has-text-centered"
@@ -33,6 +33,12 @@ exports[`ContactForm should render without crashing 1`] = `
         <div
           className="field"
         >
+          <label
+            className="label"
+            htmlFor="fullName"
+          >
+            Name
+          </label>
           <div
             className="control is-expanded has-icons-left"
           >
@@ -86,6 +92,12 @@ exports[`ContactForm should render without crashing 1`] = `
         <div
           className="field"
         >
+          <label
+            className="label"
+            htmlFor="email"
+          >
+            Email
+          </label>
           <div
             className="control is-expanded has-icons-left"
           >
@@ -95,7 +107,7 @@ exports[`ContactForm should render without crashing 1`] = `
               id="email"
               name="email"
               onChange={[Function]}
-              placeholder="Email"
+              placeholder="Email Address"
               required={true}
               type="email"
               value=""
@@ -141,6 +153,12 @@ exports[`ContactForm should render without crashing 1`] = `
     <div
       className="field"
     >
+      <label
+        className="label"
+        htmlFor="messageSubject"
+      >
+        Subject
+      </label>
       <div
         className="control has-icons-left"
       >
@@ -150,7 +168,7 @@ exports[`ContactForm should render without crashing 1`] = `
           id="messageSubject"
           name="messageSubject"
           onChange={[Function]}
-          placeholder="Subject"
+          placeholder="Email Subject Line"
           required={true}
           type="text"
           value=""
@@ -194,6 +212,12 @@ exports[`ContactForm should render without crashing 1`] = `
     <div
       className="field"
     >
+      <label
+        className="label"
+        htmlFor="messageBody"
+      >
+        Message
+      </label>
       <div
         className="control"
       >
@@ -203,7 +227,7 @@ exports[`ContactForm should render without crashing 1`] = `
           id="messageBody"
           name="messageBody"
           onChange={[Function]}
-          placeholder="Message"
+          placeholder="Send us your message here."
           required={true}
           rows={10}
           value=""

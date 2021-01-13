@@ -74,6 +74,51 @@ export default {
         },
       ],
     },
+
+	allGhostPage: {
+      edges: [
+        {
+          node: {
+            id: "Ghost__Page__5ff4897203a4120407a46a4e",
+            html: "<figure class=\"kg-card kg-image-card\"><img src=\"https://cms.inspiringhopechurch.com/content/images/2021/01/Logos_Inspire_Kids_Badge_01.svg\" class=\"kg-image\" alt></figure><p><strong>Inspire Kids</strong></p><p>Inspire Kids is designed for infants through fifth grade students. Our team of qualified volunteers work hard to ensure that your<br>kids will love Sunday morning gathering!</p>",
+            title: "Weekly Gathering - Inspire Kids",
+            slug: "home-weekly-gathering-inspire-kids"
+          }
+        },
+        {
+          node: {
+            id: "Ghost__Page__5ff4893503a4120407a46a44",
+            html: "<p><strong>We care for others during COVID by...</strong></p><p>Encouraging Masks and Social Distancing </p><p>Providing Hand Sanitizer</p><p>Maintaining Clean Spaces</p>",
+            title: "Weekly Gathering - COVID Care",
+            slug: "home-weekly-gathering-covid-care"
+          }
+        },
+        {
+          "node": {
+            "id": "Ghost__Page__5ff3d93903a4120407a46a20",
+            "html": "<h2 id=\"come-join-us-for-worshipand-so-much-more-\">Come join us for worship<br>and so much more.</h2><figure class=\"kg-card kg-image-card kg-width-full\"><img src=\"https://cms.inspiringhopechurch.com/content/images/2021/01/Image_Pathway_To_Hope_CROPPED_01.png\" class=\"kg-image\" alt srcset=\"https://cms.inspiringhopechurch.com/content/images/size/w600/2021/01/Image_Pathway_To_Hope_CROPPED_01.png 600w, https://cms.inspiringhopechurch.com/content/images/size/w1000/2021/01/Image_Pathway_To_Hope_CROPPED_01.png 1000w, https://cms.inspiringhopechurch.com/content/images/2021/01/Image_Pathway_To_Hope_CROPPED_01.png 1536w\"></figure><p><strong>SUNDAY MORNINGS AT 10:30 AM</strong></p><p>202 S Monument Ave, Hamilton, OH</p><p>Come join us as we seek to inspire each other in our walk with Jesus. We meet for worship most Sunday mornings, but occasionally take this time to serve our community.</p><p></p>",
+            "title": "Weekly Gathering",
+            "slug": "home-weekly-gathering"
+          }
+        },
+        {
+          "node": {
+            "id": "Ghost__Page__5ff3d82403a4120407a46a15",
+            "html": "<h2 id=\"-come-to-me-a-you-who-are-wearyand-burdened-and-i-will-give-you-rest-\">“Come to me, a you who are weary<br>and burdened, and I will give you rest.”</h2><p>Matthew 11:28 NIV</p>",
+            "title": "Home Page Verse",
+            "slug": "home-page-verse"
+          }
+        },
+        {
+          "node": {
+            "id": "Ghost__Page__5fd5418efd02c60292526c03",
+            "html": "<!--kg-card-begin: html--><h2 class=\"container has-text-link is-1 title\">We are people dedicated to inspiring others to discover hope in Jesus.</h2><!--kg-card-end: html--><!--kg-card-begin: html--><div class=\"column is-half-tablet is-one-third-desktop is-one-third-fullhd\">\n\t<article class=\"media px-5\">\n\t\t<div class=\"media-content\">\n\t\t\t<h2 class=\"title is-size-3 is-uppercase\"><span class=\"has-text-weight-light\">Our</span> <span class=\"decorated\">Mission</span></h2>\n\t\t\t<p class=\"content is-medium\">We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.</p>\n\t\t</div>\n\t</article>\n</div><!--kg-card-end: html--><!--kg-card-begin: html--><div class=\"column is-half-tablet is-one-third-desktop is-one-third-fullhd\">\n\t<article class=\"media px-5\">\n\t\t<div class=\"media-content\">\n\t\t\t<h2 class=\"title is-size-3 is-uppercase\"><span class=\"has-text-weight-light\">Our</span> <span class=\"decorated\">Strategy</span></h2>\n\t\t\t<p class=\"content is-medium\">We will do this by inspiring people to <em>follow</em> Jesus, <em>live</em> in community, <em>serve</em> those around them and <em>expand</em> God’s kingdom.</p>\n\t\t</div>\n\t</article>\n</div><!--kg-card-end: html--><!--kg-card-begin: html--><div class=\"column is-half-tablet is-one-third-desktop is-one-third-fullhd\">\n\t<article class=\"media px-5\">\n\t\t<div class=\"media-content\">\n\t\t\t<h2 class=\"title is-size-3 is-uppercase\"><span class=\"has-text-weight-light\">Our</span> <span class=\"decorated\">Values</span></h2>\n\t\t\t<p class=\"content is-medium\">Our values describe our passions and define the heart with which we will accomplish our mission and vision.</p>\n\t\t</div>\n\t</article>\n</div><!--kg-card-end: html-->",
+            "title": "Who We Are",
+            "slug": "home-who-we-are"
+          }
+        }
+      ]
+    },
     allGhostPost: {
       edges: [
         {
@@ -83,6 +128,19 @@ export default {
             slug: "our-church-planting-journey-volume-6",
             featured: false,
             feature_image: "https://cms.inspiringhopechurch.com/content/images/2020/08/1280x1280-5.jpg",
+			featureImageSharp: {
+			  childImageSharp: {
+			    fluid: {
+			      src: "/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg",
+			      srcSet: "/static/27f366e25bcf3ccc62a632ebf4bb2d22/f836f/photo-1468608374703-abdfab03d1bc.jpg 200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/2244e/photo-1468608374703-abdfab03d1bc.jpg 400w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg 800w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/47498/photo-1468608374703-abdfab03d1bc.jpg 1200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/0e329/photo-1468608374703-abdfab03d1bc.jpg 1600w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/a41d1/photo-1468608374703-abdfab03d1bc.jpg 2000w",
+			      aspectRatio: 1.5037593984962405,
+			      base64: "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABAADBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHPLAoNUVZ//8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIDABIRMv/aAAgBAQABBQJHMdadctMnR4IGSBf/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwFn/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABkQAAIDAQAAAAAAAAAAAAAAAAAxASAiUf/aAAgBAQAGPwLsGXRH/8QAGxABAAIDAQEAAAAAAAAAAAAAAREAMSFBcYH/2gAIAQEAAT8hg5Ny+WeR9XAC1S1JZ0vLzJYzZGF//9oADAMBAAIAAwAAABCkP//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/EAT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAIAQIBAT8Qqtf/xAAcEAEAAwACAwAAAAAAAAAAAAABESEAUTFBgcH/2gAIAQEAAT8QLU0g82iebzZjAQNNw/cFxfJGMCrWIYk2gt3j1D1v/9k=",
+			      originalName: "photo-1468608374703-abdfab03d1bc.jpg",
+			      srcSetWebp: "/static/27f366e25bcf3ccc62a632ebf4bb2d22/61e93/photo-1468608374703-abdfab03d1bc.webp 200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/1f5c5/photo-1468608374703-abdfab03d1bc.webp 400w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp 800w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/99238/photo-1468608374703-abdfab03d1bc.webp 1200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/7c22d/photo-1468608374703-abdfab03d1bc.webp 1600w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/37117/photo-1468608374703-abdfab03d1bc.webp 2000w",
+			      srcWebp: "/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp"
+			    }
+			  }
+			},
             excerpt:
               "The summer is off to a great start! Even though it is definitely different this\nyear, we have taken advantage of our state opening up some. We've made some more\nconnections by meeting more neighbors, talking and working with local pastors on\nthe same mission, and really trying to get involved in the community. Our parks\nhave opened back up so we've visited the playgrounds a couple of times. We are\nplanning on doing some community outreaches this next month by providing our\nlocal community worker",
             custom_excerpt: null,
@@ -164,6 +222,19 @@ export default {
             featured: false,
             feature_image:
               "https://images.unsplash.com/photo-1518183261945-b0a0f1e1b4ed?ixlib=rb-1.2.1&q=80&fm=jpg&crop=entropy&cs=tinysrgb&w=2000&fit=max&ixid=eyJhcHBfaWQiOjExNzczfQ",
+			featureImageSharp: {
+			  childImageSharp: {
+			    fluid: {
+			      src: "/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg",
+			      srcSet: "/static/27f366e25bcf3ccc62a632ebf4bb2d22/f836f/photo-1468608374703-abdfab03d1bc.jpg 200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/2244e/photo-1468608374703-abdfab03d1bc.jpg 400w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg 800w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/47498/photo-1468608374703-abdfab03d1bc.jpg 1200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/0e329/photo-1468608374703-abdfab03d1bc.jpg 1600w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/a41d1/photo-1468608374703-abdfab03d1bc.jpg 2000w",
+			      aspectRatio: 1.5037593984962405,
+			      base64: "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABAADBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHPLAoNUVZ//8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIDABIRMv/aAAgBAQABBQJHMdadctMnR4IGSBf/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwFn/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABkQAAIDAQAAAAAAAAAAAAAAAAAxASAiUf/aAAgBAQAGPwLsGXRH/8QAGxABAAIDAQEAAAAAAAAAAAAAAREAMSFBcYH/2gAIAQEAAT8hg5Ny+WeR9XAC1S1JZ0vLzJYzZGF//9oADAMBAAIAAwAAABCkP//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/EAT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAIAQIBAT8Qqtf/xAAcEAEAAwACAwAAAAAAAAAAAAABESEAUTFBgcH/2gAIAQEAAT8QLU0g82iebzZjAQNNw/cFxfJGMCrWIYk2gt3j1D1v/9k=",
+			      originalName: "photo-1468608374703-abdfab03d1bc.jpg",
+			      srcSetWebp: "/static/27f366e25bcf3ccc62a632ebf4bb2d22/61e93/photo-1468608374703-abdfab03d1bc.webp 200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/1f5c5/photo-1468608374703-abdfab03d1bc.webp 400w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp 800w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/99238/photo-1468608374703-abdfab03d1bc.webp 1200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/7c22d/photo-1468608374703-abdfab03d1bc.webp 1600w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/37117/photo-1468608374703-abdfab03d1bc.webp 2000w",
+			      srcWebp: "/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp"
+			    }
+			  }
+			},
             excerpt:
               "Update...\nThe last couple of months have been so different than we had expected them to\nbe. Even in the midst of different, we have found an overwhelming peace with\nwhere God has us and what He is doing. We have clung to our faith and the things\nwe could control and we prayed and let go and let God work in the ways we\ncouldn’t. In April we celebrated Ben’s birthday by surprising him with a zoom\ncall with many of his friends to wish him a happy birthday. Thank you to all of\nyou who were able to b",
             custom_excerpt: null,

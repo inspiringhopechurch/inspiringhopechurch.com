@@ -3,7 +3,7 @@
 exports[`Blog should render without crashing 1`] = `
 <Fragment>
   <section
-    className="hero is-halfheight"
+    className="hero is-link is-halfheight"
   >
     <div
       className="hero-body"
@@ -14,13 +14,13 @@ exports[`Blog should render without crashing 1`] = `
         <h1
           className="title has-text-white"
         >
-          Latest News
+          Inspiring Moments
         </h1>
       </div>
     </div>
   </section>
   <section
-    className="box blog-content"
+    className="box is-shadowless blog-content container"
   >
     <div
       className="columns is-multiline is-centered"
@@ -34,6 +34,27 @@ the same mission, and really trying to get involved in the community. Our parks
 have opened back up so we've visited the playgrounds a couple of times. We are
 planning on doing some community outreaches this next month by providing our
 local community worker"
+        blogImageObj={
+          Object {
+            "aspectRatio": 1.5037593984962405,
+            "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABAADBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHPLAoNUVZ//8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIDABIRMv/aAAgBAQABBQJHMdadctMnR4IGSBf/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwFn/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABkQAAIDAQAAAAAAAAAAAAAAAAAxASAiUf/aAAgBAQAGPwLsGXRH/8QAGxABAAIDAQEAAAAAAAAAAAAAAREAMSFBcYH/2gAIAQEAAT8hg5Ny+WeR9XAC1S1JZ0vLzJYzZGF//9oADAMBAAIAAwAAABCkP//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/EAT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAIAQIBAT8Qqtf/xAAcEAEAAwACAwAAAAAAAAAAAAABESEAUTFBgcH/2gAIAQEAAT8QLU0g82iebzZjAQNNw/cFxfJGMCrWIYk2gt3j1D1v/9k=",
+            "originalName": "photo-1468608374703-abdfab03d1bc.jpg",
+            "src": "/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg",
+            "srcSet": "/static/27f366e25bcf3ccc62a632ebf4bb2d22/f836f/photo-1468608374703-abdfab03d1bc.jpg 200w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/2244e/photo-1468608374703-abdfab03d1bc.jpg 400w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg 800w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/47498/photo-1468608374703-abdfab03d1bc.jpg 1200w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/0e329/photo-1468608374703-abdfab03d1bc.jpg 1600w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/a41d1/photo-1468608374703-abdfab03d1bc.jpg 2000w",
+            "srcSetWebp": "/static/27f366e25bcf3ccc62a632ebf4bb2d22/61e93/photo-1468608374703-abdfab03d1bc.webp 200w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/1f5c5/photo-1468608374703-abdfab03d1bc.webp 400w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp 800w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/99238/photo-1468608374703-abdfab03d1bc.webp 1200w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/7c22d/photo-1468608374703-abdfab03d1bc.webp 1600w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/37117/photo-1468608374703-abdfab03d1bc.webp 2000w",
+            "srcWebp": "/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp",
+          }
+        }
         blogLink="/blog/our-church-planting-journey-volume-6"
         blogTitle="Our Church Planting Journey: Volume 6"
         key="Ghost__Post__5f4aba3168998602af191113"
@@ -49,6 +70,27 @@ we could control and we prayed and let go and let God work in the ways we
 couldn’t. In April we celebrated Ben’s birthday by surprising him with a zoom
 call with many of his friends to wish him a happy birthday. Thank you to all of
 you who were able to b"
+        blogImageObj={
+          Object {
+            "aspectRatio": 1.5037593984962405,
+            "base64": "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABAADBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHPLAoNUVZ//8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIDABIRMv/aAAgBAQABBQJHMdadctMnR4IGSBf/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwFn/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABkQAAIDAQAAAAAAAAAAAAAAAAAxASAiUf/aAAgBAQAGPwLsGXRH/8QAGxABAAIDAQEAAAAAAAAAAAAAAREAMSFBcYH/2gAIAQEAAT8hg5Ny+WeR9XAC1S1JZ0vLzJYzZGF//9oADAMBAAIAAwAAABCkP//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/EAT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAIAQIBAT8Qqtf/xAAcEAEAAwACAwAAAAAAAAAAAAABESEAUTFBgcH/2gAIAQEAAT8QLU0g82iebzZjAQNNw/cFxfJGMCrWIYk2gt3j1D1v/9k=",
+            "originalName": "photo-1468608374703-abdfab03d1bc.jpg",
+            "src": "/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg",
+            "srcSet": "/static/27f366e25bcf3ccc62a632ebf4bb2d22/f836f/photo-1468608374703-abdfab03d1bc.jpg 200w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/2244e/photo-1468608374703-abdfab03d1bc.jpg 400w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg 800w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/47498/photo-1468608374703-abdfab03d1bc.jpg 1200w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/0e329/photo-1468608374703-abdfab03d1bc.jpg 1600w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/a41d1/photo-1468608374703-abdfab03d1bc.jpg 2000w",
+            "srcSetWebp": "/static/27f366e25bcf3ccc62a632ebf4bb2d22/61e93/photo-1468608374703-abdfab03d1bc.webp 200w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/1f5c5/photo-1468608374703-abdfab03d1bc.webp 400w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp 800w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/99238/photo-1468608374703-abdfab03d1bc.webp 1200w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/7c22d/photo-1468608374703-abdfab03d1bc.webp 1600w,
+/static/27f366e25bcf3ccc62a632ebf4bb2d22/37117/photo-1468608374703-abdfab03d1bc.webp 2000w",
+            "srcWebp": "/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp",
+          }
+        }
         blogLink="/blog/our-church-planting-journey-volume-5"
         blogTitle="Our Church Planting Journey: Volume 5"
         key="Ghost__Post__5f4ab4bc68998602af1910dc"

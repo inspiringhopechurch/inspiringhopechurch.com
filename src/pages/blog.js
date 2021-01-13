@@ -22,7 +22,7 @@ const Blog = ({ data }) => {
             <BlogItem
               blogTitle={node.title}
               // blogImage={node.feature_image}
-              blogImage={node.featureImageSharp.childImageSharp.fluid}
+              blogImageObj={node.featureImageSharp.childImageSharp.fluid}
               blogDate={node.published_at_pretty}
               blogExcerpt={node.excerpt}
               blogLink={`${config.postPrefix}/${node.slug}`}

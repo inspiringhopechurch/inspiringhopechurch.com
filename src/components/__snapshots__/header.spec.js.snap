@@ -23,10 +23,18 @@ exports[`Header should render without crashing 1`] = `
           }
           to="/"
         >
-          <img
-            alt="Inspiring Hope Logo"
-            src="test-file-stub"
-          />
+          <svg
+            fill="#58cadd"
+            viewBox="0 0 2892 4200"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            <title>
+              Inspiring Hope Church Icon
+            </title>
+            <path
+              d="M1766 1515V0h-640v1053l640 462zM640 702V0H0v240l640 462zm486 663v1978a263 263 0 00100 208l484 374a33 33 0 0053-26V1827zM0 552v2494a265 265 0 00100 209l485 374a33 33 0 0055-29V1014zM2252 0v1800a33 33 0 01-52 27l-434-314v312l377 275a261 261 0 01109 213v1300a260 260 0 00100 208l484 374a33 33 0 0053-26V0z"
+            />
+          </svg>
         </mockConstructor>
         <button
           aria-expanded="false"
@@ -51,7 +59,7 @@ exports[`Header should render without crashing 1`] = `
         id="nav-menu"
       >
         <div
-          className="navbar-start pr-5"
+          className="navbar-start"
           onClick={[Function]}
           onKeyPress={[Function]}
           role="none"
@@ -66,6 +74,17 @@ exports[`Header should render without crashing 1`] = `
             to="/"
           >
             Home
+          </mockConstructor>
+          <mockConstructor
+            className="navbar-item "
+            state={
+              Object {
+                "prevPath": "/",
+              }
+            }
+            to="/get-connected"
+          >
+            Get Connected
           </mockConstructor>
           <div
             className="navbar-item  has-dropdown is-hoverable"
@@ -117,6 +136,17 @@ exports[`Header should render without crashing 1`] = `
               >
                 Our Mission
               </mockConstructor>
+              <mockConstructor
+                className="navbar-item"
+                state={
+                  Object {
+                    "prevPath": "/",
+                  }
+                }
+                to="/about/partners"
+              >
+                Our Partners
+              </mockConstructor>
             </div>
           </div>
           <mockConstructor
@@ -140,6 +170,24 @@ exports[`Header should render without crashing 1`] = `
             to="/contact"
           >
             Contact
+          </mockConstructor>
+        </div>
+        <div
+          className="navbar-end"
+          onClick={[Function]}
+          onKeyPress={[Function]}
+          role="none"
+        >
+          <mockConstructor
+            className="navbar-item "
+            state={
+              Object {
+                "prevPath": "/",
+              }
+            }
+            to="/give"
+          >
+            Give
           </mockConstructor>
         </div>
       </div>
