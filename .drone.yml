@@ -4,7 +4,7 @@ type: docker
 name: inspiringhopechurch
 
 steps:
-- name: build production
+- name: build site
   image: mastrbennett/node-gatsby
   environment:
     GHOST_API_URL:
@@ -13,51 +13,39 @@ steps:
       from_secret: ghost_content_api_key
     NPM_AUTH_TOKEN:
       from_secret: npm_auth_token
-    CYPRESS_RECORD_KEY:
-      from_secret: cypress_record_key
     CI: true
   commands:
   # - apk add git autoconf automake pkgconfig libpng libjpeg libtool gcc g++ make file nasm
   # - npm i -g gatsby-cli
-  - git pull origin master
-  - npm ci
+  - git pull origin ${DRONE_COMMIT_REF}
+  - CYPRESS_INSTALL_BINARY=0 npm ci # install cypress npm package without installing the binary
+  # - npm test # Don't bother with integration tests if unit tests fail
   - gatsby build
-  - gatsby serve --no-color &
-  - npm run integration -- --record --parallel
   when:
     branch:
     - master
-    event:
-    - push
-    - merge
-    - custom
-
-- name: build development
-  # image: cypress/browsers:node14.15.0-chrome86-ff82
-  image: mastrbennett/node-gatsby
-  environment:
-    GHOST_API_URL:
-      from_secret: ghost_api_url
-    GHOST_CONTENT_API_KEY:
-      from_secret: ghost_content_api_key
-    NPM_AUTH_TOKEN:
-      from_secret: npm_auth_token
-    CYPRESS_RECORD_KEY:
-      from_secret: cypress_record_key
-    CI: true
-  commands:
-  - git pull origin develop
-  - npm ci
-  - gatsby build
-  - gatsby serve --no-color &
-  - npm run integration -- --record --parallel
-  when:
-    branch:
     - develop
     event:
     - push
     - merge
     - custom
+
+- name: test site
+  image: mastrbennett/node-gatsby
+  environment:
+    GHOST_API_URL:
+      from_secret: ghost_api_url
+    GHOST_CONTENT_API_KEY:
+      from_secret: ghost_content_api_key
+    NPM_AUTH_TOKEN:
+      from_secret: npm_auth_token
+    CYPRESS_RECORD_KEY:
+      from_secret: cypress_record_key
+    CI: true
+  commands:
+  - gatsby serve --no-color &
+  - $(npm bin)/cypress install
+  - npm run integration -- --record --parallel
 
 # Deploy develop branch to development folder - dev.inspiringhopechurch.com
 - name: deploy development
