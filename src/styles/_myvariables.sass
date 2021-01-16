@@ -23,8 +23,8 @@ $blue:         rgba(0, 120, 215, 1) !default
 $purple:       rgba(135, 100, 184, 1) !default
 $red:          rgba(242, 80, 34, 1) !default
 
-$family-primary: BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", 'Noto Sans', "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif, 'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
-$heading-family-primary: "Montserrat", BlinkMacSystemFont, -apple-system, "Segoe UI", "Roboto", 'Noto Sans', "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif, 'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
+$family-primary: "Roboto", BlinkMacSystemFont, -apple-system, "Segoe UI", 'Noto Sans', "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif, 'Apple Color Emoji','Segoe UI Emoji','Segoe UI Symbol','Noto Color Emoji'
+$heading-family-primary: $family-primary
 $button-family: $heading-family-primary
 
 // @import "bulma-fluent/src/sass/color/initial-variables.sass"
@@ -62,8 +62,8 @@ $dimensions : 16 24 32 48 64 96 128 256
 
 $text: $dark-blue
 $text-invert: findColorInvert($text) !default
-$text-light: $grey !default
-$text-strong: $grey-darker !default
+$text-light: $text
+$text-strong: $text
 
 // timings
 $logo-transition-delay: 0.25s

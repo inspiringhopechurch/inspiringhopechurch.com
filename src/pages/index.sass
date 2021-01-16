@@ -47,7 +47,9 @@
         padding: 2rem 1rem
         @include from($tablet)
             padding: 3rem 0
-        h2, p:first-child
+        h2, p
+            color: $dark-gray
+        h2
             @include from($tablet)
                 font-size: 2.5rem
 
@@ -78,8 +80,8 @@
             font-weight: bold
 
     .image.is-256x256
-        width: 300px
-        height: auto
+        width: auto
+        height: 300px
     .content
         figure
             margin-left: 0
