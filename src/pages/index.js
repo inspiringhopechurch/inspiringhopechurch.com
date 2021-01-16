@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from "../../config"
 import BlogItem from "../components/blogItem";
 import LoaderIcon from "../components/loader-icon";
