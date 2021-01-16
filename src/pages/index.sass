@@ -1,6 +1,7 @@
 @charset "utf-8"
 
 @import "../styles/_myvariables.sass"
+@import "bulma/sass/components/level.sass"
 @import "bulma/sass/form/shared.sass"
 @import "bulma/sass/form/input-textarea.sass"
 @import "bulma/sass/form/tools.sass"
@@ -25,6 +26,8 @@
         background: rgba(88, 202, 221, .5)
         h1
             padding: 1rem
+            display: block
+            border: none
             svg g
                 fill: currentColor
                 stroke: currentColor
@@ -36,15 +39,6 @@
 
         @include from($tablet)
             background-attachment: fixed
-
-    .container
-        h1, h2
-            text-shadow: 0 2px 3px rgba(10, 10, 10, 0.5)
-            transition: background-color $decoration-transition-time, color $decoration-transition-time, text-shadow $decoration-transition-time
-
-    .modal-content
-        @include from($tablet)
-            width: 75%
 
     &.subscriptions
         padding: 3rem 0
@@ -59,6 +53,7 @@
 
     &.video-content
         position: relative
+        background-color: $white
         figure
             overflow: hidden
             max-height: 21.875rem
@@ -68,8 +63,22 @@
         // &:last-of-type
         //     margin: 1.5rem 1.75rem
 
-    // Include serviceItem css to style 'Who We Are' section
-    .media-content h2
-        color: $dark-blue
-    .decorated
-        border-bottom: solid $turquoise 5px
+    &.gathering-section, &.kids-section
+        p:first-of-type:before
+            border-top: $border-decoration
+            content: ''
+            width: 5rem
+            display: block
+        
+    &.caring-section
+        background-color: #fff
+        color: $turquoise
+        h1
+            color: inherit
+            border: none
+            font-weight: bold
+
+    .content
+        figure
+            margin-left: 0
+            margin-right: 0

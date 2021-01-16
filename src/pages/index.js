@@ -133,9 +133,29 @@ export default ({ data }) => {
       <section className={`index-page verse-content has-text-centered`} dangerouslySetInnerHTML={cleanHtml(bibleVerseSection.html)} />
     )}
 
-      <section className={`index-page video-content is-radiusless mb-0`}>
+    {whoWeAreSection && (
+      <section className={`index-page about-us box is-radiusless mb-0`}>
+        <div className={`columns container content`}>
+          <div className={`column is-full has-text-centered`}>
+            <h1 className={`is-size-1`}>{whoWeAreSection.title}</h1>
+          </div>
+        </div>
+        <div className="columns container is-multiline" dangerouslySetInnerHTML={cleanHtml(whoWeAreSection.html)} />
+        <div className={`columns`}>
+          <div className={`column is-full`}>
+            <p className={`control has-text-centered`}>
+              <Link className={`button is-link has-text-weight-light is-medium`} to="/about">
+                Learn More
+              </Link>
+            </p>
+          </div>
+        </div>
+      </section>
+    )}
+
+      <section className="index-page video-content">
         <div>
-          <figure className={`image is-16by9`}>
+          <figure className="image is-16by9">
             <video
               className="has-ratio"
               controls={true}
@@ -153,68 +173,94 @@ export default ({ data }) => {
             </video>
           </figure>
         </div>
-        <p className={`container is-fluid mt-6 is-size-4 has-text-centered`}>
+        <p className="container is-fluid py-3 is-size-4 has-text-centered">
           Learn more about Inspiring Hope Church by watching this message from Pastor Ben.
         </p>
       </section>
 
-    {whoWeAreSection && (
-      <section className={`index-page about-us box is-radiusless mb-0`}>
-        <div className={`columns content`}>
-          <div className={`column is-full`}>
-            <h1 className={`has-text-centered is-size-1 is-uppercase`}>{whoWeAreSection.title}</h1>
+    {weeklyGatheringSection && (
+      <section className="index-page gathering-section">
+        <div className="columns container content">
+          <div className="column is-full has-text-centered">
+            <h1 className="is-size-1">{weeklyGatheringSection.title}</h1>
           </div>
         </div>
-        <div className="columns is-multiline" dangerouslySetInnerHTML={cleanHtml(whoWeAreSection.html)} />
-        <div className={`columns`}>
-          <div className={`column is-full`}>
-            <p className={`control has-text-centered`}>
-              <Link className={`button is-link has-text-weight-light is-medium`} to="/about">
-                Learn More ...
+        <div className="columns content">
+          <div className="column" dangerouslySetInnerHTML={cleanHtml(weeklyGatheringSection.html)} />
+        </div>
+      </section>
+    )}
+
+      <section className="index-page caring-section section">
+        <div className="columns container content">
+          <div className="column is-full has-text-centered">
+            <h1 className="is-size-1">Caring for others</h1>
+          </div>
+        </div>
+        
+        <div className="container">
+          <div className="level is-mobile-mobile is-medium">
+            <div className="level-item has-text-centered">
+              <div>
+                <p className="heading">
+                  <FontAwesomeIcon icon={["fas", "head-side-mask"]} size="6x" />
+                </p>
+                <p className="is-uppercase">Encouraging Masks</p>
+              </div>
+            </div>
+            <div className="level-item has-text-centered">
+              <div>
+                <p className="heading">
+                  <FontAwesomeIcon icon={["fas", "people-arrows"]} size="6x" />
+                </p>
+                <p className="is-uppercase">Social Distancing</p>
+              </div>
+            </div>
+            <div className="level-item has-text-centered">
+              <div>
+                <p className="heading">
+                  <FontAwesomeIcon icon={["fas", "pump-soap"]} size="6x" />
+                </p>
+                <p className="is-uppercase">Providing Hand Sanitizer</p>
+              </div>
+            </div>
+            <div className="level-item has-text-centered">
+              <div>
+                <p className="heading">
+                  <FontAwesomeIcon icon={["fas", "spray-can"]} size="6x" />
+                </p>
+                <p className="is-uppercase">Maintaining Clean Spaces</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    { careSection && (
+      <section className="index-page container caring-section">
+        <div dangerouslySetInnerHTML={cleanHtml(careSection.html)} />
+      </section>
+    )}
+
+    {kidsSection && (
+      <section className="index-page kids-section section">
+        <div className="columns container" dangerouslySetInnerHTML={cleanHtml(kidsSection.html)} />
+        
+        <div className="columns container">
+          <div className="column is-full">
+            <div className="control has-text-centered">
+              <Link className="button is-link has-text-weight-light is-medium" to="/get-connected">
+                Get Connected
               </Link>
-            </p>
+            </div>
           </div>
         </div>
       </section>
     )}
 
-      <section
-        className={`index-page subscriptions box notification is-link is-radiusless is-clipped mb-0`}
-      >
-        <div className={`columns is-multiline is-mobile is-centered is-vcentered has-text-centered`}>
-          <div className={`column container is-fluid is-narrow`}>
-            <label htmlFor="subscribe" className="content">
-              {message}
-            </label>
-          </div>
-          <div className={`column is-narrow`}>
-            <form>
-              <div className={`field has-addons`}>
-                <div className={`control`}>
-                  <input
-                    id="subscribe"
-                    name="subscribe"
-                    className={`input is-info`}
-                    type="email"
-                    placeholder="Sign up for newsletter"
-                    value={emailAddress}
-                    onChange={handleChange}
-                  />
-                </div>
-                <div className={`control`}>
-                  <button data-testid="submit-button" type="submit" className={`button is-info`} onClick={handleSubmit}>
-                    {formSentIndicator ? <LoaderIcon /> : "Sign Up"}
-                  </button>
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-      </section>
-
-      <section className={`index-page box is-radiusless is-shadowless`}>
+      <section className={`index-page box is-radiusless is-shadowless mb-0`}>
         <div className={`columns content`}>
-          <div className={`column is-full`}>
+          <div className={`column is-full has-text-centered`}>
             <h1 className={`is-size-1 has-text-centered is-uppercase`}>Inspiring Moments</h1>
           </div>
         </div>
@@ -229,6 +275,40 @@ export default ({ data }) => {
               key={node.id}
             />
           ))}
+        </div>
+      </section>
+
+      <section
+        className={`index-page subscriptions  is-radiusless is-clipped mb-0`}
+      >
+        <div className={`columns is-multiline is-mobile is-centered is-vcentered has-text-centered`}>
+          <div className={`column container is-fluid is-narrow`}>
+            <label htmlFor="subscribe" className="content">
+              {message}
+            </label>
+          </div>
+          <div className={`column is-narrow`}>
+            <form>
+              <div className={`field has-addons`}>
+                <div className={`control`}>
+                  <input
+                    id="subscribe"
+                    name="subscribe"
+                    className={`input is-link`}
+                    type="email"
+                    placeholder="Sign up for newsletter"
+                    value={emailAddress}
+                    onChange={handleChange}
+                  />
+                </div>
+                <div className={`control`}>
+                  <button data-testid="submit-button" type="submit" className={`button is-link`} onClick={handleSubmit}>
+                    {formSentIndicator ? <LoaderIcon /> : "Sign Up"}
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
         </div>
       </section>
     </>
