@@ -29,11 +29,11 @@ export default ({ data }) => {
     return (page.node.slug === query) ? page.node : undefined;
   }
 
-  const bibleVerseSection = pages.find((page) => findGhostSection(page, "home-page-verse")).node;
-  const weeklyGatheringSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering")).node;
-  const careSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering-covid-care")).node;
-  const kidsSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering-inspire-kids")).node;
-  const whoWeAreSection = pages.find((page) => findGhostSection(page, "home-who-we-are")).node;
+  const bibleVerseSection = pages.find((page) => findGhostSection(page, "home-page-verse"))?.node;
+  const weeklyGatheringSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering"))?.node;
+  const careSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering-covid-care"))?.node;
+  const kidsSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering-inspire-kids"))?.node;
+  const whoWeAreSection = pages.find((page) => findGhostSection(page, "home-who-we-are"))?.node;
 
   /**
    * Handles changes to the form's inputs. Should be passed to an input's
