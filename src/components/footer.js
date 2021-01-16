@@ -10,7 +10,7 @@ const Footer = (props) => (
     <section className={`copyright`}>
       <div className={`container columns is-vcentered content is-small`}>
         <div className={`column`}>
-          <p>&copy; {props.copyrightOwner}. Proudly serving Jesus in Hamilton, Ohio since 2020.</p>
+          <p>&copy; {props.copyrightOwner}. A church proudly serving Jesus in Hamilton, Ohio since 2020.</p>
         </div>
         <div className={`column is-narrow`}>
           <div className={`navbar-end is-flex`}>
