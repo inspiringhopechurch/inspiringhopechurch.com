@@ -69,69 +69,23 @@ exports[`Index should render without crashing 1`] = `
     }
   />
   <section
-    className="index-page video-content is-radiusless mb-0"
-  >
-    <div>
-      <figure
-        className="image is-16by9"
-      >
-        <video
-          className="has-ratio"
-          controls={true}
-          height="100%"
-          id="hero-video"
-          poster="test-file-stub"
-          preload="metadata"
-          width="100%"
-        >
-          <source
-            src="/assets/inspiring_hope_intro.webm"
-            type="video/webm"
-          />
-          <source
-            src="/assets/inspiring_hope_intro.mp4"
-            type="video/mp4"
-          />
-          <track
-            kind="captions"
-            label="English"
-            src="test-file-stub"
-            srcLang="en"
-          />
-          <track
-            kind="captions"
-            label="Español"
-            src="test-file-stub"
-            srcLang="es"
-          />
-          Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
-        </video>
-      </figure>
-    </div>
-    <p
-      className="container is-fluid mt-6 is-size-4 has-text-centered"
-    >
-      Learn more about Inspiring Hope Church by watching this message from Pastor Ben.
-    </p>
-  </section>
-  <section
     className="index-page about-us box is-radiusless mb-0"
   >
     <div
-      className="columns content"
+      className="columns container content"
     >
       <div
-        className="column is-full"
+        className="column is-full has-text-centered"
       >
         <h1
-          className="has-text-centered is-size-1 is-uppercase"
+          className="is-size-1"
         >
           Who We Are
         </h1>
       </div>
     </div>
     <div
-      className="columns is-multiline"
+      className="columns container is-multiline"
       dangerouslySetInnerHTML={
         Object {
           "__html": "<h2 class=\\"container has-text-link is-1 title\\">We are people dedicated to inspiring others to discover hope in Jesus.</h2><div class=\\"column is-half-tablet is-one-third-desktop is-one-third-fullhd\\">
@@ -172,73 +126,317 @@ exports[`Index should render without crashing 1`] = `
             className="button is-link has-text-weight-light is-medium"
             to="/about"
           >
-            Learn More ...
+            Learn More
           </mockConstructor>
         </p>
       </div>
     </div>
   </section>
   <section
-    className="index-page subscriptions box notification is-link is-radiusless is-clipped mb-0"
+    className="index-page video-content"
+  >
+    <div>
+      <figure
+        className="image is-16by9"
+      >
+        <video
+          className="has-ratio"
+          controls={true}
+          height="100%"
+          id="hero-video"
+          poster="test-file-stub"
+          preload="metadata"
+          width="100%"
+        >
+          <source
+            src="/assets/inspiring_hope_intro.webm"
+            type="video/webm"
+          />
+          <source
+            src="/assets/inspiring_hope_intro.mp4"
+            type="video/mp4"
+          />
+          <track
+            kind="captions"
+            label="English"
+            src="test-file-stub"
+            srcLang="en"
+          />
+          <track
+            kind="captions"
+            label="Español"
+            src="test-file-stub"
+            srcLang="es"
+          />
+          Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
+        </video>
+      </figure>
+    </div>
+    <p
+      className="container is-fluid py-3 is-size-4 has-text-centered"
+    >
+      Learn more about Inspiring Hope Church by watching this message from Pastor Ben.
+    </p>
+  </section>
+  <section
+    className="index-page gathering-section"
   >
     <div
-      className="columns is-multiline is-mobile is-centered is-vcentered has-text-centered"
+      className="columns container content"
     >
       <div
-        className="column container is-fluid is-narrow"
+        className="column is-full has-text-centered"
       >
-        <label
-          className="content"
-          htmlFor="subscribe"
+        <h1
+          className="is-size-1"
         >
-          Get Inspiring Hope's latest updates.
-        </label>
+          Weekly Gathering
+        </h1>
       </div>
+    </div>
+    <div
+      className="columns content"
+    >
       <div
-        className="column is-narrow"
+        className="column"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<h2 id=\\"come-join-us-for-worshipand-so-much-more-\\">Come join us for worship<br />and so much more.</h2><figure class=\\"kg-card kg-image-card kg-width-full\\"><img src=\\"https://cms.inspiringhopechurch.com/content/images/2021/01/Image_Pathway_To_Hope_CROPPED_01.png\\" class=\\"kg-image\\" alt srcset=\\"https://cms.inspiringhopechurch.com/content/images/size/w600/2021/01/Image_Pathway_To_Hope_CROPPED_01.png 600w, https://cms.inspiringhopechurch.com/content/images/size/w1000/2021/01/Image_Pathway_To_Hope_CROPPED_01.png 1000w, https://cms.inspiringhopechurch.com/content/images/2021/01/Image_Pathway_To_Hope_CROPPED_01.png 1536w\\" /></figure><p><strong>SUNDAY MORNINGS AT 10:30 AM</strong></p><p>202 S Monument Ave, Hamilton, OH</p><p>Come join us as we seek to inspire each other in our walk with Jesus. We meet for worship most Sunday mornings, but occasionally take this time to serve our community.</p><p></p>",
+          }
+        }
+      />
+    </div>
+  </section>
+  <section
+    className="index-page caring-section section"
+  >
+    <div
+      className="columns container content"
+    >
+      <div
+        className="column is-full has-text-centered"
       >
-        <form>
-          <div
-            className="field has-addons"
-          >
-            <div
-              className="control"
+        <h1
+          className="is-size-1"
+        >
+          Caring for others
+        </h1>
+      </div>
+    </div>
+    <div
+      className="container"
+    >
+      <div
+        className="level is-mobile-mobile is-medium"
+      >
+        <div
+          className="level-item has-text-centered"
+        >
+          <div>
+            <p
+              className="heading"
             >
-              <input
-                className="input is-info"
-                id="subscribe"
-                name="subscribe"
-                onChange={[Function]}
-                placeholder="Sign up for newsletter"
-                type="email"
-                value=""
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Array [
+                    "fas",
+                    "head-side-mask",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size="6x"
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                transform={null}
               />
-            </div>
-            <div
-              className="control"
+            </p>
+            <p
+              className="is-uppercase"
             >
-              <button
-                className="button is-info"
-                data-testid="submit-button"
-                onClick={[Function]}
-                type="submit"
-              >
-                Sign Up
-              </button>
-            </div>
+              Encouraging Masks
+            </p>
           </div>
-        </form>
+        </div>
+        <div
+          className="level-item has-text-centered"
+        >
+          <div>
+            <p
+              className="heading"
+            >
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Array [
+                    "fas",
+                    "people-arrows",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size="6x"
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                transform={null}
+              />
+            </p>
+            <p
+              className="is-uppercase"
+            >
+              Social Distancing
+            </p>
+          </div>
+        </div>
+        <div
+          className="level-item has-text-centered"
+        >
+          <div>
+            <p
+              className="heading"
+            >
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Array [
+                    "fas",
+                    "pump-soap",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size="6x"
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                transform={null}
+              />
+            </p>
+            <p
+              className="is-uppercase"
+            >
+              Providing Hand Sanitizer
+            </p>
+          </div>
+        </div>
+        <div
+          className="level-item has-text-centered"
+        >
+          <div>
+            <p
+              className="heading"
+            >
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Array [
+                    "fas",
+                    "spray-can",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size="6x"
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                transform={null}
+              />
+            </p>
+            <p
+              className="is-uppercase"
+            >
+              Maintaining Clean Spaces
+            </p>
+          </div>
+        </div>
       </div>
     </div>
   </section>
   <section
-    className="index-page box is-radiusless is-shadowless"
+    className="index-page container caring-section"
+  >
+    <div
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<p><strong>We care for others during COVID by...</strong></p><p>Encouraging Masks and Social Distancing </p><p>Providing Hand Sanitizer</p><p>Maintaining Clean Spaces</p>",
+        }
+      }
+    />
+  </section>
+  <section
+    className="index-page kids-section section"
+  >
+    <div
+      className="columns container"
+      dangerouslySetInnerHTML={
+        Object {
+          "__html": "<figure class=\\"kg-card kg-image-card\\"><img src=\\"https://cms.inspiringhopechurch.com/content/images/2021/01/Logos_Inspire_Kids_Badge_01.svg\\" class=\\"kg-image\\" alt /></figure><p><strong>Inspire Kids</strong></p><p>Inspire Kids is designed for infants through fifth grade students. Our team of qualified volunteers work hard to ensure that your<br />kids will love Sunday morning gathering!</p>",
+        }
+      }
+    />
+    <div
+      className="columns container"
+    >
+      <div
+        className="column is-full"
+      >
+        <div
+          className="control has-text-centered"
+        >
+          <mockConstructor
+            className="button is-link has-text-weight-light is-medium"
+            to="/get-connected"
+          >
+            Get Connected
+          </mockConstructor>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section
+    className="index-page box is-radiusless is-shadowless mb-0"
   >
     <div
       className="columns content"
     >
       <div
-        className="column is-full"
+        className="column is-full has-text-centered"
       >
         <h1
           className="is-size-1 has-text-centered is-uppercase"
@@ -321,6 +519,59 @@ you who were able to b"
         key="Ghost__Post__5f4ab4bc68998602af1910dc"
         onBlogIndex={false}
       />
+    </div>
+  </section>
+  <section
+    className="index-page subscriptions  is-radiusless is-clipped mb-0"
+  >
+    <div
+      className="columns is-multiline is-mobile is-centered is-vcentered has-text-centered"
+    >
+      <div
+        className="column container is-fluid is-narrow"
+      >
+        <label
+          className="content"
+          htmlFor="subscribe"
+        >
+          Get Inspiring Hope's latest updates.
+        </label>
+      </div>
+      <div
+        className="column is-narrow"
+      >
+        <form>
+          <div
+            className="field has-addons"
+          >
+            <div
+              className="control"
+            >
+              <input
+                className="input is-link"
+                id="subscribe"
+                name="subscribe"
+                onChange={[Function]}
+                placeholder="Sign up for newsletter"
+                type="email"
+                value=""
+              />
+            </div>
+            <div
+              className="control"
+            >
+              <button
+                className="button is-link"
+                data-testid="submit-button"
+                onClick={[Function]}
+                type="submit"
+              >
+                Sign Up
+              </button>
+            </div>
+          </div>
+        </form>
+      </div>
     </div>
   </section>
 </Fragment>

@@ -19,7 +19,7 @@ exports[`Footer should render without crashing 1`] = `
           <p>
             © 
             Inspiring Hope Church
-            . Proudly serving Jesus in Hamilton, Ohio since 2020.
+            . A church proudly serving Jesus in Hamilton, Ohio since 2020.
           </p>
         </div>
         <div

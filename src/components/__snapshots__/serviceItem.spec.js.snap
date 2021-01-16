@@ -5,7 +5,7 @@ exports[`ServiceItem should render without crashing 1`] = `
   className="column is-half-tablet is-one-third-desktop is-one-third-fullhd"
 >
   <article
-    className="media px-5"
+    className="media"
   >
     <figure
       className="media-left"
@@ -82,7 +82,7 @@ exports[`ServiceItem should render without crashing without icons 1`] = `
   className="column is-half-tablet is-one-third-desktop is-one-third-fullhd"
 >
   <article
-    className="media px-5"
+    className="media"
   >
     <div
       className="media-content"
