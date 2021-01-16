@@ -239,6 +239,7 @@ exports[`Index should render without crashing 1`] = `
               <FontAwesomeIcon
                 border={false}
                 className=""
+                color="#58cadd"
                 fixedWidth={false}
                 flip={null}
                 icon={
@@ -278,6 +279,7 @@ exports[`Index should render without crashing 1`] = `
               <FontAwesomeIcon
                 border={false}
                 className=""
+                color="#58cadd"
                 fixedWidth={false}
                 flip={null}
                 icon={
@@ -317,6 +319,7 @@ exports[`Index should render without crashing 1`] = `
               <FontAwesomeIcon
                 border={false}
                 className=""
+                color="#58cadd"
                 fixedWidth={false}
                 flip={null}
                 icon={
@@ -356,6 +359,7 @@ exports[`Index should render without crashing 1`] = `
               <FontAwesomeIcon
                 border={false}
                 className=""
+                color="#58cadd"
                 fixedWidth={false}
                 flip={null}
                 icon={

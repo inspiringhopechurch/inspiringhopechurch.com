@@ -204,7 +204,7 @@ export default ({ data }) => {
             <div className="level-item has-text-centered">
               <div>
                 <p className="heading">
-                  <FontAwesomeIcon icon={["fas", "head-side-mask"]} size="6x" />
+                  <FontAwesomeIcon icon={["fas", "head-side-mask"]} size="6x" color="#58cadd" />
                 </p>
                 <p className="is-uppercase">Encouraging Masks</p>
               </div>
@@ -212,7 +212,7 @@ export default ({ data }) => {
             <div className="level-item has-text-centered">
               <div>
                 <p className="heading">
-                  <FontAwesomeIcon icon={["fas", "people-arrows"]} size="6x" />
+                  <FontAwesomeIcon icon={["fas", "people-arrows"]} size="6x" color="#58cadd" />
                 </p>
                 <p className="is-uppercase">Social Distancing</p>
               </div>
@@ -220,7 +220,7 @@ export default ({ data }) => {
             <div className="level-item has-text-centered">
               <div>
                 <p className="heading">
-                  <FontAwesomeIcon icon={["fas", "pump-soap"]} size="6x" />
+                  <FontAwesomeIcon icon={["fas", "pump-soap"]} size="6x" color="#58cadd" />
                 </p>
                 <p className="is-uppercase">Providing Hand Sanitizer</p>
               </div>
@@ -228,7 +228,7 @@ export default ({ data }) => {
             <div className="level-item has-text-centered">
               <div>
                 <p className="heading">
-                  <FontAwesomeIcon icon={["fas", "spray-can"]} size="6x" />
+                  <FontAwesomeIcon icon={["fas", "spray-can"]} size="6x" color="#58cadd" />
                 </p>
                 <p className="is-uppercase">Maintaining Clean Spaces</p>
               </div>
