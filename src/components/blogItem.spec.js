@@ -1,5 +1,6 @@
 import React from "react";
 import { shallow, mount } from "enzyme";
+import data from "../fixtures/data";
 import BlogItem from "./blogItem";
 
 describe("BlogItem", () => {
@@ -9,6 +10,7 @@ describe("BlogItem", () => {
     date_ = "October 5th, 2019",
     slug = "test-excerpt-for-blog-post",
     url = "https://linktosite.com",
+    imagePath = "src/assets/image.jpg",
     isBlogIndexPage = true;
 
   it("should render without crashing", () => {
@@ -30,6 +32,7 @@ describe("BlogItem", () => {
     // expect(blogItem.find(".content.column.is-three-fifths")).toHaveLength(0);
     expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(1);
     expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(0);
+    expect(blogItem.find(".content.column figure")).toHaveLength(0);
   });
 
   it.skip("has isThreeFifths class when rendered on index page", () => {
@@ -47,6 +50,7 @@ describe("BlogItem", () => {
     expect(blogItem.find(".content.column.is-three-fifths")).toHaveLength(1);
     expect(blogItem.find(".content.column.is-onethird-desktop")).toHaveLength(0);
     expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(0);
+    expect(blogItem.find(".content.column figure")).toHaveLength(0);
   });
 
   it("has isFullTablet class when title is greater than 50 chars long", () => {
@@ -64,6 +68,7 @@ describe("BlogItem", () => {
     // expect(blogItem.find(".content.column.is-three-fifths")).toHaveLength(1);
     expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(0);
     expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(1);
+    expect(blogItem.find(".content.column figure")).toHaveLength(0);
   });
 
   it("has isFullTablet and isOneThirdDesktop classes when needed", () => {
@@ -73,5 +78,43 @@ describe("BlogItem", () => {
     // expect(blogItem.find(".content.column.is-three-fifths")).toHaveLength(0);
     expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(1);
     expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(1);
+    expect(blogItem.find(".content.column figure")).toHaveLength(0);
   });
+
+  it("has an image on blog page when needed", () => {
+    const blogItem = mount(
+      <BlogItem
+        blogTitle={longTitle}
+        blogExcerpt={excerpt}
+        blogDate={date_}
+        blogImage={imagePath}
+        blogLink={slug}
+        onBlogIndex={isBlogIndexPage}
+      />
+    );
+    expect(blogItem.find(".content.column a")).toHaveLength(2);
+    expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(0);
+    expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(1);
+    expect(blogItem.find(".content.column figure")).toHaveLength(1);
+    expect(blogItem).toMatchSnapshot();
+  });
+
+  it("has a responsive image on blog page when needed", () => {
+    const blogItem = mount(
+      <BlogItem
+        blogTitle={longTitle}
+        blogExcerpt={excerpt}
+        blogDate={date_}
+        blogImageObj={data.data.file.childImageSharp.fluid}
+        blogLink={slug}
+        onBlogIndex={isBlogIndexPage}
+      />
+    );
+    expect(blogItem.find(".content.column a")).toHaveLength(2);
+    expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(0);
+    expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(1);
+    expect(blogItem.find(".content.column figure")).toHaveLength(1);
+    expect(blogItem).toMatchSnapshot();
+  });
+
 });
