@@ -107,7 +107,7 @@ steps:
     - amanda.fisch13@gmail.com
   when:
     status:
-    - changed
+    - success
     - failure
 
 node:

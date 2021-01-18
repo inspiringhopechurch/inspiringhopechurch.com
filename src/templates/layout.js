@@ -9,37 +9,12 @@ import "../components/icons";
 const Layout = ({ children, location }) => {
   const duration = 0.25;
 
-  const variantsY = {
+  const variants = {
     initial: {
       opacity: 0,
-      y: 10,
     },
     enter: {
       opacity: 1,
-      y: 0,
-      transition: {
-        duration: duration,
-        delay: duration,
-        when: "beforeChildren",
-      },
-    },
-    exit: {
-      opacity: 0,
-      y: -10,
-      transition: { duration: duration },
-    },
-  };
-
-  // Fade out only on exit. Otherwise movement in x direction
-  // looks odd when combined with movement in Y
-  const variantsX = {
-    initial: {
-      opacity: 0,
-      x: 10,
-    },
-    enter: {
-      opacity: 1,
-      x: 0,
       transition: {
         duration: duration,
         delay: duration,
@@ -67,7 +42,7 @@ const Layout = ({ children, location }) => {
           key={location.pathname}
           // Since there is a About 'section', change animations (once you've entered that section)
           // to be in the x-axis
-          variants={currentPage?.includes("/about") && previousPage?.includes("/about") ? variantsX : variantsY}
+          variants={variants}
           initial="initial"
           animate="enter"
           exit="exit"
