@@ -77,11 +77,10 @@ exports[`Index should render without crashing 1`] = `
       <div
         className="column is-full has-text-centered"
       >
-        <h1
+        <FancyHeading
           className="is-size-1"
-        >
-          Who We Are
-        </h1>
+          heading="Who We Are"
+        />
       </div>
     </div>
     <div
@@ -119,7 +118,7 @@ exports[`Index should render without crashing 1`] = `
       <div
         className="column is-full"
       >
-        <p
+        <div
           className="control has-text-centered"
         >
           <mockConstructor
@@ -128,7 +127,7 @@ exports[`Index should render without crashing 1`] = `
           >
             Learn More
           </mockConstructor>
-        </p>
+        </div>
       </div>
     </div>
   </section>
@@ -179,7 +178,7 @@ exports[`Index should render without crashing 1`] = `
     </p>
   </section>
   <section
-    className="index-page gathering-section"
+    className="index-page gathering-section box is-radiusless mb-0 p-0"
   >
     <div
       className="columns container content"
@@ -187,11 +186,10 @@ exports[`Index should render without crashing 1`] = `
       <div
         className="column is-full has-text-centered"
       >
-        <h1
+        <FancyHeading
           className="is-size-1"
-        >
-          Weekly Gathering
-        </h1>
+          heading="Weekly Gathering"
+        />
       </div>
     </div>
     <div
@@ -239,7 +237,6 @@ exports[`Index should render without crashing 1`] = `
               <FontAwesomeIcon
                 border={false}
                 className=""
-                color="#58cadd"
                 fixedWidth={false}
                 flip={null}
                 icon={
@@ -254,7 +251,7 @@ exports[`Index should render without crashing 1`] = `
                 pull={null}
                 pulse={false}
                 rotation={null}
-                size="6x"
+                size="8x"
                 spin={false}
                 swapOpacity={false}
                 symbol={false}
@@ -279,7 +276,6 @@ exports[`Index should render without crashing 1`] = `
               <FontAwesomeIcon
                 border={false}
                 className=""
-                color="#58cadd"
                 fixedWidth={false}
                 flip={null}
                 icon={
@@ -294,7 +290,7 @@ exports[`Index should render without crashing 1`] = `
                 pull={null}
                 pulse={false}
                 rotation={null}
-                size="6x"
+                size="8x"
                 spin={false}
                 swapOpacity={false}
                 symbol={false}
@@ -319,7 +315,6 @@ exports[`Index should render without crashing 1`] = `
               <FontAwesomeIcon
                 border={false}
                 className=""
-                color="#58cadd"
                 fixedWidth={false}
                 flip={null}
                 icon={
@@ -334,7 +329,7 @@ exports[`Index should render without crashing 1`] = `
                 pull={null}
                 pulse={false}
                 rotation={null}
-                size="6x"
+                size="8x"
                 spin={false}
                 swapOpacity={false}
                 symbol={false}
@@ -359,7 +354,6 @@ exports[`Index should render without crashing 1`] = `
               <FontAwesomeIcon
                 border={false}
                 className=""
-                color="#58cadd"
                 fixedWidth={false}
                 flip={null}
                 icon={
@@ -374,7 +368,7 @@ exports[`Index should render without crashing 1`] = `
                 pull={null}
                 pulse={false}
                 rotation={null}
-                size="6x"
+                size="8x"
                 spin={false}
                 swapOpacity={false}
                 symbol={false}
@@ -442,11 +436,10 @@ exports[`Index should render without crashing 1`] = `
       <div
         className="column is-full has-text-centered"
       >
-        <h1
-          className="is-size-1 has-text-centered is-uppercase"
-        >
-          Inspiring Moments
-        </h1>
+        <FancyHeading
+          className="is-size-1"
+          heading="Inspiring Moments"
+        />
       </div>
     </div>
     <div

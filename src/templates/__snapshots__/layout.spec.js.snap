@@ -37,18 +37,15 @@ exports[`Layout should render without crashing 1`] = `
               "duration": 0.25,
               "when": "beforeChildren",
             },
-            "y": 0,
           },
           "exit": Object {
             "opacity": 0,
             "transition": Object {
               "duration": 0.25,
             },
-            "y": -10,
           },
           "initial": Object {
             "opacity": 0,
-            "y": 10,
           },
         }
       }
