@@ -50,8 +50,13 @@
         h2, p
             color: $dark-gray
         h2
+            font-family: 'dollyregular', $family-primary
             @include from($tablet)
                 font-size: 2.5rem
+            @include from($desktop)
+                font-size: 3.5rem
+        p
+            font-size: 1.75rem
 
     &.video-content
         position: relative
@@ -65,7 +70,7 @@
         // &:last-of-type
         //     margin: 1.5rem 1.75rem
 
-    &.gathering-section, &.kids-section
+    &.gathering-section, &.kids-section, &.about-us
         p:first-of-type:before
             border-top: $border-decoration
             content: ''
@@ -73,11 +78,13 @@
             display: block
         
     &.caring-section
-        background-color: #fff
+        background-color: #58cadd
         h1
             color: inherit
-            border: none
             font-weight: bold
+        .heading
+            margin-bottom: 1rem
+            color: #fff
 
     .image.is-256x256
         width: auto

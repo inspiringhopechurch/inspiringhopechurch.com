@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from "../../config"
 import BlogItem from "../components/blogItem";
+import FancyHeading from "../components/fancyHeading";
 import LoaderIcon from "../components/loader-icon";
 import { cleanHtml } from "../utils";
 import "./index.sass";
@@ -138,17 +139,17 @@ export default ({ data }) => {
       <section className={`index-page about-us box is-radiusless mb-0`}>
         <div className={`columns container content`}>
           <div className={`column is-full has-text-centered`}>
-            <h1 className={`is-size-1`}>{whoWeAreSection.title}</h1>
+            <FancyHeading className="is-size-1" heading={whoWeAreSection.title} />
           </div>
         </div>
         <div className="columns container is-multiline" dangerouslySetInnerHTML={cleanHtml(whoWeAreSection.html)} />
         <div className={`columns`}>
           <div className={`column is-full`}>
-            <p className={`control has-text-centered`}>
+            <div className={`control has-text-centered`}>
               <Link className={`button is-link has-text-weight-light is-medium`} to="/about">
                 Learn More
               </Link>
-            </p>
+            </div>
           </div>
         </div>
       </section>
@@ -180,10 +181,10 @@ export default ({ data }) => {
       </section>
 
     {weeklyGatheringSection && (
-      <section className="index-page gathering-section">
+      <section className="index-page gathering-section box is-radiusless mb-0 p-0">
         <div className="columns container content">
           <div className="column is-full has-text-centered">
-            <h1 className="is-size-1">{weeklyGatheringSection.title}</h1>
+            <FancyHeading className="is-size-1" heading={weeklyGatheringSection.title} />
           </div>
         </div>
         <div className="columns content">
@@ -204,7 +205,7 @@ export default ({ data }) => {
             <div className="level-item has-text-centered">
               <div>
                 <p className="heading">
-                  <FontAwesomeIcon icon={["fas", "head-side-mask"]} size="6x" color="#58cadd" />
+                  <FontAwesomeIcon icon={["fas", "head-side-mask"]} size="8x" />
                 </p>
                 <p className="is-uppercase">Encouraging Masks</p>
               </div>
@@ -212,7 +213,7 @@ export default ({ data }) => {
             <div className="level-item has-text-centered">
               <div>
                 <p className="heading">
-                  <FontAwesomeIcon icon={["fas", "people-arrows"]} size="6x" color="#58cadd" />
+                  <FontAwesomeIcon icon={["fas", "people-arrows"]} size="8x" />
                 </p>
                 <p className="is-uppercase">Social Distancing</p>
               </div>
@@ -220,7 +221,7 @@ export default ({ data }) => {
             <div className="level-item has-text-centered">
               <div>
                 <p className="heading">
-                  <FontAwesomeIcon icon={["fas", "pump-soap"]} size="6x" color="#58cadd" />
+                  <FontAwesomeIcon icon={["fas", "pump-soap"]} size="8x" />
                 </p>
                 <p className="is-uppercase">Providing Hand Sanitizer</p>
               </div>
@@ -228,7 +229,7 @@ export default ({ data }) => {
             <div className="level-item has-text-centered">
               <div>
                 <p className="heading">
-                  <FontAwesomeIcon icon={["fas", "spray-can"]} size="6x" color="#58cadd" />
+                  <FontAwesomeIcon icon={["fas", "spray-can"]} size="8x" />
                 </p>
                 <p className="is-uppercase">Maintaining Clean Spaces</p>
               </div>
@@ -262,7 +263,7 @@ export default ({ data }) => {
       <section className={`index-page box is-radiusless is-shadowless mb-0`}>
         <div className={`columns content`}>
           <div className={`column is-full has-text-centered`}>
-            <h1 className={`is-size-1 has-text-centered is-uppercase`}>Inspiring Moments</h1>
+            <FancyHeading className="is-size-1" heading={"Inspiring Moments"} />
           </div>
         </div>
         <div className={`columns is-multiline is-centered`}>
