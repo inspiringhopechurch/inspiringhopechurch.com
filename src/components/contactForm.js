@@ -6,14 +6,13 @@ import "./contactForm.sass";
 
 /**
  * Renders a contact form and with a title and submission button
- * @param {{
- * formTitle: string,
- * submitButtonTitle: string,
- * nameValidationMsg: string,
- * emailValidationMsg: string,
- * subjectValidationMsg: string,
- * bodyValidationMsg: string,
- * }} props - validation messages and titles used in contact form
+ * @param {object} props - information used to render this form
+ * @param {string=} props.formTitle
+ * @param {string=} props.submitButtonTitle
+ * @param {string} props.nameValidationMsg
+ * @param {string} props.emailValidationMsg
+ * @param {string} props.subjectValidationMsg
+ * @param {string} props.bodyValidationMsg
  */
 const ContactForm = ({
   formTitle,

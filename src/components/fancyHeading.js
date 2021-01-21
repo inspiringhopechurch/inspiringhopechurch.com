@@ -6,8 +6,8 @@ import "./fancyHeading.sass";
  * Component which takes text and renders it as a fancy heading.
  * @param {object} props - information used to render this heading
  * @param {string=} props.className - class name to use for the heading element
- * @param {string} props.heading
- * @param {boolean=} props.splitHeading
+ * @param {string} props.heading - Text to use for the heading
+ * @param {boolean=} props.splitHeading - If true, generates alternate heading style
  */
 const FancyHeading = ({ className, heading, splitHeading }) => {
 	const [firstWord, ...remainingWords] = heading.split(" ");
