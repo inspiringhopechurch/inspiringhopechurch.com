@@ -11,7 +11,7 @@ import videoPoster from "../assets/ihc_video.jpg";
 import captionEn from "file-loader!../assets/captions.en.vtt";
 import captionEs from "file-loader!../assets/captions.es.vtt";
 
-export default ({ data }) => {
+const HomePage = ({ data }) => {
   const defaultMsg = "Get Inspiring Hope's latest updates." || <></>;
   const [message, setMessage] = useState(defaultMsg);
   const [emailAddress, setEmailAddress] = useState("");
@@ -316,6 +316,7 @@ export default ({ data }) => {
     </>
   );
 };
+export default HomePage;
 
 export const query = graphql`
   query GhostPostQuery {

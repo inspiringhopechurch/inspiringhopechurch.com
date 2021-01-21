@@ -5,7 +5,7 @@ import SEO from "../components/seo";
 import "./post.sass";
 
 // Default export is rendered when user visits page.
-export default ({ data }) => {
+const Post = ({ data }) => {
   const post = data.ghostPost,
     {
       excerpt,
@@ -79,6 +79,8 @@ export default ({ data }) => {
     </>
   );
 };
+
+export default Post;
 
 export const query = graphql`
   query($slug: String!) {
