@@ -210,9 +210,7 @@ exports[`Index should render without crashing 1`] = `
       <div
         className="column is-full has-text-centered"
       >
-        <h1
-          className=""
-        >
+        <h1>
           Caring for others
         </h1>
       </div>
