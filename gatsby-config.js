@@ -102,7 +102,6 @@ module.exports = {
         excludedPaths: [`/404.html`],
       },
     },
-    `@wardpeet/gatsby-plugin-static-site`,
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     `gatsby-plugin-offline`, // list after manifest plugin

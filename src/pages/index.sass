@@ -8,19 +8,13 @@
 @import "bulma/sass/grid/tiles.sass"
 
 .index-page
-    .button
-        transition: color $decoration-transition-time
-        @each $name, $pair in $colors
-            $color: nth($pair, 1)
-            &.is-#{$name}
-                text-transform: uppercase
-                &:hover
-                    color: $white
-
-    &.about-us .button
-        @each $name, $pair in $colors
-            &.is-#{$name}:hover
-                color: $turquoise
+    .is-size-large
+        text-transform: none
+        padding: 0.75rem
+        font-size: 2.25rem
+        font-weight: 800
+        @include from($tablet)
+            font-size: 3rem
 
     .hero-body
         background: rgba(88, 202, 221, .5)
@@ -56,7 +50,9 @@
             @include from($desktop)
                 font-size: 3.5rem
         p
-            font-size: 1.75rem
+            font-size: 0.75rem
+            @include from($tablet)
+                font-size: 1.75rem
 
     &.video-content
         position: relative
@@ -69,6 +65,13 @@
         // @include from($tablet)
         // &:last-of-type
         //     margin: 1.5rem 1.75rem
+    
+    &.gathering-section
+        .is-size-large
+            padding: 0 2rem
+        figure + .columns
+            padding: 0 1.5rem
+            
 
     &.gathering-section, &.kids-section, &.about-us
         p:first-of-type:before
@@ -76,12 +79,14 @@
             content: ''
             width: 5rem
             display: block
-        
+
     &.caring-section
         background-color: #58cadd
         h1
             color: inherit
             font-weight: bold
+            @include from($tablet)
+                font-size: 3rem
         .heading
             margin-bottom: 1rem
             color: #fff
@@ -93,3 +98,4 @@
         figure
             margin-left: 0
             margin-right: 0
+            width: 100%

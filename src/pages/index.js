@@ -139,7 +139,7 @@ const HomePage = ({ data }) => {
       <section className={`index-page about-us box is-radiusless mb-0`}>
         <div className={`columns container content`}>
           <div className={`column is-full has-text-centered`}>
-            <FancyHeading className="is-size-1" heading={whoWeAreSection.title} />
+            <FancyHeading className="fancy-heading" heading={whoWeAreSection.title} />
           </div>
         </div>
         <div className="columns container is-multiline" dangerouslySetInnerHTML={cleanHtml(whoWeAreSection.html)} />
@@ -181,22 +181,20 @@ const HomePage = ({ data }) => {
       </section>
 
     {weeklyGatheringSection && (
-      <section className="index-page gathering-section box is-radiusless mb-0 p-0">
+      <section className="index-page gathering-section box is-radiusless mb-0 px-0">
         <div className="columns container content">
           <div className="column is-full has-text-centered">
-            <FancyHeading className="is-size-1" heading={weeklyGatheringSection.title} />
+            <FancyHeading className="fancy-heading" heading={weeklyGatheringSection.title} />
           </div>
         </div>
-        <div className="columns content">
-          <div className="column" dangerouslySetInnerHTML={cleanHtml(weeklyGatheringSection.html)} />
-        </div>
+        <div className="content" dangerouslySetInnerHTML={cleanHtml(weeklyGatheringSection.html)} />
       </section>
     )}
 
       <section className="index-page caring-section section">
         <div className="columns container content">
           <div className="column is-full has-text-centered">
-            <h1 className="is-size-1">Caring for others</h1>
+            <h1>Caring for others</h1>
           </div>
         </div>
         
@@ -263,7 +261,7 @@ const HomePage = ({ data }) => {
       <section className={`index-page box is-radiusless is-shadowless mb-0`}>
         <div className={`columns content`}>
           <div className={`column is-full has-text-centered`}>
-            <FancyHeading className="is-size-1" heading={"Inspiring Moments"} />
+            <FancyHeading className="fancy-heading" heading={"Inspiring Moments"} />
           </div>
         </div>
         <div className={`columns is-multiline is-centered`}>

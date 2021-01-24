@@ -41,6 +41,15 @@ body, .main-dark
     background-color: $htmlBody-color
 .main-light
     background-color: $white
+body, .main-dark, .main-light
+    .button
+        transition: color $decoration-transition-time
+        @each $name, $pair in $colors
+            $color: nth($pair, 1)
+            &.is-#{$name}
+                text-transform: uppercase
+                &:hover
+                    color: $turquoise
 
 // Included serviceItem css to style 'Who We Are' section.
 // This is pulled in from Ghost CMS now.
