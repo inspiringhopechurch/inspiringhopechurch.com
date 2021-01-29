@@ -17,7 +17,7 @@ const FancyHeading = ({ className, heading, splitHeading }) => {
       <span className="first-word">{firstWord}</span> {remainingWords.join(" ")}
     </h2>
   ) : (
-    <h1 className={`${className ? className : ""}`}>
+    <h1 className={`fancy-heading ${className ? className : ""}`}>
       <span className="first-word">{firstWord}</span>{" "}
       <span className="decorated">{remainingWords.join(" ")}</span>
     </h1>
