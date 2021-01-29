@@ -25,9 +25,9 @@ describe("SEO", () => {
             pathPrefix: siteMetaD.pathPrefix,
             defaultDescription: siteMetaD.defaultDescription,
             defaultBanner: siteMetaD.defaultBanner,
-            twitter: siteMetaD.twitter,
-          },
-        },
+            twitter: siteMetaD.twitter
+          }
+        }
       })
     );
   });

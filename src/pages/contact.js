@@ -18,7 +18,9 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className={`contact-page box contact-content is-shadowless is-halfheight`}>
+      <section
+        className={`contact-page box contact-content is-shadowless is-halfheight`}
+      >
         <div className={`columns is-centered`}>
           <div className={`column is-one-third-tablet`}>
             <h1 className={`title has-text-link is-uppercase`}>Have Questions?</h1>
@@ -35,14 +37,23 @@ const Contact = () => {
               </a>
             </p>
             <p className={`content`}>
-              <a href={validUrl(facebookUrl) ? facebookUrl : ""} title="Link to Facebook page">
-                <FontAwesomeIcon icon={["fab", "facebook-f"]} size="lg" /> Inspiring Hope Facebook page
+              <a
+                href={validUrl(facebookUrl) ? facebookUrl : ""}
+                title="Link to Facebook page"
+              >
+                <FontAwesomeIcon icon={["fab", "facebook-f"]} size="lg" />{" "}
+                Inspiring Hope Facebook page
               </a>
             </p>
           </div>
 
-          <div className={`column is-two-thirds-tablet is-two-fifths-widescreen`}>
-            <ContactForm formTitle={"Get in Touch"} submitButtonTitle={"Send Message"} />
+          <div
+            className={`column is-two-thirds-tablet is-two-fifths-widescreen`}
+          >
+            <ContactForm
+              formTitle={"Get in Touch"}
+              submitButtonTitle={"Send Message"}
+            />
           </div>
         </div>
       </section>

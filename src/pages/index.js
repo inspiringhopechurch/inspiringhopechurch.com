@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import config from "../../config"
+import config from "../../config";
 import BlogItem from "../components/blogItem";
 import FancyHeading from "../components/fancyHeading";
 import LoaderIcon from "../components/loader-icon";
@@ -31,11 +31,21 @@ const HomePage = ({ data }) => {
     return (page.node.slug === query) ? page.node : undefined;
   }
 
-  const bibleVerseSection = pages.find((page) => findGhostSection(page, "home-page-verse"))?.node;
-  const weeklyGatheringSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering"))?.node;
-  const careSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering-covid-care"))?.node;
-  const kidsSection = pages.find((page) => findGhostSection(page, "home-weekly-gathering-inspire-kids"))?.node;
-  const whoWeAreSection = pages.find((page) => findGhostSection(page, "home-who-we-are"))?.node;
+  const bibleVerseSection = pages.find(page =>
+    findGhostSection(page, "home-page-verse")
+  )?.node;
+  const weeklyGatheringSection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering")
+  )?.node;
+  const careSection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering-covid-care")
+  )?.node;
+  const kidsSection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering-inspire-kids")
+  )?.node;
+  const whoWeAreSection = pages.find(page =>
+    findGhostSection(page, "home-who-we-are")
+  )?.node;
 
   /**
    * Handles changes to the form's inputs. Should be passed to an input's
@@ -91,7 +101,12 @@ const HomePage = ({ data }) => {
           );
           setEmailAddress("");
         } else {
-          setMessage(<>We encountered an error. Please check your email address and try again.</>);
+          setMessage(
+            <>
+              We encountered an error. Please check your email address and try
+              again.
+            </>
+          );
         }
         setFormSentIndicator(false);
       })
@@ -167,11 +182,25 @@ const HomePage = ({ data }) => {
               preload="metadata"
               poster={videoPoster}
             >
-              <source src="/assets/inspiring_hope_intro.webm" type="video/webm" />
+              <source
+                src="/assets/inspiring_hope_intro.webm"
+                type="video/webm"
+              />
               <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
-              <track kind="captions" srcLang="en" label="English" src={captionEn} />
-              <track kind="captions" srcLang="es" label="Español" src={captionEs} />
-              Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
+              <track
+                kind="captions"
+                srcLang="en"
+                label="English"
+                src={captionEn}
+              />
+              <track
+                kind="captions"
+                srcLang="es"
+                label="Español"
+                src={captionEs}
+              />
+              Unfortunately your browser is old and does not support embedded
+              videos. Please consider upgrading.
             </video>
           </figure>
         </div>
@@ -197,7 +226,7 @@ const HomePage = ({ data }) => {
             <h1>Caring for others</h1>
           </div>
         </div>
-        
+
         <div className="container">
           <div className="level is-mobile-mobile is-medium">
             <div className="level-item has-text-centered">
@@ -261,7 +290,10 @@ const HomePage = ({ data }) => {
       <section className={`index-page box is-radiusless is-shadowless mb-0`}>
         <div className={`columns content`}>
           <div className={`column is-full has-text-centered`}>
-            <FancyHeading className="fancy-heading" heading={"Inspiring Moments"} />
+            <FancyHeading
+              className="fancy-heading"
+              heading={"Inspiring Moments"}
+            />
           </div>
         </div>
         <div className={`columns is-multiline is-centered`}>
@@ -281,7 +313,9 @@ const HomePage = ({ data }) => {
       <section
         className={`index-page subscriptions  is-radiusless is-clipped mb-0`}
       >
-        <div className={`columns is-multiline is-mobile is-centered is-vcentered has-text-centered`}>
+        <div
+          className={`columns is-multiline is-mobile is-centered is-vcentered has-text-centered`}
+        >
           <div className={`column container is-fluid is-narrow`}>
             <label htmlFor="subscribe" className="content">
               {message}
@@ -302,7 +336,12 @@ const HomePage = ({ data }) => {
                   />
                 </div>
                 <div className={`control`}>
-                  <button data-testid="submit-button" type="submit" className={`button is-link`} onClick={handleSubmit}>
+                  <button
+                    data-testid="submit-button"
+                    type="submit"
+                    className={`button is-link`}
+                    onClick={handleSubmit}
+                  >
                     {formSentIndicator ? <LoaderIcon /> : "Sign Up"}
                   </button>
                 </div>
@@ -318,14 +357,20 @@ export default HomePage;
 
 export const query = graphql`
   query GhostPostQuery {
-    allGhostPost(sort: { order: DESC, fields: [published_at] }, limit: 3, skip: 0) {
+    allGhostPost(
+      sort: { order: DESC, fields: [published_at] }
+      limit: 3
+      skip: 0
+    ) {
       edges {
         node {
           ...GhostPostFieldsForIndex
         }
       }
     }
-    allGhostPage(filter: {tags: {elemMatch: {name: {eq: "Home Page"}}}}) {
+    allGhostPage(
+      filter: { tags: { elemMatch: { name: { eq: "Home Page" } } } }
+    ) {
       edges {
         node {
           html

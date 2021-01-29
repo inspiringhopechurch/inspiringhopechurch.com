@@ -18,7 +18,9 @@ describe("Accordion", () => {
   //    - accordionHeight should be 0
   //    - accordionContent should not have any custom styles set
   it("should render without crashing", () => {
-    const myAccordion = mount(<Accordion title={title}>Test content</Accordion>);
+    const myAccordion = mount(
+      <Accordion title={title}>Test content</Accordion>
+    );
     const expandableContainer = myAccordion.find(`[data-id="${dataTitle}"]`);
 
     expect(myAccordion.find(".accordion.expanded")).toHaveLength(0);
@@ -47,7 +49,9 @@ describe("Accordion", () => {
   //    - accordionContent must also have expanded class set/unset based on expanded state
   //    - accordionHeight must be set
   it("should have 'expanded' class toggled when the heading button is clicked", () => {
-    const myAccordion = mount(<Accordion title={title}>Test content</Accordion>);
+    const myAccordion = mount(
+      <Accordion title={title}>Test content</Accordion>
+    );
 
     expect(myAccordion.find(".accordion")).toHaveLength(1);
     expect(myAccordion.find(".accordion.expanded")).toHaveLength(0);

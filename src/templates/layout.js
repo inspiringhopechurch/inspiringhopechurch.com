@@ -11,20 +11,20 @@ const Layout = ({ children, location }) => {
 
   const variants = {
     initial: {
-      opacity: 0,
+      opacity: 0
     },
     enter: {
       opacity: 1,
       transition: {
         duration: duration,
         delay: duration,
-        when: "beforeChildren",
-      },
+        when: "beforeChildren"
+      }
     },
     exit: {
       opacity: 0,
-      transition: { duration: duration },
-    },
+      transition: { duration: duration }
+    }
   };
 
   const currentPage = location?.pathname;

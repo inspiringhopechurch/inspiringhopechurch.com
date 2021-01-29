@@ -1,6 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
-import config from "../../config"
+import config from "../../config";
 import BlogItem from "../components/blogItem";
 import "./blog.sass";
 

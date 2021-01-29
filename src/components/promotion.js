@@ -29,7 +29,7 @@ const Promotion = ({ promoEndDate, promoDiscount }) => {
 
 Promotion.propTypes = {
   promoEndDate: PropTypes.string.isRequired,
-  promoDiscount: PropTypes.number.isRequired,
+  promoDiscount: PropTypes.number.isRequired
 };
 
 export default Promotion;

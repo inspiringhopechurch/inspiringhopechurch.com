@@ -11,7 +11,9 @@ const NotFound = () => (
           <h1 className={`title is-1 not-found`}>
             <img alt="Page not found html code " src={logo} />
           </h1>
-          <p className={`subtitle is-2 has-text-white`}>We didn't find the page you asked for...</p>
+          <p className={`subtitle is-2 has-text-white`}>
+            We didn't find the page you asked for...
+          </p>
           <p className={`subtitle is-2 has-text-white`}>
             Please go back to the{" "}
             <Link className={`is-primary`} to="/">

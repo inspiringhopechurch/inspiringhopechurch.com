@@ -41,11 +41,11 @@ const Footer = (props) => (
 );
 
 Footer.propTypes = {
-  copyrightOwner: PropTypes.string.isRequired,
+  copyrightOwner: PropTypes.string.isRequired
 };
 
 Footer.defaultProps = {
-  copyrightOwner: title,
+  copyrightOwner: title
 };
 
 export default Footer;

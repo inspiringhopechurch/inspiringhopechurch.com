@@ -63,11 +63,11 @@ const Accordion = ({ title, children, isExpanded }) => {
 };
 
 Accordion.propTypes = {
-  title: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired
 };
 
 Accordion.defaultProps = {
-  isExpanded: false,
+  isExpanded: false
 };
 
 export default Accordion;

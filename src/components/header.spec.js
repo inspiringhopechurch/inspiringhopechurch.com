@@ -17,7 +17,7 @@ describe("Header", () => {
       port: "8000",
       protocol: "http:",
       search: "",
-      state: null,
+      state: null
     };
   });
 
@@ -54,7 +54,7 @@ describe("Header", () => {
       port: "8000",
       protocol: "http:",
       search: "",
-      state: null,
+      state: null
     };
     const myHeader = mount(<Header location={testLocation} />);
 
@@ -73,7 +73,7 @@ describe("Header", () => {
       port: "8000",
       protocol: "http:",
       search: "",
-      state: null,
+      state: null
     };
     const myHeader = mount(<Header location={testLocation} />);
 

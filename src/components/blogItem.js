@@ -47,7 +47,7 @@ const BlogItem = (props) => (
     </h2>
     {!props.onBlogIndex && props.blogImageObj && (
       <figure className="image is-marginless">
-        <Img alt="" fluid={ /** @type {FluidObject} */ (props.blogImageObj)} />
+        <Img alt="" fluid={/** @type {FluidObject} */ (props.blogImageObj)} />
       </figure>
     )}
     {!props.onBlogIndex && props.blogImage && (
@@ -76,7 +76,7 @@ BlogItem.propTypes = {
       originalName: PropTypes.string,
       srcSetWebp: PropTypes.string,
       srcWebp: PropTypes.string,
-      media: PropTypes.string,
+      media: PropTypes.string
     }),
     PropTypes.shape({
       base64: PropTypes.string,
@@ -87,17 +87,17 @@ BlogItem.propTypes = {
       originalName: PropTypes.string,
       srcSetWebp: PropTypes.string,
       srcWebp: PropTypes.string,
-      media: PropTypes.string,
-    }),
+      media: PropTypes.string
+    })
   ]),
   blogTitle: PropTypes.string.isRequired,
   blogDate: PropTypes.string.isRequired,
   blogLink: PropTypes.string.isRequired,
-  onBlogIndex: PropTypes.bool,
+  onBlogIndex: PropTypes.bool
 };
 
 BlogItem.defaultProps = {
-  onBlogIndex: false,
+  onBlogIndex: false
 };
 
 export default BlogItem;

@@ -5,6 +5,7 @@ import { cleanHtml, cleanHtmlForVideo, generateVideoSnippet } from "../utils";
 import { RefTagger } from "../components/reftagger";
 import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
+import FancyHeading from "../components/fancyHeading";
 import SEO from "../components/seo";
 import howToVideoPoster from "../assets/how_to_give_online.jpg";
 import textToVideoPoster from "../assets/text_to_give.jpg";
@@ -19,28 +20,30 @@ import "./page.sass";
 const Page = ({ data, location }) => {
   const page = data.ghostPage;
   const pageName = page.title;
-  const isBeliefPage = location?.pathname.includes('/about/beliefs');
-  const isMissionPage = location?.pathname.includes('/about/mission');
-  const isGivePage = location?.pathname.includes('/give');
+  const isBeliefPage = location?.pathname.includes("/about/beliefs");
+  const isMissionPage = location?.pathname.includes("/about/mission");
+  const isGivePage = location?.pathname.includes("/give");
   let accordionContent = {};
-  let accordionHeader = '';
-  const isBrowser = typeof document !== 'undefined';
+  let accordionHeader = "";
+  const isBrowser = typeof document !== "undefined";
 
   // Since we don't have access to the DOM when server-side rendering,
   // only run the code below if in the browser.
-  if ( isBeliefPage && isBrowser ) {
+  if (isBeliefPage && isBrowser) {
     const beliefsList = page.html.split(/<!--kg-card-begin: .*?-->/);
 
-    let temporaryEl = document.createElement('div');
+    let temporaryEl = document.createElement("div");
     // Skip the first entry (0) because its empty
-    for (let idx=1; idx < beliefsList.length; idx++) {
+    for (let idx = 1; idx < beliefsList.length; idx++) {
       temporaryEl.innerHTML = cleanHtml(beliefsList[idx]).__html;
-      if (idx === 1 && (temporaryEl.firstChild.tagName.toLowerCase() === 'h1') ) {
+      if (idx === 1 && temporaryEl.firstChild.tagName.toLowerCase() === "h1") {
         accordionHeader = temporaryEl.firstChild.innerText;
-      } else if (temporaryEl.firstChild.tagName.toLowerCase() === 'h2') {
+      } else if (temporaryEl.firstChild.tagName.toLowerCase() === "h2") {
         // Increment the beliefsList index because, the way this is set up in Ghost,
-        // we *should* have an h2 tag, followed directly by the accordion content in a div. 
-        accordionContent[temporaryEl.firstChild.innerText] = cleanHtml(beliefsList[++idx]).__html;
+        // we *should* have an h2 tag, followed directly by the accordion content in a div.
+        accordionContent[temporaryEl.firstChild.innerText] = cleanHtml(
+          beliefsList[++idx]
+        ).__html;
       }
     }
   }
@@ -48,16 +51,24 @@ const Page = ({ data, location }) => {
   // We search for a placeholder section for our native video playback here, and generate
   // the necessary code. This EXACT code needs to be present in Ghost for this to work.
   if (isGivePage) {
-    const howToGiveOnlineVideoPlaceholder=`<div class="container" data-id="how_to_give_online"></div>`;
-    const textToGiveVideoPlaceholder=`<div class="container" data-id="text_to_give"></div>`;
+    const howToGiveOnlineVideoPlaceholder = `<div class="container" data-id="how_to_give_online"></div>`;
+    const textToGiveVideoPlaceholder = `<div class="container" data-id="text_to_give"></div>`;
 
-    const howToGiveOnlineVideo = generateVideoSnippet("how_to_give_online", howToVideoPoster);
-    const textToGiveVideo = generateVideoSnippet("text_to_give", textToVideoPoster);
+    const howToGiveOnlineVideo = generateVideoSnippet(
+      "how_to_give_online",
+      howToVideoPoster
+    );
+    const textToGiveVideo = generateVideoSnippet(
+      "text_to_give",
+      textToVideoPoster
+    );
 
-      page.html = page.html.replace(howToGiveOnlineVideoPlaceholder, howToGiveOnlineVideo);
-      page.html = page.html.replace(textToGiveVideoPlaceholder,textToGiveVideo);
+    page.html = page.html.replace(
+      howToGiveOnlineVideoPlaceholder,
+      howToGiveOnlineVideo
+    );
+    page.html = page.html.replace(textToGiveVideoPlaceholder, textToGiveVideo);
   }
-
 
   return (
     <>
@@ -97,10 +108,13 @@ const Page = ({ data, location }) => {
           { location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
 
-        { location.pathname === '/get-connected' && (
+        {location.pathname === "/get-connected" && (
           <div className="columns content is-medium is-centered">
             <div className={`column is-two-thirds`}>
-              <ContactForm formTitle={"Get in Touch"} submitButtonTitle={"Send Message"} />
+              <ContactForm
+                formTitle={"Get in Touch"}
+                submitButtonTitle={"Send Message"}
+              />
             </div>
           </div>
         )}
@@ -115,10 +129,10 @@ Page.propTypes = {
       codeinjection_styles: PropTypes.object,
       title: PropTypes.string.isRequired,
       html: PropTypes.string.isRequired,
-      feature_image: PropTypes.string,
-    }).isRequired,
+      feature_image: PropTypes.string
+    }).isRequired
   }).isRequired,
-  location: PropTypes.object.isRequired,
+  location: PropTypes.object.isRequired
 };
 
 export default Page;

@@ -21,15 +21,15 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
           pathPrefix,
           defaultDescription,
           defaultBanner,
-          twitter,
-        },
-      },
+          twitter
+        }
+      }
     }) => {
       const seo = {
         title: title ? `${title} | ${defaultTitle}` : defaultTitle,
         description: desc || defaultDescription,
         image: `${url}${pathPrefix}${banner || defaultBanner}`,
-        url: `${url}${pathname || pathPrefix}`,
+        url: `${url}${pathname || pathPrefix}`
       };
       let schemaOrgJSONLD = [
         {
@@ -38,8 +38,8 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
           "@id": url,
           url: url,
           name: defaultTitle,
-          alternateName: titleAlt || "",
-        },
+          alternateName: titleAlt || ""
+        }
       ];
       if (article) {
         schemaOrgJSONLD = [
@@ -53,29 +53,29 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
             headline: title,
             image: {
               "@type": "ImageObject",
-              url: seo.image,
+              url: seo.image
             },
             description: seo.description,
             datePublished: buildTime,
             dateModified: buildTime,
             author: {
               "@type": "Person",
-              name: author,
+              name: author
             },
             publisher: {
               "@type": "Organization",
               name: author,
               logo: {
                 "@type": "ImageObject",
-                url: url + pathPrefix + logo,
-              },
+                url: url + pathPrefix + logo
+              }
             },
             isPartOf: url,
             mainEntityOfPage: {
               "@type": "WebSite",
-              "@id": url,
-            },
-          },
+              "@id": url
+            }
+          }
         ];
       }
       return (
@@ -88,12 +88,20 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
             <meta name="image" content={seo.image} />
             <meta name="apple-mobile-web-app-title" content={shortName} />
             <meta name="application-name" content={shortName} />
-            <script type="application/ld+json">{JSON.stringify(schemaOrgJSONLD)}</script>
+            <script type="application/ld+json">
+              {JSON.stringify(schemaOrgJSONLD)}
+            </script>
 
             {/* OpenGraph  */}
             <meta property="og:site_name" content={seo.title} />
-            <meta property="og:url" content={validUrl(seo.url) ? seo.url : ""} />
-            <meta property="og:type" content={article ? "article" : "website"} />
+            <meta
+              property="og:url"
+              content={validUrl(seo.url) ? seo.url : ""}
+            />
+            <meta
+              property="og:type"
+              content={article ? "article" : "website"}
+            />
             <meta property="og:title" content={seo.title} />
             <meta property="og:description" content={seo.description} />
             <meta property="og:image" content={seo.image} />
@@ -103,9 +111,17 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
             <meta name="twitter:title" content={seo.title} />
             <meta name="twitter:description" content={seo.description} />
             <meta name="twitter:image" content={seo.image} />
-            <meta name="twitter:url" content={validUrl(seo.url) ? seo.url : ""} />
+            <meta
+              name="twitter:url"
+              content={validUrl(seo.url) ? seo.url : ""}
+            />
             {twitter && <meta name="twitter:creator" content={twitter} />}
-            {twitter && <meta name="twitter:site" content={`https://twitter.com/${twitter.replace(/^@/, ``)}/`} />}
+            {twitter && (
+              <meta
+                name="twitter:site"
+                content={`https://twitter.com/${twitter.replace(/^@/, ``)}/`}
+              />
+            )}
 
             <link rel="canonical" href={validUrl(seo.url) ? seo.url : ""} />
           </Helmet>
@@ -120,7 +136,7 @@ SEO.propTypes = {
   desc: PropTypes.string,
   banner: PropTypes.string,
   pathname: PropTypes.string,
-  article: PropTypes.bool,
+  article: PropTypes.bool
 };
 
 SEO.defaultProps = {
@@ -128,7 +144,7 @@ SEO.defaultProps = {
   desc: null,
   banner: null,
   pathname: null,
-  article: false,
+  article: false
 };
 
 const query = graphql`

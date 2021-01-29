@@ -20,7 +20,7 @@ const ContactForm = ({
   nameValidationMsg,
   emailValidationMsg,
   subjectValidationMsg,
-  bodyValidationMsg,
+  bodyValidationMsg
 }) => {
   const [formData, setFormData] = useState({
     fullName: "",
@@ -34,7 +34,7 @@ const ContactForm = ({
     formSubmissionError: false,
     formSubmissionAttempt: false,
     showNotification: false,
-    formMessage: "",
+    formMessage: ""
   });
 
   /**
@@ -85,10 +85,15 @@ const ContactForm = ({
       messageSubject,
       messageSubjectDirty,
       messageBody,
-      messageBodyDirty,
+      messageBodyDirty
     } = formData;
 
-    if (fullNameDirty && emailDirty && messageSubjectDirty && messageBodyDirty) {
+    if (
+      fullNameDirty &&
+      emailDirty &&
+      messageSubjectDirty &&
+      messageBodyDirty
+    ) {
       const formContent = `fullname=${fullName}&email=${email.trim()}&subject=${messageSubject}&message=${messageBody}`;
 
       const response = await fetch(withPrefix("/contact-form"), {
@@ -96,9 +101,9 @@ const ContactForm = ({
         headers: {
           accept: "application/json",
           "accept-language": "en_US",
-          "content-type": "application/x-www-form-urlencoded",
+          "content-type": "application/x-www-form-urlencoded"
         },
-        body: formContent,
+        body: formContent
       });
       const data = await response.json();
 
@@ -159,7 +164,8 @@ const ContactForm = ({
     const newData = {};
     newData.formSubmissionError = error;
     newData.showNotification = true;
-    newData.formMessage = typeof response === "string" ? response : "Something unexpected occured.";
+    newData.formMessage =
+      typeof response === "string" ? response : "Something unexpected occured.";
 
     if (error) {
       setFormData({ ...formData, ...newData });
@@ -177,11 +183,20 @@ const ContactForm = ({
           formData.showNotification ? (formData.formSubmissionError ? "is-danger" : "is-success") : ""
         }`}
       >
-        <button className={`delete`} onClick={clearNotification} aria-label="remove notification" />
+        <button
+          className={`delete`}
+          onClick={clearNotification}
+          aria-label="remove notification"
+        />
         {formData.formMessage}
       </div>
 
-      <form data-testid="contact-form" id="contact-form" method="post" onSubmit={handleSubmit}>
+      <form
+        data-testid="contact-form"
+        id="contact-form"
+        method="post"
+        onSubmit={handleSubmit}
+      >
         <div className={`field`}>
           {/* <div className={`field-body`}> */}
           <div className={""}>
@@ -200,7 +215,11 @@ const ContactForm = ({
                   required
                 />
                 <span className={`icon is-left is-small`}>
-                  <FontAwesomeIcon icon={["fas", "user"]} size="1x" transform="down-6 right-12" />
+                  <FontAwesomeIcon
+                    icon={["fas", "user"]}
+                    size="1x"
+                    transform="down-6 right-12"
+                  />
                 </span>
               </div>
               <p id="fullNameError" className={`help`}>
@@ -222,7 +241,11 @@ const ContactForm = ({
                   required
                 />
                 <span className={`icon is-left is-small`}>
-                  <FontAwesomeIcon icon={["fas", "envelope"]} size="1x" transform="down-6 right-12" />
+                  <FontAwesomeIcon
+                    icon={["fas", "envelope"]}
+                    size="1x"
+                    transform="down-6 right-12"
+                  />
                 </span>
               </div>
               <p id="emailError" className={`help`}>
@@ -247,7 +270,11 @@ const ContactForm = ({
               required
             />
             <span className={`icon is-left is-small`}>
-              <FontAwesomeIcon icon={["fas", "comment-alt-lines"]} size="1x" transform="down-6 right-12" />
+              <FontAwesomeIcon
+                icon={["fas", "comment-alt-lines"]}
+                size="1x"
+                transform="down-6 right-12"
+              />
             </span>
           </div>
           <p id="messageSubjectError" className="help">
@@ -289,7 +316,11 @@ const ContactForm = ({
                 !formData.messageBodyDirty
               }
             >
-              <FontAwesomeIcon icon={["fas", "paper-plane"]} size="1x" pull="left" />
+              <FontAwesomeIcon
+                icon={["fas", "paper-plane"]}
+                size="1x"
+                pull="left"
+              />
               {submitButtonTitle}
             </button>
           </div>
@@ -305,7 +336,7 @@ ContactForm.propTypes = {
   nameValidationMsg: PropTypes.string.isRequired,
   emailValidationMsg: PropTypes.string.isRequired,
   subjectValidationMsg: PropTypes.string.isRequired,
-  bodyValidationMsg: PropTypes.string.isRequired,
+  bodyValidationMsg: PropTypes.string.isRequired
 };
 
 ContactForm.defaultProps = {
@@ -314,7 +345,7 @@ ContactForm.defaultProps = {
   nameValidationMsg: "Please enter your full name",
   emailValidationMsg: "Please enter your email",
   subjectValidationMsg: "Tell us why you're reaching out.",
-  bodyValidationMsg: "Tell us how we can help you.",
+  bodyValidationMsg: "Tell us how we can help you."
 };
 
 export default ContactForm;

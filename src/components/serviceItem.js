@@ -27,10 +27,10 @@ const ServiceItem = ({ children, ...props }) => (
 ServiceItem.propTypes = {
   icon: PropTypes.object,
   iconSize: PropTypes.string.isRequired,
-  serviceName: PropTypes.string.isRequired,
+  serviceName: PropTypes.string.isRequired
 };
 
 ServiceItem.defaultProps = {
-  iconSize: "2x",
+  iconSize: "2x"
 };
 export default ServiceItem;

@@ -48,12 +48,20 @@ describe("ContactForm", () => {
 
     expect(myForm.find(formSubmitButton).prop("disabled")).toBeTruthy();
 
-    myForm.find(`#${name}`).simulate("change", { target: { name: name, value: testName } });
-    myForm.find(`#${email}`).simulate("change", { target: { name: email, value: testEmail } });
-    myForm.find(`#${subject}`).simulate("change", { target: { name: subject, value: testSubject } });
+    myForm
+      .find(`#${name}`)
+      .simulate("change", { target: { name: name, value: testName } });
+    myForm
+      .find(`#${email}`)
+      .simulate("change", { target: { name: email, value: testEmail } });
+    myForm
+      .find(`#${subject}`)
+      .simulate("change", { target: { name: subject, value: testSubject } });
     expect(myForm.find(formSubmitButton).prop("disabled")).toBeTruthy();
 
-    myForm.find(`#${message}`).simulate("change", { target: { name: message, value: testMsg } });
+    myForm
+      .find(`#${message}`)
+      .simulate("change", { target: { name: message, value: testMsg } });
     expect(myForm.find(formSubmitButton).prop("disabled")).toBeFalsy();
 
     // These tests were added when I was trimming spaces from the typed in values.
@@ -72,28 +80,38 @@ describe("ContactForm", () => {
     //! We keep querying myForm.find(`selector`) and don't store this in a
     //! variable, because enzyme will not pick up changes if we do this.
     expect(myForm.find(`#${name}`).prop("value").length).toBe(0);
-    myForm.find(`#${name}`).simulate("change", { target: { name: name, value: testName } });
+    myForm
+      .find(`#${name}`)
+      .simulate("change", { target: { name: name, value: testName } });
     expect(myForm.find(`#${name}`).prop("value")).toEqual(testName);
     expect(myForm.find(`#${name}`).prop("value").length).toBe(testName.length);
 
     expect(myForm.find(`#${email}`).prop("value").length).toBe(0);
-    myForm.find(`#${email}`).simulate("change", { target: { name: "email", value: testEmail } });
+    myForm
+      .find(`#${email}`)
+      .simulate("change", { target: { name: "email", value: testEmail } });
     expect(myForm.find(`#${email}`).prop("value")).toEqual(testEmail);
-    expect(myForm.find(`#${email}`).prop("value").length).toBe(testEmail.length);
+    expect(myForm.find(`#${email}`).prop("value").length).toBe(
+      testEmail.length
+    );
 
     expect(myForm.find(`#${subject}`).prop("value").length).toBe(0);
     myForm.find(`#${subject}`).simulate("change", {
-      target: { name: "messageSubject", value: testSubject },
+      target: { name: "messageSubject", value: testSubject }
     });
     expect(myForm.find(`#${subject}`).prop("value")).toEqual(testSubject);
-    expect(myForm.find(`#${subject}`).prop("value").length).toBe(testSubject.length);
+    expect(myForm.find(`#${subject}`).prop("value").length).toBe(
+      testSubject.length
+    );
 
     expect(myForm.find(`#${message}`).text().length).toBe(0);
     myForm.find(`#${message}`).simulate("change", {
-      target: { name: message, value: testMsg },
+      target: { name: message, value: testMsg }
     });
     myForm.find(`#${message}`).simulate("change");
     // Getting the value of *this* input a different way, just because I can
-    expect(myForm.find(`#${message}`).getDOMNode().value.length).toBe(testMsg.length);
+    expect(myForm.find(`#${message}`).getDOMNode().value.length).toBe(
+      testMsg.length
+    );
   });
 });

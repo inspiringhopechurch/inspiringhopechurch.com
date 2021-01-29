@@ -5,7 +5,8 @@ import BlogItem from "./blogItem";
 
 describe("BlogItem", () => {
   const title = "Test Title",
-    longTitle = "Reaaaaaaaaaaaaaaaaaaaaaaaaaaaaalllllyyyyy looooooooooooooong title",
+    longTitle =
+      "Reaaaaaaaaaaaaaaaaaaaaaaaaaaaaalllllyyyyy looooooooooooooong title",
     excerpt = "Test excerpt for blog post",
     date_ = "October 5th, 2019",
     slug = "test-excerpt-for-blog-post",
@@ -14,13 +15,29 @@ describe("BlogItem", () => {
     isBlogIndexPage = true;
 
   it("should render without crashing", () => {
-    const blogItem = shallow(<BlogItem blogTitle={title} blogExcerpt={excerpt} blogDate={date_} blogLink={url} />);
-    expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(1);
+    const blogItem = shallow(
+      <BlogItem
+        blogTitle={title}
+        blogExcerpt={excerpt}
+        blogDate={date_}
+        blogLink={url}
+      />
+    );
+    expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(
+      1
+    );
     expect(blogItem).toMatchSnapshot();
   });
 
   it("has the expected props when initially rendered", () => {
-    const blogItem = mount(<BlogItem blogTitle={title} blogExcerpt={excerpt} blogDate={date_} blogLink={url} />);
+    const blogItem = mount(
+      <BlogItem
+        blogTitle={title}
+        blogExcerpt={excerpt}
+        blogDate={date_}
+        blogLink={url}
+      />
+    );
 
     expect(blogItem.prop("blogTitle")).toBe(title);
     expect(blogItem.prop("blogExcerpt")).toBe(excerpt);
@@ -72,7 +89,14 @@ describe("BlogItem", () => {
   });
 
   it("has isFullTablet and isOneThirdDesktop classes when needed", () => {
-    const blogItem = mount(<BlogItem blogTitle={longTitle} blogExcerpt={excerpt} blogDate={date_} blogLink={slug} />);
+    const blogItem = mount(
+      <BlogItem
+        blogTitle={longTitle}
+        blogExcerpt={excerpt}
+        blogDate={date_}
+        blogLink={slug}
+      />
+    );
     expect(longTitle.length).toBeGreaterThan(50);
     expect(blogItem.find(".content.column a")).toHaveLength(2);
     // expect(blogItem.find(".content.column.is-three-fifths")).toHaveLength(0);

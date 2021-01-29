@@ -17,7 +17,7 @@ const Post = ({ data }) => {
       meta_description,
       meta_title,
       subtitle,
-      title,
+      title
     } = post;
 
   // TODO: Fix SEO generation here
@@ -34,11 +34,16 @@ const Post = ({ data }) => {
         {/* // TODO: Put Img tag here */}
         <div
           className={`hero-body`}
-          style={{ background: `url('${featureImageSharp.publicURL}') center top`, backgroundSize: "cover" }}
+          style={{
+            background: `url('${featureImageSharp.publicURL}') center top`,
+            backgroundSize: "cover"
+          }}
         >
           <div className={`container`}>
             <h1 className={`title has-text-white is-3`}>{title}</h1>
-            {subtitle && <h2 className={`subtitle is-5 has-text-white`}>{subtitle}</h2>}
+            {subtitle && (
+              <h2 className={`subtitle is-5 has-text-white`}>{subtitle}</h2>
+            )}
           </div>
         </div>
       </section>

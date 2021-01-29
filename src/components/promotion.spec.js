@@ -10,17 +10,23 @@ describe("Promotion", () => {
     passedDate_ = "February 5, 2019 23:59:59";
 
   it("should render without crashing", () => {
-    const promoBlock = shallow(<Promotion promoEndDate={date_} promoDiscount={discount} />);
+    const promoBlock = shallow(
+      <Promotion promoEndDate={date_} promoDiscount={discount} />
+    );
     expect(promoBlock).toMatchSnapshot();
   });
 
   it("should render nothing without crashing", () => {
-    const promoBlock = shallow(<Promotion promoEndDate={passedDate_} promoDiscount={discount} />);
+    const promoBlock = shallow(
+      <Promotion promoEndDate={passedDate_} promoDiscount={discount} />
+    );
     expect(promoBlock).toMatchSnapshot();
   });
 
   it("has the expected props when initially rendered", () => {
-    const promoBlock = mount(<Promotion promoEndDate={date_} promoDiscount={discount} />);
+    const promoBlock = mount(
+      <Promotion promoEndDate={date_} promoDiscount={discount} />
+    );
 
     //expect(promoBlock.find(".notification")).toHaveLength(1);
     expect(promoBlock.prop("promoEndDate")).toBe(date_);
