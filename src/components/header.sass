@@ -53,15 +53,6 @@ header
                 text-transform: uppercase
                 // font-weight: 600
                 // font-size: .875rem
-            .navbar-end
-                .navbar-item
-                    font-weight: 600
-            .navbar-start
-                margin-left: auto
-                margin-right: inherit
-            .navbar-end
-                // margin-right: auto
-                margin-left: inherit
             .navbar-start, .navbar-end
                 > .navbar-item
                     &.is-active-page:before
@@ -85,3 +76,15 @@ header
                         &:before
                             opacity: 1
                             transform: scale(1)
+            .navbar-start
+                margin-left: auto
+                margin-right: inherit
+            .navbar-end
+                // margin-right: auto
+                margin-left: inherit
+                transition: color $logo-transition-time, background-color $logo-transition-time
+                .navbar-item
+                    font-weight: 600
+                    &:hover
+                        color: $white
+                        background-color: $turquoise
