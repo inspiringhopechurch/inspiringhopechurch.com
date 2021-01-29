@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { withPrefix } from "gatsby";
 import * as PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import FancyHeading from "../components/fancyHeading";
 import "./contactForm.sass";
 
 /**
@@ -175,8 +176,8 @@ const ContactForm = ({
   };
 
   return (
-    <div className={`contact-form`}>
-      <h1 className={`title is-uppercase has-text-link has-text-centered`}>{formTitle}</h1>
+    <div className={`contact-form content`}>
+      <FancyHeading className="has-text-centered" heading={formTitle} />
 
       <div
         className={`notification ${

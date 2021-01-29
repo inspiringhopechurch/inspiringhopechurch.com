@@ -1,6 +1,7 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import ContactForm from "../components/contactForm";
+import FancyHeading from "../components/fancyHeading";
 import SEO from "../components/seo";
 import { validUrl } from "../utils";
 import { facebookUrl } from "../../config";
@@ -19,30 +20,29 @@ const Contact = () => {
       </section>
 
       <section
-        className={`contact-page box contact-content is-shadowless is-halfheight`}
+        className={`contact-page contact-content section is-halfheight`}
       >
-        <div className={`columns is-centered`}>
-          <div className={`column is-one-third-tablet`}>
-            <h1 className={`title has-text-link is-uppercase`}>Have Questions?</h1>
-            <p className={`content`}>
+        <div className={`columns content is-centered`}>
+          <div className={`column is-one-third-tablet mb-4`}>
+            <FancyHeading className={`has-text-centered`} heading={"Have Questions?"} />
+            <p>
               Do you have questions about Inspiring Hope Church? Would like to join one of our groups? <br />
               Please feel free to call, reach us on facebook, or use the form on this page to get in touch!
             </p>
-            <p className={`content`}>
+            <p>
               <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="lg" /> Based in Hamilton, Ohio.
             </p>
-            <p className={`content`}>
+            <p>
               <a href="tel:19189318591" title="Get in touch!">
                 <FontAwesomeIcon icon={["fas", "phone"]} size="lg" flip="horizontal" /> 1 (918) 931-8591
               </a>
             </p>
-            <p className={`content`}>
+            <p>
               <a
                 href={validUrl(facebookUrl) ? facebookUrl : ""}
                 title="Link to Facebook page"
               >
-                <FontAwesomeIcon icon={["fab", "facebook-f"]} size="lg" />{" "}
-                Inspiring Hope Facebook page
+                <FontAwesomeIcon icon={["fab", "facebook-f"]} size="lg" /> Inspiring Hope Facebook page
               </a>
             </p>
           </div>

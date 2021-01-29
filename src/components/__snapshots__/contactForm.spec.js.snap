@@ -2,13 +2,12 @@
 
 exports[`ContactForm should render without crashing 1`] = `
 <div
-  className="contact-form"
+  className="contact-form content"
 >
-  <h1
-    className="title is-uppercase has-text-link has-text-centered"
-  >
-    Get in touch
-  </h1>
+  <FancyHeading
+    className="has-text-centered"
+    heading="Get in touch"
+  />
   <div
     className="notification "
   >
