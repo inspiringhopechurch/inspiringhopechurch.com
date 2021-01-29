@@ -19,12 +19,12 @@ import "./page.sass";
  */
 const Page = ({ data, location }) => {
   const page = data.ghostPage;
-  const pageName = page.title;
+  const pageTitle = page.title;
   const isBeliefPage = location?.pathname.includes("/about/beliefs");
   const isMissionPage = location?.pathname.includes("/about/mission");
   const isGivePage = location?.pathname.includes("/give");
-  let accordionContent = {};
-  let accordionHeader = "";
+  let pageContent = {};
+  let pageHeading = "";
   const isBrowser = typeof document !== "undefined";
 
   // Since we don't have access to the DOM when server-side rendering,
@@ -37,11 +37,11 @@ const Page = ({ data, location }) => {
     for (let idx = 1; idx < beliefsList.length; idx++) {
       temporaryEl.innerHTML = cleanHtml(beliefsList[idx]).__html;
       if (idx === 1 && temporaryEl.firstChild.tagName.toLowerCase() === "h1") {
-        accordionHeader = temporaryEl.firstChild.innerText;
+        pageHeading = temporaryEl.firstChild.innerText;
       } else if (temporaryEl.firstChild.tagName.toLowerCase() === "h2") {
         // Increment the beliefsList index because, the way this is set up in Ghost,
         // we *should* have an h2 tag, followed directly by the accordion content in a div.
-        accordionContent[temporaryEl.firstChild.innerText] = cleanHtml(
+        pageContent[temporaryEl.firstChild.innerText] = cleanHtml(
           beliefsList[++idx]
         ).__html;
       }
@@ -83,21 +83,21 @@ const Page = ({ data, location }) => {
       <section className="generated-page hero is-halfheight">
         <div className="hero-body">
           <div className="container has-text-centered">
-            <h1 className="title is-size-1-mobile">{pageName}</h1>
+            <h1 className="title is-size-1-mobile">{pageTitle}</h1>
           </div>
         </div>
       </section>
 
-      <section className="box container is-shadowless">
+      <section className="section container">
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
           {isBeliefPage ? 
             (isBrowser ?
               <div className="column is-two-thirds">
-                {<h1 className="title is-size-1 is-uppercase has-text-centered" dangerouslySetInnerHTML={{__html: accordionHeader}} />}
-                {Object.keys(accordionContent).map((title, idx) => (
+                {<FancyHeading className="has-text-centered" heading={pageHeading} />}
+                {Object.keys(pageContent).map((title, idx) => (
                   <Accordion key={title} title={title} isExpanded={idx === 0 ? true : false}>
-                    <div dangerouslySetInnerHTML={{__html: accordionContent[title]}} />
+                    <div dangerouslySetInnerHTML={{__html: pageContent[title]}} />
                   </Accordion>
                 ))}
               </div> :
