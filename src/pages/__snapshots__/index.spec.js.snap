@@ -61,7 +61,7 @@ exports[`Index should render without crashing 1`] = `
     </div>
   </section>
   <section
-    className="index-page verse-content has-text-centered"
+    className="index-page verse-content section"
     dangerouslySetInnerHTML={
       Object {
         "__html": "<h2 id=\\"-come-to-me-a-you-who-are-wearyand-burdened-and-i-will-give-you-rest-\\">“Come to me, a you who are weary<br />and burdened, and I will give you rest.”</h2><p>Matthew 11:28 NIV</p>",
@@ -69,16 +69,16 @@ exports[`Index should render without crashing 1`] = `
     }
   />
   <section
-    className="index-page about-us box is-radiusless mb-0"
+    className="index-page about-us section"
   >
     <div
       className="columns container content"
     >
       <div
-        className="column is-full has-text-centered"
+        className="column"
       >
         <FancyHeading
-          className="fancy-heading"
+          className="has-text-centered"
           heading="Who We Are"
         />
       </div>
@@ -119,7 +119,7 @@ exports[`Index should render without crashing 1`] = `
         className="column is-full"
       >
         <div
-          className="control has-text-centered"
+          className="control has-text-centered my-3"
         >
           <mockConstructor
             className="button is-link has-text-weight-light is-medium"
@@ -178,16 +178,16 @@ exports[`Index should render without crashing 1`] = `
     </p>
   </section>
   <section
-    className="index-page gathering-section box is-radiusless mb-0 px-0"
+    className="index-page gathering-section section px-0"
   >
     <div
       className="columns container content"
     >
       <div
-        className="column is-full has-text-centered"
+        className="column"
       >
         <FancyHeading
-          className="fancy-heading"
+          className="has-text-centered"
           heading="Weekly Gathering"
         />
       </div>
@@ -409,7 +409,7 @@ exports[`Index should render without crashing 1`] = `
         className="column is-full"
       >
         <div
-          className="control has-text-centered"
+          className="control has-text-centered my-3"
         >
           <mockConstructor
             className="button is-link has-text-weight-light is-medium"
@@ -422,16 +422,16 @@ exports[`Index should render without crashing 1`] = `
     </div>
   </section>
   <section
-    className="index-page box is-radiusless is-shadowless mb-0"
+    className="index-page blog-section section"
   >
     <div
       className="columns content"
     >
       <div
-        className="column is-full has-text-centered"
+        className="column"
       >
         <FancyHeading
-          className="fancy-heading"
+          className="has-text-centered"
           heading="Inspiring Moments"
         />
       </div>

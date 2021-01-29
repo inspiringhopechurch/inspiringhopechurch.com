@@ -147,20 +147,23 @@ const HomePage = ({ data }) => {
       </section>
 
     {bibleVerseSection && (
-      <section className={`index-page verse-content has-text-centered`} dangerouslySetInnerHTML={cleanHtml(bibleVerseSection.html)} />
+      <section className={`index-page verse-content section`} dangerouslySetInnerHTML={cleanHtml(bibleVerseSection.html)} />
     )}
 
     {whoWeAreSection && (
-      <section className={`index-page about-us box is-radiusless mb-0`}>
+      <section className={`index-page about-us section`}>
         <div className={`columns container content`}>
-          <div className={`column is-full has-text-centered`}>
-            <FancyHeading className="fancy-heading" heading={whoWeAreSection.title} />
+          <div className={`column`}>
+            <FancyHeading
+              className="has-text-centered"
+              heading={whoWeAreSection.title}
+            />
           </div>
         </div>
         <div className="columns container is-multiline" dangerouslySetInnerHTML={cleanHtml(whoWeAreSection.html)} />
         <div className={`columns`}>
           <div className={`column is-full`}>
-            <div className={`control has-text-centered`}>
+            <div className={`control has-text-centered my-3`}>
               <Link className={`button is-link has-text-weight-light is-medium`} to="/about">
                 Learn More
               </Link>
@@ -210,10 +213,13 @@ const HomePage = ({ data }) => {
       </section>
 
     {weeklyGatheringSection && (
-      <section className="index-page gathering-section box is-radiusless mb-0 px-0">
+      <section className="index-page gathering-section section px-0">
         <div className="columns container content">
-          <div className="column is-full has-text-centered">
-            <FancyHeading className="fancy-heading" heading={weeklyGatheringSection.title} />
+          <div className="column">
+            <FancyHeading
+              className="has-text-centered"
+              heading={weeklyGatheringSection.title}
+            />
           </div>
         </div>
         <div className="content" dangerouslySetInnerHTML={cleanHtml(weeklyGatheringSection.html)} />
@@ -277,7 +283,7 @@ const HomePage = ({ data }) => {
         
         <div className="columns container">
           <div className="column is-full">
-            <div className="control has-text-centered">
+            <div className="control has-text-centered my-3">
               <Link className="button is-link has-text-weight-light is-medium" to="/get-connected">
                 Get Connected
               </Link>
@@ -287,11 +293,11 @@ const HomePage = ({ data }) => {
       </section>
     )}
 
-      <section className={`index-page box is-radiusless is-shadowless mb-0`}>
+      <section className={`index-page blog-section section`}>
         <div className={`columns content`}>
-          <div className={`column is-full has-text-centered`}>
+          <div className={`column`}>
             <FancyHeading
-              className="fancy-heading"
+              className="has-text-centered"
               heading={"Inspiring Moments"}
             />
           </div>
