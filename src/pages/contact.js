@@ -14,7 +14,7 @@ const Contact = () => {
       <section className={`contact-page hero is-halfheight`}>
         <div className={`hero-body`}>
           <div className={`container has-text-centered`}>
-            <h1 className={`title is-size-1-mobile`}>Contact Us</h1>
+            <FancyHeading heading="Contact Us" />
           </div>
         </div>
       </section>

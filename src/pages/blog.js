@@ -2,6 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import config from "../../config";
 import BlogItem from "../components/blogItem";
+import FancyHeading from "../components/fancyHeading";
 import "./blog.sass";
 
 const Blog = ({ data }) => {
@@ -9,10 +10,10 @@ const Blog = ({ data }) => {
 
   return (
     <>
-      <section className={`hero is-link is-halfheight`}>
+      <section className={`hero is-halfheight`}>
         <div className={`hero-body`}>
           <div className={`container has-text-centered`}>
-            <h1 className={`title has-text-white`}>Inspiring Moments</h1>
+            <FancyHeading heading="Inspiring Moments" />
           </div>
         </div>
       </section>

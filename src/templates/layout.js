@@ -28,7 +28,7 @@ const Layout = ({ children, location }) => {
   };
 
   const currentPage = location?.pathname;
-  const previousPage = location?.state?.prevPath;
+  // const previousPage = location?.state?.prevPath;
 
   return (
     <>

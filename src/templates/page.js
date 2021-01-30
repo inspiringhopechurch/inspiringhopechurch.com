@@ -83,7 +83,7 @@ const Page = ({ data, location }) => {
       <section className="generated-page hero is-halfheight">
         <div className="hero-body">
           <div className="container has-text-centered">
-            <h1 className="title is-size-1-mobile">{pageTitle}</h1>
+            <FancyHeading heading={pageTitle} />
           </div>
         </div>
       </section>
