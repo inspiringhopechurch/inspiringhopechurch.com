@@ -30,11 +30,11 @@ const Contact = () => {
               Please feel free to call, reach us on facebook, or use the form on this page to get in touch!
             </p>
             <p>
-              <FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="lg" /> Based in Hamilton, Ohio.
+              <span className="icon"><FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="lg" /></span> Based in Hamilton, Ohio.
             </p>
             <p>
               <a href="tel:19189318591" title="Get in touch!">
-                <FontAwesomeIcon icon={["fas", "phone"]} size="lg" flip="horizontal" /> 1 (918) 931-8591
+                <span className="icon"><FontAwesomeIcon icon={["fas", "phone"]} size="lg" flip="horizontal" /></span> 1 (918) 931-8591
               </a>
             </p>
             <p>
@@ -42,7 +42,7 @@ const Contact = () => {
                 href={validUrl(facebookUrl) ? facebookUrl : ""}
                 title="Link to Facebook page"
               >
-                <FontAwesomeIcon icon={["fab", "facebook-f"]} size="lg" /> Inspiring Hope Facebook page
+                <span className="icon"><FontAwesomeIcon icon={["fab", "facebook-f"]} size="lg" /></span> Inspiring Hope Facebook page
               </a>
             </p>
           </div>

@@ -43,7 +43,7 @@ body, .main-dark
     background-color: $white
 body, .main-dark, .main-light
     .hero
-        background-color: $turquoise
+        background-color: $dark-blue
     .button
         transition: color $decoration-transition-time
         @each $name, $pair in $colors
@@ -60,10 +60,15 @@ body, .main-dark, .main-light
 .decorated
     border-bottom: $border-decoration
 
-section .is-size-large
-    text-transform: none
-    padding: 0.75rem
-    font-size: 2.25rem
-    font-weight: 800
-    @include from($tablet)
-        font-size: 3rem
+section
+    a:not(.button, .rtBibleRef)
+        // text-decoration: underline
+        text-transform: uppercase
+        font-weight: bold
+    & .is-size-large
+        text-transform: none
+        padding: 0.75rem
+        font-size: 2.25rem
+        font-weight: 800
+        @include from($tablet)
+            font-size: 3rem
