@@ -16,16 +16,23 @@ export function validUrl(url) {
 export function cleanHtml(markup) {
   return {
     __html: sanitizeHtml(markup, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "iframe",   "img", "button"]),
-      allowedAttributes: { 
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "iframe", "img", "svg", "circle", "path", "g", "defs"]),
+      allowedAttributes: {
         a: ["href"],
         img: ["src", "srcset", "alt"],
+        svg: ["xmlns", "viewBox"],
+        circle: ["cx", "cy", "r", "fill"],
+        path: ["d", "fill"],
+        g: ["fill"],
         "*": ["class", "id", "data-*"],
         iframe: ['src']
       },
       allowedIframeHostnames: ['www.youtube.com'],
       transformTags: {
         'table': sanitizeHtml.simpleTransform('table', {class: 'table is-size-6 is-striped is-narrow'}),
+      },
+      parser: {
+        lowerCaseAttributeNames: false // prevents xml attributes, e.g. viewBox, from being lowercased
       }
     }),
   };
@@ -38,15 +45,15 @@ export function cleanHtml(markup) {
 export function cleanHtmlForVideo(markup) {
   return {
     __html: sanitizeHtml(markup, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "img", "button", "source", "track", "video"]),
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "img", "source", "track", "video"]),
       allowedAttributes: { 
         a: ["href"],
         img: ["src", "srcset", "alt"],
         "*": ["class", "id", "data-*"],
         video: ["controls", "width", "height", "poster", "preload"],
         source: ["src", "type"],
-        track: ["kind", "src", "srcLang", "label"]
-      },
+        track: ["kind", "src", "srclang", "label"]
+      }
     }),
   };
 }
