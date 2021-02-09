@@ -1,7 +1,10 @@
 import React from "react";
 import Layout from "./src/templates/layout";
 // For IE 11
-import "babel-polyfill";
+if (!global._babelPolyfill) {
+    require('babel-polyfill')
+// import "babel-polyfill";
+}
 import "./src/styles/global.sass";
 
 export function wrapPageElement({ element, props }) {
