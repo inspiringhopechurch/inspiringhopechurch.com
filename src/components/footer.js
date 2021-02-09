@@ -19,7 +19,7 @@ const Footer = (props) => (
               href={validUrl(facebookUrl) ? facebookUrl : ""}
               title="Link to Inspiring Hope Church facebook page"
             >
-              <FontAwesomeIcon icon={["fab", "facebook-f"]} />
+              <span className="icon"><FontAwesomeIcon icon={["fab", "facebook-f"]} /></span>
             </a>
             <a className="navbar-item" href="/sitemap.xml" title="XML Sitemap">
               Sitemap

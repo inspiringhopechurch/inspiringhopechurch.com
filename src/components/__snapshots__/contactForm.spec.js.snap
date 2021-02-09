@@ -77,7 +77,7 @@ exports[`ContactForm should render without crashing 1`] = `
                 swapOpacity={false}
                 symbol={false}
                 title=""
-                transform="down-6 right-12"
+                transform={null}
               />
             </span>
           </div>
@@ -136,7 +136,7 @@ exports[`ContactForm should render without crashing 1`] = `
                 swapOpacity={false}
                 symbol={false}
                 title=""
-                transform="down-6 right-12"
+                transform={null}
               />
             </span>
           </div>
@@ -197,7 +197,7 @@ exports[`ContactForm should render without crashing 1`] = `
             swapOpacity={false}
             symbol={false}
             title=""
-            transform="down-6 right-12"
+            transform={null}
           />
         </span>
       </div>
@@ -252,31 +252,37 @@ exports[`ContactForm should render without crashing 1`] = `
           id="form-submit"
           type="submit"
         >
-          <FontAwesomeIcon
-            border={false}
-            className=""
-            fixedWidth={false}
-            flip={null}
-            icon={
-              Array [
-                "fas",
-                "paper-plane",
-              ]
-            }
-            inverse={false}
-            listItem={false}
-            mask={null}
-            pull="left"
-            pulse={false}
-            rotation={null}
-            size="1x"
-            spin={false}
-            swapOpacity={false}
-            symbol={false}
-            title=""
-            transform={null}
-          />
-          Send Message
+          <span
+            className="icon"
+          >
+            <FontAwesomeIcon
+              border={false}
+              className=""
+              fixedWidth={false}
+              flip={null}
+              icon={
+                Array [
+                  "fas",
+                  "paper-plane",
+                ]
+              }
+              inverse={false}
+              listItem={false}
+              mask={null}
+              pull="left"
+              pulse={false}
+              rotation={null}
+              size="1x"
+              spin={false}
+              swapOpacity={false}
+              symbol={false}
+              title=""
+              transform={null}
+            />
+          </span>
+          <span>
+            Send Message
+          </span>
         </button>
       </div>
     </div>

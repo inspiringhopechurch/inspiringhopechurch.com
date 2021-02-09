@@ -219,7 +219,6 @@ const ContactForm = ({
                   <FontAwesomeIcon
                     icon={["fas", "user"]}
                     size="1x"
-                    transform="down-6 right-12"
                   />
                 </span>
               </div>
@@ -245,7 +244,6 @@ const ContactForm = ({
                   <FontAwesomeIcon
                     icon={["fas", "envelope"]}
                     size="1x"
-                    transform="down-6 right-12"
                   />
                 </span>
               </div>
@@ -274,7 +272,6 @@ const ContactForm = ({
               <FontAwesomeIcon
                 icon={["fas", "comment-alt-lines"]}
                 size="1x"
-                transform="down-6 right-12"
               />
             </span>
           </div>
@@ -317,12 +314,14 @@ const ContactForm = ({
                 !formData.messageBodyDirty
               }
             >
-              <FontAwesomeIcon
-                icon={["fas", "paper-plane"]}
-                size="1x"
-                pull="left"
-              />
-              {submitButtonTitle}
+              <span className="icon">
+                <FontAwesomeIcon
+                  icon={["fas", "paper-plane"]}
+                  size="1x"
+                  pull="left"
+                />
+              </span>
+              <span>{submitButtonTitle}</span>
             </button>
           </div>
         </div>

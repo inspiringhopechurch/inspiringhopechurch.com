@@ -33,48 +33,52 @@ exports[`Footer should render without crashing 1`] = `
               href="https://www.facebook.com/inspiringhopechurch/"
               title="Link to Inspiring Hope Church facebook page"
             >
-              <FontAwesomeIcon
-                border={false}
-                className=""
-                fixedWidth={false}
-                flip={null}
-                icon={
-                  Array [
-                    "fab",
-                    "facebook-f",
-                  ]
-                }
-                inverse={false}
-                listItem={false}
-                mask={null}
-                pull={null}
-                pulse={false}
-                rotation={null}
-                size={null}
-                spin={false}
-                swapOpacity={false}
-                symbol={false}
-                title=""
-                transform={null}
+              <span
+                className="icon"
               >
-                <svg
-                  aria-hidden="true"
-                  className="svg-inline--fa fa-facebook-f fa-w-10 "
-                  data-icon="facebook-f"
-                  data-prefix="fab"
-                  focusable="false"
-                  role="img"
-                  style={Object {}}
-                  viewBox="0 0 320 512"
-                  xmlns="http://www.w3.org/2000/svg"
+                <FontAwesomeIcon
+                  border={false}
+                  className=""
+                  fixedWidth={false}
+                  flip={null}
+                  icon={
+                    Array [
+                      "fab",
+                      "facebook-f",
+                    ]
+                  }
+                  inverse={false}
+                  listItem={false}
+                  mask={null}
+                  pull={null}
+                  pulse={false}
+                  rotation={null}
+                  size={null}
+                  spin={false}
+                  swapOpacity={false}
+                  symbol={false}
+                  title=""
+                  transform={null}
                 >
-                  <path
-                    d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
-                    fill="currentColor"
+                  <svg
+                    aria-hidden="true"
+                    className="svg-inline--fa fa-facebook-f fa-w-10 "
+                    data-icon="facebook-f"
+                    data-prefix="fab"
+                    focusable="false"
+                    role="img"
                     style={Object {}}
-                  />
-                </svg>
-              </FontAwesomeIcon>
+                    viewBox="0 0 320 512"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M279.14 288l14.22-92.66h-88.91v-60.13c0-25.35 12.42-50.06 52.24-50.06h40.42V6.26S260.43 0 225.36 0c-73.22 0-121.08 44.38-121.08 124.72v70.62H22.89V288h81.39v224h100.17V288z"
+                      fill="currentColor"
+                      style={Object {}}
+                    />
+                  </svg>
+                </FontAwesomeIcon>
+              </span>
             </a>
             <a
               className="navbar-item"

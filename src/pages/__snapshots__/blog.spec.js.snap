@@ -3,7 +3,7 @@
 exports[`Blog should render without crashing 1`] = `
 <Fragment>
   <section
-    className="hero is-link is-halfheight"
+    className="hero is-halfheight"
   >
     <div
       className="hero-body"
@@ -11,11 +11,9 @@ exports[`Blog should render without crashing 1`] = `
       <div
         className="container has-text-centered"
       >
-        <h1
-          className="title has-text-white"
-        >
-          Inspiring Moments
-        </h1>
+        <FancyHeading
+          heading="Inspiring Moments"
+        />
       </div>
     </div>
   </section>

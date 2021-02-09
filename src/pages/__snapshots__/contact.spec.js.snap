@@ -18,11 +18,9 @@ exports[`Contact should render without crashing 1`] = `
       <div
         className="container has-text-centered"
       >
-        <h1
-          className="title is-size-1-mobile"
-        >
-          Contact Us
-        </h1>
+        <FancyHeading
+          heading="Contact Us"
+        />
       </div>
     </div>
   </section>
@@ -45,68 +43,8 @@ exports[`Contact should render without crashing 1`] = `
           Please feel free to call, reach us on facebook, or use the form on this page to get in touch!
         </p>
         <p>
-          <FontAwesomeIcon
-            border={false}
-            className=""
-            fixedWidth={false}
-            flip={null}
-            icon={
-              Array [
-                "fas",
-                "map-marker-alt",
-              ]
-            }
-            inverse={false}
-            listItem={false}
-            mask={null}
-            pull={null}
-            pulse={false}
-            rotation={null}
-            size="lg"
-            spin={false}
-            swapOpacity={false}
-            symbol={false}
-            title=""
-            transform={null}
-          />
-           Based in Hamilton, Ohio.
-        </p>
-        <p>
-          <a
-            href="tel:19189318591"
-            title="Get in touch!"
-          >
-            <FontAwesomeIcon
-              border={false}
-              className=""
-              fixedWidth={false}
-              flip="horizontal"
-              icon={
-                Array [
-                  "fas",
-                  "phone",
-                ]
-              }
-              inverse={false}
-              listItem={false}
-              mask={null}
-              pull={null}
-              pulse={false}
-              rotation={null}
-              size="lg"
-              spin={false}
-              swapOpacity={false}
-              symbol={false}
-              title=""
-              transform={null}
-            />
-             1 (918) 931-8591
-          </a>
-        </p>
-        <p>
-          <a
-            href="https://www.facebook.com/inspiringhopechurch/"
-            title="Link to Facebook page"
+          <span
+            className="icon"
           >
             <FontAwesomeIcon
               border={false}
@@ -115,8 +53,8 @@ exports[`Contact should render without crashing 1`] = `
               flip={null}
               icon={
                 Array [
-                  "fab",
-                  "facebook-f",
+                  "fas",
+                  "map-marker-alt",
                 ]
               }
               inverse={false}
@@ -132,6 +70,78 @@ exports[`Contact should render without crashing 1`] = `
               title=""
               transform={null}
             />
+          </span>
+           Based in Hamilton, Ohio.
+        </p>
+        <p>
+          <a
+            href="tel:19189318591"
+            title="Get in touch!"
+          >
+            <span
+              className="icon"
+            >
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip="horizontal"
+                icon={
+                  Array [
+                    "fas",
+                    "phone",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size="lg"
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                transform={null}
+              />
+            </span>
+             1 (918) 931-8591
+          </a>
+        </p>
+        <p>
+          <a
+            href="https://www.facebook.com/inspiringhopechurch/"
+            title="Link to Facebook page"
+          >
+            <span
+              className="icon"
+            >
+              <FontAwesomeIcon
+                border={false}
+                className=""
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Array [
+                    "fab",
+                    "facebook-f",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                size="lg"
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                transform={null}
+              />
+            </span>
              Inspiring Hope Facebook page
           </a>
         </p>
