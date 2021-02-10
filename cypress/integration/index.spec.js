@@ -85,13 +85,11 @@ context("Index", () => {
 
       cy.get("#subscribe").type("admininspiringhopechurch.com");
       cy.get("[data-testid=submit-button]").click();
-      cy.get("[data-testid=submit-button] svg").should("exist");
       cy.get(".container > .content").should("contain.text", "We encountered an error.");
 
       cy.get("#subscribe").clear()
       cy.get("#subscribe").type("admin@inspiringhopechurch.com");
       cy.get("[data-testid=submit-button]").click();
-      cy.get("[data-testid=submit-button] svg").should("exist");
       cy.get(".container > .content > div").should("contain.text", "Check your inbox");
     });
   });
