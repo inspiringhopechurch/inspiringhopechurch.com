@@ -5,7 +5,7 @@
     src: url('/assets/dolly-roman-webfont.woff2') format('woff2'), url('/assets/dolly-roman-webfont.woff') format('woff')
     font-weight: normal
     font-style: normal
-    
+
 @font-face
     font-family: 'Roboto Light'
     src: url('/assets/roboto-light-webfont.woff2') format('woff2'), url('/assets/roboto-light-webfont.woff') format('woff')
@@ -44,6 +44,10 @@ body, .main-dark
 body, .main-dark, .main-light
     .hero
         background-color: $dark-blue
+        @include from($tablet)
+            background: $dark-blue url(/assets/hope.svg) no-repeat -1rem
+        @include from($desktop)
+            background: $dark-blue url(/assets/hope.svg) no-repeat 4rem
     .button
         transition: color $decoration-transition-time
         @each $name, $pair in $colors
