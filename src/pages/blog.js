@@ -1,6 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import config from "../../config";
+import SEO from "../components/seo";
 import BlogItem from "../components/blogItem";
 import FancyHeading from "../components/fancyHeading";
 import "./blog.sass";
@@ -10,6 +11,7 @@ const Blog = ({ data }) => {
 
   return (
     <>
+      <SEO title="Inspiring Moments" />
       <section className={`hero is-halfheight`}>
         <div className={`hero-body`}>
           <div className={`container has-text-centered`}>

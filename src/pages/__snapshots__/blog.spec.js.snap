@@ -2,6 +2,13 @@
 
 exports[`Blog should render without crashing 1`] = `
 <Fragment>
+  <SEO
+    article={false}
+    banner={null}
+    desc={null}
+    pathname={null}
+    title="Inspiring Moments"
+  />
   <section
     className="hero is-halfheight"
   >

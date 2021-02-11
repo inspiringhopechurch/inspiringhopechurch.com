@@ -2,8 +2,15 @@
 
 exports[`NotFound should render without crashing 1`] = `
 <Fragment>
+  <SEO
+    article={false}
+    banner={null}
+    desc={null}
+    pathname={null}
+    title="Page Not Found"
+  />
   <section
-    className="not-found hero is-fullheight-with-navbar"
+    className="not-found-page hero is-halfheight"
   >
     <div
       className="hero-body"
@@ -11,24 +18,30 @@ exports[`NotFound should render without crashing 1`] = `
       <div
         className="container has-text-centered"
       >
-        <h1
-          className="title is-1 not-found"
-        >
-          <img
-            alt="Page not found html code "
-            src="test-file-stub"
-          />
-        </h1>
+        <FancyHeading
+          heading="Page Not Found"
+        />
+      </div>
+    </div>
+  </section>
+  <section
+    className="not-found-page section container hero is-halfheight"
+  >
+    <div
+      className="columns content is-medium is-centered"
+    >
+      <div
+        className="container has-text-centered"
+      >
         <p
-          className="subtitle is-2 has-text-white"
+          className="title"
         >
-          We didn't find the page you asked for...
+          We did not find the page you asked for.
         </p>
         <p
-          className="subtitle is-2 has-text-white"
+          className="subtitle"
         >
-          Please go back to the
-           
+          Please return to Inspiring Hope Church's 
           <mockConstructor
             className="is-primary"
             to="/"

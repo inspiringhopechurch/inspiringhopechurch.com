@@ -1,24 +1,28 @@
 import React from "react";
 import { Link } from "gatsby";
+import FancyHeading from "../components/fancyHeading";
+import SEO from "../components/seo";
 import "./404.sass";
-import logo from "../assets/logo.svg";
 
 const NotFound = () => (
   <>
-    <section className={`not-found hero is-fullheight-with-navbar`}>
-      <div className={`hero-body`}>
-        <div className={`container has-text-centered`}>
-          <h1 className={`title is-1 not-found`}>
-            <img alt="Page not found html code " src={logo} />
-          </h1>
-          <p className={`subtitle is-2 has-text-white`}>
-            We didn't find the page you asked for...
+    <SEO title="Page Not Found" />
+    <section className="not-found-page hero is-halfheight">
+      <div className="hero-body">
+        <div className="container has-text-centered">
+          <FancyHeading heading="Page Not Found" />
+        </div>
+      </div>
+    </section>
+    
+    <section className="not-found-page section container hero is-halfheight">
+      <div className="columns content is-medium is-centered">
+        <div className="container has-text-centered">
+          <p className="title">
+            We did not find the page you asked for.
           </p>
-          <p className={`subtitle is-2 has-text-white`}>
-            Please go back to the{" "}
-            <Link className={`is-primary`} to="/">
-              home page
-            </Link>{" "}
+          <p className="subtitle">
+            Please return to Inspiring Hope Church's <Link className="is-primary" to="/">home page</Link>{" "}
             and try again.
           </p>
         </div>

@@ -7,8 +7,7 @@ import { validUrl } from "../utils";
 import { facebookUrl } from "../../config";
 import "./contact.sass";
 
-const Contact = () => {
-  return (
+const Contact = () => (
     <>
       <SEO title="Contact Us" />
       <section className={`contact-page hero is-halfheight`}>
@@ -58,8 +57,7 @@ const Contact = () => {
         </div>
       </section>
     </>
-  );
-};
+);
 
 // Default export is rendered when user visits page.
 export default Contact;
