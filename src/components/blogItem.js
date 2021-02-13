@@ -21,42 +21,50 @@ import "./blogItem.sass";
  * @param {string} props.blogImageObj.srcSet
  * @param {string=} props.blogImageObj.srcWebp
  * @param {string=} props.blogImageObj.srcSetWebp
+ * @param {string} props.blogAuthor
+ * @param {string} props.blogReadingTime
  * @param {string} props.blogTitle
  * @param {string} props.blogDate
  * @param {string} props.blogLink
  * @param {boolean=} props.onBlogIndex
+ * @param {boolean=} props.isFirstItem
  */
 const BlogItem = (props) => (
   <div
-    className={`column content ${props.onBlogIndex ? "is-medium" : ""} ${
+    className={`blog-info-container column content ${props.onBlogIndex ? "is-medium" : ""} ${
       props.blogTitle.length > 50 ? "is-full-tablet" : ""
-    } ${props.onBlogIndex ? "" : "is-one-third-desktop"} ${props.onBlogIndex ? "is-6" : ""}`}
+    } ${props.onBlogIndex ? "" : "is-one-third-desktop"} ${props.onBlogIndex ? props.isFirstItem ? "is-full" : "is-6" : ""}`}
   >
     {props.onBlogIndex && props.blogImageObj && (
-      <figure className="image is-marginless">
+      <figure className="image blog-image">
         <Img alt="" fluid={/** @type {FluidObject} */ (props.blogImageObj)} />
       </figure>
     )}
     {props.onBlogIndex && props.blogImage && (
-      <figure className="image is-marginless">
+      <figure className="image blog-image">
         <img alt="" src={props.blogImage} />
       </figure>
     )}
-    <h2 className={`title is-5`}>
-      <Link to={props.blogLink}>{props.blogTitle}</Link>
-    </h2>
+    
     {!props.onBlogIndex && props.blogImageObj && (
-      <figure className="image is-marginless">
+      <figure className="image blog-image">
         <Img alt="" fluid={/** @type {FluidObject} */ (props.blogImageObj)} />
       </figure>
     )}
     {!props.onBlogIndex && props.blogImage && (
-      <figure className="image is-marginless">
+      <figure className="image blog-image">
         <img alt="" src={props.blogImage} />
       </figure>
     )}
-    <h3 className={`title is-7`}>{props.blogDate}</h3>
-    <p>{props.blogExcerpt}...</p>
+    
+    <div className="blog-info">
+      <h2 className={`title is-5`}>
+        <Link to={props.blogLink}>{props.blogTitle}</Link>
+      </h2>
+      <h3 className={`subtitle is-7`}>{props.blogAuthor && props.blogAuthor} { props.blogReadingTime ? `﹒ ${props.blogReadingTime} min read` : ""}</h3>
+    </div>
+    
+    <p className="blog-excerpt">{props.blogExcerpt}...</p>
     <Link className={`button is-link`} to={props.blogLink}>
       Read Post
     </Link>
@@ -90,9 +98,12 @@ BlogItem.propTypes = {
       media: PropTypes.string
     })
   ]),
+  blogAuthor: PropTypes.string,
+  blogReadingTime: PropTypes.string,
   blogTitle: PropTypes.string.isRequired,
   blogDate: PropTypes.string.isRequired,
   blogLink: PropTypes.string.isRequired,
+  isFirstItem: PropTypes.bool,
   onBlogIndex: PropTypes.bool
 };
 

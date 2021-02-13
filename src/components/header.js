@@ -138,7 +138,7 @@ const Header = ({ location }) => {
                 to={blogUrl}
                 state={{ prevPath: location.pathname }}
               >
-                News
+                Blog
               </Link>
               <Link
                 className={`navbar-item ${

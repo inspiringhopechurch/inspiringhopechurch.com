@@ -21,14 +21,17 @@ const Blog = ({ data }) => {
       </section>
       <section className={`box is-shadowless blog-content container`}>
         <div className={`columns is-multiline is-centered`}>
-          {edges.map(({ node }) => (
+          {edges.map(({ node }, index) => (
             <BlogItem
+              isFirstItem = {index === 0}
               blogTitle={node.title}
               // blogImage={node.feature_image}
               blogImageObj={node.featureImageSharp.childImageSharp.fluid}
               blogDate={node.published_at_pretty}
               blogExcerpt={node.excerpt}
               blogLink={`${config.postPrefix}/${node.slug}`}
+              blogAuthor={node.primary_author.name}
+              blogReadingTime={node.reading_time}
               onBlogIndex={true}
               key={node.id}
             />

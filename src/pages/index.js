@@ -369,11 +369,23 @@ const HomePage = ({ data }) => {
               blogTitle={node.title}
               blogImageObj={node.featureImageSharp.childImageSharp.fluid}
               blogDate={node.published_at_pretty}
+              blogAuthor={node.primary_author.name}
+              blogReadingTime={node.reading_time}
               blogExcerpt={node.excerpt}
               blogLink={`${config.postPrefix}/${node.slug}`}
               key={node.id}
             />
           ))}
+        </div>
+        
+        <div className="columns container">
+          <div className="column is-full">
+            <div className="control has-text-centered my-3">
+              <Link className="button is-link has-text-weight-light is-medium" to="/blog">
+                More Posts
+              </Link>
+            </div>
+          </div>
         </div>
       </section>
 

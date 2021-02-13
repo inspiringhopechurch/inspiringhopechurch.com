@@ -158,7 +158,7 @@ exports[`Header should render without crashing 1`] = `
             }
             to="/blog"
           >
-            News
+            Blog
           </mockConstructor>
           <mockConstructor
             className="navbar-item "

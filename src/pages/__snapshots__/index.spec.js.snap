@@ -489,6 +489,7 @@ exports[`Index should render without crashing 1`] = `
       className="columns is-multiline is-centered"
     >
       <BlogItem
+        blogAuthor="Inspiring Hope Church"
         blogDate="01 June, 2020"
         blogExcerpt="The summer is off to a great start! Even though it is definitely different this
 year, we have taken advantage of our state opening up some. We've made some more
@@ -519,11 +520,13 @@ local community worker"
           }
         }
         blogLink="/blog/our-church-planting-journey-volume-6"
+        blogReadingTime={2}
         blogTitle="Our Church Planting Journey: Volume 6"
         key="Ghost__Post__5f4aba3168998602af191113"
         onBlogIndex={false}
       />
       <BlogItem
+        blogAuthor="Inspiring Hope Church"
         blogDate="16 May, 2020"
         blogExcerpt="Update...
 The last couple of months have been so different than we had expected them to
@@ -555,10 +558,29 @@ you who were able to b"
           }
         }
         blogLink="/blog/our-church-planting-journey-volume-5"
+        blogReadingTime={3}
         blogTitle="Our Church Planting Journey: Volume 5"
         key="Ghost__Post__5f4ab4bc68998602af1910dc"
         onBlogIndex={false}
       />
+    </div>
+    <div
+      className="columns container"
+    >
+      <div
+        className="column is-full"
+      >
+        <div
+          className="control has-text-centered my-3"
+        >
+          <mockConstructor
+            className="button is-link has-text-weight-light is-medium"
+            to="/blog"
+          >
+            More Posts
+          </mockConstructor>
+        </div>
+      </div>
     </div>
   </section>
   <section

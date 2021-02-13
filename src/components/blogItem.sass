@@ -2,7 +2,29 @@
 
 @import "../styles/_myvariables.sass"
 @import "bulma/sass/elements/button.sass"
-// @import "bulma-fluent/src/sass/component/common.sass"
 
+.blog-info-container
+    position: relative
+    text-align: center
+    
+.image.blog-image
+    margin: 0
+    
+.blog-info
+    top: -5rem
+    position: relative
+    width: 85%
+    margin: 0 auto
+    margin-bottom: -3rem
+    box-shadow: 0 0.5em 1em -0.125em rgba($scheme-invert, 0.1), 0 0px 0 1px rgba($scheme-invert, 0.02)
+    background-color: $white
+    padding: 2rem 1rem
+    @include from($tablet)
+        padding: 2rem
+    
+.blog-excerpt
+    text-align: initial
+    @include from($tablet)
+        padding: 0 1rem
 .button
     transition: background $decoration-transition-time
