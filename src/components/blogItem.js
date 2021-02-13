@@ -21,8 +21,8 @@ import "./blogItem.sass";
  * @param {string} props.blogImageObj.srcSet
  * @param {string=} props.blogImageObj.srcWebp
  * @param {string=} props.blogImageObj.srcSetWebp
- * @param {string} props.blogAuthor
- * @param {string} props.blogReadingTime
+ * @param {string=} props.blogAuthor
+ * @param {number=} props.blogReadingTime
  * @param {string} props.blogTitle
  * @param {string} props.blogDate
  * @param {string} props.blogLink
@@ -99,7 +99,7 @@ BlogItem.propTypes = {
     })
   ]),
   blogAuthor: PropTypes.string,
-  blogReadingTime: PropTypes.string,
+  blogReadingTime: PropTypes.number,
   blogTitle: PropTypes.string.isRequired,
   blogDate: PropTypes.string.isRequired,
   blogLink: PropTypes.string.isRequired,
