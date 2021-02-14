@@ -77,7 +77,112 @@ export default {
         }
       ]
     },
-
+    ghostPage: {
+      id: "Ghost__Page__5ff4897203a4120407a46a4e",
+      html:
+        '<figure class="kg-card kg-image-card"><img src="https://cms.inspiringhopechurch.com/content/images/2021/01/Logos_Inspire_Kids_Badge_01.svg" class="kg-image" alt></figure><p><strong>Inspire Kids</strong></p><p>Inspire Kids is designed for infants through fifth grade students. Our team of qualified volunteers work hard to ensure that your<br>kids will love Sunday morning gathering!</p>',
+      title: "Weekly Gathering - Inspire Kids",
+      slug: "home-weekly-gathering-inspire-kids"
+    },
+    ghostPost: {
+        id: "Ghost__Post__5f4aba3168998602af191113",
+        title: "Our Church Planting Journey: Volume 6",
+        slug: "our-church-planting-journey-volume-6",
+        featured: false,
+        feature_image:
+          "https://cms.inspiringhopechurch.com/content/images/2020/08/1280x1280-5.jpg",
+        featureImageSharp: {
+          childImageSharp: {
+            fluid: {
+              src:
+                "/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg",
+              srcSet:
+                "/static/27f366e25bcf3ccc62a632ebf4bb2d22/f836f/photo-1468608374703-abdfab03d1bc.jpg 200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/2244e/photo-1468608374703-abdfab03d1bc.jpg 400w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/14b42/photo-1468608374703-abdfab03d1bc.jpg 800w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/47498/photo-1468608374703-abdfab03d1bc.jpg 1200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/0e329/photo-1468608374703-abdfab03d1bc.jpg 1600w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/a41d1/photo-1468608374703-abdfab03d1bc.jpg 2000w",
+              aspectRatio: 1.5037593984962405,
+              base64:
+                "data:image/jpeg;base64,/9j/2wBDABALDA4MChAODQ4SERATGCgaGBYWGDEjJR0oOjM9PDkzODdASFxOQERXRTc4UG1RV19iZ2hnPk1xeXBkeFxlZ2P/2wBDARESEhgVGC8aGi9jQjhCY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2NjY2P/wgARCAANABQDASIAAhEBAxEB/8QAFwAAAwEAAAAAAAAAAAAAAAAABAADBf/EABUBAQEAAAAAAAAAAAAAAAAAAAEC/9oADAMBAAIQAxAAAAHPLAoNUVZ//8QAGhAAAgMBAQAAAAAAAAAAAAAAAQIDABIRMv/aAAgBAQABBQJHMdadctMnR4IGSBf/xAAVEQEBAAAAAAAAAAAAAAAAAAABEP/aAAgBAwEBPwFn/8QAFREBAQAAAAAAAAAAAAAAAAAAARD/2gAIAQIBAT8BJ//EABkQAAIDAQAAAAAAAAAAAAAAAAAxASAiUf/aAAgBAQAGPwLsGXRH/8QAGxABAAIDAQEAAAAAAAAAAAAAAREAMSFBcYH/2gAIAQEAAT8hg5Ny+WeR9XAC1S1JZ0vLzJYzZGF//9oADAMBAAIAAwAAABCkP//EABURAQEAAAAAAAAAAAAAAAAAAAEQ/9oACAEDAQE/EAT/xAAWEQEBAQAAAAAAAAAAAAAAAAAAASH/2gAIAQIBAT8Qqtf/xAAcEAEAAwACAwAAAAAAAAAAAAABESEAUTFBgcH/2gAIAQEAAT8QLU0g82iebzZjAQNNw/cFxfJGMCrWIYk2gt3j1D1v/9k=",
+              originalName: "photo-1468608374703-abdfab03d1bc.jpg",
+              srcSetWebp:
+                "/static/27f366e25bcf3ccc62a632ebf4bb2d22/61e93/photo-1468608374703-abdfab03d1bc.webp 200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/1f5c5/photo-1468608374703-abdfab03d1bc.webp 400w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp 800w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/99238/photo-1468608374703-abdfab03d1bc.webp 1200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/7c22d/photo-1468608374703-abdfab03d1bc.webp 1600w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/37117/photo-1468608374703-abdfab03d1bc.webp 2000w",
+              srcWebp:
+                "/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp"
+            }
+          }
+        },
+        excerpt:
+          "The summer is off to a great start! Even though it is definitely different this\nyear, we have taken advantage of our state opening up some. We've made some more\nconnections by meeting more neighbors, talking and working with local pastors on\nthe same mission, and really trying to get involved in the community. Our parks\nhave opened back up so we've visited the playgrounds a couple of times. We are\nplanning on doing some community outreaches this next month by providing our\nlocal community worker",
+        custom_excerpt: null,
+        visibility: "public",
+        created_at_pretty: "29 August, 2020",
+        published_at_pretty: "01 June, 2020",
+        updated_at_pretty: "02 October, 2020",
+        created_at: "2020-08-29T16:27:29.000-04:00",
+        published_at: "2020-06-01T16:31:00.000-04:00",
+        updated_at: "2020-10-01T23:45:58.000-04:00",
+        meta_title: null,
+        meta_description:
+          "THE OFFICIAL NEWSLETTER OF THE MANGRUM FAMILY MINISTRY",
+        og_description: null,
+        og_image: null,
+        og_title: null,
+        twitter_description: null,
+        twitter_image: null,
+        twitter_title: null,
+        authors: [
+          {
+            name: "Inspiring Hope Church",
+            slug: "inspiring-hope-church",
+            bio: null,
+            profile_image: null,
+            twitter: null,
+            facebook: null,
+            website: "http://inspiringhopechurch.com"
+          }
+        ],
+        primary_author: {
+          name: "Inspiring Hope Church",
+          slug: "inspiring-hope-church",
+          bio: null,
+          profile_image: null,
+          twitter: null,
+          facebook: null,
+          website: "http://inspiringhopechurch.com"
+        },
+        primary_tag: {
+          name: "Church Planting",
+          slug: "church-planting",
+          description: null,
+          feature_image: null,
+          meta_description: null,
+          meta_title: null,
+          visibility: "public"
+        },
+        tags: [
+          {
+            name: "Church Planting",
+            slug: "church-planting",
+            description: null,
+            feature_image: null,
+            meta_description: null,
+            meta_title: null,
+            visibility: "public"
+          }
+        ],
+        plaintext:
+          "The summer is off to a great start! Even though it is definitely different this\nyear, we have taken advantage of our state opening up some. We've made some more\nconnections by meeting more neighbors, talking and working with local pastors on\nthe same mission, and really trying to get involved in the community. Our parks\nhave opened back up so we've visited the playgrounds a couple of times. We are\nplanning on doing some community outreaches this next month by providing our\nlocal community workers with gift bags and treats to say thank you and handing\nout snow cones and/or ice cream in our neighborhood and surrounding communities.\nWe want to let people know that Inspiring Hope Church is here and we want them\nto be a part of what God is doing through this church in their city.\n\nWe are also planning a neighborhood barbecue in our backyard. We are trying to\nkeep crowds smaller so we are starting with smaller get-togethers and are hoping\nas things get better we can add some bigger events. We have had several\ncouples/families to our home over the last month to build relationships and get\nto know Hamilton and Ohio. It's been so fun and such a blessing! Our Monday\nnight Inspire Group is going strong. This has been an amazing time of\nfellowship, planning, discipleship, studying, and prayer for our team. We can't\nwait to see what the next month will bring!\n\nPLEASE PRAY:\n * FOR OUR UPCOMING NEIGHBORHOOD BARBECUE\n * FOR OUR INSPIRE GROUP AS WE CONTINUE TO ENCOURAGE AND EQUIP THOSE THAT\n   GATHER.\n * FOR OUR FAMILY AS WE HAVE DENTAL AND HEALTH PROCEDURES\n   COMING UP.\n * FOR OUR TEAM AS GOD CONTINUES TO ADD MEMBERS.\n\nA GOD STORY...\nAs I'm sitting here and typing this newsletter, I'm reflecting on not only what\nGod has done over this past month but what He has and continues to do over the\nentire duration of this journey. I am still so amazed by His goodness which I\nknow is right where He wants us. He continues to build His church and we\ncontinue to be in awe and feel extremely blessed to get to be a part of it. He\nhas opened so many doors and as we walk through them we have met different\npeople, received so much love and kindness, and received wise counsel along the\nway. Our \"God Story\" this month is being reminded He is always and completely\npresent. \n\nDeuteronomy 31:8 Do not be afraid or discouraged, for the LORD will personally\ngo ahead of you. He will be with you; he will neither fail you nor abandon\nyou.”\n| New Living Translation (NLT) | Download The Bible App NowDo not be afraid or\ndiscouraged, for the LORD will personally go ahead of you. He will be with you;\nhe will neither fail you nor abandon you.”Bible\n[https://my.bible.com/bible/116/DEU.31.8]MANY THANKS...\nThank you so much from the bottom of our hearts for choosing to partner with our\nfamily in planting Inspiring Hope Church in Ohio. We know that this endeavor\nwould not be possible without the love and support of each one of you. Thank you\nfor allowing God to use you to help us and being willing to give to this\nministry. You are all such a blessing to us! Thank you. Thank you. Thank you!",
+        html:
+          '<p>The summer is off to a great start! Even though it is definitely different this year, we have taken advantage of our state opening up some. We\'ve made some more connections by meeting more neighbors, talking and working with local pastors on the same mission, and really trying to get involved in the community. Our parks have opened back up so we\'ve visited the playgrounds a couple of times. We are planning on doing some community outreaches this next month by providing our local community workers with gift bags and treats to say thank you and handing out snow cones and/or ice cream in our neighborhood and surrounding communities. We want to let people know that Inspiring Hope Church is here and <em>we want them to be a part of what God is doing</em> through this church in <em>their</em> city.</p><p>We are also planning a neighborhood barbecue in our backyard. We are trying to keep crowds smaller so we are starting with smaller get-togethers and are hoping as things get better we can add some bigger events. We have had several couples/families to our home over the last month to build relationships and get to know Hamilton and Ohio. It\'s been so fun and such a blessing! Our Monday night Inspire Group is going strong. This has been an amazing time of fellowship, planning, discipleship, studying, and prayer for our team. We can\'t wait to see what the next month will bring!</p><!--kg-card-begin: markdown--><h2 id="pleasepray">PLEASE PRAY:</h2>\n<ul>\n<li>FOR OUR UPCOMING NEIGHBORHOOD BARBECUE</li>\n<li>FOR OUR INSPIRE GROUP AS WE CONTINUE TO ENCOURAGE AND EQUIP THOSE THAT GATHER.</li>\n<li>FOR OUR FAMILY AS WE HAVE DENTAL AND HEALTH PROCEDURES<br>\nCOMING UP.</li>\n<li>FOR OUR TEAM AS GOD CONTINUES TO ADD MEMBERS.</li>\n</ul>\n<!--kg-card-end: markdown--><h2 id="a-god-story-">A GOD STORY...</h2><p>As I\'m sitting here and typing this newsletter, I\'m reflecting on not only what God has done over this past month but what He has and continues to do over the entire duration of this journey. I am still so amazed by His goodness which I know is right where He wants us. He continues to build His church and we continue to be in awe and feel extremely blessed to get to be a part of it. He has opened so many doors and as we walk through them we have met different people, received so much love and kindness, and received wise counsel along the way. Our "God Story" this month is being reminded He is always and completely present. </p><figure class="kg-card kg-bookmark-card"><a class="kg-bookmark-container" href="https://my.bible.com/bible/116/DEU.31.8"><div class="kg-bookmark-content"><div class="kg-bookmark-title">Deuteronomy 31:8 Do not be afraid or discouraged, for the LORD will personally go ahead of you. He will be with you; he will neither fail you nor abandon you.” | New Living Translation (NLT) | Download The Bible App Now</div><div class="kg-bookmark-description">Do not be afraid or discouraged, for the LORD will personally go ahead of you. He will be with you; he will neither fail you nor abandon you.”</div><div class="kg-bookmark-metadata"><span class="kg-bookmark-publisher">Bible</span></div></div><div class="kg-bookmark-thumbnail"><img src="https://imageproxy.youversionapi.com/1280x1280/https://s3.amazonaws.com/static-youversionapi-com/images/base/3084/1280x1280.jpg"></div></a></figure><h2 id="many-thanks-">MANY THANKS...</h2><p>Thank you so much from the bottom of our hearts for choosing to partner with our family in planting Inspiring Hope Church in Ohio. We know that this endeavor would not be possible without the love and support of each one of you. Thank you for allowing God to use you to help us and being willing to give to this ministry. You are all such a blessing to us! Thank you. <strong>Thank you</strong>. <em>Thank you</em>!</p>',
+        url:
+          "https://cms.inspiringhopechurch.com/our-church-planting-journey-volume-6/",
+        canonical_url: null,
+        uuid: "9b185cfc-3b84-4669-a400-3fbb6c6543f1",
+        page: null,
+        codeinjection_foot: null,
+        codeinjection_head: null,
+        codeinjection_styles: null,
+        comment_id: "5f4aba3168998602af191113",
+        reading_time: 2
+    },
     allGhostPage: {
       edges: [
         {

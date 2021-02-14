@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Page should render without crashing 1`] = `
+<Fragment>
+  <SEO
+    article={true}
+    banner={null}
+    desc={null}
+    pathname="home-weekly-gathering-inspire-kids"
+    title="Weekly Gathering - Inspire Kids"
+  />
+  <section
+    className="generated-page hero is-halfheight"
+  >
+    <div
+      className="hero-body"
+    >
+      <div
+        className="container has-text-centered"
+      >
+        <FancyHeading
+          heading="Weekly Gathering - Inspire Kids"
+        />
+      </div>
+    </div>
+  </section>
+  <section
+    className="generated-page section container"
+  >
+    <div
+      className="columns content is-medium is-centered"
+    >
+      <div
+        className="column is-two-thirds"
+        dangerouslySetInnerHTML={
+          Object {
+            "__html": "<figure class=\\"kg-card kg-image-card\\"><img src=\\"https://cms.inspiringhopechurch.com/content/images/2021/01/Logos_Inspire_Kids_Badge_01.svg\\" class=\\"kg-image\\" alt /></figure><p><strong>Inspire Kids</strong></p><p>Inspire Kids is designed for infants through fifth grade students. Our team of qualified volunteers work hard to ensure that your<br />kids will love Sunday morning gathering!</p>",
+          }
+        }
+      />
+    </div>
+  </section>
+</Fragment>
+`;
