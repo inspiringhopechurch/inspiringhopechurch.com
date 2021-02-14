@@ -10,7 +10,7 @@ const Post = ({ data }) => {
     {
       excerpt,
       html,
-      published_at_pretty,
+      primary_author: { name },
       reading_time,
       slug,
       featureImageSharp,
@@ -30,7 +30,7 @@ const Post = ({ data }) => {
         pathname={slug}
         article
       />
-      <section className={`post hero is-halfheight`}>
+      <section className={`post-page hero is-halfheight`}>
         {/* // TODO: Put Img tag here */}
         <div
           className={`hero-body`}
@@ -39,44 +39,19 @@ const Post = ({ data }) => {
             backgroundSize: "cover"
           }}
         >
-          <div className={`container`}>
-            <h1 className={`title has-text-white is-3`}>{title}</h1>
+          <div className={`post-title container`}>
+            <h1 className={`title`}>{title}</h1>
             {subtitle && (
-              <h2 className={`subtitle is-5 has-text-white`}>{subtitle}</h2>
+              <h2 className={`subtitle`}>{subtitle}</h2>
             )}
+            <p className={`subtitle post-creation-info`}>{name} {reading_time ? `﹒ ${reading_time}` : ""} min read</p>
           </div>
         </div>
       </section>
-      <section className={`box post-content`}>
+      <section className={`section post-content`}>
         <div className={`columns is-centered`}>
-          <div className={`column is-4-tablet is-2-fullhd is-3-desktop`}>
-            <div className={`tags has-addons`}>
-              <span className={`tag`}>Published</span>
-              <span className={`tag is-dark`}>{published_at_pretty}</span>
-            </div>
-            <div className={`tags has-addons`}>
-              <span className={`tag`}>Read Time</span>
-              <span className={`tag is-dark`}>about {reading_time} min.</span>
-            </div>
-            {/* <div className={`tags`}>
-              <span className={`tag is-white`}>Tags:</span>
-
-              {tags.map(tag => {
-                return (
-                  <Link
-                    to={`/tag/${tag.replace(" ", "-")`}
-                    className={`tag is-link`}
-                    key={id + tag.replace(" ", "")}
-                  >
-                    {tag}
-                  </Link>
-                );
-              })}
-            </div> */}
-          </div>
-
           <div
-            className={`column content is-half-desktop is-two-thirds-tablet`}
+            className={`column content is-two-thirds`}
             dangerouslySetInnerHTML={cleanHtml(html)}
           />
         </div>

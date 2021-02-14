@@ -3,19 +3,34 @@
 @import "../styles/_myvariables.sass"
 @import "bulma/sass/elements/tag.sass"
 
-.post
+.post-page
     .hero-body
         background: #fff center top
         background-size: cover
+    
+    &.hero
+        .hero-body
+            align-items: end
 
     .container
         > h1, > h2
-            text-shadow: 0 2px 3px rgba(10, 10, 10, 0.5)
-            font-size: 4rem
+            text-transform: initial
+            color: inherit
+            text-shadow: none
+            // font-size: 4rem
+            text-align: center
+
+.post-title
+    background-color: rgba(255,255,255, 0.75)
+
+.post-creation-info
+    text-align: center
+    text-transform: initial
+    margin-bottom: 1.5rem
 
 .post-content
     position: relative
-    margin: -4rem 1.75rem 0
+    // margin: -4rem 1.75rem 0
 
 tbody
     img
