@@ -75,6 +75,24 @@ section
         // text-decoration: underline
         text-transform: uppercase
         font-weight: bold
+        position: relative
+        &:before
+            opacity: 0
+            content: ""
+            display: block
+            width: 100%
+            border-bottom: $border-decoration
+            position: absolute
+            left: 0
+            bottom: -5px
+            transform: scale(0)
+            z-index: 10
+            transition: all $decoration-transition-time
+        &:hover:not(.kg-bookmark-container)
+            transition: all $decoration-transition-time
+            &:before
+                opacity: 1
+                transform: scale(1)
     & .is-size-large
         text-transform: none
         padding: 0.75rem
