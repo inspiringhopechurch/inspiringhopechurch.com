@@ -14,7 +14,6 @@ const HomePage = ({ data }) => {
   const [message, setMessage] = useState(defaultMsg);
   const [emailAddress, setEmailAddress] = useState("");
   const [formSentIndicator, setFormSentIndicator] = useState(false);
-
   const posts = data.allGhostPost.edges;
   const pages = data.allGhostPage.edges;
 

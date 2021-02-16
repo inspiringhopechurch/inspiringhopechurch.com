@@ -48,8 +48,12 @@ body
         background-color: $dark-blue
         @include from($tablet)
             background: $dark-blue url(/assets/hope.svg) no-repeat -1rem
+            &.index-page
+                background: $dark-blue
         @include from($desktop)
             background: $dark-blue url(/assets/hope.svg) no-repeat 4rem
+            &.index-page
+                background: $dark-blue
     .button
         transition: color $decoration-transition-time
         @each $name, $pair in $colors
