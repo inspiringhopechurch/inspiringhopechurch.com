@@ -16,7 +16,7 @@ export function validUrl(url) {
 export function cleanHtml(markup) {
   return {
     __html: sanitizeHtml(markup, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "iframe", "img", "svg", "circle", "path", "g", "defs"]),
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "iframe", "img", "svg", "circle", "path", "g", "defs", "title"]),
       allowedAttributes: {
         a: ["href"],
         img: ["src", "srcset", "alt"],
