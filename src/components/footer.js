@@ -21,7 +21,7 @@ const Footer = (props) => (
             >
               <span className="icon"><FontAwesomeIcon icon={["fab", "facebook-f"]} /></span>
             </a>
-            <a className="navbar-item" href="/sitemap.xml" title="XML Sitemap">
+            <a className="navbar-item is-sr-only" href="/sitemap.xml" title="XML Sitemap">
               Sitemap
             </a>
             <a className="navbar-item" href="/feed.xml" title="XML RSS Feed">
