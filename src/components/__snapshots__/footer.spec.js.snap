@@ -81,7 +81,7 @@ exports[`Footer should render without crashing 1`] = `
               </span>
             </a>
             <a
-              className="navbar-item"
+              className="navbar-item is-sr-only"
               href="/sitemap.xml"
               title="XML Sitemap"
             >

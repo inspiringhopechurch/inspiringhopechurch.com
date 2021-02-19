@@ -29,14 +29,14 @@ exports[`Post should render without crashing 1`] = `
         >
           Our Church Planting Journey: Volume 6
         </h1>
-        <h3
+        <p
           className="subtitle post-creation-info"
         >
           Inspiring Hope Church
            
           ﹒ 2
            min read
-        </h3>
+        </p>
       </div>
     </div>
   </section>
