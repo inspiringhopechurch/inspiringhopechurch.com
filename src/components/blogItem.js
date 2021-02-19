@@ -1,6 +1,6 @@
 import React from "react";
 import * as PropTypes from "prop-types";
-import { FluidObject } from "gatsby-image";
+// import { FluidObject } from "gatsby-image";
 import Img from "gatsby-image";
 import { Link } from "gatsby";
 import "./blogItem.sass";
@@ -10,17 +10,7 @@ import "./blogItem.sass";
  * @param {object} props - Information that will be used to create blog card
  * @param {string} props.blogExcerpt
  * @param {string=} props.blogImage
- * @param {object} [props.blogImageObj]
- * @param {number=} props.blogImageObj.aspectRatio
- * @param {number=} props.blogImageObj.width
- * @param {number=} props.blogImageObj.height
- * @param {string=} props.blogImageObj.base64
- * @param {string=} props.blogImageObj.originalName
- * @param {string=} props.blogImageObj.sizes
- * @param {string} props.blogImageObj.src
- * @param {string} props.blogImageObj.srcSet
- * @param {string=} props.blogImageObj.srcWebp
- * @param {string=} props.blogImageObj.srcSetWebp
+ * @param {object} props.blogImageObj
  * @param {string=} props.blogAuthor
  * @param {number=} props.blogReadingTime
  * @param {string} props.blogTitle
@@ -37,7 +27,7 @@ const BlogItem = (props) => (
   >
     {props.onBlogIndex && props.blogImageObj && (
       <figure className="image blog-image">
-        <Img alt="" fluid={/** @type {FluidObject} */ (props.blogImageObj)} />
+        <Img alt="" fluid={(props.blogImageObj)} />
       </figure>
     )}
     {props.onBlogIndex && props.blogImage && (
@@ -48,7 +38,7 @@ const BlogItem = (props) => (
     
     {!props.onBlogIndex && props.blogImageObj && (
       <figure className="image blog-image">
-        <Img alt="" fluid={/** @type {FluidObject} */ (props.blogImageObj)} />
+        <Img alt="" fluid={(props.blogImageObj)} />
       </figure>
     )}
     {!props.onBlogIndex && props.blogImage && (
