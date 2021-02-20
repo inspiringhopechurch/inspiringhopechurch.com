@@ -9,7 +9,7 @@ const Promotion = ({ promoEndDate, promoDiscount }) => {
       <div className={`columns is-vcentered is-centered`}>
         <div className={`column is-one-quarter`}>
           <h1 className={`title has-text-centered is-1`}>
-            {discount} <FontAwesomeIcon icon={["fas", "badge-percent"]} /> Off!
+            {discount} <FontAwesomeIcon icon={["fas", "percentage"]} /> Off!
           </h1>
         </div>
         <div className={`column is-half`}>

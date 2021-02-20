@@ -270,7 +270,7 @@ const ContactForm = ({
             />
             <span className={`icon is-left is-small`}>
               <FontAwesomeIcon
-                icon={["fas", "comment-alt-lines"]}
+                icon={["fas", "comment-alt"]}
                 size="1x"
               />
             </span>
