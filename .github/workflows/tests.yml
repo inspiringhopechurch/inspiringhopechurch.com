@@ -3,25 +3,62 @@ on:
   push:
     branches: [ main, develop ]
 jobs:
-  cypress-run:
-    name: Cypress run
+  build_site:
+    name: Build Site
     runs-on: ubuntu-16.04
     strategy:
       matrix:
+        node: [14]
+    env:
+      NODE_ENV: development
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - uses: bahmutov/npm-install@v1
+      - run: npm run build
+      - uses: actions/upload-artifact@v2
+        if: success()
+        with:
+          name: dev-website
+          path: |
+            public
+            .cache
+          if-no-files-found: error
+          retention-days: 1
+
+  run_cypress:
+    name: Cypress Test
+    needs: build_site
+    runs-on: ubuntu-16.04
+    strategy:
+      # Don't leave the Dashboard hanging
+      # https://github.com/cypress-io/github-action/issues/48
+      fail-fast: false
+      matrix:
+        node: [14]
         machines: [1, 2, 3]
     steps:
       - name: Checkout
         uses: actions/checkout@v2
+      - uses: actions/download-artifact@v2
+        with:
+          name: dev-website
+
+#       - name: Cache node_modules
+#         uses: actions/cache@v2
+#         with:
+#           path: '**/node_modules'
+#           key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Cypress run
-        uses: cypress-io/github-action@v2
+        id: test_run
+        uses: cypress-io/github-action@v2.8.4
         with:
-          build: npx gatsby build
-          start: npx gatsby serve
-          wait-on: http://localhost:9000
           record: true
           parallel: true
           group: 'Guthub Actions Run'
+          start: npm run serve
+          wait-on: http://localhost:9000
         env:
           # Ghost API urls
           GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
@@ -31,3 +68,25 @@ jobs:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+  deploy:
+    name: Deploy Site
+    needs: run_cypress
+    runs-on: ubuntu-latest
+    if: success() && github.ref == 'refs/heads/develop'
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: dev-website
+      - name: Deploy Dev Site
+        uses: appleboy/scp-action@v0.1.1
+        with:
+          host: inspiringhopechurch.com
+          port: 22
+          username: ${{secrets.DEPLOY_USER}}
+          key: ${{secrets.DEPLOY_KEY}}
+          target: /var/www/inspiringhope.gatsby/public
+          rm: true
+          source: "public/*"
+          strip_components: 1
+
