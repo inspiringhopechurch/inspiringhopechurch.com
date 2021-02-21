@@ -19,7 +19,7 @@ jobs:
       - uses: actions/upload-artifact@v2
         if: success()
         with:
-          name: dev-website
+          name: website
           path: |
             public
             .cache
@@ -42,7 +42,7 @@ jobs:
         uses: actions/checkout@v2
       - uses: actions/download-artifact@v2
         with:
-          name: dev-website
+          name: website
 
 #       - name: Cache node_modules
 #         uses: actions/cache@v2
@@ -51,7 +51,6 @@ jobs:
 #           key: ${{ runner.os }}-modules-${{ hashFiles('**/package-lock.json') }}
 
       - name: Cypress run
-        id: test_run
         uses: cypress-io/github-action@v2.8.4
         with:
           record: true
@@ -69,15 +68,15 @@ jobs:
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
-  deploy:
-    name: Deploy Site
+  deploy_development:
+    name: Deploy Development Site
     needs: run_cypress
     runs-on: ubuntu-latest
     if: success() && github.ref == 'refs/heads/develop'
     steps:
       - uses: actions/download-artifact@v2
         with:
-          name: dev-website
+          name: website
       - name: Deploy Dev Site
         uses: appleboy/scp-action@v0.1.1
         with:
@@ -86,6 +85,27 @@ jobs:
           username: ${{secrets.DEPLOY_USER}}
           key: ${{secrets.DEPLOY_KEY}}
           target: /var/www/inspiringhope.gatsby/public
+          rm: true
+          source: "public/*"
+          strip_components: 1
+
+  deploy_production:
+    name: Deploy Production Site
+    needs: run_cypress
+    runs-on: ubuntu-latest
+    if: success() && github.ref == 'refs/heads/main'
+    steps:
+      - uses: actions/download-artifact@v2
+        with:
+          name: website
+      - name: Deploy Prod Site
+        uses: appleboy/scp-action@v0.1.1
+        with:
+          host: inspiringhopechurch.com
+          port: 22
+          username: ${{secrets.DEPLOY_USER}}
+          key: ${{secrets.DEPLOY_KEY}}
+          target: /var/www/inspiringhopechurch.com/public
           rm: true
           source: "public/*"
           strip_components: 1
