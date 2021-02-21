@@ -23,7 +23,11 @@ jobs:
           parallel: true
           group: 'Guthub Actions Run'
         env:
-          # pass the Dashboard record key as an environment variable
+          # Ghost API urls
+          GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
+          GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_CONTENT_API_KEY }}
+          # pass the Dashboard record key and project ID as an environment variables
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
