@@ -9,7 +9,7 @@ This repository contains the source code for the inspiringhopechurch.com website
 Navigate into your new site’s directory and start it up.
 
 ```sh
-cd inspiringhope.gatsby
+cd inspiringhopechurch.com
 npm install
 gatsby develop
 ```
@@ -20,7 +20,7 @@ The site should now be running at `http://localhost:8000`!
 
 > _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
 
-Open the `inspiringhope.gatsby` directory in your code editor of choice and edit or add components. When you save your changes the browser will update in real time!
+Open the `inspiringhopechurch.com` directory in your code editor of choice and edit or add components. When you save your changes the browser will update in real time!
 
 ## 🧐 What's inside?
 
@@ -52,11 +52,11 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 2. **`cypress`**: This directory contains integration tests for critical site functionality.
 
-3. **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+3. **`node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
 
-4. **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+4. **`src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
 
-5. **`static`**: This directory contains all static image assets used in the site.
+5. **`static`**: This directory contains all static image, video, subtitle or font assets used in the site.
 
 6. **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
 
@@ -76,7 +76,7 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 14. **`jest.config.js`**: This file defines a default configuration for jest.
 
-15. **`LICENSE`**: Gatsby is licensed under the MIT license.
+15. **`LICENSE`**: The license for the source code in this project.
 
 16. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
 
@@ -86,6 +86,5 @@ A quick look at the top-level files and directories you'll see in a Gatsby proje
 
 19. **`setupTests.js`**: This file contains global setup code that will be used throughout all unit tests.
 
-20. **`yarn.lock`**: (See `package.json` below, first). This is an automatically generated file based on the exact versions of your yarn dependencies that were installed for your project. **(You won’t change this file directly).**.
+20. **`tsconfig.json`**: This file contains configuration for the typescript compiler; used to provide code completion and type checking in supported editors.
 
-> The font awesome pro package `@fortawesome/pro-solid-svg-icons` will need to be removed, or set up separately before this project will install properly.
