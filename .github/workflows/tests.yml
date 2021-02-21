@@ -3,46 +3,15 @@ on:
   push:
     branches: [ main, develop ]
 jobs:
-  build_site:
-    name: Build Site
+  run_cypress:
+    name: Cypress Test
     runs-on: ubuntu-16.04
-    strategy:
-      matrix:
-        node: [14]
     env:
       NODE_ENV: development
     steps:
       - name: Checkout
         uses: actions/checkout@v2
       - uses: bahmutov/npm-install@v1
-      - run: npm run build
-      - uses: actions/upload-artifact@v2
-        if: success()
-        with:
-          name: website
-          path: |
-            public
-            .cache
-          if-no-files-found: error
-          retention-days: 1
-
-  run_cypress:
-    name: Cypress Test
-    needs: build_site
-    runs-on: ubuntu-16.04
-    strategy:
-      # Don't leave the Dashboard hanging
-      # https://github.com/cypress-io/github-action/issues/48
-      fail-fast: false
-      matrix:
-        node: [14]
-        machines: [1, 2, 3]
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-      - uses: actions/download-artifact@v2
-        with:
-          name: website
 
 #       - name: Cache node_modules
 #         uses: actions/cache@v2
@@ -56,6 +25,7 @@ jobs:
           record: true
           parallel: true
           group: 'Guthub Actions Run'
+          build: npm run build
           start: npm run serve
           wait-on: http://localhost:9000
         env:
@@ -67,6 +37,15 @@ jobs:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - uses: actions/upload-artifact@v2
+        if: success()
+        with:
+          name: website
+          path: |
+            public
+            .cache
+          if-no-files-found: error
+          retention-days: 1
 
   deploy_development:
     name: Deploy Development Site
