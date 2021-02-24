@@ -29,7 +29,7 @@ const Accordion = ({ title, children, isExpanded }) => {
     };
   });
 
-  const accordionId = title.replace(invalidChars, "-");
+  const accordionId = title.toLowerCase().replace(invalidChars, "");
 
   // Check for document being available first to prevent error during
   // gatsby ssr build step: https://www.gatsbyjs.com/docs/debugging-html-builds/
@@ -46,7 +46,7 @@ const Accordion = ({ title, children, isExpanded }) => {
 
   return (
     <>
-      <h2 className={`accordion is-size-4 is-uppercase${expanded ? " expanded" : ""}`}>
+      <h2 id={accordionId} className={`accordion is-size-4 is-uppercase${expanded ? " expanded" : ""}`}>
         <button aria-expanded={expanded ? "true" : "false"} onClick={toggleAccordion}>
           {title}
         </button>

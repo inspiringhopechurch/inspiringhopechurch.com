@@ -3,7 +3,7 @@
 @import "../styles/_myvariables.sass"
 
 .accordion
-    > button
+    > button, > a
         all: inherit
         width: 100%
         position: relative
@@ -26,18 +26,31 @@
             width: 1.625rem
             height: .25rem
 
-    &.expanded > button
+    &.expanded > button, &:target > a
         &:before
             transform: rotate(90deg)
         &:after
             transform: rotate(180deg)
 
-    &.expanded + .accordion-content
-        max-height: var( --accordion-max-height )
-        opacity: 1
-        transition: all $accordion-transition-time ease-in
     & + .accordion-content
         max-height: 0
         opacity: 0
         overflow: hidden
         transition: all $accordion-transition-time ease-out
+    &.expanded + .accordion-content, &:target + .accordion-content
+        max-height: var( --accordion-max-height )
+        opacity: 1
+        transition: all $accordion-transition-time ease-in
+
+// Progressive enhancement for pages w/out JS
+section .column
+    .accordion
+        &:target
+            > a:before, > a:hover:before
+                transform: rotate(90deg)
+        > a:before
+            border-bottom: none
+            left: initial
+            width: .25rem
+            transform: rotate(0deg)
+            opacity: 1
