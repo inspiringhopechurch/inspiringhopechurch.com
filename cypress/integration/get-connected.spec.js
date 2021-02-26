@@ -1,7 +1,7 @@
 /// <reference types="Cypress" />
 import terminalLog from "../support/terminalLog";
 
-context("Contact", () => {
+context("Get Connected", () => {
   beforeEach(() => {
     cy.visit("/get-connected");
   });
