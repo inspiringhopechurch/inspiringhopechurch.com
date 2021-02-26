@@ -1,7 +1,12 @@
 <?php
+  // Set hostname
+  $hostname = check_input($_SERVER['HTTP_HOST']);
   // Set e-mail recipient
-  // $recipient = "ben@inspiringhopechurch.com";
-  $recipient = "admin@inspiringhopechurch.com";
+  $recipient = "ben@inspiringhopechurch.com";
+  
+  if ($hostname === "dev.inspiringhopechurch.com") {
+      $recipient = "admin@inspiringhopechurch.com";
+  }
 
   // Check all form inputs using check_input function
   $fullname = check_input($_POST['fullname'], "Enter your name");
@@ -45,8 +50,7 @@
   function check_input($data, $problem='') {
     $data = trim($data);
     $data = stripslashes($data);
-    $data = 
-    ($data);
+    $data = htmlspecialchars($data);
     if ($problem && strlen($data) == 0) {
         show_error($problem); // Function exits here if error is found
     }
