@@ -77,3 +77,6 @@ static/BingSiteAuth.xml
 # Cypress Test Suite
 cypress/videos
 cypress/screenshots
+
+# Ghost API access config
+.ghost.json
