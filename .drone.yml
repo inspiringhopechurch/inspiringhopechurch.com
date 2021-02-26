@@ -23,7 +23,7 @@ steps:
   - gatsby build
   when:
     branch:
-    - master
+    - main
     - develop
     event:
     - push
@@ -83,7 +83,7 @@ steps:
     strip_components: 1
   when:
     branch:
-    - master
+    - main
     status:
     - success
 
