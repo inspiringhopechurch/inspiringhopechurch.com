@@ -27,6 +27,7 @@ steps:
     - develop
     event:
     - push
+    - tag
     - merge
     - custom
 
@@ -82,8 +83,8 @@ steps:
     source: public/*
     strip_components: 1
   when:
-    branch:
-    - main
+    event:
+    - tag
     status:
     - success
 
