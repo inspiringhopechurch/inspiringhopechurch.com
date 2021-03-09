@@ -10,6 +10,10 @@ try {
       apiUrl: process.env.GHOST_API_URL,
       contentApiKey: process.env.GHOST_CONTENT_API_KEY,
     },
+    development: {
+      apiUrl: process.env.GHOST_API_URL,
+      contentApiKey: process.env.GHOST_CONTENT_API_KEY,
+    },
   };
 } finally {
   const { apiUrl, contentApiKey } =
