@@ -1,7 +1,7 @@
 name: Cypress tests
 on:
   push:
-    tags: v*
+    tags: [v*]
     branches: [ main, develop ]
 jobs:
   run_cypress:
@@ -17,8 +17,8 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2.8.4
         with:
-          record: true
-          parallel: true
+          record: ${{github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'}}
+          parallel: false
           group: 'Github CI'
           build: npm run build
           start: npm run serve
