@@ -34,10 +34,6 @@ module.exports = {
     ...config, // Will be used be SEO component
   },
   pathPrefix: config.pathPrefix,
-  flags: {
-      FAST_REFRESH: true,
-      PARALLEL_SOURCING: true,
-  },
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
