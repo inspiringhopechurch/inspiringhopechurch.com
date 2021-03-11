@@ -20,6 +20,20 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
+exports.onCreateWebpackConfig = ({ actions }) => {
+  actions.setWebpackConfig({
+    resolve: {
+      alias: {
+        // don't add polyfill for path for older browsers
+        path: false
+      },
+      fallback: {
+        fs: false,
+      }
+    }
+  })
+}
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   // graphql function call returns a promise
@@ -87,7 +101,7 @@ exports.createPages = async ({ graphql, actions }) => {
     const pageSlug = node.primary_tag?.slug;
     const slugUrl = node.slug.split(`${pageSlug}-`)[1];
     const slugCategory = node.slug.split(`-${slugUrl}`)[0];
-    
+
     if (pageSlug && pageSlug === slugCategory) {
       node.url = slugUrl ? `${slugCategory}/${slugUrl}` : slugCategory;
     } else {
@@ -97,7 +111,7 @@ exports.createPages = async ({ graphql, actions }) => {
     if (pageSlug === "home-page" || node.slug === "authors" || node.slug === "newsletter") {
       return;
     }
-    
+
     createPage({
       path: node.url,
       component: path.resolve(`./src/templates/page.js`),
