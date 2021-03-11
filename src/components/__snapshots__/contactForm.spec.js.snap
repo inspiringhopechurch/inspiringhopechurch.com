@@ -183,7 +183,7 @@ exports[`ContactForm should render without crashing 1`] = `
             icon={
               Array [
                 "fas",
-                "comment-alt-lines",
+                "comment-alt",
               ]
             }
             inverse={false}

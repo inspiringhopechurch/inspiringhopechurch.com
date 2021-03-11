@@ -30,7 +30,7 @@ describe("Accordion", () => {
     expect(expandableContainer.find(`[style]`)).toEqual(emptyObject);
     expect(myAccordion).toMatchSnapshot();
   });
-
+ 
   it("should have expanded class when isExpanded is true", () => {
     const myAccordion = mount(
       <Accordion title={title} isExpanded={!expanded}>

@@ -25,7 +25,7 @@ exports[`Promotion should render without crashing 1`] = `
           icon={
             Array [
               "fas",
-              "badge-percent",
+              "percentage",
             ]
           }
           inverse={false}
