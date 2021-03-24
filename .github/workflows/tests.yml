@@ -32,9 +32,9 @@ jobs:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - runs: ls -lh public/assets
+      - run: ls -lh public/assets
       - uses: actions/upload-artifact@v2
-        if: success()
+        if: always()
         with:
           name: website
           path: |
