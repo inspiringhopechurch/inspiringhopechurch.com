@@ -12,7 +12,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - uses: bahmutov/npm-install@v1
+      # - uses: bahmutov/npm-install@v1
 
       - name: Cypress run
         uses: cypress-io/github-action@v2.8.4
@@ -32,6 +32,7 @@ jobs:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - runs: ls -lh public/assets
       - uses: actions/upload-artifact@v2
         if: success()
         with:
