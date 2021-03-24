@@ -3,7 +3,7 @@ module.exports = {
   title: "Inspiring Hope Church", // Site Title
   titleAlt: "Inspiring Hope Church", // Title for JSONLD
   description:
-    "Inspiring Hope Church's mission is to inspire hope by helping people discover hope God's purpose for their lives through a relationship with Jesus.",
+    "Inspiring Hope Church's mission is to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.",
   url: "https://inspiringhopechurch.com", // Site domain without trailing slash
   siteUrl: "https://inspiringhopechurch.com/", // Site domain with trailing slash
   pathPrefix: "/",
