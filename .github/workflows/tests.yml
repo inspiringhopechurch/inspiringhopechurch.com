@@ -9,6 +9,7 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       NODE_ENV: development
+      CI: true
     steps:
       - name: Checkout
         uses: actions/checkout@v2
@@ -17,6 +18,7 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2.8.4
         with:
+          install-command: npm ci
           record: ${{github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'}}
           parallel: false
           group: 'Github CI'
