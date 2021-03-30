@@ -1,4 +1,4 @@
-// following gatsbyjs tutorial
+// following GatsbyJS tutorial
 const path = require("path");
 const config = require("./config");
 const { createFilePath } = require("gatsby-source-filesystem");
@@ -20,6 +20,7 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   }
 };
 
+// Webpack config
 exports.onCreateWebpackConfig = ({ actions }) => {
   actions.setWebpackConfig({
     resolve: {
@@ -34,9 +35,12 @@ exports.onCreateWebpackConfig = ({ actions }) => {
   })
 }
 
+// Explicitly typed schema
+exports.createSchemaCustomization = require(`./ghost-schema-customization`)
+
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
-  // graphql function call returns a promise
+  // GraphQL function call returns a promise
   const result = await graphql(`
     {
       allGhostPost(sort: { order: ASC, fields: published_at }) {
