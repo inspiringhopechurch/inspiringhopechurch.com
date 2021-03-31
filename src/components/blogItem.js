@@ -1,6 +1,5 @@
 import React from "react";
 import * as PropTypes from "prop-types";
-// import Img from "gatsby-image";
 import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby";
 import "./blogItem.sass";

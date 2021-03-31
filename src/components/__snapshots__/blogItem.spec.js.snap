@@ -69,7 +69,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
           }
         }
       >
-        <W
+        <A
           className="gatsby-image-wrapper gatsby-image-wrapper-constrained"
           data-gatsby-image-wrapper=""
           style={
@@ -93,33 +93,39 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
               }
             }
           >
-            <_
+            <N
               height={720}
               layout="constrained"
               width={1280}
             >
-              <div
-                style={
-                  Object {
-                    "display": "block",
-                    "maxWidth": 1280,
-                  }
-                }
+              <_
+                height={720}
+                layout="constrained"
+                width={1280}
               >
-                <img
-                  alt=""
-                  aria-hidden="true"
-                  role="presentation"
-                  src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='1280' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                <div
                   style={
                     Object {
                       "display": "block",
-                      "maxWidth": "100%",
-                      "position": "static",
+                      "maxWidth": 1280,
                     }
                   }
-                />
-              </div>
+                >
+                  <img
+                    alt=""
+                    aria-hidden="true"
+                    role="presentation"
+                    src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='1280' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                    style={
+                      Object {
+                        "display": "block",
+                        "maxWidth": "100%",
+                        "position": "static",
+                      }
+                    }
+                  />
+                </div>
+              </_>
               <Placeholder
                 aria-hidden={true}
                 data-placeholder-image=""
@@ -229,9 +235,9 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                 >
                   <picture>
                     <source
+                      data-srcset="/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w"
                       key="undefined-image/webp-/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w"
                       sizes="(min-width: 1280px) 1280px, 100vw"
-                      srcSet="/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w"
                       type="image/webp"
                     />
                     <x
@@ -339,15 +345,15 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                 <script
                   dangerouslySetInnerHTML={
                     Object {
-                      "__html": "const t=\\"undefined\\"!=typeof HTMLImageElement&&\\"loading\\"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll(\\"img[data-main-image]\\");for(let e of t)e.dataset.src&&(e.setAttribute(\\"src\\",e.dataset.src),e.removeAttribute(\\"data-src\\")),e.dataset.srcset&&(e.setAttribute(\\"srcset\\",e.dataset.srcset),e.removeAttribute(\\"data-srcset\\")),e.complete&&(e.style.opacity=1)}",
+                      "__html": "const t=\\"undefined\\"!=typeof HTMLImageElement&&\\"loading\\"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll(\\"img[data-main-image]\\");for(let e of t){e.dataset.src&&(e.setAttribute(\\"src\\",e.dataset.src),e.removeAttribute(\\"data-src\\")),e.dataset.srcset&&(e.setAttribute(\\"srcset\\",e.dataset.srcset),e.removeAttribute(\\"data-srcset\\"));const t=e.parentNode.querySelectorAll(\\"source[data-srcset]\\");for(let e of t)e.setAttribute(\\"srcset\\",e.dataset.srcset),e.removeAttribute(\\"data-srcset\\");e.complete&&(e.style.opacity=1)}}",
                     }
                   }
                   type="module"
                 />
               </O>
-            </_>
+            </N>
           </div>
-        </W>
+        </A>
       </T>
     </figure>
     <div
