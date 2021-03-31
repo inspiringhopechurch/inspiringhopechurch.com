@@ -4,28 +4,39 @@ on:
     tags: [v*]
     branches: [ main, develop ]
   repository_dispatch:
+  workflow_dispatch:
 jobs:
   run_cypress:
-    name: Cypress Test
+    name: Build Site & Test
     runs-on: ubuntu-20.04
-    env:
-      NODE_ENV: development
-      CI: true
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      # - uses: bahmutov/npm-install@v1
+        
+      - run: ls -lh static/assets
 
-      - name: Cypress run
+      - name: Install deps
         uses: cypress-io/github-action@v2.8.4
         with:
-          install-command: npm ci
-          record: ${{github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'}}
-          parallel: false
-          group: 'Github CI'
-          build: npm run build
-          start: npm run serve
-          wait-on: http://localhost:9000
+          runTests: false
+        #   install-command: npm ci
+        #   record: ${{github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'}}
+        #   parallel: false
+        #   group: 'Github CI'
+        #   build: npm run build
+        #   start: npm run serve
+        #   wait-on: http://localhost:9000
+        # env:
+        #   # Ghost API urls
+        #   GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
+        #   GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_CONTENT_API_KEY }}
+        #   # pass the Dashboard record key and project ID as an environment variables
+        #   CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+        #   CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+        #   # pass GitHub token to allow accurately detecting a build vs a re-run build
+        #   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build site 🏗
+        run: npm run build
         env:
           # Ghost API urls
           GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
@@ -42,7 +53,6 @@ jobs:
           name: website
           path: |
             public
-            .cache
           if-no-files-found: error
           retention-days: 1
 
@@ -55,6 +65,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: website
+      - run: ls -lh public/
       - name: Deploy Dev Site
         uses: appleboy/scp-action@v0.1.1
         with:
