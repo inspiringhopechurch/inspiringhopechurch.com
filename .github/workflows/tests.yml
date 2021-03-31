@@ -6,16 +6,16 @@ on:
   repository_dispatch:
   workflow_dispatch:
 jobs:
-  run_cypress:
-    name: Build Site & Test
+  build_site:
+    name: Build Site
     runs-on: ubuntu-20.04
+    env:
+      NODE_ENV: production
     steps:
       - name: Checkout
         uses: actions/checkout@v2
         with:
           lfs: true
-        
-      - run: ls -lh static/assets
 
       - name: Install deps
         uses: cypress-io/github-action@v2.8.4
@@ -48,7 +48,6 @@ jobs:
           CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
           # pass GitHub token to allow accurately detecting a build vs a re-run build
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      - run: ls -lh public/assets
       - uses: actions/upload-artifact@v2
         if: always()
         with:
@@ -57,6 +56,50 @@ jobs:
             public
           if-no-files-found: error
           retention-days: 1
+
+  run_cypress:
+    name: Test Site
+    needs: build_site
+    runs-on: ubuntu-20.04
+    # strategy:
+    #   # when one test fails, DO NOT cancel the other
+    #   # containers, because this will kill Cypress processes
+    #   # leaving the Dashboard hanging ...
+    #   # https://github.com/cypress-io/github-action/issues/48
+    #   fail-fast: false
+    #   matrix:
+    #     # run 4 copies of the current job in parallel
+    #     containers: [1, 2, 3, 4]
+    env:
+      NODE_ENV: test
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          lfs: true
+      - uses: actions/download-artifact@v2
+        with:
+          name: website
+          path: public
+  
+      - run: ls -lh public/assets
+      - name: Test site 🧪
+        uses: cypress-io/github-action@v2.8.4
+        with:
+          record: ${{github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'}}
+          parallel: false
+          group: 'Github CI'
+          start: npm run serve
+          wait-on: http://localhost:9000
+        env:
+          # Ghost API urls
+          GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
+          GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_CONTENT_API_KEY }}
+          # pass the Dashboard record key and project ID as an environment variables
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
   deploy_development:
     name: Deploy Development Site
@@ -67,7 +110,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: website
-      - run: ls -lh public/
+          path: public
       - name: Deploy Dev Site
         uses: appleboy/scp-action@v0.1.1
         with:
@@ -89,6 +132,7 @@ jobs:
       - uses: actions/download-artifact@v2
         with:
           name: website
+          path: public
       - name: Deploy Prod Site
         uses: appleboy/scp-action@v0.1.1
         with:
