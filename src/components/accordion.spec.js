@@ -6,7 +6,7 @@ import "./icons";
 
 describe("Accordion", () => {
   const title = "My Title",
-    dataTitle = title.replace(invalidChars, "-"),
+    dataTitle = title.toLowerCase().replace(invalidChars, ""),
     emptyObject = {},
     expanded = false;
 

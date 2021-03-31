@@ -7,6 +7,7 @@ exports[`Accordion should render without crashing 1`] = `
 >
   <h2
     className="accordion is-size-4 is-uppercase"
+    id="mytitle"
   >
     <button
       aria-expanded="false"
@@ -17,7 +18,7 @@ exports[`Accordion should render without crashing 1`] = `
   </h2>
   <div
     className="accordion-content"
-    data-id="My-Title"
+    data-id="mytitle"
     style={Object {}}
   >
     Test content

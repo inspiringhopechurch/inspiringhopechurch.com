@@ -32,14 +32,14 @@ const Accordion = ({ title, children, isExpanded }) => {
   const accordionId = title.toLowerCase().replace(invalidChars, "");
 
   // Check for document being available first to prevent error during
-  // gatsby ssr build step: https://www.gatsbyjs.com/docs/debugging-html-builds/
+  // Gatsby SSR build step: https://www.gatsbyjs.com/docs/debugging-html-builds/
   const accordionContent = typeof document !== `undefined` && document.querySelector(`[data-id='${accordionId}']`);
 
   // We make sure to not reset accordionHeight to a value that's less than its initial value.
   // It will be on static pages whose data will not change, so there should never be 'less'
   // content that what we start with.
   // The exception to this is when we move from smaller viewports to wider ones (height will be smaller).
-  // FOr that scenario we have the useEffect above dealing with window resizing.
+  // For that scenario we have the useEffect above dealing with window resizing.
   if (accordionContent?.clientHeight && accordionContent?.clientHeight > accordionHeight) {
     setAccordionHeight(accordionContent.clientHeight);
   }
