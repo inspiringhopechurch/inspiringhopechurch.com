@@ -140,9 +140,7 @@ export const ghostPostFields = graphql`
       base
       publicURL
       childImageSharp {
-        fluid(maxWidth: 1040, quality: 90) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(quality: 90)
       }
     }
   }
@@ -157,16 +155,7 @@ export const ghostPostFieldsForIndex = graphql`
       base
       publicURL
       childImageSharp {
-        fluid(maxWidth: 500, quality: 90) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
-        fixed(height: 325, quality: 90) {
-          ...GatsbyImageSharpFixed_withWebp
-        }
-
-        resize(height: 500, width: 500) {
-          src
-        }
+        gatsbyImageData(quality: 90, width: 500, aspectRatio: 1)
       }
     }
   }

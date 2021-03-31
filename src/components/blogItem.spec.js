@@ -46,13 +46,12 @@ describe("BlogItem", () => {
     expect(blogItem.prop("blogTitle")).toBe(title);
     expect(blogItem.prop("onBlogIndex")).toBe(!isBlogIndexPage);
     expect(blogItem.find(".content.column a")).toHaveLength(2);
-    // expect(blogItem.find(".content.column.is-three-fifths")).toHaveLength(0);
     expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(1);
     expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(0);
     expect(blogItem.find(".content.column figure")).toHaveLength(0);
   });
 
-  it.skip("has isThreeFifths class when rendered on index page", () => {
+  it("has is-6 class when rendered on index page", () => {
     const blogItem = mount(
       <BlogItem
         blogTitle={title}
@@ -64,7 +63,27 @@ describe("BlogItem", () => {
     );
     expect(blogItem.prop("onBlogIndex")).toBe(isBlogIndexPage);
     expect(blogItem.find(".content.column a")).toHaveLength(2);
-    expect(blogItem.find(".content.column.is-three-fifths")).toHaveLength(1);
+    expect(blogItem.find(".content.column.is-6")).toHaveLength(1);
+    expect(blogItem.find(".content.column.is-onethird-desktop")).toHaveLength(0);
+    expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(0);
+    expect(blogItem.find(".content.column figure")).toHaveLength(0);
+  });
+
+  it("has is-full class when rendered on index page", () => {
+    const blogItem = mount(
+      <BlogItem
+        blogTitle={title}
+        blogExcerpt={excerpt}
+        blogDate={date_}
+        blogLink={slug}
+        onBlogIndex={isBlogIndexPage}
+        isFirstItem={isBlogIndexPage}
+      />
+    );
+    expect(blogItem.prop("onBlogIndex")).toBe(isBlogIndexPage);
+    expect(blogItem.find(".content.column a")).toHaveLength(2);
+    expect(blogItem.find(".content.column.is-6")).toHaveLength(0);
+    expect(blogItem.find(".content.column.is-full")).toHaveLength(1);
     expect(blogItem.find(".content.column.is-onethird-desktop")).toHaveLength(0);
     expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(0);
     expect(blogItem.find(".content.column figure")).toHaveLength(0);
@@ -82,7 +101,6 @@ describe("BlogItem", () => {
     );
     expect(longTitle.length).toBeGreaterThan(50);
     expect(blogItem.find(".content.column a")).toHaveLength(2);
-    // expect(blogItem.find(".content.column.is-three-fifths")).toHaveLength(1);
     expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(0);
     expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(1);
     expect(blogItem.find(".content.column figure")).toHaveLength(0);
@@ -99,7 +117,6 @@ describe("BlogItem", () => {
     );
     expect(longTitle.length).toBeGreaterThan(50);
     expect(blogItem.find(".content.column a")).toHaveLength(2);
-    // expect(blogItem.find(".content.column.is-three-fifths")).toHaveLength(0);
     expect(blogItem.find(".content.column.is-one-third-desktop")).toHaveLength(1);
     expect(blogItem.find(".content.column.is-full-tablet")).toHaveLength(1);
     expect(blogItem.find(".content.column figure")).toHaveLength(0);
@@ -129,7 +146,7 @@ describe("BlogItem", () => {
         blogTitle={longTitle}
         blogExcerpt={excerpt}
         blogDate={date_}
-        blogImageObj={data.data.file.childImageSharp.fluid}
+        blogImageObj={data.data.file.childImageSharp.gatsbyImageData}
         blogLink={slug}
         onBlogIndex={isBlogIndexPage}
       />

@@ -1,5 +1,6 @@
 import React from "react";
 import { graphql } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import config from "../../config";
 import SEO from "../components/seo";
 import BlogItem from "../components/blogItem";
@@ -26,7 +27,7 @@ const Blog = ({ data }) => {
               isFirstItem = {index === 0}
               blogTitle={node.title}
               // blogImage={node.feature_image}
-              blogImageObj={node.featureImageSharp.childImageSharp.fluid}
+              blogImageObj={getImage(node.featureImageSharp)}
               blogDate={node.published_at_pretty}
               blogExcerpt={node.excerpt}
               blogLink={`${config.postPrefix}/${node.slug}`}

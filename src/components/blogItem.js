@@ -1,7 +1,7 @@
 import React from "react";
 import * as PropTypes from "prop-types";
-// import { FluidObject } from "gatsby-image";
-import Img from "gatsby-image";
+// import Img from "gatsby-image";
+import { GatsbyImage } from "gatsby-plugin-image"
 import { Link } from "gatsby";
 import "./blogItem.sass";
 
@@ -27,7 +27,7 @@ const BlogItem = (props) => (
   >
     {props.onBlogIndex && props.blogImageObj && (
       <figure className="image blog-image">
-        <Img alt="" fluid={(props.blogImageObj)} />
+        <GatsbyImage alt="" image={(props.blogImageObj)} />
       </figure>
     )}
     {props.onBlogIndex && props.blogImage && (
@@ -38,7 +38,7 @@ const BlogItem = (props) => (
     
     {!props.onBlogIndex && props.blogImageObj && (
       <figure className="image blog-image">
-        <Img alt="" fluid={(props.blogImageObj)} />
+        <GatsbyImage alt="" image={(props.blogImageObj)} />
       </figure>
     )}
     {!props.onBlogIndex && props.blogImage && (
@@ -53,7 +53,6 @@ const BlogItem = (props) => (
       </h2>
       <h3 className={`subtitle is-7`}>{props.blogAuthor && props.blogAuthor} { props.blogReadingTime ? `﹒ ${props.blogReadingTime} min read` : ""}</h3>
     </div>
-    
     <p className="blog-excerpt">{props.blogExcerpt}...</p>
     <Link className={`button is-link`} to={props.blogLink}>
       Read Post
@@ -64,30 +63,7 @@ const BlogItem = (props) => (
 BlogItem.propTypes = {
   blogExcerpt: PropTypes.string.isRequired,
   blogImage: PropTypes.string,
-  blogImageObj: PropTypes.oneOfType([
-    PropTypes.shape({
-      base64: PropTypes.string,
-      width: PropTypes.number.isRequired,
-      height: PropTypes.number.isRequired,
-      src: PropTypes.string.isRequired,
-      srcSet: PropTypes.string.isRequired,
-      originalName: PropTypes.string,
-      srcSetWebp: PropTypes.string,
-      srcWebp: PropTypes.string,
-      media: PropTypes.string
-    }),
-    PropTypes.shape({
-      base64: PropTypes.string,
-      aspectRatio: PropTypes.number.isRequired,
-      sizes: PropTypes.string.isRequired,
-      src: PropTypes.string.isRequired,
-      srcSet: PropTypes.string.isRequired,
-      originalName: PropTypes.string,
-      srcSetWebp: PropTypes.string,
-      srcWebp: PropTypes.string,
-      media: PropTypes.string
-    })
-  ]),
+  blogImageObj: PropTypes.object,
   blogAuthor: PropTypes.string,
   blogReadingTime: PropTypes.number,
   blogTitle: PropTypes.string.isRequired,

@@ -2,6 +2,26 @@ export default {
   data: {
     file: {
       childImageSharp: {
+        gatsbyImageData: {
+          layout: "constrained",
+          backgroundColor: "#f8f8f8",
+          images: {
+            fallback: {
+              src: "/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg",
+              srcSet: "/static/c90198e7ad3cd5c53c0ee08adf7317b0/b4dad/how_to_give_online.jpg 320w,\n/static/c90198e7ad3cd5c53c0ee08adf7317b0/3440d/how_to_give_online.jpg 640w,\n/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg 1280w",
+              sizes: "(min-width: 1280px) 1280px, 100vw"
+            },
+            sources: [
+              {
+                srcSet: "/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,\n/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,\n/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w",
+                type: "image/webp",
+                sizes: "(min-width: 1280px) 1280px, 100vw"
+              }
+            ]
+          },
+          width: 1280,
+          height: 720
+        },
         fixed: {
           // The shape of this is very specific. Prop will not be valid otherwise
           src:
@@ -106,6 +126,26 @@ export default {
                 "/static/27f366e25bcf3ccc62a632ebf4bb2d22/61e93/photo-1468608374703-abdfab03d1bc.webp 200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/1f5c5/photo-1468608374703-abdfab03d1bc.webp 400w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp 800w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/99238/photo-1468608374703-abdfab03d1bc.webp 1200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/7c22d/photo-1468608374703-abdfab03d1bc.webp 1600w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/37117/photo-1468608374703-abdfab03d1bc.webp 2000w",
               srcWebp:
                 "/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp"
+            },
+            gatsbyImageData: {
+              layout: "constrained",
+              backgroundColor: "#080808",
+              images: {
+                fallback: {
+                  src: "/static/0209a02eeede1cb3592918c9abd69fd3/65bd1/Add-a-little-bit-of-body-text.png",
+                  srcSet: "/static/0209a02eeede1cb3592918c9abd69fd3/c1bf5/Add-a-little-bit-of-body-text.png 235w,\n/static/0209a02eeede1cb3592918c9abd69fd3/dd1c7/Add-a-little-bit-of-body-text.png 470w,\n/static/0209a02eeede1cb3592918c9abd69fd3/65bd1/Add-a-little-bit-of-body-text.png 940w",
+                  sizes: "(min-width: 940px) 940px, 100vw"
+                },
+                sources: [
+                  {
+                    srcSet: "/static/0209a02eeede1cb3592918c9abd69fd3/60ae1/Add-a-little-bit-of-body-text.webp 235w,\n/static/0209a02eeede1cb3592918c9abd69fd3/4fcad/Add-a-little-bit-of-body-text.webp 470w,\n/static/0209a02eeede1cb3592918c9abd69fd3/dfb29/Add-a-little-bit-of-body-text.webp 940w",
+                    type: "image/webp",
+                    sizes: "(min-width: 940px) 940px, 100vw"
+                  }
+                ]
+              },
+              width: 940,
+              height: 788.0000000000001
             }
           }
         },
@@ -257,6 +297,26 @@ export default {
                     "/static/27f366e25bcf3ccc62a632ebf4bb2d22/61e93/photo-1468608374703-abdfab03d1bc.webp 200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/1f5c5/photo-1468608374703-abdfab03d1bc.webp 400w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp 800w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/99238/photo-1468608374703-abdfab03d1bc.webp 1200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/7c22d/photo-1468608374703-abdfab03d1bc.webp 1600w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/37117/photo-1468608374703-abdfab03d1bc.webp 2000w",
                   srcWebp:
                     "/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp"
+                },
+                gatsbyImageData: {
+                  layout: "constrained",
+                  backgroundColor: "#080808",
+                  images: {
+                    fallback: {
+                      src: "/static/0209a02eeede1cb3592918c9abd69fd3/65bd1/Add-a-little-bit-of-body-text.png",
+                      srcSet: "/static/0209a02eeede1cb3592918c9abd69fd3/c1bf5/Add-a-little-bit-of-body-text.png 235w,\n/static/0209a02eeede1cb3592918c9abd69fd3/dd1c7/Add-a-little-bit-of-body-text.png 470w,\n/static/0209a02eeede1cb3592918c9abd69fd3/65bd1/Add-a-little-bit-of-body-text.png 940w",
+                      sizes: "(min-width: 940px) 940px, 100vw"
+                    },
+                    sources: [
+                      {
+                        srcSet: "/static/0209a02eeede1cb3592918c9abd69fd3/60ae1/Add-a-little-bit-of-body-text.webp 235w,\n/static/0209a02eeede1cb3592918c9abd69fd3/4fcad/Add-a-little-bit-of-body-text.webp 470w,\n/static/0209a02eeede1cb3592918c9abd69fd3/dfb29/Add-a-little-bit-of-body-text.webp 940w",
+                        type: "image/webp",
+                        sizes: "(min-width: 940px) 940px, 100vw"
+                      }
+                    ]
+                  },
+                  "width": 940,
+                  "height": 788.0000000000001
                 }
               }
             },
@@ -358,6 +418,26 @@ export default {
                     "/static/27f366e25bcf3ccc62a632ebf4bb2d22/61e93/photo-1468608374703-abdfab03d1bc.webp 200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/1f5c5/photo-1468608374703-abdfab03d1bc.webp 400w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp 800w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/99238/photo-1468608374703-abdfab03d1bc.webp 1200w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/7c22d/photo-1468608374703-abdfab03d1bc.webp 1600w,\n/static/27f366e25bcf3ccc62a632ebf4bb2d22/37117/photo-1468608374703-abdfab03d1bc.webp 2000w",
                   srcWebp:
                     "/static/27f366e25bcf3ccc62a632ebf4bb2d22/58556/photo-1468608374703-abdfab03d1bc.webp"
+                },
+                gatsbyImageData: {
+                  layout: "constrained",
+                  backgroundColor: "#080808",
+                  images: {
+                    fallback: {
+                      src: "/static/0209a02eeede1cb3592918c9abd69fd3/65bd1/Add-a-little-bit-of-body-text.png",
+                      srcSet: "/static/0209a02eeede1cb3592918c9abd69fd3/c1bf5/Add-a-little-bit-of-body-text.png 235w,\n/static/0209a02eeede1cb3592918c9abd69fd3/dd1c7/Add-a-little-bit-of-body-text.png 470w,\n/static/0209a02eeede1cb3592918c9abd69fd3/65bd1/Add-a-little-bit-of-body-text.png 940w",
+                      sizes: "(min-width: 940px) 940px, 100vw"
+                    },
+                    sources: [
+                      {
+                        srcSet: "/static/0209a02eeede1cb3592918c9abd69fd3/60ae1/Add-a-little-bit-of-body-text.webp 235w,\n/static/0209a02eeede1cb3592918c9abd69fd3/4fcad/Add-a-little-bit-of-body-text.webp 470w,\n/static/0209a02eeede1cb3592918c9abd69fd3/dfb29/Add-a-little-bit-of-body-text.webp 940w",
+                        type: "image/webp",
+                        sizes: "(min-width: 940px) 940px, 100vw"
+                      }
+                    ]
+                  },
+                  "width": 940,
+                  "height": 788.0000000000001
                 }
               }
             },

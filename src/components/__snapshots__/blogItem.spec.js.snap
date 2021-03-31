@@ -6,13 +6,28 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
   blogExcerpt="Test excerpt for blog post"
   blogImageObj={
     Object {
-      "aspectRatio": 1.3345195729537367,
-      "sizes": "(max-width: 1500px) 100vw, 1500px",
-      "src": "/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg",
-      "srcSet": "/static/2d816ba796e3a2f678b37125218f0b03/01f8d/mangrum_family.jpg 375w,
-/static/2d816ba796e3a2f678b37125218f0b03/f9913/mangrum_family.jpg 750w,
-/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg 1500w,
-/static/2d816ba796e3a2f678b37125218f0b03/c2bdc/mangrum_family.jpg 1506w",
+      "backgroundColor": "#f8f8f8",
+      "height": 720,
+      "images": Object {
+        "fallback": Object {
+          "sizes": "(min-width: 1280px) 1280px, 100vw",
+          "src": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg",
+          "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/b4dad/how_to_give_online.jpg 320w,
+/static/c90198e7ad3cd5c53c0ee08adf7317b0/3440d/how_to_give_online.jpg 640w,
+/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg 1280w",
+        },
+        "sources": Array [
+          Object {
+            "sizes": "(min-width: 1280px) 1280px, 100vw",
+            "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,
+/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,
+/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w",
+            "type": "image/webp",
+          },
+        ],
+      },
+      "layout": "constrained",
+      "width": 1280,
     }
   }
   blogLink="test-excerpt-for-blog-post"
@@ -25,111 +40,315 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
     <figure
       className="image blog-image"
     >
-      <Image
-        Tag="div"
+      <T
         alt=""
-        durationFadeIn={500}
-        fadeIn={true}
-        fluid={
+        image={
           Object {
-            "aspectRatio": 1.3345195729537367,
-            "sizes": "(max-width: 1500px) 100vw, 1500px",
-            "src": "/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg",
-            "srcSet": "/static/2d816ba796e3a2f678b37125218f0b03/01f8d/mangrum_family.jpg 375w,
-/static/2d816ba796e3a2f678b37125218f0b03/f9913/mangrum_family.jpg 750w,
-/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg 1500w,
-/static/2d816ba796e3a2f678b37125218f0b03/c2bdc/mangrum_family.jpg 1506w",
+            "backgroundColor": "#f8f8f8",
+            "height": 720,
+            "images": Object {
+              "fallback": Object {
+                "sizes": "(min-width: 1280px) 1280px, 100vw",
+                "src": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg",
+                "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/b4dad/how_to_give_online.jpg 320w,
+/static/c90198e7ad3cd5c53c0ee08adf7317b0/3440d/how_to_give_online.jpg 640w,
+/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg 1280w",
+              },
+              "sources": Array [
+                Object {
+                  "sizes": "(min-width: 1280px) 1280px, 100vw",
+                  "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,
+/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,
+/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w",
+                  "type": "image/webp",
+                },
+              ],
+            },
+            "layout": "constrained",
+            "width": 1280,
           }
         }
-        loading="lazy"
       >
-        <div
-          className=" gatsby-image-wrapper"
-          key="fluid-\\"/static/2d816ba796e3a2f678b37125218f0b03/01f8d/mangrum_family.jpg 375w,\\\\n/static/2d816ba796e3a2f678b37125218f0b03/f9913/mangrum_family.jpg 750w,\\\\n/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg 1500w,\\\\n/static/2d816ba796e3a2f678b37125218f0b03/c2bdc/mangrum_family.jpg 1506w\\""
+        <W
+          className="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+          data-gatsby-image-wrapper=""
           style={
             Object {
-              "maxHeight": null,
-              "maxWidth": null,
+              "backgroundColor": undefined,
+              "display": "inline-block",
               "overflow": "hidden",
               "position": "relative",
             }
           }
         >
           <div
-            aria-hidden={true}
+            className="gatsby-image-wrapper gatsby-image-wrapper-constrained"
+            data-gatsby-image-wrapper=""
             style={
               Object {
-                "paddingBottom": "74.93333333333334%",
-                "width": "100%",
+                "backgroundColor": undefined,
+                "display": "inline-block",
+                "overflow": "hidden",
+                "position": "relative",
               }
             }
-          />
-          <picture>
-            <source
-              sizes="(max-width: 1500px) 100vw, 1500px"
-              srcSet="/static/2d816ba796e3a2f678b37125218f0b03/01f8d/mangrum_family.jpg 375w,
-/static/2d816ba796e3a2f678b37125218f0b03/f9913/mangrum_family.jpg 750w,
-/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg 1500w,
-/static/2d816ba796e3a2f678b37125218f0b03/c2bdc/mangrum_family.jpg 1506w"
-            />
-            <ForwardRef
-              alt=""
-              loading="lazy"
-              onLoad={[Function]}
-              sizes="(max-width: 1500px) 100vw, 1500px"
-              src="/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg"
-              srcSet="/static/2d816ba796e3a2f678b37125218f0b03/01f8d/mangrum_family.jpg 375w,
-/static/2d816ba796e3a2f678b37125218f0b03/f9913/mangrum_family.jpg 750w,
-/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg 1500w,
-/static/2d816ba796e3a2f678b37125218f0b03/c2bdc/mangrum_family.jpg 1506w"
-              style={
-                Object {
-                  "opacity": 0,
-                  "transition": "opacity 500ms",
-                }
-              }
+          >
+            <_
+              height={720}
+              layout="constrained"
+              width={1280}
             >
-              <img
-                alt=""
-                loading="lazy"
-                onLoad={[Function]}
-                sizes="(max-width: 1500px) 100vw, 1500px"
-                src="/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg"
-                srcSet="/static/2d816ba796e3a2f678b37125218f0b03/01f8d/mangrum_family.jpg 375w,
-/static/2d816ba796e3a2f678b37125218f0b03/f9913/mangrum_family.jpg 750w,
-/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg 1500w,
-/static/2d816ba796e3a2f678b37125218f0b03/c2bdc/mangrum_family.jpg 1506w"
+              <div
+                style={
+                  Object {
+                    "display": "block",
+                    "maxWidth": 1280,
+                  }
+                }
+              >
+                <img
+                  alt=""
+                  aria-hidden="true"
+                  role="presentation"
+                  src="data:image/svg+xml;charset=utf-8,%3Csvg height='720' width='1280' xmlns='http://www.w3.org/2000/svg' version='1.1'%3E%3C/svg%3E"
+                  style={
+                    Object {
+                      "display": "block",
+                      "maxWidth": "100%",
+                      "position": "static",
+                    }
+                  }
+                />
+              </div>
+              <Placeholder
+                aria-hidden={true}
+                data-placeholder-image=""
                 style={
                   Object {
                     "height": "100%",
                     "left": 0,
-                    "objectFit": "cover",
-                    "objectPosition": "center",
-                    "opacity": 0,
                     "position": "absolute",
                     "top": 0,
-                    "transition": "opacity 500ms",
                     "width": "100%",
                   }
                 }
-              />
-            </ForwardRef>
-          </picture>
-          <noscript
-            dangerouslySetInnerHTML={
-              Object {
-                "__html": "<picture><source srcset=\\"/static/2d816ba796e3a2f678b37125218f0b03/01f8d/mangrum_family.jpg 375w,
-/static/2d816ba796e3a2f678b37125218f0b03/f9913/mangrum_family.jpg 750w,
-/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg 1500w,
-/static/2d816ba796e3a2f678b37125218f0b03/c2bdc/mangrum_family.jpg 1506w\\" sizes=\\"(max-width: 1500px) 100vw, 1500px\\" /><img loading=\\"lazy\\" sizes=\\"(max-width: 1500px) 100vw, 1500px\\" srcset=\\"/static/2d816ba796e3a2f678b37125218f0b03/01f8d/mangrum_family.jpg 375w,
-/static/2d816ba796e3a2f678b37125218f0b03/f9913/mangrum_family.jpg 750w,
-/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg 1500w,
-/static/2d816ba796e3a2f678b37125218f0b03/c2bdc/mangrum_family.jpg 1506w\\" src=\\"/static/2d816ba796e3a2f678b37125218f0b03/37d86/mangrum_family.jpg\\" alt=\\"\\" style=\\"position:absolute;top:0;left:0;opacity:1;width:100%;height:100%;object-fit:cover;object-position:center\\"/></picture>",
-              }
-            }
-          />
-        </div>
-      </Image>
+              >
+                <div
+                  aria-hidden={true}
+                  data-placeholder-image=""
+                  style={
+                    Object {
+                      "height": "100%",
+                      "left": 0,
+                      "position": "absolute",
+                      "top": 0,
+                      "width": "100%",
+                    }
+                  }
+                />
+              </Placeholder>
+              <MainImage
+                alt=""
+                data-gatsby-image-ssr=""
+                data-main-image=""
+                fallback={
+                  Object {
+                    "sizes": "(min-width: 1280px) 1280px, 100vw",
+                    "src": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg",
+                    "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/b4dad/how_to_give_online.jpg 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/3440d/how_to_give_online.jpg 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg 1280w",
+                  }
+                }
+                loading="lazy"
+                onLoad={[Function]}
+                shouldLoad={false}
+                sources={
+                  Array [
+                    Object {
+                      "sizes": "(min-width: 1280px) 1280px, 100vw",
+                      "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w",
+                      "type": "image/webp",
+                    },
+                  ]
+                }
+                style={
+                  Object {
+                    "backgroundColor": undefined,
+                    "height": "100%",
+                    "left": 0,
+                    "objectFit": undefined,
+                    "objectPosition": undefined,
+                    "opacity": 0,
+                    "position": "absolute",
+                    "top": 0,
+                    "transform": "translateZ(0)",
+                    "transition": "opacity 250ms linear",
+                    "width": "100%",
+                    "willChange": "opacity",
+                  }
+                }
+              >
+                <Picture
+                  alt=""
+                  data-gatsby-image-ssr=""
+                  data-main-image=""
+                  fallback={
+                    Object {
+                      "sizes": "(min-width: 1280px) 1280px, 100vw",
+                      "src": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg",
+                      "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/b4dad/how_to_give_online.jpg 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/3440d/how_to_give_online.jpg 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg 1280w",
+                    }
+                  }
+                  loading="lazy"
+                  onLoad={[Function]}
+                  shouldLoad={false}
+                  sources={
+                    Array [
+                      Object {
+                        "sizes": "(min-width: 1280px) 1280px, 100vw",
+                        "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w",
+                        "type": "image/webp",
+                      },
+                    ]
+                  }
+                  style={
+                    Object {
+                      "backgroundColor": undefined,
+                      "height": "100%",
+                      "left": 0,
+                      "objectFit": undefined,
+                      "objectPosition": undefined,
+                      "opacity": 0,
+                      "position": "absolute",
+                      "top": 0,
+                      "transform": "translateZ(0)",
+                      "transition": "opacity 250ms linear",
+                      "width": "100%",
+                      "willChange": "opacity",
+                    }
+                  }
+                >
+                  <picture>
+                    <source
+                      key="undefined-image/webp-/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w"
+                      sizes="(min-width: 1280px) 1280px, 100vw"
+                      srcSet="/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w"
+                      type="image/webp"
+                    />
+                    <x
+                      alt=""
+                      data-gatsby-image-ssr=""
+                      data-main-image=""
+                      innerRef={null}
+                      loading="lazy"
+                      onLoad={[Function]}
+                      shouldLoad={false}
+                      sizes="(min-width: 1280px) 1280px, 100vw"
+                      src="/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg"
+                      srcSet="/static/c90198e7ad3cd5c53c0ee08adf7317b0/b4dad/how_to_give_online.jpg 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/3440d/how_to_give_online.jpg 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg 1280w"
+                      style={
+                        Object {
+                          "backgroundColor": undefined,
+                          "height": "100%",
+                          "left": 0,
+                          "objectFit": undefined,
+                          "objectPosition": undefined,
+                          "opacity": 0,
+                          "position": "absolute",
+                          "top": 0,
+                          "transform": "translateZ(0)",
+                          "transition": "opacity 250ms linear",
+                          "width": "100%",
+                          "willChange": "opacity",
+                        }
+                      }
+                    >
+                      <img
+                        alt=""
+                        data-gatsby-image-ssr=""
+                        data-main-image=""
+                        data-src="/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg"
+                        data-srcset="/static/c90198e7ad3cd5c53c0ee08adf7317b0/b4dad/how_to_give_online.jpg 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/3440d/how_to_give_online.jpg 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg 1280w"
+                        decoding="async"
+                        loading="lazy"
+                        onLoad={[Function]}
+                        sizes="(min-width: 1280px) 1280px, 100vw"
+                        style={
+                          Object {
+                            "backgroundColor": undefined,
+                            "height": "100%",
+                            "left": 0,
+                            "objectFit": undefined,
+                            "objectPosition": undefined,
+                            "opacity": 0,
+                            "position": "absolute",
+                            "top": 0,
+                            "transform": "translateZ(0)",
+                            "transition": "opacity 250ms linear",
+                            "width": "100%",
+                            "willChange": "opacity",
+                          }
+                        }
+                      />
+                    </x>
+                  </picture>
+                </Picture>
+                <noscript>
+                  <Picture
+                    alt=""
+                    data-gatsby-image-ssr=""
+                    data-main-image=""
+                    fallback={
+                      Object {
+                        "sizes": "(min-width: 1280px) 1280px, 100vw",
+                        "src": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg",
+                        "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/b4dad/how_to_give_online.jpg 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/3440d/how_to_give_online.jpg 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/4a49b/how_to_give_online.jpg 1280w",
+                      }
+                    }
+                    loading="lazy"
+                    onLoad={[Function]}
+                    shouldLoad={true}
+                    sources={
+                      Array [
+                        Object {
+                          "sizes": "(min-width: 1280px) 1280px, 100vw",
+                          "srcSet": "/static/c90198e7ad3cd5c53c0ee08adf7317b0/c0bcc/how_to_give_online.webp 320w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/17574/how_to_give_online.webp 640w,/static/c90198e7ad3cd5c53c0ee08adf7317b0/71d4d/how_to_give_online.webp 1280w",
+                          "type": "image/webp",
+                        },
+                      ]
+                    }
+                    style={
+                      Object {
+                        "backgroundColor": undefined,
+                        "height": "100%",
+                        "left": 0,
+                        "objectFit": undefined,
+                        "objectPosition": undefined,
+                        "opacity": 0,
+                        "position": "absolute",
+                        "top": 0,
+                        "transform": "translateZ(0)",
+                        "transition": "opacity 250ms linear",
+                        "width": "100%",
+                        "willChange": "opacity",
+                      }
+                    }
+                  />
+                </noscript>
+              </MainImage>
+              <O>
+                <script
+                  dangerouslySetInnerHTML={
+                    Object {
+                      "__html": "const t=\\"undefined\\"!=typeof HTMLImageElement&&\\"loading\\"in HTMLImageElement.prototype;if(t){const t=document.querySelectorAll(\\"img[data-main-image]\\");for(let e of t)e.dataset.src&&(e.setAttribute(\\"src\\",e.dataset.src),e.removeAttribute(\\"data-src\\")),e.dataset.srcset&&(e.setAttribute(\\"srcset\\",e.dataset.srcset),e.removeAttribute(\\"data-srcset\\")),e.complete&&(e.style.opacity=1)}",
+                    }
+                  }
+                  type="module"
+                />
+              </O>
+            </_>
+          </div>
+        </W>
+      </T>
     </figure>
     <div
       className="blog-info"

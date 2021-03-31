@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { graphql, Link } from "gatsby";
+import { getImage } from "gatsby-plugin-image";
 import config from "../../config";
 import BlogItem from "../components/blogItem";
 import FancyHeading from "../components/fancyHeading";
@@ -21,7 +22,7 @@ const HomePage = ({ data }) => {
    * Finds the item in an array that contains a given slug. This slug
    * corresponds to a particular slice of content in Ghost will will be
    * used on this page.
-   * @param {Object} page - Object that represents a gatsby page content.
+   * @param {Object} page - Object that represents a Gatsby page content.
    * @param {string} query - string that corresponds to a Ghost slug.
    */
   const findGhostSection = (page, query) => {
@@ -370,7 +371,7 @@ const HomePage = ({ data }) => {
           {posts.map(({ node }) => (
             <BlogItem
               blogTitle={node.title}
-              blogImageObj={node.featureImageSharp.childImageSharp.fluid}
+              blogImageObj={getImage(node.featureImageSharp)}
               blogDate={node.published_at_pretty}
               blogAuthor={node.primary_author.name}
               blogReadingTime={node.reading_time}
