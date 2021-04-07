@@ -30,7 +30,7 @@ jobs:
           GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
           GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_CONTENT_API_KEY }}
       - uses: actions/upload-artifact@v2
-        if: always()
+        if: success()
         with:
           name: website
           path: |
