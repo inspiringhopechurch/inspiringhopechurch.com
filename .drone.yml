@@ -22,9 +22,6 @@ steps:
   # - npm test # Don't bother with integration tests if unit tests fail
   - gatsby build
   when:
-    branch:
-    - main
-    - develop
     event:
     - push
     - tag
