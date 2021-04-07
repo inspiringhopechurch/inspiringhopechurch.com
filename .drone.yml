@@ -44,6 +44,11 @@ steps:
   - gatsby serve --no-color &
   - $(npm bin)/cypress install
   - npm run integration -- --record
+  when:
+    event:
+      exclude:
+      - tag
+    
 
 # Deploy develop branch to development folder - dev.inspiringhopechurch.com
 - name: deploy development
