@@ -13,12 +13,12 @@ steps:
       from_secret: ghost_content_api_key
     NPM_AUTH_TOKEN:
       from_secret: npm_auth_token
-    CI: 'true'
+    NODE_ENV: 'production'
   commands:
   # - apk add git autoconf automake pkgconfig libpng libjpeg libtool gcc g++ make file nasm
   # - npm i -g gatsby-cli
   - git pull origin ${DRONE_COMMIT_REF}
-  - CYPRESS_INSTALL_BINARY=0 npm ci # install cypress npm package without installing the binary
+  - npm ci # install cypress npm package without installing the binary
   # - npm test # Don't bother with integration tests if unit tests fail
   - gatsby build
   when:
@@ -41,6 +41,7 @@ steps:
       from_secret: cypress_record_key
     CI: 'true'
   commands:
+  - npm i
   - gatsby serve --no-color &
   - $(npm bin)/cypress install
   - npm run integration -- --record
@@ -48,7 +49,7 @@ steps:
     event:
       exclude:
       - tag
-    
+
 
 # Deploy develop branch to development folder - dev.inspiringhopechurch.com
 - name: deploy development
