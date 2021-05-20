@@ -22,9 +22,12 @@ steps:
   # - npm test # Don't bother with integration tests if unit tests fail
   - gatsby build
   when:
+    ref:
+    - refs/tags/v*
+    - refs/heads/main
+    - refs/heads/develop
     event:
     - push
-    - tag
     - merge
     - custom
 
