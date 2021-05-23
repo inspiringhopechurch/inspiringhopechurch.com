@@ -28,6 +28,7 @@ steps:
     - refs/heads/develop
     event:
     - push
+    - tag
     - merge
     - custom
 
