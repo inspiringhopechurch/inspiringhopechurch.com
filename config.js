@@ -20,6 +20,7 @@ module.exports = {
   linkedIn: "", // LinkedIn username
   facebook: "InspiringHopeChurch", // Facebook site name
   facebookUrl: "https://www.facebook.com/inspiringhopechurch/", // Facebook site URL
+  gaTrackingId: "UA-198062991-1", // 🤮
   matomoUrl: "https://analytics.orbitsolutions.dev", // Matomo URL
   matomoSiteId: "16", // Matomo URL
 };
