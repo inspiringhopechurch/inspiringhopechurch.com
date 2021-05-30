@@ -127,9 +127,9 @@ module.exports = {
         }
       `,
         feeds: [
-        {
-          name: `feed`, // name of feed file. e.g. feed.json or feed.xml
-          query: `
+          {
+            name: `feed`, // name of feed file. e.g. feed.json or feed.xml
+            query: `
           {
             allGhostPost(sort: { order: DESC, fields: published_at }, limit: 100) {
               edges {
@@ -146,17 +146,17 @@ module.exports = {
             }
           }
           `,
-          normalize: ({ query: { site, allGhostPost } }) => {
+            normalize: ({ query: { site, allGhostPost } }) => {
               return allGhostPost.edges.map(edge => {
                 return {
-                    title: edge.node.title,
-                    date: edge.node.published_at,
-                    html: edge.node.html,
-                    url: `${site.siteMetadata.siteUrl}${site.siteMetadata.postPrefix}/${edge.node.slug}`
+                  title: edge.node.title,
+                  date: edge.node.published_at,
+                  html: edge.node.html,
+                  url: `${site.siteMetadata.siteUrl}${site.siteMetadata.postPrefix}/${edge.node.slug}`
                 }
               })
-          },
-        }
+            },
+          }
         ]
       }
     },
