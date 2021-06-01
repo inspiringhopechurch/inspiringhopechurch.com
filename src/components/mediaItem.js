@@ -18,6 +18,9 @@ const MediaItem = ({
   link,
   imgSrc = "https://cdn.emk.dev/templates/featured-image.png",
 }) => {
+  const ifIsVideo = true; // check if file ext is mp4, webm or av1 (or heic?)
+  const ifIsAudio = false; // check if file ext is mp3
+
   return (
     <div className="column is-12 post">
       <article className="columns featured">
@@ -30,8 +33,8 @@ const MediaItem = ({
             <h1 className="title post-title">{title}</h1>
             <p className="post-excerpt">{description}</p>
             <br />
-            <Link to={link} className="button is-primary">
-              Watch
+            <Link to={link} className="button is-link">
+              {ifIsVideo ? "Watch Video" : ifIsAudio ? "Listen Audio" : `Go to ${category}`}
             </Link>
           </div>
         </div>
