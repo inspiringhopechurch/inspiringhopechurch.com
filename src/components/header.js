@@ -19,6 +19,7 @@ const Header = ({ location }) => {
     partnersUrl  = "/about/partners",
     contactUrl   = "/contact",
     giveUrl      = "/give",
+    watchUrl = "/watch",
     getConnected = "/get-connected";
 
   return (
