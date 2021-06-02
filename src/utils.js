@@ -29,7 +29,9 @@ export function cleanHtml(markup) {
       },
       allowedIframeHostnames: ['www.youtube.com'],
       transformTags: {
-        'table': sanitizeHtml.simpleTransform('table', {class: 'table is-size-6 is-striped is-narrow'}),
+        'table': sanitizeHtml.simpleTransform('table', { class: 'table is-size-6 is-striped is-narrow' }),
+        'figure': sanitizeHtml.simpleTransform('figure', { class: 'image is-16by9' }, true),
+        'iframe': sanitizeHtml.simpleTransform('iframe', { class: 'has-ratio' }),
       },
       parser: {
         lowerCaseAttributeNames: false // prevents xml attributes, e.g. viewBox, from being lowercased
@@ -46,7 +48,7 @@ export function cleanHtmlForVideo(markup) {
   return {
     __html: sanitizeHtml(markup, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "img", "source", "track", "video"]),
-      allowedAttributes: { 
+      allowedAttributes: {
         a: ["href"],
         img: ["src", "srcset", "alt"],
         "*": ["class", "id", "data-*"],

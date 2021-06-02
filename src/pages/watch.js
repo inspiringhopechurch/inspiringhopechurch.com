@@ -8,7 +8,7 @@ import FancyHeading from "../components/fancyHeading";
 import "./blog.sass";
 
 const Watch = ({ data }) => {
-  const { edges } = data.allGhostPost;
+  const { edges } = data.allGhostPage;
 
   return (
     <>
@@ -22,13 +22,15 @@ const Watch = ({ data }) => {
       </section>
       <section className={`box is-shadowless blog-content container`}>
         <div className={`columns is-multiline is-centered`}>
-          {edges.map(({ node }, index) => (
+          {edges.map(({ node }) => (
             <MediaItem
               key={node.id}
+              category={node.primary_tag?.name}
               title={node.title}
               description={node.excerpt}
-              // blogImage={node.feature_image}
+              imgSrc={node.feature_image}
               link={`${config.postPrefix}/${node.slug}`}
+              vidSrc={node.html}
             />
           ))}
         </div>
@@ -39,10 +41,20 @@ const Watch = ({ data }) => {
 
 export const query = graphql`
   query WatchPageQuery {
-    allGhostPost(sort: { order: DESC, fields: [published_at] }) {
+    allGhostPage(
+      sort: { order: DESC, fields: [published_at] }
+      filter: { tags: { elemMatch: { name: { eq: "Sunday Message" } } } }
+    ) {
       edges {
         node {
-          ...GhostPostFields
+          id
+          html
+          title
+          excerpt
+          feature_image
+          primary_tag {
+            name
+          }
         }
       }
     }
