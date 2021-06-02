@@ -36,12 +36,12 @@ const Page = ({ data, location }) => {
     // Skip the first entry (0) because its empty
     for (let idx = 1; idx < beliefsList.length; idx++) {
       temporaryEl.innerHTML = cleanHtml(beliefsList[idx]).__html;
-      if (idx === 1 && temporaryEl.firstChild.tagName.toLowerCase() === "h1") {
-        pageHeading = temporaryEl.firstChild.innerText;
-      } else if (temporaryEl.firstChild.tagName.toLowerCase() === "h2") {
+      if (idx === 1 && temporaryEl.firstElementChild.tagName.toLowerCase() === "h1") {
+        pageHeading = temporaryEl.firstElementChild.innerHTML;
+      } else if (temporaryEl.firstElementChild.tagName.toLowerCase() === "h2") {
         // Increment the beliefsList index because, the way this is set up in Ghost,
         // we *should* have an h2 tag, followed directly by the accordion content in a div.
-        pageContent[temporaryEl.firstChild.innerText] = cleanHtml(
+        pageContent[temporaryEl.firstElementChild.innerHTML] = cleanHtml(
           beliefsList[++idx]
         ).__html;
       }
@@ -91,21 +91,21 @@ const Page = ({ data, location }) => {
       <section className="generated-page section container">
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
-          {isBeliefPage ? 
+          {isBeliefPage ?
             (isBrowser ?
               <div className="column is-two-thirds">
                 {<FancyHeading className="has-text-centered" heading={pageHeading} />}
                 {Object.keys(pageContent).map((title, idx) => (
                   <Accordion key={title} title={title} isExpanded={idx === 0 ? true : false}>
-                    <div dangerouslySetInnerHTML={{__html: pageContent[title]}} />
+                    <div dangerouslySetInnerHTML={{ __html: pageContent[title] }} />
                   </Accordion>
                 ))}
               </div> :
               <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
             ) :
             <div className="column is-two-thirds" dangerouslySetInnerHTML={isGivePage ? cleanHtmlForVideo(page.html) : cleanHtml(page.html)} />}
-            {/* cleanHtmlForVideo is used explicitly on the give page to remove the video embed iframe during sanitization. */}
-          { location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
+          {/* cleanHtmlForVideo is used explicitly on the give page to remove the video embed iframe during sanitization. */}
+          {location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
 
         {location.pathname === "/get-connected" && (
