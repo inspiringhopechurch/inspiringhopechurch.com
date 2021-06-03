@@ -63,8 +63,8 @@ export function cleanHtmlForVideo(markup) {
 /** Generates an html snippet for a video file.
  * @param {string} videoName name used for video file. Also used as prefix
  * for the caption file.
- * @param {string} posterName name of file used as image poster.
- * @returns {string} HTML snippet for video playback.
+ * @param {string} posterName name of file used as image poster, including file extension.
+ * @returns {string} HTML snippet for video playback. Assumes 16x9 video content.
  */
 export function generateVideoSnippet(videoName, posterName) {
   return `<div class="container" data-id="${videoName}">
@@ -76,7 +76,7 @@ export function generateVideoSnippet(videoName, posterName) {
         width="100%"
         height="100%"
         preload="metadata"
-        poster="${posterName}"
+        poster="/assets/${posterName}"
       >
         <source src="/assets/${videoName}.webm" type="video/webm" />
         <source src="/assets/${videoName}.mp4" type="video/mp4" />

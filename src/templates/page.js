@@ -7,8 +7,6 @@ import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
 import FancyHeading from "../components/fancyHeading";
 import SEO from "../components/seo";
-import howToVideoPoster from "../assets/how_to_give_online.jpg";
-import textToVideoPoster from "../assets/text_to_give.jpg";
 import "./page.sass";
 
 /**
@@ -48,26 +46,26 @@ const Page = ({ data, location }) => {
     }
   }
 
-  // We search for a placeholder section for our native video playback here, and generate
-  // the necessary code. This EXACT code needs to be present in Ghost for this to work.
+  // We search for data-id attributes here. If found, we get the filename to be used when
+  // replacing a placeholder container with our native video playback code.
   if (isGivePage) {
-    const howToGiveOnlineVideoPlaceholder = `<div class="container" data-id="how_to_give_online"></div>`;
-    const textToGiveVideoPlaceholder = `<div class="container" data-id="text_to_give"></div>`;
+    const search = /data-id=["|'](.*?)["|']/gm; // Look for file name within data-id attribute
+    const filenameList = [];
+    let filenameMatch = search.exec(page.html);
+    filenameList.push(filenameMatch[1])
 
-    const howToGiveOnlineVideo = generateVideoSnippet(
-      "how_to_give_online",
-      howToVideoPoster
-    );
-    const textToGiveVideo = generateVideoSnippet(
-      "text_to_give",
-      textToVideoPoster
-    );
+    // We don't get ALL the matches, just the first one. So we loop until
+    // no more are returned
+    while (filenameMatch != null) {
+      filenameMatch = search.exec(page.html);
+      filenameMatch && filenameList.push(filenameMatch[1])
+    }
 
-    page.html = page.html.replace(
-      howToGiveOnlineVideoPlaceholder,
-      howToGiveOnlineVideo
-    );
-    page.html = page.html.replace(textToGiveVideoPlaceholder, textToGiveVideo);
+    filenameList.forEach(file => {
+      const videoPlaceholder = `<div class="container" data-id="${file}"></div>`;
+      const videoSnippet = generateVideoSnippet(file, `${file}.jpg`);
+      page.html = page.html.replace(videoPlaceholder, videoSnippet);
+    })
   }
 
   return (
