@@ -40,7 +40,7 @@ const MediaItem = ({
             <h1 className="title post-title">{title}</h1>
             <p className="post-excerpt">{description}</p>
             <br />
-            {!vidSrc.includes('youtube.com') && <Link to={link} className="button is-link">
+            {!vidSrc.includes('youtube.com') && !vidSrc.includes('inspiringhopechurch.com') && <Link to={link} className="button is-link">
               {ifIsVideo ? "Watch Video" : ifIsAudio ? "Listen Audio" : `Go to ${category}`}
             </Link>}
           </div>

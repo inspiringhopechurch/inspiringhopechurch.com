@@ -13,23 +13,41 @@ const Watch = ({ data }) => {
   return (
     <>
       <SEO title="Encouraging Messages" />
-      <section className={`hero is-halfheight`}>
-        <div className={`hero-body`}>
-          <div className={`container has-text-centered`}>
+      <section className="hero is-halfheight">
+        <div className="hero-body">
+          <div className="container has-text-centered">
             <FancyHeading heading="Encouraging Messages" />
           </div>
         </div>
       </section>
-      <section className={`box is-shadowless blog-content container`}>
-        <div className={`columns is-multiline is-centered`}>
+      <section className="box is-shadowless blog-content container">
+        <div className="columns is-multiline is-centered">
+          <MediaItem
+            category="Live Stream"
+            title="Watch Live!"
+            description="This would typically have a description of some sort or be empty."
+            link=""
+            imgSrc=""
+            vidSrc={`
+            <figure className="column is-12 image is-16by9">
+              <iframe
+                className="has-ratio"
+                src="https://stream.inspiringhopechurch.com/embed/video"
+                title="Encouraging Messages from Inspiring Hope"
+                referrerPolicy="origin"
+                scrolling="no"
+                allowFullScreen />
+            </figure>
+            `}
+          />
           {edges.map(({ node }) => (
             <MediaItem
               key={node.id}
               category={node.primary_tag?.name}
               title={node.title}
               description={node.excerpt}
-              imgSrc={node.feature_image}
               link={`${config.postPrefix}/${node.slug}`}
+              imgSrc={node.feature_image}
               vidSrc={node.html}
             />
           ))}

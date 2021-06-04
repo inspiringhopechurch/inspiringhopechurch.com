@@ -25,9 +25,9 @@ export function cleanHtml(markup) {
         path: ["d", "fill"],
         g: ["fill"],
         "*": ["class", "id", "data-*"],
-        iframe: ['src']
+        iframe: ['src', 'title', 'referrerpolicy', 'scrolling']
       },
-      allowedIframeHostnames: ['www.youtube.com'],
+      allowedIframeHostnames: ['www.youtube.com', 'stream.inspiringhopechurch.com'],
       transformTags: {
         'table': sanitizeHtml.simpleTransform('table', { class: 'table is-size-6 is-striped is-narrow' }),
         'figure': sanitizeHtml.simpleTransform('figure', { class: 'image is-16by9' }, true),
