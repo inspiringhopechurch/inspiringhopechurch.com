@@ -3,6 +3,8 @@ import { graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import config from "../../config";
 import BlogItem from "../components/blogItem";
+import SEO from "../components/seo";
+import VideoPlayer from "../components/videoPlayer";
 import FancyHeading from "../components/fancyHeading";
 import { cleanHtml } from "../utils";
 import "./index.sass";
@@ -120,6 +122,7 @@ const HomePage = ({ data }) => {
 
   return (
     <>
+      <SEO title="Inspiring Hope Church" />
       <section className={`index-page hero is-large`}>
         <div className={`hero-underlay`}>
           <div className={`hero-body`}>
@@ -174,7 +177,15 @@ const HomePage = ({ data }) => {
       <section className="index-page video-content">
         <div>
           <figure className="image is-16by9">
-            <video
+            <VideoPlayer
+              enCaption={{ src: captionEn }}
+              esCaption={{ src: captionEs }}
+              mp4Src="/assets/inspiring_hope_intro.mp4"
+              webmSrc="/assets/inspiring_hope_intro.webm"
+              posterImg={videoPoster}
+              preload
+            />
+            {/* <video
               className="has-ratio"
               controls={true}
               id="hero-video"
@@ -202,7 +213,7 @@ const HomePage = ({ data }) => {
               />
               Unfortunately your browser is old and does not support embedded
               videos. Please consider upgrading.
-            </video>
+            </video> */}
           </figure>
         </div>
         <p className="container is-fluid py-3 is-size-4 has-text-centered">

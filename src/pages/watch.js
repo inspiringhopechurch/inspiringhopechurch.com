@@ -5,7 +5,8 @@ import config from "../../config";
 import SEO from "../components/seo";
 import MediaItem from "../components/mediaItem";
 import FancyHeading from "../components/fancyHeading";
-import "./blog.sass";
+
+import "./watch.sass";
 
 const Watch = ({ data }) => {
   const { edges } = data.allGhostPage;
@@ -20,7 +21,7 @@ const Watch = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className="box is-shadowless blog-content container">
+      <section className="box is-shadowless watch-content container">
         <div className="columns is-multiline is-centered">
           <MediaItem
             category="Live Stream"
