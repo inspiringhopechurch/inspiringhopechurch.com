@@ -79,7 +79,8 @@ const HomePage = ({ data }) => {
   );
 
   /** Lazy load VideoPlayer component. Avoids SSR build errors caused 
-   * by vime-js' stencil-based web components
+   * by vime-js' stencil-based web components.
+   * React.lazy uses Promises and requies a polyfill in IE11.
   */
   const VideoPlayer = lazy(() => import("../components/videoPlayer"))
 
