@@ -39,7 +39,7 @@ const Page = ({ data, location }) => {
       } else if (temporaryEl.firstElementChild.tagName.toLowerCase() === "h2") {
         // Increment the beliefsList index because, the way this is set up in Ghost,
         // we *should* have an h2 tag, followed directly by the accordion content in a div.
-        pageContent[temporaryEl.firstElementChild.textContent] = cleanHtml(
+        pageContent[temporaryEl.firstElementChild.textContent.trim()] = cleanHtml(
           beliefsList[++idx]
         ).__html;
       }
