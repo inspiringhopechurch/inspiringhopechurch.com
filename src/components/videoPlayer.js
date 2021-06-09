@@ -35,18 +35,17 @@ const VideoPlayer = ({ enCaption, esCaption, mp4Src, preload, posterImg, webmSrc
       />
       {enCaption &&
         <track
-          default
           kind="subtitles"
-          src={enCaption.src}
-          srcLang="en"
           label="English"
+          srcLang="en"
+          src={enCaption.src}
         />}
       {esCaption &&
         <track
           kind="subtitles"
-          src={esCaption.src}
-          srcLang="es"
           label="Español"
+          srcLang="es"
+          src={esCaption.src}
         />}
       Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
     </Video>

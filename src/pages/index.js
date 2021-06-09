@@ -1,16 +1,13 @@
-import React, { useState } from "react";
+import React, { Suspense, lazy, useState } from "react";
 import { graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import config from "../../config";
 import BlogItem from "../components/blogItem";
 import SEO from "../components/seo";
-import VideoPlayer from "../components/videoPlayer";
 import FancyHeading from "../components/fancyHeading";
 import { cleanHtml } from "../utils";
 import "./index.sass";
 import videoPoster from "../assets/ihc_video.jpg";
-import captionEn from "file-loader!../assets/captions.en.vtt";
-import captionEs from "file-loader!../assets/captions.es.vtt";
 
 const HomePage = ({ data }) => {
   const defaultMsg = "Get Inspiring Hope's latest updates." || <></>;
@@ -19,6 +16,7 @@ const HomePage = ({ data }) => {
   const [formSentIndicator, setFormSentIndicator] = useState(false);
   const posts = data.allGhostPost.edges;
   const pages = data.allGhostPage.edges;
+  const isBrowser = typeof document !== "undefined";
 
   /**
    * Finds the item in an array that contains a given slug. This slug
@@ -46,6 +44,44 @@ const HomePage = ({ data }) => {
   const whoWeAreSection = pages.find(page =>
     findGhostSection(page, "home-who-we-are")
   )?.node;
+
+  /** Fallback code used during SSR build and loading VideoPlayer component */
+  const nativeVideoPlayer = () => (
+    <video
+      className="has-ratio"
+      controls={true}
+      id="hero-video"
+      width="100%"
+      height="100%"
+      preload="metadata"
+      poster={videoPoster}
+    >
+      <source
+        src="/assets/inspiring_hope_intro.webm"
+        type="video/webm"
+      />
+      <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
+      <track
+        kind="subtitles"
+        label="English"
+        srcLang="en"
+        src="/assets/inspiring_hope_intro.en.vtt"
+      />
+      <track
+        kind="subtitles"
+        label="Español"
+        srcLang="es"
+        src="/assets/inspiring_hope_intro.es.vtt"
+      />
+              Unfortunately your browser is old and does not support embedded
+              videos. Please consider upgrading.
+    </video>
+  );
+
+  /** Lazy load VideoPlayer component. Avoids SSR build errors caused 
+   * by vime-js' stencil-based web components
+  */
+  const VideoPlayer = lazy(() => import("../components/videoPlayer"))
 
   /**
    * Handles changes to the form's inputs. Should be passed to an input's
@@ -175,45 +211,21 @@ const HomePage = ({ data }) => {
     )}
 
       <section className="index-page video-content">
-        <div>
+        <div id="hero-vid-container">
           <figure className="image is-16by9">
-            <VideoPlayer
-              enCaption={{ src: captionEn }}
-              esCaption={{ src: captionEs }}
-              mp4Src="/assets/inspiring_hope_intro.mp4"
-              webmSrc="/assets/inspiring_hope_intro.webm"
-              posterImg={videoPoster}
-              preload
-            />
-            {/* <video
-              className="has-ratio"
-              controls={true}
-              id="hero-video"
-              width="100%"
-              height="100%"
-              preload="metadata"
-              poster={videoPoster}
-            >
-              <source
-                src="/assets/inspiring_hope_intro.webm"
-                type="video/webm"
-              />
-              <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
-              <track
-                kind="captions"
-                srcLang="en"
-                label="English"
-                src={captionEn}
-              />
-              <track
-                kind="captions"
-                srcLang="es"
-                label="Español"
-                src={captionEs}
-              />
-              Unfortunately your browser is old and does not support embedded
-              videos. Please consider upgrading.
-            </video> */}
+            {isBrowser ?
+              <Suspense fallback={nativeVideoPlayer()}>
+                <VideoPlayer
+                  enCaption={{ src: "/assets/inspiring_hope_intro.en.vtt" }}
+                  esCaption={{ src: "/assets/inspiring_hope_intro.es.vtt" }}
+                  mp4Src="/assets/inspiring_hope_intro.mp4"
+                  webmSrc="/assets/inspiring_hope_intro.webm"
+                  posterImg={videoPoster}
+                  preload
+                />
+              </Suspense> :
+              nativeVideoPlayer()
+            }
           </figure>
         </div>
         <p className="container is-fluid py-3 is-size-4 has-text-centered">
