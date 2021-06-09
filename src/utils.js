@@ -30,7 +30,6 @@ export function cleanHtml(markup) {
       allowedIframeHostnames: ['www.youtube.com', 'stream.inspiringhopechurch.com'],
       transformTags: {
         'table': sanitizeHtml.simpleTransform('table', { class: 'table is-size-6 is-striped is-narrow' }),
-        'figure': sanitizeHtml.simpleTransform('figure', { class: 'image is-16by9' }, true),
         'iframe': sanitizeHtml.simpleTransform('iframe', { class: 'has-ratio' }),
       },
       parser: {

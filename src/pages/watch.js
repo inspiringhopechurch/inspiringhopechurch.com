@@ -30,9 +30,9 @@ const Watch = ({ data }) => {
             link=""
             imgSrc=""
             vidSrc={`
-            <figure className="column is-12 image is-16by9">
+            <figure class="column is-12 image is-16by9">
               <iframe
-                className="has-ratio"
+                class="has-ratio"
                 src="https://stream.inspiringhopechurch.com/embed/video"
                 title="Encouraging Messages from Inspiring Hope"
                 referrerPolicy="origin"
