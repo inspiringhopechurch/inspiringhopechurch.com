@@ -67,7 +67,7 @@ export function cleanHtmlForVideo(markup) {
  * @returns {string} HTML snippet for video playback. Assumes 16x9 video content.
  */
 export function generateVideoSnippet(videoName, posterName) {
-  return `<div class="container" data-id="${videoName}">
+  return `<div id="${videoName}" class="container" data-id="${videoName}">
     <figure className="image is-16by9">
       <video
         class="has-ratio"
