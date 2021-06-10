@@ -74,6 +74,7 @@ steps:
     - develop
     status:
     - success
+    - failure
 
 # Deploy master branch to production folder - inspiringhopechurch.com
 - name: deploy production
