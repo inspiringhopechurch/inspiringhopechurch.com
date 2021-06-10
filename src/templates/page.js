@@ -54,7 +54,7 @@ const Page = ({ data, location }) => {
     const search = /data-id=["|'](.*?)["|']/gm; // Look for file name within data-id attribute
     const filenameList = [];
     let filenameMatch = search.exec(page.html);
-    filenameList.push(filenameMatch[1])
+    filenameMatch && filenameList.push(filenameMatch[1])
 
     // We don't get ALL the matches, just the first one. So we loop until
     // no more are returned
