@@ -7,7 +7,7 @@ import { Controls, DefaultUi, LiveIndicator, Player, Video } from "@vime/react";
  * @param {object} props - component props
  * @param {object} props.enCaption - English language captions
  * @param {string} props.enCaption.src - Spanish language captions
- * @param {object} props.esCaption - Spanish language captions
+ * @param {object} [props.esCaption] - Spanish language captions
  * @param {string} props.esCaption.src - Spanish language captions
  * @param {string} props.mp4Src - mp4 file source path
  * @param {string=} props.posterImg - poster image source path

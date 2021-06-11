@@ -1,15 +1,65 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { render } from "react-dom";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import config from "../../config";
 import SEO from "../components/seo";
 import MediaItem from "../components/mediaItem";
 import FancyHeading from "../components/fancyHeading";
+import { generateVideoSnippet } from "../utils";
 
 import "./watch.sass";
 
 const Watch = ({ data }) => {
   const { edges } = data.allGhostPage;
+  const videoList = {};
+
+  edges.forEach(({ node }) => {
+    if (node) {
+      const search = /data-id=["|'](.*?)["|']/gm; // Look for file name within data-id attribute
+      let filenameMatch = search.exec(node.html);
+      videoList[node.id] = []
+      filenameMatch && videoList[node.id].push(filenameMatch[1]);
+
+      // We don't get ALL the matches, just the first one. So we loop until
+      // no more are returned
+      while (filenameMatch != null) {
+        filenameMatch = search.exec(node.html);
+        filenameMatch && videoList[node.id].push(filenameMatch[1]);
+      }
+
+      videoList[node.id].forEach(file => {
+        const videoPlaceholder = `<div class="container" data-id="${file}"></div>`;
+        const videoSnippet = generateVideoSnippet(file, `${file}.jpg`);
+        node.html = node.html.replace(videoPlaceholder, videoSnippet);
+      })
+    }
+
+  });
+
+  useEffect(() => {
+    Object.keys(videoList).forEach(id => {
+      if (videoList[id].length > 0) {
+
+        videoList[id].forEach(file => {
+          const vidContainer = document.getElementById(`${file}`);
+
+          vidContainer && import("../components/videoPlayer").then(component => {
+            const VideoPlayer = component.default;
+            render(
+              <VideoPlayer
+                enCaption={{ src: `/assets/${file}.en.vtt` }}
+                esCaption={{ src: `/assets/${file}.es.vtt` }}
+                mp4Src={`/assets/${file}.mp4`}
+                posterImg={`/assets/${file}.jpg`}
+                preload
+              />, vidContainer)
+          }).catch(error => console.log("Could not load video player because: ", error))
+
+        })
+      }
+    })
+  })
 
   return (
     <>
