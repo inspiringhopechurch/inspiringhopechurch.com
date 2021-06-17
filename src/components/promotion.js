@@ -22,7 +22,7 @@ const Promotion = ({ promoEndDate, promoDiscount }) => {
   const currentDate = Date.now(),
     promoDate = new Date(promoEndDate),
     promoMonth = promoDate.toLocaleString("en-us", { month: "long" }),
-    showDiscount = promoDate.getDate() > currentDate;
+    showDiscount = promoDate > currentDate;
 
   return showDiscount ? discountSection(promoDiscount, promoMonth) : null;
 };

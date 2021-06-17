@@ -2,6 +2,13 @@
 
 exports[`Index should render without crashing 1`] = `
 <Fragment>
+  <SEO
+    article={false}
+    banner={null}
+    desc={null}
+    pathname={null}
+    title="Inspiring Hope Church"
+  />
   <section
     className="index-page hero is-large"
   >
@@ -134,41 +141,64 @@ exports[`Index should render without crashing 1`] = `
   <section
     className="index-page video-content"
   >
-    <div>
+    <div
+      id="hero-vid-container"
+    >
       <figure
         className="image is-16by9"
       >
-        <video
-          className="has-ratio"
-          controls={true}
-          height="100%"
-          id="hero-video"
-          poster="test-file-stub"
-          preload="metadata"
-          width="100%"
+        <Suspense
+          fallback={
+            <video
+              className="has-ratio"
+              controls={true}
+              height="100%"
+              id="hero-video"
+              poster="test-file-stub"
+              preload="metadata"
+              width="100%"
+            >
+              <source
+                src="/assets/inspiring_hope_intro.webm"
+                type="video/webm"
+              />
+              <source
+                src="/assets/inspiring_hope_intro.mp4"
+                type="video/mp4"
+              />
+              <track
+                kind="subtitles"
+                label="English"
+                src="/assets/inspiring_hope_intro.en.vtt"
+                srcLang="en"
+              />
+              <track
+                kind="subtitles"
+                label="Español"
+                src="/assets/inspiring_hope_intro.es.vtt"
+                srcLang="es"
+              />
+              Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
+            </video>
+          }
         >
-          <source
-            src="/assets/inspiring_hope_intro.webm"
-            type="video/webm"
+          <lazy
+            enCaption={
+              Object {
+                "src": "/assets/inspiring_hope_intro.en.vtt",
+              }
+            }
+            esCaption={
+              Object {
+                "src": "/assets/inspiring_hope_intro.es.vtt",
+              }
+            }
+            mp4Src="/assets/inspiring_hope_intro.mp4"
+            posterImg="test-file-stub"
+            preload={true}
+            webmSrc="/assets/inspiring_hope_intro.webm"
           />
-          <source
-            src="/assets/inspiring_hope_intro.mp4"
-            type="video/mp4"
-          />
-          <track
-            kind="captions"
-            label="English"
-            src="test-file-stub"
-            srcLang="en"
-          />
-          <track
-            kind="captions"
-            label="Español"
-            src="test-file-stub"
-            srcLang="es"
-          />
-          Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
-        </video>
+        </Suspense>
       </figure>
     </div>
     <p
@@ -440,17 +470,6 @@ exports[`Index should render without crashing 1`] = `
         </div>
       </div>
     </div>
-  </section>
-  <section
-    className="index-page container caring-section"
-  >
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<p><strong>We care for others during COVID by...</strong></p><p>Encouraging Masks and Social Distancing </p><p>Providing Hand Sanitizer</p><p>Maintaining Clean Spaces</p>",
-        }
-      }
-    />
   </section>
   <section
     className="index-page kids-section section"

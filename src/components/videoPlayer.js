@@ -17,6 +17,7 @@ import { Controls, DefaultUi, LiveIndicator, Player, Video } from "@vime/react";
 const VideoPlayer = ({ enCaption, esCaption, mp4Src, preload, posterImg, webmSrc }) => (
   <Player
     theme="dark"
+    // @ts-ignore
     class="has-ratio"
   >
     <Video

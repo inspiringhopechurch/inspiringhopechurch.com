@@ -156,6 +156,17 @@ exports[`Header should render without crashing 1`] = `
                 "prevPath": "/",
               }
             }
+            to="/watch"
+          >
+            Watch
+          </mockConstructor>
+          <mockConstructor
+            className="navbar-item "
+            state={
+              Object {
+                "prevPath": "/",
+              }
+            }
             to="/blog"
           >
             Blog

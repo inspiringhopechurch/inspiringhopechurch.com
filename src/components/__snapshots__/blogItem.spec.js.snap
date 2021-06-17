@@ -40,7 +40,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
     <figure
       className="image blog-image"
     >
-      <T
+      <L
         alt=""
         image={
           Object {
@@ -69,7 +69,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
           }
         }
       >
-        <A
+        <T
           className="gatsby-image-wrapper gatsby-image-wrapper-constrained"
           data-gatsby-image-wrapper=""
           style={
@@ -78,6 +78,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
               "display": "inline-block",
               "overflow": "hidden",
               "position": "relative",
+              "verticalAlign": "top",
             }
           }
         >
@@ -90,15 +91,16 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                 "display": "inline-block",
                 "overflow": "hidden",
                 "position": "relative",
+                "verticalAlign": "top",
               }
             }
           >
-            <N
+            <_
               height={720}
               layout="constrained"
               width={1280}
             >
-              <_
+              <W
                 height={720}
                 layout="constrained"
                 width={1280}
@@ -125,7 +127,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                     }
                   />
                 </div>
-              </_>
+              </W>
               <Placeholder
                 aria-hidden={true}
                 data-placeholder-image=""
@@ -341,7 +343,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                   />
                 </noscript>
               </MainImage>
-              <O>
+              <N>
                 <script
                   dangerouslySetInnerHTML={
                     Object {
@@ -350,11 +352,11 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                   }
                   type="module"
                 />
-              </O>
-            </N>
+              </N>
+            </_>
           </div>
-        </A>
-      </T>
+        </T>
+      </L>
     </figure>
     <div
       className="blog-info"
