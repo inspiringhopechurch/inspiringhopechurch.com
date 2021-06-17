@@ -87,7 +87,7 @@ steps:
       from_secret: ssh_deploy_key
     port: 22
     target: /var/www/${DRONE_REPO_NAME}/public
-    rm: true
+    rm: false
     source: public/*
     strip_components: 1
   when:
