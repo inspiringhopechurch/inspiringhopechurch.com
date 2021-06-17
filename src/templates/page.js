@@ -74,6 +74,7 @@ const Page = ({ data, location }) => {
 
 
   useEffect(() => {
+    /*
     if (videoList.length > 0) {
       videoList.forEach(file => {
         const vidContainer = document.querySelector(`#${file}`);
@@ -93,6 +94,7 @@ const Page = ({ data, location }) => {
 
       })
     }
+    */
   })
 
   return (
