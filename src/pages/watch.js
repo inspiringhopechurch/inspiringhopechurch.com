@@ -51,7 +51,6 @@ const Watch = ({ data }) => {
                 enCaption={{ src: `/assets/${file}.en.vtt` }}
                 esCaption={{ src: `/assets/${file}.es.vtt` }}
                 mp4Src={`/assets/${file}.mp4`}
-                posterImg={`/assets/${file}.jpg`}
                 preload
               />, vidContainer)
           }).catch(error => console.log("Could not load video player because: ", error))
