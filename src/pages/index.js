@@ -214,7 +214,7 @@ const HomePage = ({ data }) => {
       <section className="index-page video-content">
         <div id="hero-vid-container">
           <figure className="image is-16by9">
-            {isBrowser ?
+            {false ?
               <Suspense fallback={nativeVideoPlayer()}>
                 <VideoPlayer
                   enCaption={{ src: "/assets/inspiring_hope_intro.en.vtt" }}
