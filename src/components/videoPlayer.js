@@ -22,7 +22,7 @@ const VideoPlayer = ({ enCaption, esCaption, mp4Src, preload, posterImg, webmSrc
   >
     <Video
       crossOrigin="anonymous"
-      poster={posterImg ? posterImg : "/assets/video-logo.png"}
+      poster={posterImg ? posterImg : null}
       preload={preload ? "metadata" : "none"}
     >
       {webmSrc &&

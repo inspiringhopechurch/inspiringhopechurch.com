@@ -1,7 +1,6 @@
 import React, { useEffect } from "react";
 import { render } from "react-dom";
 import { graphql } from "gatsby";
-import { getImage } from "gatsby-plugin-image";
 import config from "../../config";
 import SEO from "../components/seo";
 import MediaItem from "../components/mediaItem";
@@ -75,7 +74,7 @@ const Watch = ({ data }) => {
           <MediaItem
             category="Live Stream"
             title="Watch Live!"
-            description="This would typically have a description of some sort or be empty."
+            description="Join us for the livestream this Sunday starting at 10:00 am."
             link=""
             imgSrc=""
             vidSrc={`
@@ -123,6 +122,7 @@ export const query = graphql`
           primary_tag {
             name
           }
+          published_at
         }
       }
     }
