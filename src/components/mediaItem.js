@@ -12,6 +12,7 @@ import { cleanHtml, cleanHtmlForVideo } from "../utils";
  * @param {string=} props.category
  * @param {string=} props.imgSrc
  * @param {string=} props.vidSrc
+ * @param {string=} props.timestamp
  */
 const MediaItem = ({
   title,
@@ -19,7 +20,8 @@ const MediaItem = ({
   link,
   category = "Sunday Message",
   imgSrc = "https://cdn.emk.dev/templates/featured-image.png",
-  vidSrc
+  vidSrc,
+  timestamp
 }) => {
   const ifIsVideo = !!vidSrc; // should check if file ext is mp4, webm or av1 (or heic?)
   const ifIsAudio = false; // check if file ext is mp3
@@ -37,7 +39,7 @@ const MediaItem = ({
         }
         <div className="column is-5 featured-content is-vcentered">
           <div>
-            <h3 className="heading post-category">{category}</h3>
+            <h3 className="heading post-category">{!timestamp ? category : `${category} | ${timestamp.split('T')[0]}`}</h3>
             <h1 className="title post-title">{title}</h1>
             <p className="post-excerpt">{description}</p>
             <br />
@@ -58,6 +60,7 @@ MediaItem.propTypes = {
   link: PropTypes.string,
   imgSrc: PropTypes.string,
   vidSrc: PropTypes.string,
+  timestamp: PropTypes.string,
 };
 
 export default MediaItem;

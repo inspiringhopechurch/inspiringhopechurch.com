@@ -98,6 +98,7 @@ const Watch = ({ data }) => {
               link={`${config.postPrefix}/${node.slug}`}
               imgSrc={node.feature_image}
               vidSrc={node.html}
+              timestamp={node.published_at}
             />
           ))}
         </div>
