@@ -19,10 +19,10 @@ header button
         border: 0
         padding: 0
 
-.navbar.is-fixed-top
-    box-shadow: $navbar-shadow
-
 header
+    .navbar.is-fixed-top
+        box-shadow: $navbar-shadow
+        z-index: 100 /* fix z-index issues when using vime-js web components */
     .navbar > .container,
     .container > .navbar
         .navbar-brand .navbar-item
