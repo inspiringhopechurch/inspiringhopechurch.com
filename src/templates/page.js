@@ -24,7 +24,7 @@ const Page = ({ data, location }) => {
   const isGivePage = location?.pathname.includes("/give");
   let pageContent = {};
   let pageHeading = "";
-  let videoList = [];
+  // let videoList = [];
   const isBrowser = typeof document !== "undefined";
 
   // Since we don't have access to the DOM when server-side rendering,
@@ -63,7 +63,7 @@ const Page = ({ data, location }) => {
       filenameMatch && filenameList.push(filenameMatch[1])
     }
 
-    videoList = filenameList;
+    // videoList = filenameList;
 
     filenameList.forEach(file => {
       const videoPlaceholder = `<div class="container" data-id="${file}"></div>`;
