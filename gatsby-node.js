@@ -80,6 +80,24 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
+      watchPages: allGhostPage(
+        sort: { order: DESC, fields: [published_at] }
+        filter: { tags: { elemMatch: { name: { eq: "Sunday Message" } } } }
+      ) {
+        edges {
+          node {
+            id
+            html
+            title
+            excerpt
+            feature_image
+            primary_tag {
+              name
+            }
+            published_at
+          }
+        }
+      }
     }
   `);
 
@@ -93,6 +111,34 @@ exports.createPages = async ({ graphql, actions }) => {
   const authors = result.data.allGhostAuthor.edges;
   const pages = result.data.allGhostPage.edges;
   const posts = result.data.allGhostPost.edges;
+
+  /** @type {Array<object>} watchPages - Array of graphql objects */
+  const watchPages = result.data.watchPages.edges;
+  const videosPerWatchPage = 6;
+  const numWatchPages = Math.ceil(watchPages.length / videosPerWatchPage)
+  // Create watch pages
+  Array.from({ length: numWatchPages }).forEach((_, i) => {
+    const pages = watchPages.map((item, j) => {
+      if (i === 0 && j < videosPerWatchPage) {
+        return item;
+      } else if (i > 0 && j >= (i * videosPerWatchPage) && j < (i * videosPerWatchPage) + videosPerWatchPage) {
+        return item;
+      }
+    })
+    const filteredPages = pages.filter(item => item !== undefined);
+
+    createPage({
+      path: i === 0 ? `/watch` : `/watch/${i + 1}`,
+      component: path.resolve("./src/templates/watch.js"),
+      context: {
+        limit: videosPerWatchPage,
+        skip: i * videosPerWatchPage,
+        numPages: numWatchPages,
+        currentPage: i + 1,
+        watchPages: filteredPages
+      },
+    })
+  })
 
   // Create pages
   pages.forEach(({ node }) => {

@@ -9,19 +9,20 @@ import { generateVideoSnippet } from "../utils";
 
 import "./watch.sass";
 
-const Watch = ({ data }) => {
-  const { edges } = data.allGhostPage;
+const Watch = ({ pageContext }) => {
+  const { watchPages } = pageContext;
   const videoList = {};
 
-  edges.forEach(({ node }) => {
-    if (node) {
+  watchPages.forEach(({ node }, i) => {
+    if (node && i < pageContext.limit) {
       const search = /data-id=["|'](.*?)["|']/gm; // Look for file name within data-id attribute
+
+      // We don't get ALL the matches here, just the first one. So later on, we'll search again
+      // in a loop until no more matches are found.
       let filenameMatch = search.exec(node.html);
       videoList[node.id] = []
       filenameMatch && videoList[node.id].push(filenameMatch[1]);
 
-      // We don't get ALL the matches, just the first one. So we loop until
-      // no more are returned
       while (filenameMatch != null) {
         filenameMatch = search.exec(node.html);
         filenameMatch && videoList[node.id].push(filenameMatch[1]);
@@ -89,46 +90,29 @@ const Watch = ({ data }) => {
             </figure>
             `}
           />
-          {edges.map(({ node }) => (
-            <MediaItem
-              key={node.id}
-              category={node.primary_tag?.name}
-              title={node.title}
-              description={node.excerpt}
-              link={`${config.postPrefix}/${node.slug}`}
-              imgSrc={node.feature_image}
-              vidSrc={node.html}
-              timestamp={node.published_at}
-            />
-          ))}
+          {watchPages.map(({ node }, i) => {
+            if (node && i < pageContext.limit) {
+              return (
+                <MediaItem
+                  key={node.id}
+                  category={node.primary_tag?.name}
+                  title={node.title}
+                  description={node.excerpt}
+                  link={`${config.postPrefix}/${node.slug}`}
+                  imgSrc={node.feature_image}
+                  vidSrc={node.html}
+                  timestamp={node.published_at}
+                />
+              );
+            } else {
+              return null;
+            }
+          })}
         </div>
       </section>
     </>
   );
 };
-
-export const query = graphql`
-  query WatchPageQuery {
-    allGhostPage(
-      sort: { order: DESC, fields: [published_at] }
-      filter: { tags: { elemMatch: { name: { eq: "Sunday Message" } } } }
-    ) {
-      edges {
-        node {
-          id
-          html
-          title
-          excerpt
-          feature_image
-          primary_tag {
-            name
-          }
-          published_at
-        }
-      }
-    }
-  }
-`;
 
 // Default export is rendered when user visits page.
 export default Watch;
