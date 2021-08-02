@@ -1,24 +1,6 @@
 // following GatsbyJS tutorial
 const path = require("path");
 const config = require("./config");
-const { createFilePath } = require("gatsby-source-filesystem");
-
-exports.onCreateNode = ({ node, getNode, actions }) => {
-  const { createNodeField } = actions;
-
-  if (node.internal.type === `MarkdownRemark`) {
-    const filename = createFilePath({ node, getNode, basePath: `posts` });
-    // get date and title from filename if present
-    // https://www.gatsbyjs.org/blog/2017-11-08-migrate-from-jekyll-to-gatsby/
-    const [, date, title] = filename.match(/^\/([\d]{4}-[\d]{2}-[\d]{2})-{1}(.+)\/$/);
-
-    createNodeField({
-      node,
-      name: `slug`,
-      value: "/blog/" + title,
-    });
-  }
-};
 
 // Webpack config
 exports.onCreateWebpackConfig = ({ actions }) => {
@@ -118,6 +100,7 @@ exports.createPages = async ({ graphql, actions }) => {
   const numWatchPages = Math.ceil(watchPages.length / videosPerWatchPage)
   // Create watch pages
   Array.from({ length: numWatchPages }).forEach((_, i) => {
+    // Split into two variables (pages and filteredPages) for debugging purposes.
     const pages = watchPages.map((item, j) => {
       if (i === 0 && j < videosPerWatchPage) {
         return item;
