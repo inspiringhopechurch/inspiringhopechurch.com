@@ -171,7 +171,7 @@ const HomePage = ({ data }) => {
     } else if (today.getHours() === 12) {
       setIsMorning(true);
     } else {
-      setIsMorning(false); // resets isMorning. Causes re-render.
+      setIsMorning(false); // resets isMorning. Causes re-render?
     }
   })
 

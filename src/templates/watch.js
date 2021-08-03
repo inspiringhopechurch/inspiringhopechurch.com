@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import { render } from "react-dom";
-import { graphql } from "gatsby";
 import config from "../../config";
 import SEO from "../components/seo";
+import Pagination from "../components/pagination";
 import MediaItem from "../components/mediaItem";
 import FancyHeading from "../components/fancyHeading";
 import { generateVideoSnippet } from "../utils";
@@ -97,7 +97,7 @@ const Watch = ({ pageContext }) => {
                   key={node.id}
                   category={node.primary_tag?.name}
                   title={node.title}
-                  description={node.excerpt}
+                  description={node.excerpt || ''}
                   link={`${config.postPrefix}/${node.slug}`}
                   imgSrc={node.feature_image}
                   vidSrc={node.html}
@@ -109,6 +109,7 @@ const Watch = ({ pageContext }) => {
             }
           })}
         </div>
+        <Pagination destination="/watch" totalPages={pageContext.numPages} currentPage={pageContext.currentPage} />
       </section>
     </>
   );
