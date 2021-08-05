@@ -1,5 +1,5 @@
 import React, { useEffect } from "react";
-// import { render } from "react-dom";
+import { render } from "react-dom";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import { cleanHtml, cleanHtmlForVideo, generateVideoSnippet } from "../utils";
@@ -24,7 +24,7 @@ const Page = ({ data, location }) => {
   const isGivePage = location?.pathname.includes("/give");
   let pageContent = {};
   let pageHeading = "";
-  // let videoList = [];
+  let videoList = [];
   const isBrowser = typeof document !== "undefined";
 
   // Since we don't have access to the DOM when server-side rendering,
@@ -63,7 +63,7 @@ const Page = ({ data, location }) => {
       filenameMatch && filenameList.push(filenameMatch[1])
     }
 
-    // videoList = filenameList;
+    videoList = filenameList;
 
     filenameList.forEach(file => {
       const videoPlaceholder = `<div class="container" data-id="${file}"></div>`;
@@ -74,27 +74,23 @@ const Page = ({ data, location }) => {
 
 
   useEffect(() => {
-    /*
     if (videoList.length > 0) {
-      videoList.forEach(file => {
-        const vidContainer = document.querySelector(`#${file}`);
-
-        import("../components/videoPlayer").then(component => {
-          const VideoPlayer = component.default;
+      import("../components/videoPlayer").then(component => {
+        const VideoPlayer = component.default;
+        videoList.forEach(file => {
+          const vidContainer = document.querySelector(`#${file}`);
           render(
             <VideoPlayer
               enCaption={{ src: `/assets/${file}.en.vtt` }}
               esCaption={{ src: `/assets/${file}.es.vtt` }}
               mp4Src={`/assets/${file}.mp4`}
               webmSrc={`/assets/${file}.webm`}
-              posterImg={`/assets/${file}.jpg`}
+              // posterImg={`/assets/${file}.jpg`}
               preload
             />, vidContainer)
-        }).catch(error => console.log("Could not load video player because: ", error))
-
-      })
+        })
+      }).catch(error => console.log("Could not load video player because: ", error))
     }
-    */
   })
 
   return (

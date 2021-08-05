@@ -38,26 +38,31 @@ const Watch = ({ pageContext }) => {
   });
 
   useEffect(() => {
-    Object.keys(videoList).forEach(id => {
-      if (videoList[id].length > 0) {
+    const videoPageIds = videoList && Object.keys(videoList);
 
-        videoList[id].forEach(file => {
-          const vidContainer = document.getElementById(`${file}`);
+    if (videoPageIds?.length > 0) {
+      import("../components/videoPlayer").then(component => {
+        const VideoPlayer = component.default;
 
-          vidContainer && import("../components/videoPlayer").then(component => {
-            const VideoPlayer = component.default;
-            render(
-              <VideoPlayer
-                enCaption={{ src: `/assets/${file}.en.vtt` }}
-                esCaption={{ src: `/assets/${file}.es.vtt` }}
-                mp4Src={`/assets/${file}.mp4`}
-                preload
-              />, vidContainer)
-          }).catch(error => console.log("Could not load video player because: ", error))
-
+        videoPageIds.forEach(id => {
+          if (videoList[id].length > 0) {
+            videoList[id].forEach(file => {
+              const vidContainer = document.getElementById(`${file}`);
+              vidContainer &&
+                render(
+                  <VideoPlayer
+                    enCaption={{ src: `/assets/${file}.en.vtt` }}
+                    esCaption={{ src: `/assets/${file}.es.vtt` }}
+                    mp4Src={`/assets/${file}.mp4`}
+                    // posterImg={`/assets/${file}.jpg`}
+                    preload
+                  />, vidContainer)
+            })
+          }
         })
-      }
-    })
+
+      }).catch(error => console.log("Could not load video player because: ", error))
+    }
   })
 
   return (
