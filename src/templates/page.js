@@ -22,6 +22,7 @@ const Page = ({ data, location }) => {
   const isBeliefPage = location?.pathname.includes("/about/beliefs");
   const isMissionPage = location?.pathname.includes("/about/mission");
   const isGivePage = location?.pathname.includes("/give");
+  const isBlogPage = location?.pathname.includes("/blog");
   let pageContent = {};
   let pageHeading = "";
   let videoList = [];
@@ -100,7 +101,7 @@ const Page = ({ data, location }) => {
         desc={page.meta_description || page.excerpt}
         banner={page.featureImageSharp?.publicURL}
         pathname={page.slug}
-        article
+        article={isBlogPage}
       />
 
       <section className="generated-page hero is-halfheight">
