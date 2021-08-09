@@ -55,6 +55,7 @@ const Watch = ({ pageContext }) => {
                     esCaption={{ src: `/assets/${file}.es.vtt` }}
                     mp4Src={`/assets/${file}.mp4`}
                     // posterImg={`/assets/${file}.jpg`}
+                    id={file}
                     preload
                   />, vidContainer)
             })
@@ -88,7 +89,7 @@ const Watch = ({ pageContext }) => {
               <iframe
                 class="has-ratio"
                 src="https://stream.inspiringhopechurch.com/embed/video"
-                title="Encouraging Messages from Inspiring Hope"
+                title="Stream Sunday Messages from Inspiring Hope Church"
                 referrerPolicy="origin"
                 scrolling="no"
                 allowFullScreen />

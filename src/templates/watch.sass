@@ -1,15 +1,10 @@
 @charset "utf-8"
 
 @import "../styles/_myvariables.sass"
-@import '../../node_modules/@vime/core/themes/default.css'
+$plyr-color-main: $turquoise
+@import "../../node_modules/plyr/src/sass/plyr.scss"
 
 .watch-content figure
-    overflow: hidden
-    max-height: 21.875rem
-
     .column.is-vcentered
         display: flex
         align-items: center
-
-vm-player
-    --vm-player-theme: #58cadd

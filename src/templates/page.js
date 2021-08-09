@@ -82,11 +82,12 @@ const Page = ({ data, location }) => {
           const vidContainer = document.querySelector(`#${file}`);
           render(
             <VideoPlayer
+              id={file}
               enCaption={{ src: `/assets/${file}.en.vtt` }}
               esCaption={{ src: `/assets/${file}.es.vtt` }}
               mp4Src={`/assets/${file}.mp4`}
               webmSrc={`/assets/${file}.webm`}
-              // posterImg={`/assets/${file}.jpg`}
+              posterImg={`/assets/${file}.jpg`}
               preload
             />, vidContainer)
         })

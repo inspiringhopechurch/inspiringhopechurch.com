@@ -21,6 +21,7 @@ const HomePage = ({ data }) => {
   const [isMorning, setIsMorning] = useState(false);
   const posts = data.allGhostPost.edges;
   const pages = data.allGhostPage.edges;
+  const isBrowser = typeof document !== "undefined";
 
   /**
    * Finds the item in an array that contains a given slug. This slug
@@ -54,7 +55,7 @@ const HomePage = ({ data }) => {
     <video
       className="has-ratio"
       controls
-      id="hero-video"
+      id="inspiring_hope_intro-video"
       width="100%"
       height="100%"
       preload="metadata"
@@ -243,21 +244,22 @@ const HomePage = ({ data }) => {
 
       <section className="index-page video-content">
         <div id="hero-vid-container">
-          <figure className="image is-16by9">
-            {false ?
-              <Suspense fallback={nativeVideoPlayer()}>
-                <VideoPlayer
-                  enCaption={{ src: "/assets/inspiring_hope_intro.en.vtt" }}
-                  esCaption={{ src: "/assets/inspiring_hope_intro.es.vtt" }}
-                  mp4Src="/assets/inspiring_hope_intro.mp4"
-                  webmSrc="/assets/inspiring_hope_intro.webm"
-                  posterImg={videoPoster}
-                  preload
-                />
-              </Suspense> :
+          {isBrowser ?
+            <Suspense fallback={nativeVideoPlayer()}>
+              <VideoPlayer
+                id="inspiring_hope_intro"
+                enCaption={{ src: "/assets/inspiring_hope_intro.en.vtt" }}
+                esCaption={{ src: "/assets/inspiring_hope_intro.es.vtt" }}
+                mp4Src="/assets/inspiring_hope_intro.mp4"
+                webmSrc="/assets/inspiring_hope_intro.webm"
+                posterImg={videoPoster}
+                preload
+              />
+            </Suspense> :
+            <figure className="image is-16by9">
               nativeVideoPlayer()
-            }
-          </figure>
+            </figure>
+          }
         </div>
         <p className="container is-fluid py-3 is-size-4 has-text-centered">
           Learn more about Inspiring Hope Church by watching this message from Pastor Ben.
