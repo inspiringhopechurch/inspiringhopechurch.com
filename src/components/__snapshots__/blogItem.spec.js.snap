@@ -40,7 +40,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
     <figure
       className="image blog-image"
     >
-      <L
+      <V
         alt=""
         image={
           Object {
@@ -69,7 +69,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
           }
         }
       >
-        <T
+        <U
           className="gatsby-image-wrapper gatsby-image-wrapper-constrained"
           data-gatsby-image-wrapper=""
           style={
@@ -95,12 +95,12 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
               }
             }
           >
-            <_
+            <P
               height={720}
               layout="constrained"
               width={1280}
             >
-              <W
+              <C
                 height={720}
                 layout="constrained"
                 width={1280}
@@ -127,7 +127,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                     }
                   />
                 </div>
-              </W>
+              </C>
               <Placeholder
                 aria-hidden={true}
                 data-placeholder-image=""
@@ -242,7 +242,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                       sizes="(min-width: 1280px) 1280px, 100vw"
                       type="image/webp"
                     />
-                    <x
+                    <O
                       alt=""
                       data-gatsby-image-ssr=""
                       data-main-image=""
@@ -297,7 +297,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                           }
                         }
                       />
-                    </x>
+                    </O>
                   </picture>
                 </Picture>
                 <noscript>
@@ -343,7 +343,7 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                   />
                 </noscript>
               </MainImage>
-              <N>
+              <D>
                 <script
                   dangerouslySetInnerHTML={
                     Object {
@@ -352,11 +352,11 @@ exports[`BlogItem has a responsive image on blog page when needed 1`] = `
                   }
                   type="module"
                 />
-              </N>
-            </_>
+              </D>
+            </P>
           </div>
-        </T>
-      </L>
+        </U>
+      </V>
     </figure>
     <div
       className="blog-info"

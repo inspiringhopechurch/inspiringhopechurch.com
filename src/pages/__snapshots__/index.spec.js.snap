@@ -63,6 +63,50 @@ exports[`Index should render without crashing 1`] = `
               </h1>
             </div>
           </div>
+          <div
+            className="columns is-vcentered"
+          >
+            <div
+              className="column"
+            >
+              <mockConstructor
+                className="button is-link is-large"
+                to="/watch"
+              >
+                <span
+                  className="icon is-medium"
+                >
+                  <FontAwesomeIcon
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Array [
+                        "fas",
+                        "video",
+                      ]
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size="1x"
+                    spin={false}
+                    swapOpacity={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  />
+                </span>
+                <span>
+                  Watch Messages
+                </span>
+              </mockConstructor>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -144,41 +188,59 @@ exports[`Index should render without crashing 1`] = `
     <div
       id="hero-vid-container"
     >
-      <figure
-        className="image is-16by9"
+      <Suspense
+        fallback={
+          <video
+            className="has-ratio"
+            controls={true}
+            height="100%"
+            id="inspiring_hope_intro-video"
+            poster="test-file-stub"
+            preload="metadata"
+            width="100%"
+          >
+            <source
+              src="/assets/inspiring_hope_intro.webm"
+              type="video/webm"
+            />
+            <source
+              src="/assets/inspiring_hope_intro.mp4"
+              type="video/mp4"
+            />
+            <track
+              kind="subtitles"
+              label="English"
+              src="/assets/inspiring_hope_intro.en.vtt"
+              srcLang="en"
+            />
+            <track
+              kind="subtitles"
+              label="Español"
+              src="/assets/inspiring_hope_intro.es.vtt"
+              srcLang="es"
+            />
+            Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
+          </video>
+        }
       >
-        <video
-          className="has-ratio"
-          controls={true}
-          height="100%"
-          id="hero-video"
-          poster="test-file-stub"
-          preload="metadata"
-          width="100%"
-        >
-          <source
-            src="/assets/inspiring_hope_intro.webm"
-            type="video/webm"
-          />
-          <source
-            src="/assets/inspiring_hope_intro.mp4"
-            type="video/mp4"
-          />
-          <track
-            kind="subtitles"
-            label="English"
-            src="/assets/inspiring_hope_intro.en.vtt"
-            srcLang="en"
-          />
-          <track
-            kind="subtitles"
-            label="Español"
-            src="/assets/inspiring_hope_intro.es.vtt"
-            srcLang="es"
-          />
-          Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
-        </video>
-      </figure>
+        <lazy
+          enCaption={
+            Object {
+              "src": "/assets/inspiring_hope_intro.en.vtt",
+            }
+          }
+          esCaption={
+            Object {
+              "src": "/assets/inspiring_hope_intro.es.vtt",
+            }
+          }
+          id="inspiring_hope_intro"
+          mp4Src="/assets/inspiring_hope_intro.mp4"
+          posterImg="test-file-stub"
+          preload={true}
+          webmSrc="/assets/inspiring_hope_intro.webm"
+        />
+      </Suspense>
     </div>
     <p
       className="container is-fluid py-3 is-size-4 has-text-centered"

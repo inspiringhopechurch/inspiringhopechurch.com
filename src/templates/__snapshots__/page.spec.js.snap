@@ -3,7 +3,7 @@
 exports[`Page should render without crashing 1`] = `
 <Fragment>
   <SEO
-    article={true}
+    article={false}
     banner={null}
     desc={null}
     pathname="home-weekly-gathering-inspire-kids"
