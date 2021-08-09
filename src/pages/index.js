@@ -53,7 +53,7 @@ const HomePage = ({ data }) => {
   const nativeVideoPlayer = () => (
     <video
       className="has-ratio"
-      controls={true}
+      controls
       id="hero-video"
       width="100%"
       height="100%"

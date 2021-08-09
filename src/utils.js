@@ -70,7 +70,7 @@ export function generateVideoSnippet(videoName, posterName) {
     <figure class="image is-16by9">
       <video
         class="has-ratio"
-        controls="${true}"
+        controls
         id="${videoName}-video"
         width="100%"
         height="100%"
@@ -79,8 +79,8 @@ export function generateVideoSnippet(videoName, posterName) {
       >
         <source src="/assets/${videoName}.webm" type="video/webm" />
         <source src="/assets/${videoName}.mp4" type="video/mp4" />
-        <track kind="captions" srcLang="en" label="English" src="/assets/${videoName}.en.vtt" />
-        <track kind="captions" srcLang="es" label="Español" src="/assets/${videoName}.es.vtt" />
+        <track kind="captions"  srcLang="en" label="English" src="/assets/${videoName}.en.vtt" />
+        <track kind="subtitles" srcLang="es" label="Español" src="/assets/${videoName}.es.vtt" />
         Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
       </video>
     </figure></div>`;
