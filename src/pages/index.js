@@ -145,8 +145,7 @@ const HomePage = ({ data }) => {
         } else {
           setMessage(
             <>
-              We encountered an error. Please check your email address and try
-              again.
+              We encountered an error. Please check your email address and try again.
             </>
           );
         }
