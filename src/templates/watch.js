@@ -115,7 +115,7 @@ const Watch = ({ pageContext }) => {
             }
           })}
         </div>
-        <Pagination destination="/watch" totalPages={pageContext.numPages} currentPage={pageContext.currentPage} />
+        {watchPages.length && <Pagination destination="/watch" totalPages={pageContext.numPages} currentPage={pageContext.currentPage} />}
       </section>
     </>
   );
