@@ -39,7 +39,7 @@ const MediaItem = ({
         }
         <div className="column is-5 featured-content is-vcentered">
           <div>
-            <h3 className="heading post-category">{!timestamp ? category : `${category} | ${timestamp.split('T')[0]}`}</h3>
+            <h2 className="heading post-category">{!timestamp ? category : `${category} | ${timestamp.split('T')[0]}`}</h2>
             <h1 className="title post-title">{title}</h1>
             <p className="post-excerpt">{description}</p>
             <br />
