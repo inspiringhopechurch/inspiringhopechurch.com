@@ -64,7 +64,7 @@ const Watch = ({ pageContext }) => {
 
       }).catch(error => console.log("Could not load video player because: ", error))
     }
-  })
+  });
 
   return (
     <>

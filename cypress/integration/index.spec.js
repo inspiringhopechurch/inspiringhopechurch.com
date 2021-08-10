@@ -32,6 +32,7 @@ context("Index", () => {
       cy.get(".is-active-page").should("have.text", "Home");
       cy.get('.navbar-start > [href="/get-connected"]').should("have.text", "Get Connected");
       cy.get('.navbar-start > [href="/contact"]').should("have.text", "Contact");
+      cy.get('.navbar-start > [href="/watch/"]').should("have.text", "Watch");
       cy.get('.navbar-end > [href="/give"]').should("have.text", "Give");
       cy.get(".navbar-link").should("have.text", "About Us");
       cy.get(".navbar-dropdown")

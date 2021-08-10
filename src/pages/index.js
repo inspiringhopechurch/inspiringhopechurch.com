@@ -1,4 +1,5 @@
-import React, { Suspense, lazy, useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import { render } from "react-dom";
 import { graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -21,7 +22,7 @@ const HomePage = ({ data }) => {
   const [isMorning, setIsMorning] = useState(false);
   const posts = data.allGhostPost.edges;
   const pages = data.allGhostPage.edges;
-  const isBrowser = typeof document !== "undefined";
+  // const isBrowser = typeof document !== "undefined";
 
   /**
    * Finds the item in an array that contains a given slug. This slug
@@ -49,45 +50,6 @@ const HomePage = ({ data }) => {
   const whoWeAreSection = pages.find(page =>
     findGhostSection(page, "home-who-we-are")
   )?.node;
-
-  /** Fallback code used during SSR build and loading VideoPlayer component */
-  const nativeVideoPlayer = () => (
-    <video
-      className="has-ratio"
-      controls
-      id="inspiring_hope_intro-video"
-      width="100%"
-      height="100%"
-      preload="metadata"
-      poster={videoPoster}
-    >
-      <source
-        src="/assets/inspiring_hope_intro.webm"
-        type="video/webm"
-      />
-      <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
-      <track
-        kind="subtitles"
-        label="English"
-        srcLang="en"
-        src="/assets/inspiring_hope_intro.en.vtt"
-      />
-      <track
-        kind="subtitles"
-        label="Español"
-        srcLang="es"
-        src="/assets/inspiring_hope_intro.es.vtt"
-      />
-              Unfortunately your browser is old and does not support embedded
-              videos. Please consider upgrading.
-    </video>
-  );
-
-  /** Lazy load VideoPlayer component. Avoids SSR build errors caused 
-   * by videoPlayer dependency using document.
-   * React.lazy uses Promises and requies a polyfill in IE11.
-  */
-  const VideoPlayer = lazy(() => import("../components/videoPlayer"))
 
   /**
    * Handles changes to the form's inputs. Should be passed to an input's
@@ -132,21 +94,17 @@ const HomePage = ({ data }) => {
       .then((result) => {
         if (result.ok) {
           setMessage(
-            <>
-              <div>
-                <strong>
-                  Great! <em>Check your inbox</em>
-                </strong>{" "}
-                to <strong>confirm</strong> your subscription.
-              </div>
-            </>
+            <div>
+              <strong>
+                Great! <em>Check your inbox</em>
+              </strong>{" "}
+              to <strong>confirm</strong> your subscription.
+            </div>
           );
           setEmailAddress("");
         } else {
           setMessage(
-            <>
-              We encountered an error. Please check your email address and try again.
-            </>
+            "We encountered an error. Please check your email address and try again."
           );
         }
         setFormSentIndicator(false);
@@ -173,7 +131,27 @@ const HomePage = ({ data }) => {
     } else {
       setIsMorning(false); // resets isMorning. Causes re-render?
     }
-  })
+  });
+
+  useEffect(() => {
+
+    import("../components/videoPlayer").then(component => {
+      const VideoPlayer = component.default;
+      const file = "inspiring_hope_intro";
+      const vidContainer = document.getElementById(`${file}`);
+      vidContainer &&
+        render(
+          <VideoPlayer
+            enCaption={{ src: `/assets/${file}.en.vtt` }}
+            esCaption={{ src: `/assets/${file}.es.vtt` }}
+            mp4Src={`/assets/${file}.mp4`}
+            posterImg={videoPoster}
+            id={file}
+            preload
+          />, vidContainer)
+
+    }).catch(error => console.log("Could not load video player because: ", error));
+  });
 
   return (
     <>
@@ -243,22 +221,37 @@ const HomePage = ({ data }) => {
 
       <section className="index-page video-content">
         <div id="hero-vid-container">
-          {isBrowser ?
-            <Suspense fallback={nativeVideoPlayer()}>
-              <VideoPlayer
-                id="inspiring_hope_intro"
-                enCaption={{ src: "/assets/inspiring_hope_intro.en.vtt" }}
-                esCaption={{ src: "/assets/inspiring_hope_intro.es.vtt" }}
-                mp4Src="/assets/inspiring_hope_intro.mp4"
-                webmSrc="/assets/inspiring_hope_intro.webm"
-                posterImg={videoPoster}
-                preload
+          <figure className="image is-16by9">
+            <video
+              className="has-ratio"
+              controls
+              id="inspiring_hope_intro-video"
+              width="100%"
+              height="100%"
+              preload="metadata"
+              poster={videoPoster}
+            >
+              <source
+                src="/assets/inspiring_hope_intro.webm"
+                type="video/webm"
               />
-            </Suspense> :
-            <figure className="image is-16by9">
-              nativeVideoPlayer()
-            </figure>
-          }
+              <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
+              <track
+                kind="subtitles"
+                label="English"
+                srcLang="en"
+                src="/assets/inspiring_hope_intro.en.vtt"
+              />
+              <track
+                kind="subtitles"
+                label="Español"
+                srcLang="es"
+                src="/assets/inspiring_hope_intro.es.vtt"
+              />
+              Unfortunately your browser is old and does not support embedded
+              videos. Please consider upgrading.
+            </video>
+          </figure>
         </div>
         <p className="container is-fluid py-3 is-size-4 has-text-centered">
           Learn more about Inspiring Hope Church by watching this message from Pastor Ben.
@@ -488,6 +481,7 @@ const HomePage = ({ data }) => {
     </>
   );
 };
+
 export default HomePage;
 
 export const query = graphql`

@@ -188,59 +188,41 @@ exports[`Index should render without crashing 1`] = `
     <div
       id="hero-vid-container"
     >
-      <Suspense
-        fallback={
-          <video
-            className="has-ratio"
-            controls={true}
-            height="100%"
-            id="inspiring_hope_intro-video"
-            poster="test-file-stub"
-            preload="metadata"
-            width="100%"
-          >
-            <source
-              src="/assets/inspiring_hope_intro.webm"
-              type="video/webm"
-            />
-            <source
-              src="/assets/inspiring_hope_intro.mp4"
-              type="video/mp4"
-            />
-            <track
-              kind="subtitles"
-              label="English"
-              src="/assets/inspiring_hope_intro.en.vtt"
-              srcLang="en"
-            />
-            <track
-              kind="subtitles"
-              label="Español"
-              src="/assets/inspiring_hope_intro.es.vtt"
-              srcLang="es"
-            />
-            Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
-          </video>
-        }
+      <figure
+        className="image is-16by9"
       >
-        <lazy
-          enCaption={
-            Object {
-              "src": "/assets/inspiring_hope_intro.en.vtt",
-            }
-          }
-          esCaption={
-            Object {
-              "src": "/assets/inspiring_hope_intro.es.vtt",
-            }
-          }
-          id="inspiring_hope_intro"
-          mp4Src="/assets/inspiring_hope_intro.mp4"
-          posterImg="test-file-stub"
-          preload={true}
-          webmSrc="/assets/inspiring_hope_intro.webm"
-        />
-      </Suspense>
+        <video
+          className="has-ratio"
+          controls={true}
+          height="100%"
+          id="inspiring_hope_intro-video"
+          poster="test-file-stub"
+          preload="metadata"
+          width="100%"
+        >
+          <source
+            src="/assets/inspiring_hope_intro.webm"
+            type="video/webm"
+          />
+          <source
+            src="/assets/inspiring_hope_intro.mp4"
+            type="video/mp4"
+          />
+          <track
+            kind="subtitles"
+            label="English"
+            src="/assets/inspiring_hope_intro.en.vtt"
+            srcLang="en"
+          />
+          <track
+            kind="subtitles"
+            label="Español"
+            src="/assets/inspiring_hope_intro.es.vtt"
+            srcLang="es"
+          />
+          Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
+        </video>
+      </figure>
     </div>
     <p
       className="container is-fluid py-3 is-size-4 has-text-centered"
