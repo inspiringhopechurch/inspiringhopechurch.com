@@ -12,7 +12,7 @@ const Pagination = ({ destination, currentPage, totalPages }) => {
     const isPage2 = currentPage === 2;
 
     if (isPage2 || isFirstPage) {
-      return '';
+      return '#';
     } else {
       return currentPage - 1
     }
@@ -21,17 +21,15 @@ const Pagination = ({ destination, currentPage, totalPages }) => {
   return (
     <nav className="pagination" role="navigation" aria-label="pagination">
       <Link
-        className="pagination-previous"
+        className={`pagination-previous${isFirstPage ? ' is-static button' : ''}`}
         title="Go to the previous page"
-        disabled={isFirstPage}
         aria-disabled={isFirstPage}
         to={`${destination}/${getPreviousPage()}`}>Previous</Link>
       <Link
-        className="pagination-next"
+        className={`pagination-next${isLastPage ? ' is-static button' : ''}`}
         title="Go to the next page"
-        disabled={isLastPage}
         aria-disabled={isLastPage}
-        to={`${destination}/${isLastPage ? currentPage : currentPage + 1}`}>Next page</Link>
+        to={`${destination}/${isLastPage ? '#' : currentPage + 1}`}>Next page</Link>
       <ul className="pagination-list">
         {Array.from({ length: totalPages }).map((_, page) => {
           const pageNum = page + 1;

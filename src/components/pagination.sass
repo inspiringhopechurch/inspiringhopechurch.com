@@ -3,8 +3,13 @@
 @import "../styles/_myvariables.sass"
 @import "bulma/sass/components/pagination.sass"
 
-.pagination-previous[disabled],
-.pagination-next[disabled],
+.pagination-previous.button.is-static,
+.pagination-next.button.is-static
+    background-color: $pagination-border-color
+    color: rgb(144, 143, 167)
+    text-transform: uppercase
+    font-weight: bold
+
 .pagination-link.is-current
     pointer-events: none
     
