@@ -35,14 +35,8 @@ const VideoPlayer = ({ id, enCaption, esCaption, mp4Src, preload, posterImg, web
       poster={posterImg ? posterImg : null}
       preload={preload ? "metadata" : "none"}
     >
-      {webmSrc &&
-        <source
-          src={webmSrc}
-          type="video/webm"
-        />}
-      <source
-        src={mp4Src}
-        type="video/mp4"
+      {webmSrc && <source src={webmSrc} type="video/webm" />}
+      <source src={mp4Src} type="video/mp4"
       />
       {enCaption &&
         <track
