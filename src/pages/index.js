@@ -138,7 +138,7 @@ const HomePage = ({ data }) => {
     import("../components/videoPlayer").then(component => {
       const VideoPlayer = component.default;
       const file = "inspiring_hope_intro";
-      const vidContainer = document.getElementById(`${file}`);
+      const vidContainer = document.getElementById('hero-vid-container');
       vidContainer &&
         render(
           <VideoPlayer
