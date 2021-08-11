@@ -32,6 +32,7 @@ context("Index", () => {
       cy.get(".is-active-page").should("have.text", "Home");
       cy.get('.navbar-start > [href="/get-connected"]').should("have.text", "Get Connected");
       cy.get('.navbar-start > [href="/contact"]').should("have.text", "Contact");
+      cy.get('.navbar-start > [href="/watch/"]').should("have.text", "Watch");
       cy.get('.navbar-end > [href="/give"]').should("have.text", "Give");
       cy.get(".navbar-link").should("have.text", "About Us");
       cy.get(".navbar-dropdown")
@@ -51,31 +52,31 @@ context("Index", () => {
     });
 
     it("has a playable hero video", () => {
-      cy.get("#hero-video").then((video) => {
+      cy.get("#hero-vid-container video").then((video) => {
         const el = video.get(0);
         el.muted = true;
         el.play();
         return video;
       });
       cy.wait(2000);
-      cy.get("#hero-video").screenshot("Video after starting muted playback");
+      cy.get("#hero-vid-container video").screenshot("Video after starting muted playback");
 
-      cy.get("#hero-video").then((video) => {
+      cy.get("#hero-vid-container video").then((video) => {
         const el = video.get(0);
         el.textTracks[0].mode = "showing";
         return video;
       });
       cy.wait(2000);
-      cy.get("#hero-video").screenshot("Video after showing first subtitle track");
+      cy.get("#hero-vid-container video").screenshot("Video after showing first subtitle track");
 
-      cy.get("#hero-video").then((video) => {
+      cy.get("#hero-vid-container video").then((video) => {
         const el = video.get(0);
         el.textTracks[0].mode = "hidden";
         el.textTracks[1].mode = "showing";
         return video;
       });
       cy.wait(3000);
-      cy.get("#hero-video").screenshot("Video after showing second subtitle track");
+      cy.get("#hero-vid-container video").screenshot("Video after showing second subtitle track");
     });
 
     it("has a usable newsletter signup form", () => {

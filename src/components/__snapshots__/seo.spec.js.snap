@@ -248,7 +248,7 @@ exports[`SEO should render without crashing as an article 1`] = `
         link={
           Array [
             Object {
-              "href": "https://inspiringhopechurch.com/",
+              "href": "https://inspiringhopechurch.com/blog/",
               "rel": "canonical",
             },
           ]
@@ -276,7 +276,7 @@ exports[`SEO should render without crashing as an article 1`] = `
               "property": "og:site_name",
             },
             Object {
-              "content": "https://inspiringhopechurch.com/",
+              "content": "https://inspiringhopechurch.com/blog/",
               "property": "og:url",
             },
             Object {
@@ -312,7 +312,7 @@ exports[`SEO should render without crashing as an article 1`] = `
               "name": "twitter:image",
             },
             Object {
-              "content": "https://inspiringhopechurch.com/",
+              "content": "https://inspiringhopechurch.com/blog/",
               "name": "twitter:url",
             },
             Object {
@@ -328,7 +328,7 @@ exports[`SEO should render without crashing as an article 1`] = `
         script={
           Array [
             Object {
-              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/\\",\\"url\\":\\"https://inspiringhopechurch.com/\\",\\"name\\":null,\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":null,\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"},\\"description\\":\\"We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
+              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/blog/\\",\\"url\\":\\"https://inspiringhopechurch.com/blog/\\",\\"name\\":null,\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":null,\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"},\\"description\\":\\"We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
               "type": "application/ld+json",
             },
           ]
@@ -347,7 +347,7 @@ exports[`SEO should render without crashing as an article 1`] = `
           link={
             Array [
               Object {
-                "href": "https://inspiringhopechurch.com/",
+                "href": "https://inspiringhopechurch.com/blog/",
                 "rel": "canonical",
               },
             ]
@@ -375,7 +375,7 @@ exports[`SEO should render without crashing as an article 1`] = `
                 "property": "og:site_name",
               },
               Object {
-                "content": "https://inspiringhopechurch.com/",
+                "content": "https://inspiringhopechurch.com/blog/",
                 "property": "og:url",
               },
               Object {
@@ -411,7 +411,7 @@ exports[`SEO should render without crashing as an article 1`] = `
                 "name": "twitter:image",
               },
               Object {
-                "content": "https://inspiringhopechurch.com/",
+                "content": "https://inspiringhopechurch.com/blog/",
                 "name": "twitter:url",
               },
               Object {
@@ -427,7 +427,7 @@ exports[`SEO should render without crashing as an article 1`] = `
           script={
             Array [
               Object {
-                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/\\",\\"url\\":\\"https://inspiringhopechurch.com/\\",\\"name\\":null,\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":null,\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"},\\"description\\":\\"We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
+                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/blog/\\",\\"url\\":\\"https://inspiringhopechurch.com/blog/\\",\\"name\\":null,\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":null,\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"},\\"description\\":\\"We exist to inspire hope by helping people discover God’s purpose for their lives through a relationship with Jesus.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
                 "type": "application/ld+json",
               },
             ]
@@ -468,7 +468,7 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
         link={
           Array [
             Object {
-              "href": "https://inspiringhopechurch.com/path/to/page",
+              "href": "https://inspiringhopechurch.com/blog//path/to/page",
               "rel": "canonical",
             },
           ]
@@ -496,7 +496,7 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
               "property": "og:site_name",
             },
             Object {
-              "content": "https://inspiringhopechurch.com/path/to/page",
+              "content": "https://inspiringhopechurch.com/blog//path/to/page",
               "property": "og:url",
             },
             Object {
@@ -532,7 +532,7 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
               "name": "twitter:image",
             },
             Object {
-              "content": "https://inspiringhopechurch.com/path/to/page",
+              "content": "https://inspiringhopechurch.com/blog//path/to/page",
               "name": "twitter:url",
             },
             Object {
@@ -548,7 +548,7 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
         script={
           Array [
             Object {
-              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/path/to/page\\",\\"url\\":\\"https://inspiringhopechurch.com/path/to/page\\",\\"name\\":\\"Test Page\\",\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":\\"Test Page\\",\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com//path/to/image.jpg\\"},\\"description\\":\\"This website is an awesome website and you should visit it.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
+              "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/blog//path/to/page\\",\\"url\\":\\"https://inspiringhopechurch.com/blog//path/to/page\\",\\"name\\":\\"Test Page\\",\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":\\"Test Page\\",\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com//path/to/image.jpg\\"},\\"description\\":\\"This website is an awesome website and you should visit it.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
               "type": "application/ld+json",
             },
           ]
@@ -567,7 +567,7 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
           link={
             Array [
               Object {
-                "href": "https://inspiringhopechurch.com/path/to/page",
+                "href": "https://inspiringhopechurch.com/blog//path/to/page",
                 "rel": "canonical",
               },
             ]
@@ -595,7 +595,7 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
                 "property": "og:site_name",
               },
               Object {
-                "content": "https://inspiringhopechurch.com/path/to/page",
+                "content": "https://inspiringhopechurch.com/blog//path/to/page",
                 "property": "og:url",
               },
               Object {
@@ -631,7 +631,7 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
                 "name": "twitter:image",
               },
               Object {
-                "content": "https://inspiringhopechurch.com/path/to/page",
+                "content": "https://inspiringhopechurch.com/blog//path/to/page",
                 "name": "twitter:url",
               },
               Object {
@@ -647,7 +647,7 @@ exports[`SEO should render without crashing as an article with custom props 1`] 
           script={
             Array [
               Object {
-                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/path/to/page\\",\\"url\\":\\"https://inspiringhopechurch.com/path/to/page\\",\\"name\\":\\"Test Page\\",\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":\\"Test Page\\",\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com//path/to/image.jpg\\"},\\"description\\":\\"This website is an awesome website and you should visit it.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
+                "innerHTML": "[{\\"@context\\":\\"http://schema.org\\",\\"@type\\":\\"BlogPosting\\",\\"@id\\":\\"https://inspiringhopechurch.com/blog//path/to/page\\",\\"url\\":\\"https://inspiringhopechurch.com/blog//path/to/page\\",\\"name\\":\\"Test Page\\",\\"alternateName\\":\\"Test Company Site\\",\\"headline\\":\\"Test Page\\",\\"image\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com//path/to/image.jpg\\"},\\"description\\":\\"This website is an awesome website and you should visit it.\\",\\"datePublished\\":\\"2019-05-09\\",\\"dateModified\\":\\"2019-05-09\\",\\"author\\":{\\"@type\\":\\"Person\\",\\"name\\":\\"Test User\\"},\\"publisher\\":{\\"@type\\":\\"Organization\\",\\"name\\":\\"Test User\\",\\"logo\\":{\\"@type\\":\\"ImageObject\\",\\"url\\":\\"https://inspiringhopechurch.com/src/assets/logo.svg\\"}},\\"isPartOf\\":\\"https://inspiringhopechurch.com\\",\\"mainEntityOfPage\\":{\\"@type\\":\\"WebSite\\",\\"@id\\":\\"https://inspiringhopechurch.com\\"}}]",
                 "type": "application/ld+json",
               },
             ]
@@ -688,7 +688,7 @@ exports[`SEO should render without crashing with custom props 1`] = `
         link={
           Array [
             Object {
-              "href": "https://inspiringhopechurch.com/path/to/page",
+              "href": "https://inspiringhopechurch.com//path/to/page",
               "rel": "canonical",
             },
           ]
@@ -716,7 +716,7 @@ exports[`SEO should render without crashing with custom props 1`] = `
               "property": "og:site_name",
             },
             Object {
-              "content": "https://inspiringhopechurch.com/path/to/page",
+              "content": "https://inspiringhopechurch.com//path/to/page",
               "property": "og:url",
             },
             Object {
@@ -752,7 +752,7 @@ exports[`SEO should render without crashing with custom props 1`] = `
               "name": "twitter:image",
             },
             Object {
-              "content": "https://inspiringhopechurch.com/path/to/page",
+              "content": "https://inspiringhopechurch.com//path/to/page",
               "name": "twitter:url",
             },
             Object {
@@ -787,7 +787,7 @@ exports[`SEO should render without crashing with custom props 1`] = `
           link={
             Array [
               Object {
-                "href": "https://inspiringhopechurch.com/path/to/page",
+                "href": "https://inspiringhopechurch.com//path/to/page",
                 "rel": "canonical",
               },
             ]
@@ -815,7 +815,7 @@ exports[`SEO should render without crashing with custom props 1`] = `
                 "property": "og:site_name",
               },
               Object {
-                "content": "https://inspiringhopechurch.com/path/to/page",
+                "content": "https://inspiringhopechurch.com//path/to/page",
                 "property": "og:url",
               },
               Object {
@@ -851,7 +851,7 @@ exports[`SEO should render without crashing with custom props 1`] = `
                 "name": "twitter:image",
               },
               Object {
-                "content": "https://inspiringhopechurch.com/path/to/page",
+                "content": "https://inspiringhopechurch.com//path/to/page",
                 "name": "twitter:url",
               },
               Object {

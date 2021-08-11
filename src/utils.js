@@ -25,11 +25,12 @@ export function cleanHtml(markup) {
         path: ["d", "fill"],
         g: ["fill"],
         "*": ["class", "id", "data-*"],
-        iframe: ['src']
+        iframe: ['src', 'title', 'referrerpolicy', 'scrolling']
       },
-      allowedIframeHostnames: ['www.youtube.com'],
+      allowedIframeHostnames: ['www.youtube.com', 'stream.inspiringhopechurch.com'],
       transformTags: {
-        'table': sanitizeHtml.simpleTransform('table', {class: 'table is-size-6 is-striped is-narrow'}),
+        'table': sanitizeHtml.simpleTransform('table', { class: 'table is-size-6 is-striped is-narrow' }),
+        'iframe': sanitizeHtml.simpleTransform('iframe', { class: 'has-ratio' }),
       },
       parser: {
         lowerCaseAttributeNames: false // prevents xml attributes, e.g. viewBox, from being lowercased
@@ -46,7 +47,7 @@ export function cleanHtmlForVideo(markup) {
   return {
     __html: sanitizeHtml(markup, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "img", "source", "track", "video"]),
-      allowedAttributes: { 
+      allowedAttributes: {
         a: ["href"],
         img: ["src", "srcset", "alt"],
         "*": ["class", "id", "data-*"],
@@ -61,25 +62,25 @@ export function cleanHtmlForVideo(markup) {
 /** Generates an html snippet for a video file.
  * @param {string} videoName name used for video file. Also used as prefix
  * for the caption file.
- * @param {string} posterName name of file used as image poster.
- * @returns {string} HTML snippet for video playback.
+ * @param {string} posterName name of file used as image poster, including file extension.
+ * @returns {string} HTML snippet for video playback. Assumes 16x9 video content.
  */
 export function generateVideoSnippet(videoName, posterName) {
-  return `<div class="container" data-id="${videoName}">
-    <figure className="image is-16by9">
+  return `<div id="${videoName}" class="container" data-id="${videoName}">
+    <figure class="image is-16by9">
       <video
         class="has-ratio"
-        controls="${true}"
+        controls
         id="${videoName}-video"
         width="100%"
         height="100%"
         preload="metadata"
-        poster="${posterName}"
+        poster="/assets/${posterName}"
       >
         <source src="/assets/${videoName}.webm" type="video/webm" />
         <source src="/assets/${videoName}.mp4" type="video/mp4" />
-        <track kind="captions" srcLang="en" label="English" src="${videoName}.en.vtt" />
-        <track kind="captions" srcLang="es" label="Español" src="${videoName}.es.vtt" />
+        <track kind="captions"  srcLang="en" label="English" src="/assets/${videoName}.en.vtt" />
+        <track kind="subtitles" srcLang="es" label="Español" src="/assets/${videoName}.es.vtt" />
         Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
       </video>
     </figure></div>`;

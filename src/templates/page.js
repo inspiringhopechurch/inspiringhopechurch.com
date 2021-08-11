@@ -1,4 +1,5 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { render } from "react-dom";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import { cleanHtml, cleanHtmlForVideo, generateVideoSnippet } from "../utils";
@@ -7,8 +8,6 @@ import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
 import FancyHeading from "../components/fancyHeading";
 import SEO from "../components/seo";
-import howToVideoPoster from "../assets/how_to_give_online.jpg";
-import textToVideoPoster from "../assets/text_to_give.jpg";
 import "./page.sass";
 
 /**
@@ -23,8 +22,10 @@ const Page = ({ data, location }) => {
   const isBeliefPage = location?.pathname.includes("/about/beliefs");
   const isMissionPage = location?.pathname.includes("/about/mission");
   const isGivePage = location?.pathname.includes("/give");
+  const isBlogPage = location?.pathname.includes("/blog");
   let pageContent = {};
   let pageHeading = "";
+  let videoList = [];
   const isBrowser = typeof document !== "undefined";
 
   // Since we don't have access to the DOM when server-side rendering,
@@ -36,39 +37,63 @@ const Page = ({ data, location }) => {
     // Skip the first entry (0) because its empty
     for (let idx = 1; idx < beliefsList.length; idx++) {
       temporaryEl.innerHTML = cleanHtml(beliefsList[idx]).__html;
-      if (idx === 1 && temporaryEl.firstChild.tagName.toLowerCase() === "h1") {
-        pageHeading = temporaryEl.firstChild.innerText;
-      } else if (temporaryEl.firstChild.tagName.toLowerCase() === "h2") {
+      if (idx === 1 && temporaryEl.firstElementChild.tagName.toLowerCase() === "h1") {
+        pageHeading = temporaryEl.firstElementChild.innerHTML;
+      } else if (temporaryEl.firstElementChild.tagName.toLowerCase() === "h2") {
         // Increment the beliefsList index because, the way this is set up in Ghost,
         // we *should* have an h2 tag, followed directly by the accordion content in a div.
-        pageContent[temporaryEl.firstChild.innerText] = cleanHtml(
+        pageContent[temporaryEl.firstElementChild.textContent.trim()] = cleanHtml(
           beliefsList[++idx]
         ).__html;
       }
     }
   }
 
-  // We search for a placeholder section for our native video playback here, and generate
-  // the necessary code. This EXACT code needs to be present in Ghost for this to work.
+  // We search for data-id attributes here. If found, we get the filename to be used when
+  // replacing a placeholder container with our native video playback code.
   if (isGivePage) {
-    const howToGiveOnlineVideoPlaceholder = `<div class="container" data-id="how_to_give_online"></div>`;
-    const textToGiveVideoPlaceholder = `<div class="container" data-id="text_to_give"></div>`;
+    const search = /data-id=["|'](.*?)["|']/gm; // Look for file name within data-id attribute
+    const filenameList = [];
+    let filenameMatch = search.exec(page.html);
+    filenameMatch && filenameList.push(filenameMatch[1])
 
-    const howToGiveOnlineVideo = generateVideoSnippet(
-      "how_to_give_online",
-      howToVideoPoster
-    );
-    const textToGiveVideo = generateVideoSnippet(
-      "text_to_give",
-      textToVideoPoster
-    );
+    // We don't get ALL the matches, just the first one. So we loop until
+    // no more are returned
+    while (filenameMatch != null) {
+      filenameMatch = search.exec(page.html);
+      filenameMatch && filenameList.push(filenameMatch[1])
+    }
 
-    page.html = page.html.replace(
-      howToGiveOnlineVideoPlaceholder,
-      howToGiveOnlineVideo
-    );
-    page.html = page.html.replace(textToGiveVideoPlaceholder, textToGiveVideo);
+    videoList = filenameList;
+
+    filenameList.forEach(file => {
+      const videoPlaceholder = `<div class="container" data-id="${file}"></div>`;
+      const videoSnippet = generateVideoSnippet(file, `${file}.jpg`);
+      page.html = page.html.replace(videoPlaceholder, videoSnippet);
+    })
   }
+
+
+  useEffect(() => {
+    if (videoList.length > 0) {
+      import("../components/videoPlayer").then(component => {
+        const VideoPlayer = component.default;
+        videoList.forEach(file => {
+          const vidContainer = document.querySelector(`#${file}`);
+          render(
+            <VideoPlayer
+              id={file}
+              enCaption={{ src: `/assets/${file}.en.vtt` }}
+              esCaption={{ src: `/assets/${file}.es.vtt` }}
+              mp4Src={`/assets/${file}.mp4`}
+              webmSrc={`/assets/${file}.webm`}
+              posterImg={`/assets/${file}.jpg`}
+              preload
+            />, vidContainer)
+        })
+      }).catch(error => console.log("Could not load video player because: ", error))
+    }
+  })
 
   return (
     <>
@@ -77,7 +102,7 @@ const Page = ({ data, location }) => {
         desc={page.meta_description || page.excerpt}
         banner={page.featureImageSharp?.publicURL}
         pathname={page.slug}
-        article
+        article={isBlogPage}
       />
 
       <section className="generated-page hero is-halfheight">
@@ -91,21 +116,21 @@ const Page = ({ data, location }) => {
       <section className="generated-page section container">
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
-          {isBeliefPage ? 
+          {isBeliefPage ?
             (isBrowser ?
               <div className="column is-two-thirds">
                 {<FancyHeading className="has-text-centered" heading={pageHeading} />}
                 {Object.keys(pageContent).map((title, idx) => (
                   <Accordion key={title} title={title} isExpanded={idx === 0 ? true : false}>
-                    <div dangerouslySetInnerHTML={{__html: pageContent[title]}} />
+                    <div dangerouslySetInnerHTML={{ __html: pageContent[title] }} />
                   </Accordion>
                 ))}
               </div> :
               <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
             ) :
             <div className="column is-two-thirds" dangerouslySetInnerHTML={isGivePage ? cleanHtmlForVideo(page.html) : cleanHtml(page.html)} />}
-            {/* cleanHtmlForVideo is used explicitly on the give page to remove the video embed iframe during sanitization. */}
-          { location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
+          {/* cleanHtmlForVideo is used explicitly on the give page to remove the video embed iframe during sanitization. */}
+          {location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
 
         {location.pathname === "/get-connected" && (

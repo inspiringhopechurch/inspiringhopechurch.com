@@ -2,6 +2,13 @@
 
 exports[`Index should render without crashing 1`] = `
 <Fragment>
+  <SEO
+    article={false}
+    banner={null}
+    desc={null}
+    pathname={null}
+    title="Inspiring Hope Church"
+  />
   <section
     className="index-page hero is-large"
   >
@@ -54,6 +61,50 @@ exports[`Index should render without crashing 1`] = `
                   </g>
                 </svg>
               </h1>
+            </div>
+          </div>
+          <div
+            className="columns is-vcentered"
+          >
+            <div
+              className="column"
+            >
+              <mockConstructor
+                className="button is-link is-large"
+                to="/watch"
+              >
+                <span
+                  className="icon is-medium"
+                >
+                  <FontAwesomeIcon
+                    border={false}
+                    className=""
+                    fixedWidth={false}
+                    flip={null}
+                    icon={
+                      Array [
+                        "fas",
+                        "video",
+                      ]
+                    }
+                    inverse={false}
+                    listItem={false}
+                    mask={null}
+                    pull={null}
+                    pulse={false}
+                    rotation={null}
+                    size="1x"
+                    spin={false}
+                    swapOpacity={false}
+                    symbol={false}
+                    title=""
+                    transform={null}
+                  />
+                </span>
+                <span>
+                  Watch Messages
+                </span>
+              </mockConstructor>
             </div>
           </div>
         </div>
@@ -134,7 +185,9 @@ exports[`Index should render without crashing 1`] = `
   <section
     className="index-page video-content"
   >
-    <div>
+    <div
+      id="hero-vid-container"
+    >
       <figure
         className="image is-16by9"
       >
@@ -142,7 +195,7 @@ exports[`Index should render without crashing 1`] = `
           className="has-ratio"
           controls={true}
           height="100%"
-          id="hero-video"
+          id="inspiring_hope_intro-video"
           poster="test-file-stub"
           preload="metadata"
           width="100%"
@@ -156,15 +209,15 @@ exports[`Index should render without crashing 1`] = `
             type="video/mp4"
           />
           <track
-            kind="captions"
+            kind="subtitles"
             label="English"
-            src="test-file-stub"
+            src="/assets/inspiring_hope_intro.en.vtt"
             srcLang="en"
           />
           <track
-            kind="captions"
+            kind="subtitles"
             label="Español"
-            src="test-file-stub"
+            src="/assets/inspiring_hope_intro.es.vtt"
             srcLang="es"
           />
           Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
@@ -440,17 +493,6 @@ exports[`Index should render without crashing 1`] = `
         </div>
       </div>
     </div>
-  </section>
-  <section
-    className="index-page container caring-section"
-  >
-    <div
-      dangerouslySetInnerHTML={
-        Object {
-          "__html": "<p><strong>We care for others during COVID by...</strong></p><p>Encouraging Masks and Social Distancing </p><p>Providing Hand Sanitizer</p><p>Maintaining Clean Spaces</p>",
-        }
-      }
-    />
   </section>
   <section
     className="index-page kids-section section"

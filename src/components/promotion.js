@@ -1,5 +1,5 @@
 import React from "react";
-import * as PropTypes from "prop-types";
+import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./promotion.sass";
 
@@ -29,7 +29,7 @@ const Promotion = ({ promoEndDate, promoDiscount }) => {
 
 Promotion.propTypes = {
   promoEndDate: PropTypes.string.isRequired,
-  promoDiscount: PropTypes.number.isRequired
+  promoDiscount: PropTypes.number.isRequired,
 };
 
 export default Promotion;

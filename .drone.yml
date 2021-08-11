@@ -66,7 +66,7 @@ steps:
       from_secret: ssh_deploy_key
     port: 22
     target: /var/www/inspiringhope.gatsby/public
-    rm: true
+    rm: false
     source: public/*
     strip_components: 1
   when:
@@ -74,6 +74,7 @@ steps:
     - develop
     status:
     - success
+    - failure
 
 # Deploy master branch to production folder - inspiringhopechurch.com
 - name: deploy production
@@ -86,12 +87,13 @@ steps:
       from_secret: ssh_deploy_key
     port: 22
     target: /var/www/${DRONE_REPO_NAME}/public
-    rm: true
+    rm: false
     source: public/*
     strip_components: 1
   when:
     event:
     - tag
+    - custom
     status:
     - success
 

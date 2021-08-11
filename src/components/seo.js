@@ -29,7 +29,7 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
         title: title ? `${title} | ${defaultTitle}` : defaultTitle,
         description: desc || defaultDescription,
         image: `${url}${pathPrefix}${banner || defaultBanner}`,
-        url: `${url}${pathname || pathPrefix}`
+        url: `${url}${article ? '/blog/' : pathPrefix}${pathname || ''}`,
       };
       let schemaOrgJSONLD = [
         {

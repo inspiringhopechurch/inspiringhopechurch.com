@@ -25,16 +25,16 @@ context("Give", () => {
     });
 
     it("has a playable how to give video", () => {
-      cy.get("#how_to_give_online-video").then((video) => {
+      cy.get("#how_to_give_online video").then((video) => {
         const el = video.get(0);
         el.muted = true;
         el.play();
         return video;
       });
       cy.wait(1000);
-      cy.get("#how_to_give_online-video").screenshot("How to Give Online video after starting muted playback");
+      cy.get("#how_to_give_online video").screenshot("How to Give Online video after starting muted playback");
 
-      cy.get("#how_to_give_online-video").then((video) => {
+      cy.get("#how_to_give_online video").then((video) => {
         const el = video.get(0);
         el.pause();
         return video;
@@ -42,16 +42,16 @@ context("Give", () => {
     });
 
     it("has a playable text to give video", () => {
-      cy.get("#text_to_give-video").then((video) => {
+      cy.get("#text_to_give video").then((video) => {
         const el = video.get(0);
         el.muted = true;
         el.play();
         return video;
       });
       cy.wait(1000);
-      cy.get("#text_to_give-video").screenshot("Text to Give video after starting muted playback");
+      cy.get("#text_to_give video").screenshot("Text to Give video after starting muted playback");
 
-      cy.get("#text_to_give-video").then((video) => {
+      cy.get("#text_to_give video").then((video) => {
         const el = video.get(0);
         el.pause();
         return video;

@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
+import { render } from "react-dom";
 import { graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from "../../config";
 import BlogItem from "../components/blogItem";
+import SEO from "../components/seo";
 import FancyHeading from "../components/fancyHeading";
 import { cleanHtml } from "../utils";
 import "./index.sass";
 import videoPoster from "../assets/ihc_video.jpg";
-import captionEn from "file-loader!../assets/captions.en.vtt";
-import captionEs from "file-loader!../assets/captions.es.vtt";
 
 const HomePage = ({ data }) => {
+  const SUNDAY = 0;
   const defaultMsg = "Get Inspiring Hope's latest updates." || <></>;
+  const today = new Date();
+  const isSunday = today.getDay() === SUNDAY;
   const [message, setMessage] = useState(defaultMsg);
   const [emailAddress, setEmailAddress] = useState("");
   const [formSentIndicator, setFormSentIndicator] = useState(false);
+  const [isMorning, setIsMorning] = useState(false);
   const posts = data.allGhostPost.edges;
   const pages = data.allGhostPage.edges;
+  // const isBrowser = typeof document !== "undefined";
 
   /**
    * Finds the item in an array that contains a given slug. This slug
@@ -88,22 +94,17 @@ const HomePage = ({ data }) => {
       .then((result) => {
         if (result.ok) {
           setMessage(
-            <>
-              <div>
-                <strong>
-                  Great! <em>Check your inbox</em>
-                </strong>{" "}
-                to <strong>confirm</strong> your subscription.
-              </div>
-            </>
+            <div>
+              <strong>
+                Great! <em>Check your inbox</em>
+              </strong>{" "}
+              to <strong>confirm</strong> your subscription.
+            </div>
           );
           setEmailAddress("");
         } else {
           setMessage(
-            <>
-              We encountered an error. Please check your email address and try
-              again.
-            </>
+            "We encountered an error. Please check your email address and try again."
           );
         }
         setFormSentIndicator(false);
@@ -118,8 +119,43 @@ const HomePage = ({ data }) => {
       });
   };
 
+  useEffect(() => {
+    if (today.getHours() === 9) {
+      setIsMorning(true);
+    } else if (today.getHours() === 10) {
+      setIsMorning(true);
+    } else if (today.getHours() === 11) {
+      setIsMorning(true);
+    } else if (today.getHours() === 12) {
+      setIsMorning(true);
+    } else {
+      setIsMorning(false); // resets isMorning. Causes re-render?
+    }
+  });
+
+  useEffect(() => {
+
+    import("../components/videoPlayer").then(component => {
+      const VideoPlayer = component.default;
+      const file = "inspiring_hope_intro";
+      const vidContainer = document.getElementById('hero-vid-container');
+      vidContainer &&
+        render(
+          <VideoPlayer
+            enCaption={{ src: `/assets/${file}.en.vtt` }}
+            esCaption={{ src: `/assets/${file}.es.vtt` }}
+            mp4Src={`/assets/${file}.mp4`}
+            posterImg={videoPoster}
+            id={file}
+            preload
+          />, vidContainer)
+
+    }).catch(error => console.log("Could not load video player because: ", error));
+  });
+
   return (
     <>
+      <SEO title="Inspiring Hope Church" />
       <section className={`index-page hero is-large`}>
         <div className={`hero-underlay`}>
           <div className={`hero-body`}>
@@ -137,6 +173,18 @@ const HomePage = ({ data }) => {
                       </g>
                     </svg>
                   </h1>
+                </div>
+              </div>
+              <div className={`columns is-vcentered`}>
+                <div className={`column`}>
+                  <Link
+                    className="button is-link is-large"
+                    to="/watch">
+                    <span className="icon is-medium">
+                      <FontAwesomeIcon icon={["fas", "video"]} size="1x" />
+                    </span>
+                    <span>{`Watch ${isSunday && isMorning ? "Live" : "Messages"}`}</span>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -172,12 +220,12 @@ const HomePage = ({ data }) => {
     )}
 
       <section className="index-page video-content">
-        <div>
+        <div id="hero-vid-container">
           <figure className="image is-16by9">
             <video
               className="has-ratio"
-              controls={true}
-              id="hero-video"
+              controls
+              id="inspiring_hope_intro-video"
               width="100%"
               height="100%"
               preload="metadata"
@@ -189,16 +237,16 @@ const HomePage = ({ data }) => {
               />
               <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
               <track
-                kind="captions"
-                srcLang="en"
+                kind="subtitles"
                 label="English"
-                src={captionEn}
+                srcLang="en"
+                src="/assets/inspiring_hope_intro.en.vtt"
               />
               <track
-                kind="captions"
-                srcLang="es"
+                kind="subtitles"
                 label="Español"
-                src={captionEs}
+                srcLang="es"
+                src="/assets/inspiring_hope_intro.es.vtt"
               />
               Unfortunately your browser is old and does not support embedded
               videos. Please consider upgrading.
@@ -433,6 +481,7 @@ const HomePage = ({ data }) => {
     </>
   );
 };
+
 export default HomePage;
 
 export const query = graphql`

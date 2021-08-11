@@ -19,6 +19,7 @@ const Header = ({ location }) => {
     partnersUrl  = "/about/partners",
     contactUrl   = "/contact",
     giveUrl      = "/give",
+    watchUrl = "/watch/",
     getConnected = "/get-connected";
 
   return (
@@ -132,9 +133,16 @@ const Header = ({ location }) => {
                 </div>
               </div>
               <Link
-                className={`navbar-item ${
-                  location.pathname.includes(blogUrl) ? "is-active-page" : ""
-                }`}
+                className={`navbar-item ${location.pathname.includes(watchUrl) ? "is-active-page" : ""
+                  }`}
+                to={watchUrl}
+                state={{ prevPath: location.pathname }}
+              >
+                Watch
+              </Link>
+              <Link
+                className={`navbar-item ${location.pathname.includes(blogUrl) ? "is-active-page" : ""
+                  }`}
                 to={blogUrl}
                 state={{ prevPath: location.pathname }}
               >
