@@ -23,6 +23,7 @@ exports.createSchemaCustomization = require(`./ghost-schema-customization`)
 exports.createPages = async ({ graphql, actions }) => {
   const { createPage } = actions;
   // GraphQL function call returns a promise
+  const nonProdFilterString = "WIP"
   const result = await graphql(`
     {
       allGhostPost(sort: { order: ASC, fields: published_at }) {
@@ -64,7 +65,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
       watchPages: allGhostPage(
         sort: { order: DESC, fields: [published_at] }
-        filter: { tags: { elemMatch: { name: { eq: "Sunday Message" } } } }
+        filter: { tags: { elemMatch: { name: { eq: "Sunday Message", ne: "${nonProdFilterString}" } } } }
       ) {
         edges {
           node {
