@@ -51,7 +51,10 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allGhostPage(sort: { order: ASC, fields: published_at }) {
+      allGhostPage(
+        sort: { order: ASC, fields: published_at }
+        filter: { tags: { elemMatch: { name: { ne: "Sunday Message" } } } }
+      ) {
         edges {
           node {
             slug
@@ -90,8 +93,8 @@ exports.createPages = async ({ graphql, actions }) => {
   }
 
   // Extract query results
-  const tags = result.data.allGhostTag.edges;
-  const authors = result.data.allGhostAuthor.edges;
+  // const tags = result.data.allGhostTag.edges;
+  // const authors = result.data.allGhostAuthor.edges;
   const pages = result.data.allGhostPage.edges;
   const posts = result.data.allGhostPost.edges;
 
