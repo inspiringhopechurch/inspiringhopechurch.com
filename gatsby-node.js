@@ -53,7 +53,7 @@ exports.createPages = async ({ graphql, actions }) => {
       }
       allGhostPage(
         sort: { order: ASC, fields: published_at }
-        filter: { tags: { elemMatch: { name: { ne: "Sunday Message" } } } }
+        filter: { primary_tag: { name: { ne: "Sunday Message" } } }
       ) {
         edges {
           node {
