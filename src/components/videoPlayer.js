@@ -6,7 +6,7 @@ import Plyr from "plyr";
  * Video Player component
  * @param {object} props - component props
  * @param {string} props.id - File identifier
- * @param {object} props.enCaption - English language captions
+ * @param {object} [props.enCaption] - English language captions
  * @param {string} props.enCaption.src - Spanish language captions
  * @param {object} [props.esCaption] - Spanish language captions
  * @param {string} props.esCaption.src - Spanish language captions
@@ -34,6 +34,7 @@ const VideoPlayer = ({ id, enCaption, esCaption, mp4Src, preload, posterImg, web
       height="100%"
       poster={posterImg ? posterImg : null}
       preload={preload ? "metadata" : "none"}
+      playsInline
     >
       {webmSrc && <source src={webmSrc} type="video/webm" />}
       <source src={mp4Src} type="video/mp4"
