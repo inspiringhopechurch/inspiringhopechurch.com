@@ -105,7 +105,7 @@ module.exports = {
     },
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
-    `gatsby-plugin-offline`, // list after manifest plugin
+    // `gatsby-plugin-offline`, // list after manifest plugin
     `gatsby-plugin-remove-serviceworker`, // properly remove offline service worker
     {
       resolve: "gatsby-plugin-feed-generator",
