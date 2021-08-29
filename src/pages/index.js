@@ -177,14 +177,14 @@ const HomePage = ({ data }) => {
               </div>
               <div className={`columns is-vcentered`}>
                 <div className={`column`}>
-                  {isSunday && <Link
+                  <Link
                     className="button is-link is-large"
                     to="/watch">
                     <span className="icon is-medium">
                       <FontAwesomeIcon icon={["fas", "video"]} size="1x" />
                     </span>
                     <span>{`Watch ${isSunday && isMorning ? "Live" : "Messages"}`}</span>
-                  </Link>}
+                  </Link>
                 </div>
               </div>
             </div>
