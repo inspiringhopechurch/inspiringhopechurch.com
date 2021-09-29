@@ -133,7 +133,7 @@ const Page = ({ data, location }) => {
           {location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
 
-        {location.pathname === "/get-connected" && (
+        {(location.pathname === "/get-connected" || location.pathname === "/events/fall-festival-2021") && (
           <div className="columns content is-medium is-centered">
             <div className={`column is-two-thirds`}>
               <ContactForm
