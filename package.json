@@ -8,7 +8,7 @@
   "homepage": "https://inspiringhopechurch.com",
   "repository": {
     "type": "git",
-    "url": "https://code.orbitsolutions.dev/Inspiring-Hope/inspiringhope.gatsby.git"
+    "url": "https://code.orbitsolutions.dev/Inspiring-Hope/inspiringhopechurch.com.git"
   },
   "bugs": {
     "url": "https://code.orbitsolutions.dev/Inspiring-Hope/inspiringhope.gatsby/issues"
@@ -70,7 +70,7 @@
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.3",
     "axe-core": "^4.3.3",
     "babel-eslint": "^10.1.0",
-    "babel-jest": "^26.6.3",
+    "babel-jest": "^27.2.5",
     "babel-preset-gatsby": "^1.14.0",
     "cypress": "^8.6.0",
     "cypress-axe": "^0.12.2",
@@ -78,7 +78,7 @@
     "enzyme-to-json": "^3.6.2",
     "gatsby-plugin-prettier-build": "^0.4.4",
     "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.6.3",
+    "jest": "^27.2.5",
     "prettier": "^2.4.1",
     "raf": "^3.4.1"
   }
