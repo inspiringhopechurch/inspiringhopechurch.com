@@ -5,6 +5,7 @@ import SEO from "../components/seo";
 import Pagination from "../components/pagination";
 import MediaItem from "../components/mediaItem";
 import FancyHeading from "../components/fancyHeading";
+import VideoPlayer from "../components/videoPlayer";
 import { generateVideoSnippet } from "../utils";
 
 import "./watch.sass";
@@ -41,8 +42,8 @@ const Watch = ({ pageContext }) => {
     const videoPageIds = videoList && Object.keys(videoList);
 
     if (videoPageIds?.length > 0) {
-      import("../components/videoPlayer").then(component => {
-        const VideoPlayer = component.default;
+      // import("../components/videoPlayer").then(component => {
+        // const VideoPlayer = component.default;
 
         videoPageIds.forEach(id => {
           if (videoList[id].length > 0) {
@@ -52,7 +53,7 @@ const Watch = ({ pageContext }) => {
                 render(
                   <VideoPlayer
                     enCaption={{ src: `/assets/${file}.en.vtt` }}
-                    esCaption={{ src: `/assets/${file}.es.vtt` }}
+                    // esCaption={{ src: `/assets/${file}.es.vtt` }}
                     mp4Src={`/assets/${file}.mp4`}
                     // posterImg={`/assets/${file}.jpg`}
                     id={file}
@@ -62,7 +63,7 @@ const Watch = ({ pageContext }) => {
           }
         })
 
-      }).catch(error => console.log("Could not load video player because: ", error))
+      // }).catch(error => console.log("Could not load video player because: ", error))
     }
   });
 

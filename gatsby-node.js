@@ -130,7 +130,7 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create pages
   pages.forEach(({ node }) => {
     // This part here defines our pages' permalink
-    // pattern. e.g `/:category/:slug`. 
+    // pattern. e.g `/:category/:slug`.
     // If the 1st part of the slug before the '-' matches
     // the tag's slug, we'll set this as the url prefix.
     // this is a way to automatically build urls

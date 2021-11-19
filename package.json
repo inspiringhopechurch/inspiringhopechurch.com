@@ -33,6 +33,7 @@
     "acorn": "^8.5.0",
     "bulma": "^0.9.3",
     "core-js": "^3.18.2",
+    "fluid-player": "git+https://github.com/illogic-al/fluid-player.git",
     "framer-motion": "^3.10.6",
     "gatsby": "^3.14.2",
     "gatsby-cli": "^3.14.1",

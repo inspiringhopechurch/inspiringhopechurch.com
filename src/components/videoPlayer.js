@@ -1,6 +1,8 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-import Plyr from "plyr";
+// import Plyr from "plyr";
+import fluidPlayer from "fluid-player";
+import "fluid-player/src/css/fluidplayer.css";
 
 /**
  * Video Player component
@@ -16,17 +18,29 @@ import Plyr from "plyr";
  * @param {boolean=} props.preload - Whether to preload metadata or not
  */
 const VideoPlayer = ({ id, enCaption, esCaption, mp4Src, preload, posterImg, webmSrc }) => {
+  const vidRef = useRef(null)
 
   useEffect(() => {
-    let player = new Plyr(`[id="${id}-video"]`, {
-      resetOnEnd: true
+    let player = fluidPlayer(vidRef.current, {
+      layoutControls: {
+        subtitlesEnabled: true
+      }
     });
 
-    return () => player = null; // hopefully cleanup when gc happens;
+    return () => player.destroy();
   })
+
+  //   useEffect(() => {
+  //     player = new Plyr(`[id="${id}-video"]`, {
+  //       resetOnEnd: true
+  //     });
+  //
+  //     return () => player = null; // hopefully cleanup when gc happens;
+  //   })
 
   return (
     <video
+      ref={vidRef}
       className="has-ratio"
       controls
       id={`${id}-video`}
