@@ -55,14 +55,14 @@ const VideoPlayer = ({ id, enCaption, esCaption, mp4Src, preload, posterImg, web
       />
       {enCaption &&
         <track
-          kind="captions"
+          kind="metadata"
           label="English"
           srcLang="en"
           src={enCaption.src}
         />}
       {esCaption &&
         <track
-          kind="subtitles"
+          kind="metadata"
           label="Español"
           srcLang="es"
           src={esCaption.src}
