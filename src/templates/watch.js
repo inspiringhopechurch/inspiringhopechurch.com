@@ -68,7 +68,7 @@ const Watch = ({ pageContext }) => {
   });
 
   return (
-    <>
+    <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Encouraging Messages" />
       <section className="hero is-halfheight">
         <div className="hero-body">

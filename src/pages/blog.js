@@ -11,7 +11,7 @@ const Blog = ({ data }) => {
   const { edges } = data.allGhostPost;
 
   return (
-    <>
+    <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Inspiring Moments" />
       <section className={`hero is-halfheight`}>
         <div className={`hero-body`}>
@@ -24,7 +24,7 @@ const Blog = ({ data }) => {
         <div className={`columns is-multiline is-centered`}>
           {edges.map(({ node }, index) => (
             <BlogItem
-              isFirstItem = {index === 0}
+              isFirstItem={index === 0}
               blogTitle={node.title}
               // blogImage={node.feature_image}
               blogImageObj={getImage(node.featureImageSharp)}

@@ -96,7 +96,7 @@ const Page = ({ data, location }) => {
   })
 
   return (
-    <>
+    <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO
         title={page.meta_title || page.title}
         desc={page.meta_description || page.excerpt}

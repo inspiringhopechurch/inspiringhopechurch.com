@@ -31,7 +31,7 @@ const Layout = ({ children, location }) => {
   // const previousPage = location?.state?.prevPath;
 
   return (
-    <>
+    <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO />
 
       <Header location={location} />

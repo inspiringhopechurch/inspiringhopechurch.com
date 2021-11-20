@@ -154,7 +154,7 @@ const HomePage = ({ data }) => {
   });
 
   return (
-    <>
+    <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Inspiring Hope Church" />
       <section className={`index-page hero is-large`}>
         <div className={`hero-underlay`}>

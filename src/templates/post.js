@@ -22,7 +22,7 @@ const Post = ({ data }) => {
 
   // TODO: Fix SEO generation here
   return (
-    <>
+    <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO
         title={meta_title || title}
         desc={meta_description || excerpt}
