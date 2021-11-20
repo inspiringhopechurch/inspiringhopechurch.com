@@ -248,6 +248,8 @@ const HomePage = ({ data }) => {
             :
             <VideoPlayer
               enCaption={{ src: `/assets/${renderVideo.videoId}.en.vtt` }}
+              esCaption={{ src: `/assets/${renderVideo.videoId}.es.vtt` }}
+              webmSrc={`/assets/${renderVideo.videoId}.webm`}
               mp4Src={`/assets/${renderVideo.videoId}.mp4`}
               posterImg={`/assets/${renderVideo.videoId}.jpg`}
               id={renderVideo.videoId}
