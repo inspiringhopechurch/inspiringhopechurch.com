@@ -2,6 +2,7 @@
 
 exports[`Post should render without crashing 1`] = `
 <Fragment>
+   
   <SEO
     article={true}
     banner={null}

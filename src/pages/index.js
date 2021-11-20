@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { render } from "react-dom";
+import React, { useEffect, useRef, useState } from "react";
 import { graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,6 +6,7 @@ import config from "../../config";
 import BlogItem from "../components/blogItem";
 import SEO from "../components/seo";
 import FancyHeading from "../components/fancyHeading";
+import VideoPlayer from "../components/videoPlayer";
 import { cleanHtml } from "../utils";
 import "./index.sass";
 import videoPoster from "../assets/ihc_video.jpg";
@@ -20,6 +20,8 @@ const HomePage = ({ data }) => {
   const [emailAddress, setEmailAddress] = useState("");
   const [formSentIndicator, setFormSentIndicator] = useState(false);
   const [isMorning, setIsMorning] = useState(false);
+  const [renderVideo, setRenderVideo] = useState({ nativeMarkup: true, videoId: '' })
+  const videoEl = useRef(null)
   const posts = data.allGhostPost.edges;
   const pages = data.allGhostPage.edges;
   // const isBrowser = typeof document !== "undefined";
@@ -134,24 +136,13 @@ const HomePage = ({ data }) => {
   });
 
   useEffect(() => {
-
-    import("../components/videoPlayer").then(component => {
-      const VideoPlayer = component.default;
-      const file = "inspiring_hope_intro";
-      const vidContainer = document.getElementById('hero-vid-container');
-      vidContainer &&
-        render(
-          <VideoPlayer
-            enCaption={{ src: `/assets/${file}.en.vtt` }}
-            esCaption={{ src: `/assets/${file}.es.vtt` }}
-            mp4Src={`/assets/${file}.mp4`}
-            posterImg={videoPoster}
-            id={file}
-            preload
-          />, vidContainer)
-
-    }).catch(error => console.log("Could not load video player because: ", error));
-  });
+    const videoId = videoEl.current.children[0].children[0].id
+    videoId !== '' &&
+      setRenderVideo({
+        nativeMarkup: false,
+        videoId
+      })
+  }, [])
 
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
@@ -220,38 +211,48 @@ const HomePage = ({ data }) => {
     )}
 
       <section className="index-page video-content">
-        <div id="hero-vid-container">
-          <figure className="image is-16by9">
-            <video
-              className="has-ratio"
-              controls
-              id="inspiring_hope_intro-video"
-              width="100%"
-              height="100%"
-              preload="metadata"
-              poster={videoPoster}
-            >
-              <source
-                src="/assets/inspiring_hope_intro.webm"
-                type="video/webm"
-              />
-              <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
-              <track
-                kind="subtitles"
-                label="English"
-                srcLang="en"
-                src="/assets/inspiring_hope_intro.en.vtt"
-              />
-              <track
-                kind="subtitles"
-                label="Español"
-                srcLang="es"
-                src="/assets/inspiring_hope_intro.es.vtt"
-              />
+        <div ref={videoEl} id="hero-vid-container">
+          {renderVideo.nativeMarkup
+            ?
+            <figure className="image is-16by9">
+              <video
+                className="has-ratio"
+                controls
+                id="inspiring_hope_intro"
+                width="100%"
+                height="100%"
+                preload="metadata"
+                poster={videoPoster}
+              >
+                <source
+                  src="/assets/inspiring_hope_intro.webm"
+                  type="video/webm"
+                />
+                <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
+                <track
+                  kind="subtitles"
+                  label="English"
+                  srcLang="en"
+                  src="/assets/inspiring_hope_intro.en.vtt"
+                />
+                <track
+                  kind="subtitles"
+                  label="Español"
+                  srcLang="es"
+                  src="/assets/inspiring_hope_intro.es.vtt"
+                />
               Unfortunately your browser is old and does not support embedded
               videos. Please consider upgrading.
-            </video>
-          </figure>
+              </video>
+            </figure>
+            :
+            <VideoPlayer
+              enCaption={{ src: `/assets/${renderVideo.videoId}.en.vtt` }}
+              mp4Src={`/assets/${renderVideo.videoId}.mp4`}
+              posterImg={`/assets/${renderVideo.videoId}.jpg`}
+              id={renderVideo.videoId}
+              preload
+            />}
         </div>
         <p className="container is-fluid py-3 is-size-4 has-text-centered">
           Learn more about Inspiring Hope Church by watching this message from Pastor Ben.

@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 import { Link } from "gatsby";
+import VideoPlayer from "../components/videoPlayer";
 import { cleanHtml, cleanHtmlForVideo } from "../utils";
 
 /**
@@ -23,17 +24,39 @@ const MediaItem = ({
   vidSrc,
   timestamp
 }) => {
+  const [renderVideo, setRenderVideo] = useState({ nativeMarkup: true, videoId: '' })
+  const videoEl = useRef(null)
   const ifIsVideo = !!vidSrc; // should check if file ext is mp4, webm or av1 (or heic?)
   const ifIsAudio = false; // check if file ext is mp3
   const isLive = vidSrc.includes('inspiringhopechurch.com');
 
+  useEffect(() => {
+    const videoId = videoEl.current.children[0].children[0].id
+    videoId !== '' &&
+      setRenderVideo({
+        nativeMarkup: false,
+        videoId
+      })
+  }, [])
+
   return (
     <div className="column is-12 post">
-      <article className="columns featured">
+      <article ref={videoEl} className="columns featured">
         {ifIsVideo
-          ? <div className="column is-7 post-img"
-            dangerouslySetInnerHTML={vidSrc && isLive ? cleanHtml(vidSrc) : cleanHtmlForVideo(vidSrc)} />
-          : <div className="column is-7 post-img ">
+          ? (
+            renderVideo.nativeMarkup
+              ? <div className="column is-7 post-img" dangerouslySetInnerHTML={vidSrc && isLive ? cleanHtml(vidSrc) : cleanHtmlForVideo(vidSrc)} />
+              : <div className="column is-7 post-img">
+                <VideoPlayer
+                  enCaption={{ src: `/assets/${renderVideo.videoId}.en.vtt` }}
+                  mp4Src={`/assets/${renderVideo.videoId}.mp4`}
+                  // posterImg={`/assets/${renderVideo.videoId}.jpg`}
+                  id={renderVideo.videoId}
+                  preload
+                />
+              </div>
+          )
+          : <div className="column is-7 post-img">
             <img src={imgSrc} alt="" />
           </div>
         }

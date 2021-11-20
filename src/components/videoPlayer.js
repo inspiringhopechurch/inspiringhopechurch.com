@@ -1,8 +1,5 @@
 import React, { useEffect, useRef } from "react";
 import PropTypes from "prop-types";
-// import Plyr from "plyr";
-import fluidPlayer from "fluid-player";
-import "fluid-player/src/css/fluidplayer.css";
 
 /**
  * Video Player component
@@ -21,22 +18,17 @@ const VideoPlayer = ({ id, enCaption, esCaption, mp4Src, preload, posterImg, web
   const vidRef = useRef(null)
 
   useEffect(() => {
-    let player = fluidPlayer(vidRef.current, {
-      layoutControls: {
-        subtitlesEnabled: true
-      }
-    });
+    /* eslint-disable no-unused-vars */
+    let player;
+    /* eslint-enable no-unused-vars */
+    import("plyr").then(component => {
+      player = new component.default(`[id="${id}-video"]`, {
+        resetOnEnd: true
+      });
+    })
 
-    return () => player.destroy();
+    return () => player = null; // hopefully cleanup when gc happens;
   })
-
-  //   useEffect(() => {
-  //     player = new Plyr(`[id="${id}-video"]`, {
-  //       resetOnEnd: true
-  //     });
-  //
-  //     return () => player = null; // hopefully cleanup when gc happens;
-  //   })
 
   return (
     <video
@@ -46,7 +38,7 @@ const VideoPlayer = ({ id, enCaption, esCaption, mp4Src, preload, posterImg, web
       id={`${id}-video`}
       width="100%"
       height="100%"
-      poster={posterImg ? posterImg : null}
+      poster={posterImg ? posterImg : `/assets/video-logo.svg`}
       preload={preload ? "metadata" : "none"}
       playsInline
     >
@@ -55,14 +47,14 @@ const VideoPlayer = ({ id, enCaption, esCaption, mp4Src, preload, posterImg, web
       />
       {enCaption &&
         <track
-          kind="metadata"
+          kind="subtitles"
           label="English"
           srcLang="en"
           src={enCaption.src}
         />}
       {esCaption &&
         <track
-          kind="metadata"
+          kind="subtitles"
           label="Español"
           srcLang="es"
           src={esCaption.src}
