@@ -13,7 +13,7 @@ module.exports = {
   banner: "src/assets/logo.svg",
   icon: "static/favicon.png",
   favicon: "static/favicon.ico", // Manifest favicon generation
-  shortName: "Inspiring", // Shortname for manifest, must be shorter than 12 characters
+  shortName: "IH Church", // Shortname for manifest, must be shorter than 12 characters
   themeColor: "#58CADD",
   backgroundColor: "#333",
   twitter: "", // Twitter Username
@@ -21,6 +21,7 @@ module.exports = {
   facebook: "InspiringHopeChurch", // Facebook site name
   facebookUrl: "https://www.facebook.com/inspiringhopechurch/", // Facebook site URL
   gaTrackingId: "UA-198062991-1", // 🤮
+  trackingCookieName: "inspiring-hope-analytics",
   matomoUrl: "https://analytics.orbitsolutions.dev", // Matomo URL
   matomoSiteId: "16", // Matomo URL
 };

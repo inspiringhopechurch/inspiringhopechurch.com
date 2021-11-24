@@ -1,5 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import CookieConsent from 'react-cookie-consent';
+import { trackingCookieName } from "../../config"
 import SEO from "../components/seo";
 import Header from "../components/header";
 import Footer from "../components/footer";
@@ -52,6 +54,16 @@ const Layout = ({ children, location }) => {
       </AnimatePresence>
 
       <Footer />
+      <CookieConsent
+        location="bottom"
+        buttonText="Accept"
+        declineButtonText="Decline"
+        enableDeclineButton={true}
+        cookieName={trackingCookieName}
+      >
+        <p>This website stores cookies on your computer. These cookies are used to collect analytics information and allow us to remember you.</p>
+        <p>If you decline, your information won’t be tracked when you visit this website.</p>
+      </CookieConsent>
     </>
   );
 };
