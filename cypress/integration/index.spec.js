@@ -2,6 +2,7 @@
 import terminalLog from "../support/terminalLog";
 
 context("Index", () => {
+  const randNum = Math.floor(Math.random() * 100)
   beforeEach(() => {
     cy.visit("/");
   });
@@ -89,7 +90,7 @@ context("Index", () => {
       cy.get(".container > .content").should("contain.text", "We encountered an error.");
 
       cy.get("#subscribe").clear()
-      cy.get("#subscribe").type("admins@inspiringhopechurch.com");
+      cy.get("#subscribe").type(`adm${randNum}@inspiringhopechurch.com`);
       cy.get("[data-testid=submit-button]").click();
       cy.get(".container > .content > div").should("contain.text", "Check your inbox");
     });

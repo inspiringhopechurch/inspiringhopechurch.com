@@ -1,5 +1,7 @@
 import React from "react";
 import * as PropTypes from "prop-types";
+import CookieConsent from 'react-cookie-consent';
+import { trackingCookieName } from "../../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { validUrl } from "../utils";
 import { facebookUrl, title } from "../../config";
@@ -7,6 +9,16 @@ import "./footer.sass";
 
 const Footer = (props) => (
   <footer className={`footer`}>
+    <CookieConsent
+      location="bottom"
+      buttonText="Accept"
+      declineButtonText="Decline"
+      enableDeclineButton={true}
+      cookieName={trackingCookieName}
+    >
+      <p>Our website would like to store cookies on your computer for the purpose of collecting analytics.</p>
+      <p>If you decline, your information will not be provided to Google Analytics, and we will not be able to use it to improve our website.</p>
+    </CookieConsent>
     <section className={`copyright`}>
       <div className={`container columns is-vcentered content is-small`}>
         <div className={`column`}>
