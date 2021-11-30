@@ -61,8 +61,8 @@ const Layout = ({ children, location }) => {
         enableDeclineButton={true}
         cookieName={trackingCookieName}
       >
-        <p>This website stores cookies on your computer. These cookies are used to collect analytics information and allow us to remember you.</p>
-        <p>If you decline, your information won’t be tracked when you visit this website.</p>
+        <p>Our website would like to store cookies on your computer for the purpose of collecting analytics.</p>
+        <p>If you decline, your information will not be provided to Google Analytics, and we will not be able to use it to improve our website.</p>
       </CookieConsent>
     </>
   );
