@@ -1,4 +1,5 @@
 import sanitizeHtml from "sanitize-html";
+import fs from 'fs';
 
 /** Validates that an URL is of the correct type
  * @param {string} url string representation of URL
@@ -7,6 +8,24 @@ import sanitizeHtml from "sanitize-html";
 export function validUrl(url) {
   const myUrl = new URL(url);
   return ["https:", "http:", "mailto:"].includes(myUrl.protocol);
+}
+
+/**
+ * Check if the file exists on the filesystem. Used to
+ * determine whether to include subtitles or not.
+ *
+ * @param {String} pathToFile Path of the file
+ */
+export function doesFileExist(pathToFile) {
+  try {
+    return fs.statSync(pathToFile).isFile()
+  } catch (e) {
+    if (e.code === `ENOENT`) {
+      return false
+    } else {
+      throw e
+    }
+  }
 }
 
 /** Sanitizes html markup that is passed in. This should be used on any
