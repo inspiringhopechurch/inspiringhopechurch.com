@@ -32,7 +32,7 @@ const typeDefs = `
         postCount: Int
         url: String
         profileImageSharp: File @link
-        coverImageSharp: File @link
+        coverImageSharp: File @link(from: "fields.coverImageSharp")
     }
     type GhostPost implements Node @dontinfer {
         id: String
@@ -139,7 +139,7 @@ const typeDefs = `
         url: String
         logoSharp: File @link
         iconSharp: File @link
-        coverImageSharp: File @link
+        coverImageSharp: File @link(from: "fields.coverImageSharp")
     }
     type Navigation {
         label: String
