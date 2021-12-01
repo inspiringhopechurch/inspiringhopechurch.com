@@ -55,6 +55,7 @@
     "gatsby-transformer-sharp": "^3.14.0",
     "graphql": "^15.6.1",
     "lodash": "^4.17.21",
+    "mediaelement": "^5.0.4",
     "plyr": "^3.6.9",
     "react": "^17.0.2",
     "react-cookie-consent": "^6.4.1",
