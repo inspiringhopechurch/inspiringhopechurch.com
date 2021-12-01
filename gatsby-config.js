@@ -97,12 +97,12 @@ module.exports = {
         siteUrl: config.url,
       },
     },
-    {
-      resolve: `gatsby-plugin-remove-trailing-slashes`,
-      options: {
-        excludedPaths: [`/404.html`],
-      },
-    },
+    // {
+    //   resolve: `gatsby-plugin-remove-trailing-slashes`,
+    //   options: {
+    //     excludedPaths: [`/404.html`],
+    //   },
+    // },
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     // `gatsby-plugin-offline`, // list after manifest plugin
