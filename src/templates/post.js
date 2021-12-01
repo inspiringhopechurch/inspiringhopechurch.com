@@ -30,7 +30,7 @@ const Post = ({ data }) => {
         pathname={slug}
         article
       />
-      <section className={`post-page hero is-halfheight`}>
+      <section className={`post-page fade-in hero is-halfheight`}>
         {/* // TODO: Put Img tag here */}
         <div
           className={`hero-body`}
@@ -48,7 +48,7 @@ const Post = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className={`section post-content`}>
+      <section className={`section fade-in post-content`}>
         <div className={`columns is-centered`}>
           <div
             className={`column content is-two-thirds`}

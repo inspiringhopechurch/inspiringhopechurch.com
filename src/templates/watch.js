@@ -39,14 +39,14 @@ const Watch = ({ pageContext }) => {
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Encouraging Messages" />
-      <section className="hero is-halfheight">
+      <section className="hero fade-in is-halfheight">
         <div className="hero-body">
           <div className="container has-text-centered">
             <FancyHeading heading="Encouraging Messages" />
           </div>
         </div>
       </section>
-      <section className="box is-shadowless watch-content container">
+      <section className="box fade-in is-shadowless watch-content container">
         <div className="columns is-multiline is-centered">
           <MediaItem
             category="Live Stream"

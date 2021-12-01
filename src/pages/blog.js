@@ -13,14 +13,14 @@ const Blog = ({ data }) => {
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Inspiring Moments" />
-      <section className={`hero is-halfheight`}>
+      <section className={`fade-in hero is-halfheight`}>
         <div className={`hero-body`}>
           <div className={`container has-text-centered`}>
             <FancyHeading heading="Inspiring Moments" />
           </div>
         </div>
       </section>
-      <section className={`box is-shadowless blog-content container`}>
+      <section className={`box fade-in is-shadowless blog-content container`}>
         <div className={`columns is-multiline is-centered`}>
           {edges.map(({ node }, index) => (
             <BlogItem

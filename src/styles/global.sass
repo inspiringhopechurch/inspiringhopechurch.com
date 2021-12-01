@@ -31,6 +31,12 @@
 \:root
     --accordion-max-height: calc( 100rem * 1.5 )
 
+@keyframes fadein
+    0%
+        opacity: 0
+    100%
+        opacity: 1
+
 h1,
 h2,
 h3,
@@ -107,3 +113,6 @@ section
         font-weight: 800
         @include from($tablet)
             font-size: 3rem
+
+.fade-in, .index-page
+    animation: fadein $page-transition-time ease-in-out

@@ -7,7 +7,7 @@ import "./404.sass";
 const NotFound = () => (
   <> {/* eslint-disable react/jsx-pascal-case */}
     <SEO title="Page Not Found" />
-    <section className="not-found-page hero is-halfheight">
+    <section className="not-found-page fade-in hero is-halfheight">
       <div className="hero-body">
         <div className="container has-text-centered">
           <FancyHeading heading="Page Not Found" />
@@ -15,7 +15,7 @@ const NotFound = () => (
       </div>
     </section>
 
-    <section className="not-found-page section container hero is-halfheight">
+    <section className="not-found-page fade-in section container hero is-halfheight">
       <div className="columns content is-medium is-centered">
         <div className="container has-text-centered">
           <p className="title">

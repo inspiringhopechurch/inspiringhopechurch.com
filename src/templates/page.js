@@ -105,7 +105,7 @@ const Page = ({ data, location }) => {
         article={isBlogPage}
       />
 
-      <section className="generated-page hero is-halfheight">
+      <section className="generated-page fade-in hero is-halfheight">
         <div className="hero-body">
           <div className="container has-text-centered">
             <FancyHeading heading={pageTitle} />
@@ -113,7 +113,7 @@ const Page = ({ data, location }) => {
         </div>
       </section>
 
-      <section className="generated-page section container">
+      <section className="generated-page fade-in section container">
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
           {isBeliefPage ?

@@ -10,7 +10,7 @@ import "./contact.sass";
 const Contact = () => (
   <> {/* eslint-disable react/jsx-pascal-case */}
     <SEO title="Contact Us" />
-    <section className={`contact-page hero is-halfheight`}>
+    <section className={`contact-page fade-in hero is-halfheight`}>
       <div className={`hero-body`}>
         <div className={`container has-text-centered`}>
           <FancyHeading heading="Contact Us" />
@@ -19,22 +19,22 @@ const Contact = () => (
     </section>
 
     <section
-      className={`contact-page contact-content section is-halfheight`}
+      className={`contact-page fade-in contact-content section is-halfheight`}
     >
       <div className={`columns content is-centered`}>
         <div className={`column is-one-third-tablet mb-4`}>
           <FancyHeading className={`has-text-centered`} heading={"Have Questions?"} />
           <p>
             Do you have questions about Inspiring Hope Church? Would like to join one of our groups? <br />
-              Please feel free to call, reach us on facebook, or use the form on this page to get in touch!
-            </p>
+            Please feel free to call, reach us on facebook, or use the form on this page to get in touch!
+          </p>
           <p>
             <span className="icon"><FontAwesomeIcon icon={["fas", "map-marker-alt"]} size="lg" /></span> Based in Hamilton, Ohio.
-            </p>
+          </p>
           <p>
             <a href="tel:19189318591" title="Get in touch!">
               <span className="icon"><FontAwesomeIcon icon={["fas", "phone"]} size="lg" flip="horizontal" /></span> 1 (918) 931-8591
-              </a>
+            </a>
           </p>
           <p>
             <a
@@ -42,7 +42,7 @@ const Contact = () => (
               title="Link to Facebook page"
             >
               <span className="icon"><FontAwesomeIcon icon={["fab", "facebook-f"]} size="lg" /></span> Inspiring Hope Facebook page
-              </a>
+            </a>
           </p>
         </div>
 
