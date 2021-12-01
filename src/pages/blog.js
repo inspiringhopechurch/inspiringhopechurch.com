@@ -20,7 +20,7 @@ const Blog = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className={`box fade-in is-shadowless blog-content container`}>
+      <section className={`box is-shadowless blog-content container`}>
         <div className={`columns is-multiline is-centered`}>
           {edges.map(({ node }, index) => (
             <BlogItem

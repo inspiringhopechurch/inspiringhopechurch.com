@@ -19,7 +19,7 @@ const Contact = () => (
     </section>
 
     <section
-      className={`contact-page fade-in contact-content section is-halfheight`}
+      className={`contact-page contact-content section is-halfheight`}
     >
       <div className={`columns content is-centered`}>
         <div className={`column is-one-third-tablet mb-4`}>

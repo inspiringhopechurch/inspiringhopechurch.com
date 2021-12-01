@@ -48,7 +48,7 @@ const Post = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className={`section fade-in post-content`}>
+      <section className={`section post-content`}>
         <div className={`columns is-centered`}>
           <div
             className={`column content is-two-thirds`}

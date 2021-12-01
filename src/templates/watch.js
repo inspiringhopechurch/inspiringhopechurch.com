@@ -46,7 +46,7 @@ const Watch = ({ pageContext }) => {
           </div>
         </div>
       </section>
-      <section className="box fade-in is-shadowless watch-content container">
+      <section className="box is-shadowless watch-content container">
         <div className="columns is-multiline is-centered">
           <MediaItem
             category="Live Stream"

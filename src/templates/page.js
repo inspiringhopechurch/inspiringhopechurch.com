@@ -113,7 +113,7 @@ const Page = ({ data, location }) => {
         </div>
       </section>
 
-      <section className="generated-page fade-in section container">
+      <section className="generated-page section container">
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
           {isBeliefPage ?
