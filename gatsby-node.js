@@ -104,15 +104,15 @@ exports.createPages = async ({ graphql, actions }) => {
   const numWatchPages = Math.ceil(watchPages.length / videosPerWatchPage)
   // Create watch pages
   Array.from({ length: numWatchPages }).forEach((_, i) => {
-    // Split into two variables (pages and filteredPages) for debugging purposes.
-    const pages = watchPages.map((item, j) => {
+    // Was split into watchPagelist and filteredWatchPages to ease debugging.
+    const watchPagelist = watchPages.map((item, j) => {
       if (i === 0 && j < videosPerWatchPage) {
         return item;
       } else if (i > 0 && j >= (i * videosPerWatchPage) && j < (i * videosPerWatchPage) + videosPerWatchPage) {
         return item;
       }
-    })
-    const filteredPages = pages.filter(item => item !== undefined);
+    }).filter(item => item !== undefined);
+    // const filteredWatchPages = watchPagelist.filter(item => item !== undefined);
 
     createPage({
       path: i === 0 ? `/watch` : `/watch/${i + 1}`,
@@ -122,7 +122,7 @@ exports.createPages = async ({ graphql, actions }) => {
         skip: i * videosPerWatchPage,
         numPages: numWatchPages,
         currentPage: i + 1,
-        watchPages: filteredPages
+        watchPages: watchPagelist
       },
     })
   })
