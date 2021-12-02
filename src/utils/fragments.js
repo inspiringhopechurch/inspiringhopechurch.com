@@ -140,7 +140,7 @@ export const ghostPostFields = graphql`
       base
       publicURL
       childImageSharp {
-        gatsbyImageData(quality: 90)
+        gatsbyImageData(quality: 90, formats: [AUTO, WEBP], layout: FULL_WIDTH)
       }
     }
   }
@@ -255,9 +255,7 @@ export const ghostPageFields = graphql`
       base
       publicURL
       childImageSharp {
-        fluid(maxWidth: 1040) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(quality: 90, formats: [AUTO, WEBP], layout: FULL_WIDTH)
       }
     }
   }
@@ -292,9 +290,7 @@ export const ghostSettingsFields = graphql`
         height
       }
       childImageSharp {
-        fluid(maxWidth: 1040, quality: 90) {
-          ...GatsbyImageSharpFluid_withWebp
-        }
+        gatsbyImageData(quality: 90, formats: [AUTO, WEBP], layout: FULL_WIDTH)
       }
     }
   }

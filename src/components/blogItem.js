@@ -34,7 +34,7 @@ const BlogItem = (props) => (
         <img alt="" src={props.blogImage} />
       </figure>
     )}
-    
+
     {!props.onBlogIndex && props.blogImageObj && (
       <figure className="image blog-image">
         <GatsbyImage alt="" image={(props.blogImageObj)} />
@@ -45,12 +45,12 @@ const BlogItem = (props) => (
         <img alt="" src={props.blogImage} />
       </figure>
     )}
-    
+
     <div className="blog-info">
       <h2 className={`title is-5`}>
         <Link to={props.blogLink}>{props.blogTitle}</Link>
       </h2>
-      <h3 className={`subtitle is-7`}>{props.blogAuthor && props.blogAuthor} { props.blogReadingTime ? `﹒ ${props.blogReadingTime} min read` : ""}</h3>
+      <h3 className={`subtitle is-7`}>{props.blogAuthor && props.blogAuthor} {props.blogReadingTime ? `﹒ ${props.blogReadingTime} min read` : ""}</h3>
     </div>
     <p className="blog-excerpt">{props.blogExcerpt}...</p>
     <Link className={`button is-link`} to={props.blogLink}>
