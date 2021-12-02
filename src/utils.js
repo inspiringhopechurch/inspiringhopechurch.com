@@ -94,7 +94,7 @@ export function generateVideoSnippet(videoName, posterName) {
         width="100%"
         height="100%"
         preload="metadata"
-        poster="/assets/${posterName}"
+        poster="${posterName ? "/assets/" + posterName : ""}"
       >
         <source src="/assets/${videoName}.webm" type="video/webm" />
         <source src="/assets/${videoName}.mp4" type="video/mp4" />

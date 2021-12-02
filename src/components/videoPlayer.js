@@ -23,7 +23,9 @@ const VideoPlayer = ({ id, enCaption, esCaption, mp4Src, preload, posterImg, web
     /* eslint-enable no-unused-vars */
     import("plyr").then(component => {
       player = new component.default(`[id="${id}-video"]`, {
-        resetOnEnd: true
+        resetOnEnd: true,
+        disableContextMenu: false,
+        enabled: true
       });
     })
 
