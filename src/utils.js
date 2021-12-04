@@ -86,7 +86,6 @@ export function cleanHtmlForVideo(markup) {
  */
 export function generateVideoSnippet(videoName, posterName) {
   return `<div id="${videoName}" class="container" data-id="${videoName}">
-    <figure class="image is-16by9">
       <video
         class="has-ratio"
         controls
@@ -102,5 +101,5 @@ export function generateVideoSnippet(videoName, posterName) {
         <track kind="subtitles" srcLang="es" label="Español" src="/assets/${videoName}.es.vtt" />
         Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
       </video>
-    </figure></div>`;
+    </div>`;
 }

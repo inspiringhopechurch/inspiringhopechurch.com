@@ -1,5 +1,4 @@
 import React, { useEffect } from "react";
-import { render } from "react-dom";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
 import { cleanHtml, cleanHtmlForVideo, generateVideoSnippet } from "../utils";
@@ -75,22 +74,17 @@ const Page = ({ data, location }) => {
 
 
   useEffect(() => {
+    let list = []
     if (videoList.length > 0) {
-      import("../components/videoPlayer").then(component => {
-        const VideoPlayer = component.default;
-        videoList.forEach(file => {
-          const vidContainer = document.querySelector(`#${file}`);
-          render(
-            <VideoPlayer
-              id={file}
-              enCaption={{ src: `/assets/${file}.en.vtt` }}
-              esCaption={{ src: `/assets/${file}.es.vtt` }}
-              mp4Src={`/assets/${file}.mp4`}
-              webmSrc={`/assets/${file}.webm`}
-              posterImg={`/assets/${file}.jpg`}
-              preload
-            />, vidContainer)
-        })
+      import("plyr").then(component => {
+        videoList.forEach(id => {
+          list.push(new component.default(`[id="${id}-video"]`, {
+            resetOnEnd: true,
+            disableContextMenu: false,
+            enabled: true
+          })
+          )
+        });
       }).catch(error => console.log("Could not load video player because: ", error))
     }
   })

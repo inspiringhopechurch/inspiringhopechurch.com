@@ -29,7 +29,7 @@ const Watch = ({ pageContext }) => {
 
       videoList[node.id].forEach(file => {
         const videoPlaceholder = `<div class="container" data-id="${file}"></div>`;
-        const videoSnippet = generateVideoSnippet(file, ``);
+        const videoSnippet = generateVideoSnippet(file, "");
         node.html = node.html.replace(videoPlaceholder, videoSnippet);
       })
     }
