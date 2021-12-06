@@ -19,8 +19,8 @@ steps:
   # - npm i -g gatsby-cli
   - git pull origin ${DRONE_COMMIT_REF}
   - npm ci # install cypress npm package without installing the binary
-  # - npm test # Don't bother with integration tests if unit tests fail
-  - gatsby build
+  # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
+  - GATSBY_CPU_COUNT=2 gatsby build
   when:
     ref:
     - refs/tags/v*
