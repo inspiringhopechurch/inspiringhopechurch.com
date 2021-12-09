@@ -11,7 +11,7 @@ exports[`Page should render without crashing 1`] = `
     title="Weekly Gathering - Inspire Kids"
   />
   <section
-    className="generated-page hero is-halfheight"
+    className="generated-page fade-in hero is-halfheight"
   >
     <div
       className="hero-body"

@@ -7,6 +7,171 @@ exports[`Footer should render without crashing 1`] = `
   <footer
     className="footer"
   >
+    <a
+      ButtonComponent={[Function]}
+      acceptOnScroll={false}
+      acceptOnScrollPercentage={25}
+      ariaAcceptLabel="Accept cookies"
+      ariaDeclineLabel="Decline cookies"
+      buttonClasses=""
+      buttonId="rcc-confirm-button"
+      buttonText="Accept"
+      buttonWrapperClasses=""
+      containerClasses="CookieConsent"
+      contentClasses=""
+      cookieName="inspiring-hope-analytics"
+      cookieValue={true}
+      debug={false}
+      declineButtonClasses=""
+      declineButtonId="rcc-decline-button"
+      declineButtonText="Decline"
+      declineCookieValue={false}
+      disableButtonStyles={false}
+      disableStyles={false}
+      enableDeclineButton={true}
+      expires={365}
+      extraCookieOptions={Object {}}
+      flipButtons={false}
+      hideOnAccept={true}
+      hideOnDecline={true}
+      location="bottom"
+      onAccept={[Function]}
+      onDecline={[Function]}
+      overlay={false}
+      overlayClasses=""
+      sameSite="lax"
+      setDeclineCookie={true}
+      visible="byCookieValue"
+    >
+      <j
+        condition={false}
+        wrapper={[Function]}
+      >
+        <div
+          className="CookieConsent"
+          style={
+            Object {
+              "alignItems": "baseline",
+              "background": "#353535",
+              "bottom": "0",
+              "color": "white",
+              "display": "flex",
+              "flexWrap": "wrap",
+              "justifyContent": "space-between",
+              "left": "0",
+              "position": "fixed",
+              "width": "100%",
+              "zIndex": "999",
+            }
+          }
+        >
+          <div
+            className=""
+            style={
+              Object {
+                "flex": "1 0 300px",
+                "margin": "15px",
+              }
+            }
+          >
+            <p>
+              Our website would like to store cookies on your computer for the purpose of collecting analytics.
+            </p>
+            <p>
+              If you decline, your information will not be provided to Google Analytics, and we will not be able to use it to improve our website.
+            </p>
+          </div>
+          <div
+            className=""
+          >
+            <ButtonComponent
+              aria-label="Decline cookies"
+              className=""
+              id="rcc-decline-button"
+              key="declineButton"
+              onClick={[Function]}
+              style={
+                Object {
+                  "background": "#c12a2a",
+                  "border": "0",
+                  "borderRadius": "0px",
+                  "boxShadow": "none",
+                  "color": "#e5e5e5",
+                  "cursor": "pointer",
+                  "flex": "0 0 auto",
+                  "margin": "15px",
+                  "padding": "5px 10px",
+                }
+              }
+            >
+              <button
+                aria-label="Decline cookies"
+                className=""
+                id="rcc-decline-button"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "background": "#c12a2a",
+                    "border": "0",
+                    "borderRadius": "0px",
+                    "boxShadow": "none",
+                    "color": "#e5e5e5",
+                    "cursor": "pointer",
+                    "flex": "0 0 auto",
+                    "margin": "15px",
+                    "padding": "5px 10px",
+                  }
+                }
+              >
+                Decline
+              </button>
+            </ButtonComponent>
+            <ButtonComponent
+              aria-label="Accept cookies"
+              className=""
+              id="rcc-confirm-button"
+              key="acceptButton"
+              onClick={[Function]}
+              style={
+                Object {
+                  "background": "#ffd42d",
+                  "border": "0",
+                  "borderRadius": "0px",
+                  "boxShadow": "none",
+                  "color": "black",
+                  "cursor": "pointer",
+                  "flex": "0 0 auto",
+                  "margin": "15px",
+                  "padding": "5px 10px",
+                }
+              }
+            >
+              <button
+                aria-label="Accept cookies"
+                className=""
+                id="rcc-confirm-button"
+                onClick={[Function]}
+                style={
+                  Object {
+                    "background": "#ffd42d",
+                    "border": "0",
+                    "borderRadius": "0px",
+                    "boxShadow": "none",
+                    "color": "black",
+                    "cursor": "pointer",
+                    "flex": "0 0 auto",
+                    "margin": "15px",
+                    "padding": "5px 10px",
+                  }
+                }
+              >
+                Accept
+              </button>
+            </ButtonComponent>
+          </div>
+        </div>
+      </j>
+    </a>
     <section
       className="copyright"
     >

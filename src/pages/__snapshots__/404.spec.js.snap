@@ -11,7 +11,7 @@ exports[`NotFound should render without crashing 1`] = `
     title="Page Not Found"
   />
   <section
-    className="not-found-page hero is-halfheight"
+    className="not-found-page fade-in hero is-halfheight"
   >
     <div
       className="hero-body"

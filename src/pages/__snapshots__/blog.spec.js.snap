@@ -11,7 +11,7 @@ exports[`Blog should render without crashing 1`] = `
     title="Inspiring Moments"
   />
   <section
-    className="hero is-halfheight"
+    className="fade-in hero is-halfheight"
   >
     <div
       className="hero-body"
