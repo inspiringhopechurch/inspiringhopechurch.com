@@ -54,7 +54,6 @@ steps:
       exclude:
       - tag
 
-
 # Deploy develop branch to development folder - dev.inspiringhopechurch.com
 - name: deploy development
   image: appleboy/drone-scp
