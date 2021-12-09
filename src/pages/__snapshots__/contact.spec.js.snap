@@ -11,7 +11,7 @@ exports[`Contact should render without crashing 1`] = `
     title="Contact Us"
   />
   <section
-    className="contact-page hero is-halfheight"
+    className="contact-page fade-in hero is-halfheight"
   >
     <div
       className="hero-body"

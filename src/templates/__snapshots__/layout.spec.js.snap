@@ -20,38 +20,9 @@ exports[`Layout should render without crashing 1`] = `
       }
     }
   />
-  <AnimatePresence
-    initial={false}
-  >
-    <ForwardRef(MotionComponent)
-      animate="enter"
-      className="main-dark"
-      exit="exit"
-      initial="initial"
-      key="/"
-      variants={
-        Object {
-          "enter": Object {
-            "opacity": 1,
-            "transition": Object {
-              "delay": 0.25,
-              "duration": 0.25,
-              "when": "beforeChildren",
-            },
-          },
-          "exit": Object {
-            "opacity": 0,
-            "transition": Object {
-              "duration": 0.25,
-            },
-          },
-          "initial": Object {
-            "opacity": 0,
-          },
-        }
-      }
-    />
-  </AnimatePresence>
+  <main
+    className="main-dark"
+  />
   <Footer
     copyrightOwner="Inspiring Hope Church"
   />

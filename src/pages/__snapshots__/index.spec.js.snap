@@ -11,7 +11,7 @@ exports[`Index should render without crashing 1`] = `
     title="Inspiring Hope Church"
   />
   <section
-    className="index-page hero is-large"
+    className="index-page fade-in hero is-large"
   >
     <div
       className="hero-underlay"
