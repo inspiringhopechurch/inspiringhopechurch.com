@@ -106,7 +106,9 @@ const ContactForm = ({
         },
         body: formContent
       });
-      const data = await response.json();
+      const contentType = response.headers.get('content-type')
+      const data = contentType?.includes('text/plain') ?
+        await response.text() : await response.json();
 
       submitMSG(data, !response.ok);
     } else {
