@@ -81,7 +81,8 @@ const Page = ({ data, location }) => {
           list.push(new component.default(`[id="${id}-video"]`, {
             resetOnEnd: true,
             disableContextMenu: false,
-            enabled: true
+            enabled: true,
+            fullscreen: { enabled: true, fallback: true, }
           })
           )
         });

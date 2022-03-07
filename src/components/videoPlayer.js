@@ -25,7 +25,8 @@ const VideoPlayer = ({ id, enCaption, esCaption, mp4Src, preload, posterImg, web
       player = new component.default(`[id="${id}-video"]`, {
         resetOnEnd: true,
         disableContextMenu: false,
-        enabled: true
+        enabled: true,
+        fullscreen: { enabled: true, fallback: true, }
       });
     })
 
