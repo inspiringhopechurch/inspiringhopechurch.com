@@ -80,13 +80,13 @@ const Header = ({ location }) => {
                 Home
               </Link>
               <Link
-                className={`navbar-item ${
+                className={`navbar-item has-text-weight-bold ${
                   location.pathname === easterUrl ? "is-active-page" : ""
                 }`}
                 to={easterUrl}
                 state={{ prevPath: location.pathname }}
               >
-                Easter
+                Easter 2022
               </Link>
               <Link
                 className={`navbar-item ${
