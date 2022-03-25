@@ -20,7 +20,8 @@ const Header = ({ location }) => {
     contactUrl   = "/contact",
     giveUrl      = "/give",
     watchUrl = "/watch/",
-    getConnected = "/get-connected";
+    getConnected = "/get-connected",
+    easterUrl = "/events/easter-sunday-2022";
 
   return (
     <header>
@@ -77,6 +78,15 @@ const Header = ({ location }) => {
                 state={{ prevPath: location.pathname }}
               >
                 Home
+              </Link>
+              <Link
+                className={`navbar-item ${
+                  location.pathname === easterUrl ? "is-active-page" : ""
+                }`}
+                to={easterUrl}
+                state={{ prevPath: location.pathname }}
+              >
+                Easter
               </Link>
               <Link
                 className={`navbar-item ${
