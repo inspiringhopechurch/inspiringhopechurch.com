@@ -52,7 +52,7 @@ context("Index", () => {
         .should("be.hidden");
     });
 
-    it("has a playable hero video", () => {
+    xit("has a playable hero video", () => {
       cy.get("#hero-vid-container video").then((video) => {
         const el = video.get(0);
         el.muted = true;
