@@ -135,15 +135,6 @@ const HomePage = ({ data }) => {
     }
   });
 
-  useEffect(() => {
-    const videoId = videoEl.current.children[0].children[0].id
-    videoId !== '' &&
-      setRenderVideo({
-        nativeMarkup: false,
-        videoId
-      })
-  }, [])
-
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Inspiring Hope Church" />
@@ -209,57 +200,6 @@ const HomePage = ({ data }) => {
         </div>
       </section>
     )}
-
-      <section className="index-page video-content">
-        <div ref={videoEl} id="hero-vid-container">
-          {renderVideo.nativeMarkup
-            ?
-            <figure className="image is-16by9">
-              <video
-                className="has-ratio"
-                controls
-                id="inspiring_hope_intro"
-                width="100%"
-                height="100%"
-                preload="metadata"
-                poster={videoPoster}
-              >
-                <source
-                  src="/assets/inspiring_hope_intro.webm"
-                  type="video/webm"
-                />
-                <source src="/assets/inspiring_hope_intro.mp4" type="video/mp4" />
-                <track
-                  kind="subtitles"
-                  label="English"
-                  srcLang="en"
-                  src="/assets/inspiring_hope_intro.en.vtt"
-                />
-                <track
-                  kind="subtitles"
-                  label="Español"
-                  srcLang="es"
-                  src="/assets/inspiring_hope_intro.es.vtt"
-                />
-              Unfortunately your browser is old and does not support embedded
-              videos. Please consider upgrading.
-              </video>
-            </figure>
-            :
-            <VideoPlayer
-              enCaption={{ src: `/assets/${renderVideo.videoId}.en.vtt` }}
-              esCaption={{ src: `/assets/${renderVideo.videoId}.es.vtt` }}
-              webmSrc={`/assets/${renderVideo.videoId}.webm`}
-              mp4Src={`/assets/${renderVideo.videoId}.mp4`}
-              posterImg={`/assets/${renderVideo.videoId}.jpg`}
-              id={renderVideo.videoId}
-              preload
-            />}
-        </div>
-        <p className="container is-fluid py-3 is-size-4 has-text-centered">
-          Learn more about Inspiring Hope Church by watching this message from Pastor Ben.
-        </p>
-      </section>
 
     {weeklyGatheringSection && (
       <section className="index-page gathering-section section px-0">
