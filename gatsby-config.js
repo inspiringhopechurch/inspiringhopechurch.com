@@ -30,6 +30,7 @@ if (process.env.NODE_ENV === `production` && config.siteUrl === `http://localhos
 
 /** Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/ */
 module.exports = {
+  trailingSlash: "never",
   siteMetadata: {
     ...config, // Will be used be SEO component
   },
@@ -39,7 +40,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `src`,
-        path: `${__dirname}/src/`,
+        path: `src/`,
       },
     },
     `gatsby-transformer-sharp`,
@@ -97,16 +98,10 @@ module.exports = {
         siteUrl: config.url,
       },
     },
-    // {
-    //   resolve: `gatsby-plugin-remove-trailing-slashes`,
-    //   options: {
-    //     excludedPaths: [`/404.html`],
-    //   },
-    // },
     `gatsby-plugin-sass`,
     `gatsby-plugin-sitemap`,
     // `gatsby-plugin-offline`, // list after manifest plugin
-    `gatsby-plugin-remove-serviceworker`, // properly remove offline service worker
+    // `gatsby-plugin-remove-serviceworker`, properly remove offline service worker
     {
       resolve: "gatsby-plugin-feed-generator",
       options: {
