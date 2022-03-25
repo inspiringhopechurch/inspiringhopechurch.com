@@ -75,7 +75,6 @@
     "gatsby-plugin-prettier-build": "^0.4.4",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^27.4.3",
-    "prettier": "^2.6.1",
-    "raf": "^3.4.1"
+    "prettier": "^2.6.1"
   }
 }

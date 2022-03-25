@@ -9,12 +9,12 @@ module.exports = {
     "^gatsby-core-utils/(.*)$": `gatsby-core-utils/dist/$1`, // Workaround for https://github.com/facebook/jest/issues/9771
   },
   testEnvironment: "jsdom",
-  testPathIgnorePatterns: [`cypress`, `src/fixtures`, `node_modules`, `.cache`],
+  testPathIgnorePatterns: [`cypress`, `src/fixtures`, `node_modules`, `.cache`, `<rootDir>.*/public`],
   transformIgnorePatterns: [`node_modules/(?!(gatsby)/)`],
   globals: {
     __PATH_PREFIX__: ``,
   },
   testURL: `http://localhost`,
-  setupFiles: ["raf/polyfill", "<rootDir>/setupTests.js"],
+  setupFiles: ["<rootDir>/setupTests.js"],
   snapshotSerializers: ["enzyme-to-json/serializer"],
 };
