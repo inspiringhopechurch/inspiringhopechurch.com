@@ -18,8 +18,12 @@ exports[`Promotion should render without crashing 1`] = `
         5
          
         <FontAwesomeIcon
+          beat={false}
+          beatFade={false}
           border={false}
+          bounce={false}
           className=""
+          fade={false}
           fixedWidth={false}
           flip={null}
           icon={
@@ -31,14 +35,17 @@ exports[`Promotion should render without crashing 1`] = `
           inverse={false}
           listItem={false}
           mask={null}
+          maskId={null}
           pull={null}
           pulse={false}
           rotation={null}
+          shake={false}
           size={null}
           spin={false}
           swapOpacity={false}
           symbol={false}
           title=""
+          titleId={null}
           transform={null}
         />
          Off!

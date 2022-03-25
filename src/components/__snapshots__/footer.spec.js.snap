@@ -202,8 +202,12 @@ exports[`Footer should render without crashing 1`] = `
                 className="icon"
               >
                 <FontAwesomeIcon
+                  beat={false}
+                  beatFade={false}
                   border={false}
+                  bounce={false}
                   className=""
+                  fade={false}
                   fixedWidth={false}
                   flip={null}
                   icon={
@@ -215,14 +219,17 @@ exports[`Footer should render without crashing 1`] = `
                   inverse={false}
                   listItem={false}
                   mask={null}
+                  maskId={null}
                   pull={null}
                   pulse={false}
                   rotation={null}
+                  shake={false}
                   size={null}
                   spin={false}
                   swapOpacity={false}
                   symbol={false}
                   title=""
+                  titleId={null}
                   transform={null}
                 >
                   <svg

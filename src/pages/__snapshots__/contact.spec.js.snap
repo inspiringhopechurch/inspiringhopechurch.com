@@ -48,8 +48,12 @@ exports[`Contact should render without crashing 1`] = `
             className="icon"
           >
             <FontAwesomeIcon
+              beat={false}
+              beatFade={false}
               border={false}
+              bounce={false}
               className=""
+              fade={false}
               fixedWidth={false}
               flip={null}
               icon={
@@ -61,14 +65,17 @@ exports[`Contact should render without crashing 1`] = `
               inverse={false}
               listItem={false}
               mask={null}
+              maskId={null}
               pull={null}
               pulse={false}
               rotation={null}
+              shake={false}
               size="lg"
               spin={false}
               swapOpacity={false}
               symbol={false}
               title=""
+              titleId={null}
               transform={null}
             />
           </span>
@@ -83,8 +90,12 @@ exports[`Contact should render without crashing 1`] = `
               className="icon"
             >
               <FontAwesomeIcon
+                beat={false}
+                beatFade={false}
                 border={false}
+                bounce={false}
                 className=""
+                fade={false}
                 fixedWidth={false}
                 flip="horizontal"
                 icon={
@@ -96,14 +107,17 @@ exports[`Contact should render without crashing 1`] = `
                 inverse={false}
                 listItem={false}
                 mask={null}
+                maskId={null}
                 pull={null}
                 pulse={false}
                 rotation={null}
+                shake={false}
                 size="lg"
                 spin={false}
                 swapOpacity={false}
                 symbol={false}
                 title=""
+                titleId={null}
                 transform={null}
               />
             </span>
@@ -119,8 +133,12 @@ exports[`Contact should render without crashing 1`] = `
               className="icon"
             >
               <FontAwesomeIcon
+                beat={false}
+                beatFade={false}
                 border={false}
+                bounce={false}
                 className=""
+                fade={false}
                 fixedWidth={false}
                 flip={null}
                 icon={
@@ -132,14 +150,17 @@ exports[`Contact should render without crashing 1`] = `
                 inverse={false}
                 listItem={false}
                 mask={null}
+                maskId={null}
                 pull={null}
                 pulse={false}
                 rotation={null}
+                shake={false}
                 size="lg"
                 spin={false}
                 swapOpacity={false}
                 symbol={false}
                 title=""
+                titleId={null}
                 transform={null}
               />
             </span>
