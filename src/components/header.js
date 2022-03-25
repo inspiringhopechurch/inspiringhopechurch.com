@@ -19,7 +19,7 @@ const Header = ({ location }) => {
     partnersUrl  = "/about/partners",
     contactUrl   = "/contact",
     giveUrl      = "/give",
-    watchUrl = "/watch/",
+    watchUrl = "/watch",
     getConnected = "/get-connected",
     easterUrl = "/events/easter-sunday-2022";
 
