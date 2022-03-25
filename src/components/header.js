@@ -79,7 +79,7 @@ const Header = ({ location }) => {
               >
                 Home
               </Link>
-              <Link
+              {false && <Link
                 className={`navbar-item has-text-weight-bold ${
                   location.pathname === easterUrl ? "is-active-page" : ""
                 }`}
@@ -87,7 +87,7 @@ const Header = ({ location }) => {
                 state={{ prevPath: location.pathname }}
               >
                 Easter 2022
-              </Link>
+              </Link>}
               <Link
                 className={`navbar-item ${
                   location.pathname.includes(getConnected)
