@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -6,10 +6,8 @@ import config from "../../config";
 import BlogItem from "../components/blogItem";
 import SEO from "../components/seo";
 import FancyHeading from "../components/fancyHeading";
-import VideoPlayer from "../components/videoPlayer";
 import { cleanHtml } from "../utils";
 import "./index.sass";
-import videoPoster from "../assets/ihc_video.jpg";
 
 const HomePage = ({ data }) => {
   const SUNDAY = 0;
@@ -20,11 +18,8 @@ const HomePage = ({ data }) => {
   const [emailAddress, setEmailAddress] = useState("");
   const [formSentIndicator, setFormSentIndicator] = useState(false);
   const [isMorning, setIsMorning] = useState(false);
-  const [renderVideo, setRenderVideo] = useState({ nativeMarkup: true, videoId: '' })
-  const videoEl = useRef(null)
   const posts = data.allGhostPost.edges;
   const pages = data.allGhostPage.edges;
-  // const isBrowser = typeof document !== "undefined";
 
   /**
    * Finds the item in an array that contains a given slug. This slug
