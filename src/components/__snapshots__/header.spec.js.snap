@@ -156,7 +156,7 @@ exports[`Header should render without crashing 1`] = `
                 "prevPath": "/",
               }
             }
-            to="/watch/"
+            to="/watch"
           >
             Watch
           </mockConstructor>
