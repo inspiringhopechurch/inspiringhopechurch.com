@@ -169,7 +169,7 @@ const HomePage = ({ data }) => {
               </div>*/}
             </div>
           </div>
-          <div className="hero-foot">
+          <div className="hero-foot pb-6">
             <nav className="tabs is-centered">
               <div className="container">
                 <ul>
