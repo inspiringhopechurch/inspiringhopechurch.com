@@ -44,6 +44,9 @@ const HomePage = ({ data }) => {
   const kidsSection = pages.find(page =>
     findGhostSection(page, "home-weekly-gathering-inspire-kids")
   )?.node;
+  const youthSection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering-inspire-youth")
+  )?.node;
   const whoWeAreSection = pages.find(page =>
     findGhostSection(page, "home-who-we-are")
   )?.node;
@@ -350,9 +353,13 @@ const HomePage = ({ data }) => {
       )}
 
 
-    {kidsSection && (
-      <section className="index-page kids-section section">
+    <section className="index-page kids-section section">
+      {kidsSection && (
         <div className="columns container" dangerouslySetInnerHTML={cleanHtml(kidsSection.html)} />
+      )}
+      {youthSection && (
+        <div className="columns container" dangerouslySetInnerHTML={cleanHtml(youthSection.html)} />
+      )}
         
         <div className="columns container">
           <div className="column is-full">
@@ -363,8 +370,7 @@ const HomePage = ({ data }) => {
             </div>
           </div>
         </div>
-      </section>
-    )}
+    </section>
 
       <section className={`index-page blog-section section`}>
         <div className={`columns content`}>
