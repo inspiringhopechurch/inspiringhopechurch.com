@@ -238,6 +238,18 @@ const HomePage = ({ data }) => {
           </div>
         </div>
         <div className="content" dangerouslySetInnerHTML={cleanHtml(weeklyGatheringSection.html)} />
+        <div className="columns container">
+          <div className="column is-full">
+            <div className="control has-text-centered my-3">
+              <Link className="button is-link has-text-weight-light is-medium" to="/watch">
+                <span className="icon is-medium">
+                  <FontAwesomeIcon icon={["fas", "video"]} size="1x" />
+                </span>
+                <span>{`Watch ${isSunday && isMorning ? "Live" : "Messages"}`}</span>
+              </Link>
+            </div>
+          </div>
+        </div>
       </section>
     )}
 
