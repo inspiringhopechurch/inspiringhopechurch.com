@@ -51,6 +51,7 @@
     "gatsby-transformer-sharp": "^4.10.0",
     "graphql": "^15.8.0",
     "lodash": "^4.17.21",
+    "mapbox-gl": "^2.7.1",
     "plyr": "3.6.12",
     "react": "^17.0.2",
     "react-cookie-consent": "6.4.1",

@@ -4,6 +4,7 @@ import { getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from "../../config";
 import BlogItem from "../components/blogItem";
+import Map from "../components/map";
 import SEO from "../components/seo";
 import FancyHeading from "../components/fancyHeading";
 import { cleanHtml } from "../utils";
@@ -135,7 +136,7 @@ const HomePage = ({ data }) => {
 
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
-      <SEO title="Inspiring Hope Church" />
+      <SEO title="Inspiring Hope Church" page="Index" />
       <section className={`index-page fade-in hero is-large`}>
         {/*<div className={`hero-underlay`}>*/}
           <div className={`hero-body`}>
@@ -252,6 +253,8 @@ const HomePage = ({ data }) => {
         </div>
       </section>
     )}
+
+    <Map latitude={-84.565} longitude={39.399} />
 
       { careSection && (
         <section className="index-page caring-section section">

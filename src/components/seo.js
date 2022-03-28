@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import { StaticQuery, graphql } from "gatsby";
 import { validUrl } from "../utils";
 
-const SEO = ({ title, desc, banner, pathname, article }) => (
+const SEO = ({ title, desc, banner, page, pathname, article }) => (
   <StaticQuery
     query={query}
     render={({
@@ -123,6 +123,7 @@ const SEO = ({ title, desc, banner, pathname, article }) => (
               />
             )}
 
+            {page === "Index" && <link rel="stylesheet" href="/assets/mapbox-gl.css" />}
             <link rel="canonical" href={validUrl(seo.url) ? seo.url : ""} />
           </Helmet>
         </>
@@ -135,6 +136,7 @@ SEO.propTypes = {
   title: PropTypes.string,
   desc: PropTypes.string,
   banner: PropTypes.string,
+  page: PropTypes.string,
   pathname: PropTypes.string,
   article: PropTypes.bool
 };

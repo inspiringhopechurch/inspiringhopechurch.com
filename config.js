@@ -24,4 +24,5 @@ module.exports = {
   trackingCookieName: "inspiring-hope-analytics",
   matomoUrl: "https://analytics.orbitsolutions.dev", // Matomo URL
   matomoSiteId: "16", // Matomo URL
+  mapboxApiKey: "pk.eyJ1IjoiaWxsb2dpYy1hbCIsImEiOiJQbEhGaWdFIn0.zcXDcfBMp6CwnzyKAZku2Q"
 };
