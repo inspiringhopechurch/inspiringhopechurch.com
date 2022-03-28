@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import * as PropTypes from "prop-types";
 import mapboxgl from "mapbox-gl";
 import { mapboxApiKey, title } from "../../config";
@@ -6,9 +6,22 @@ import "./map.sass";
 
 const Map = ({ latitude, longitude }) => {
   const mapContainerRef = useRef(null);
+  const [animateMap, setAnimateMap] = useState(false);
   mapboxgl.accessToken = mapboxApiKey;
 
+  const triggerAnimation = (entries, observer) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting && !animateMap) {
+        setAnimateMap(true);
+      }
+    });
+  };
+
   useEffect(() => {
+    let options = { root: document.querySelector("main") };
+    let observer = new IntersectionObserver(triggerAnimation);
+    observer.observe(mapContainerRef.current);
+
     const coordinates = [longitude, latitude];
     const map = new mapboxgl.Map({
       container: mapContainerRef.current,
@@ -17,9 +30,8 @@ const Map = ({ latitude, longitude }) => {
       style: "mapbox://styles/mapbox/outdoors-v11",
       // style: 'mapbox://styles/illogic-al/cj5ehelyd1dor2rpnwckkhrz7',
       center: coordinates,
-      minZoom: 10,
-      maxZoom: 20,
-      zoom: 17,
+      minZoom: 13,
+      maxZoom: 19,
       scrollZoom: false,
     });
 
@@ -39,9 +51,16 @@ const Map = ({ latitude, longitude }) => {
       .addTo(map);
     marker.togglePopup();
 
-    // clean up on unmount
-    return () => map.remove();
-  }, [longitude, latitude]);
+    if (animateMap) {
+      map.easeTo({ bearing: 40, duration: 5000, pitch: 0, zoom: 17 });
+    }
+
+    // cleanup
+    return () => {
+      map.remove();
+      observer.disconnect();
+    }
+  }, [animateMap, longitude, latitude]);
 
   return <section ref={mapContainerRef} className="map-container" />;
 };
