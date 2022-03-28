@@ -290,8 +290,8 @@ exports[`Index should render without crashing 1`] = `
     </div>
   </section>
   <Map
-    latitude={-84.565}
-    longitude={39.399}
+    latitude={39.399}
+    longitude={-84.565}
   />
   <section
     className="index-page caring-section section"

@@ -254,7 +254,7 @@ const HomePage = ({ data }) => {
       </section>
     )}
 
-    <Map latitude={-84.565} longitude={39.399} />
+    <Map longitude={-84.565} latitude={39.399} />
 
       { careSection && (
         <section className="index-page caring-section section">
