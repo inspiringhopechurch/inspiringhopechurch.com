@@ -62,7 +62,8 @@ const Watch = ({ pageContext }) => {
                 title="Stream Sunday Messages from Inspiring Hope Church"
                 referrerPolicy="origin"
                 scrolling="no"
-                allowFullScreen />
+                allow="fullscreen"
+                allowFullScreen="true" />
             </figure>
             `}
           />
