@@ -1,25 +1,22 @@
 import React, { useEffect, useRef, useState } from "react";
 import * as PropTypes from "prop-types";
-import mapboxgl from "mapbox-gl";
+import mapboxgl from "!mapbox-gl";
 import { mapboxApiKey, title } from "../../config";
 import "./map.sass";
 
 const Map = ({ latitude, longitude }) => {
   const mapContainerRef = useRef(null);
-  const [animateMap, setAnimateMap] = useState(false);
   mapboxgl.accessToken = mapboxApiKey;
 
-  const triggerAnimation = (entries, observer) => {
-    entries.forEach((entry) => {
-      if (entry.isIntersecting && !animateMap) {
-        setAnimateMap(true);
-      }
-    });
-  };
-
   useEffect(() => {
-    let options = { root: document.querySelector("main") };
-    let observer = new IntersectionObserver(triggerAnimation);
+    let options = { root: document.querySelector("main"),  };
+    let observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting === true) {
+            map.easeTo({ bearing: 40, duration: 5000, pitch: 0, zoom: 17 })
+          }
+        });
+      }, options);
     observer.observe(mapContainerRef.current);
 
     const coordinates = [longitude, latitude];
@@ -51,16 +48,12 @@ const Map = ({ latitude, longitude }) => {
       .addTo(map);
     marker.togglePopup();
 
-    if (animateMap) {
-      map.easeTo({ bearing: 40, duration: 5000, pitch: 0, zoom: 17 });
-    }
-
     // cleanup
     return () => {
       map.remove();
       observer.disconnect();
-    }
-  }, [animateMap, longitude, latitude]);
+    };
+  }, [longitude, latitude]);
 
   return <section ref={mapContainerRef} className="map-container" />;
 };
