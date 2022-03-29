@@ -144,7 +144,7 @@ const HomePage = ({ data }) => {
           <div className="container">
             <div className="columns is-vcentered">
               <div className="column has-text-centered">
-                <img className="hero-image" src={easterText} />
+                <img alt="He is Risen" className="hero-image" src={easterText} />
               </div>
             </div>
             {/*<div className={`columns is-vcentered`}>

@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef } from "react";
 import * as PropTypes from "prop-types";
 import mapboxgl from "!mapbox-gl";
 import { mapboxApiKey, title } from "../../config";

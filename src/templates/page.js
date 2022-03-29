@@ -22,6 +22,7 @@ const Page = ({ data, location }) => {
   const isMissionPage = location?.pathname.includes("/about/mission");
   const isGivePage = location?.pathname.includes("/give");
   const isBlogPage = location?.pathname.includes("/blog");
+  const isEasterPage = location?.pathname.includes("/easter-sunday");
   let pageContent = {};
   let pageHeading = "";
   let videoList = [];
@@ -96,15 +97,22 @@ const Page = ({ data, location }) => {
         title={page.meta_title || page.title}
         desc={page.meta_description || page.excerpt}
         banner={page.featureImageSharp?.publicURL}
+        page={isEasterPage ? "Easter" : undefined}
         pathname={page.slug}
         article={isBlogPage}
       />
 
       <section className="generated-page fade-in hero is-halfheight">
-        <div className="hero-body">
-          <div className="container has-text-centered">
-            <FancyHeading heading={pageTitle} />
-          </div>
+        <div className="hero-body" style={{
+          background: `url(${page.featureImageSharp?.publicURL})`,
+          backgroundSize: "cover",
+          backgroundPosition: "center"
+        }}>
+          {!isEasterPage && (
+            <div className="container has-text-centered">
+              <FancyHeading heading={pageTitle} />
+            </div>
+          )}
         </div>
       </section>
 
@@ -149,16 +157,16 @@ Page.propTypes = {
       codeinjection_styles: PropTypes.object,
       title: PropTypes.string.isRequired,
       html: PropTypes.string.isRequired,
-      feature_image: PropTypes.string
-    }).isRequired
+      feature_image: PropTypes.string,
+    }).isRequired,
   }).isRequired,
-  location: PropTypes.object.isRequired
+  location: PropTypes.object.isRequired,
 };
 
 export default Page;
 
 export const postQuery = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     ghostPage(slug: { eq: $slug }) {
       ...GhostPageFields
     }
