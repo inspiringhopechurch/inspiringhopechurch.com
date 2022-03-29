@@ -8,6 +8,7 @@ import Map from "../components/map";
 import SEO from "../components/seo";
 import FancyHeading from "../components/fancyHeading";
 import { cleanHtml } from "../utils";
+import easterText from "../assets/Easter2022_Web_TEXT_SMALL_02.png";
 import "./index.sass";
 
 const HomePage = ({ data }) => {
@@ -137,15 +138,16 @@ const HomePage = ({ data }) => {
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
       <SEO title="Inspiring Hope Church" page="Index" />
-      <section className={`index-page fade-in hero is-large`}>
-        {/*<div className={`hero-underlay`}>*/}
-          <div className={`hero-body`}>
-            <div className={`container`}>
-              <div className={`columns is-vcentered`}>
-                <div className={`column`}>
-                </div>
+      <section className="index-page fade-in hero is-small">
+        {/*<div className="hero-underlay">*/}
+        <div className="hero-body">
+          <div className="container">
+            <div className="columns is-vcentered">
+              <div className="column has-text-centered">
+                <img className="hero-image" src={easterText} />
               </div>
-              {/*<div className={`columns is-vcentered`}>
+            </div>
+            {/*<div className={`columns is-vcentered`}>
                 <div className={`column`}>
                   <Link
                     className="button is-link is-large"
