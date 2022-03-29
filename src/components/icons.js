@@ -10,9 +10,11 @@ import {
   faUser,
   faPaperPlane,
   faPhone,
-  faVideo,
+  faRss,
+  faRssSquare,
+  faVideo
 } from "@fortawesome/free-solid-svg-icons";
-import { faFacebookF, faTwitter } from "@fortawesome/free-brands-svg-icons";
+import { faFacebookF, faTwitter, faSpotify } from "@fortawesome/free-brands-svg-icons";
 
 // Initialize icon library to use throughout our app
 library.add(
@@ -28,5 +30,8 @@ library.add(
   faPhone,
   faFacebookF,
   faTwitter,
+  faRss,
+  faRssSquare,
+  faSpotify,
   faVideo,
 );

@@ -4,11 +4,11 @@ import CookieConsent from 'react-cookie-consent';
 import { trackingCookieName } from "../../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { validUrl } from "../utils";
-import { facebookUrl, title } from "../../config";
+import { facebookUrl, spotifyUrl, title } from "../../config";
 import "./footer.sass";
 
 const Footer = (props) => (
-  <footer className={`footer`}>
+  <footer className="footer">
     <CookieConsent
       location="bottom"
       buttonText="Accept"
@@ -19,33 +19,42 @@ const Footer = (props) => (
       <p>Our website would like to store cookies on your computer for the purpose of collecting analytics.</p>
       <p>If you decline, your information will not be provided to Google Analytics, and we will not be able to use it to improve our website.</p>
     </CookieConsent>
-    <section className={`copyright`}>
-      <div className={`container columns is-vcentered content is-small`}>
-        <div className={`column`}>
-          <p>&copy; {props.copyrightOwner}. A church proudly serving Jesus in Hamilton, Ohio since 2020.</p>
-        </div>
-        <div className={`column is-narrow`}>
-          <div className={`navbar-end is-flex`}>
+    <section className="copyright">
+      <div className="container columns">
+        <div className="column has-text-centered">
+          <div className=" content is-small">
             <a
-              className={`button is-primary is-outlined`}
+              className="button is-link mr-3"
               href={validUrl(facebookUrl) ? facebookUrl : ""}
               title="Link to Inspiring Hope Church facebook page"
             >
               <span className="icon"><FontAwesomeIcon icon={["fab", "facebook-f"]} /></span>
             </a>
-            <a className="navbar-item is-sr-only" href="/sitemap.xml" title="XML Sitemap">
+            <a
+              className="button is-link mr-3"
+              href={validUrl(spotifyUrl) ? spotifyUrl : ""}
+              title="Link to Inspiring Hope Church Spotify page"
+            >
+              <span className="icon"><FontAwesomeIcon icon={["fab", "spotify"]} /></span>
+            </a>
+            <a className="button is-link mr-3" href="/feed.xml" title="XML RSS Feed">
+              <span className="icon"><FontAwesomeIcon icon={["fas", "rss"]} /></span>
+            </a>
+            <a className="button is-link mr-3" href="/feed.json" title="JSON Feed">
+              <span className="icon"><FontAwesomeIcon icon={["fas", "rss-square"]} /></span>
+            </a>
+            <a className="button is-sr-only" href="/sitemap.xml" title="XML Sitemap">
               Sitemap
             </a>
-            <a className="navbar-item" href="/feed.xml" title="XML RSS Feed">
-              RSS
-            </a>
-            <a className="navbar-item" href="/feed.json" title="JSON Feed">
-              JSON
-            </a>
-            <a className="navbar-item" href="//orbitsolutions.dev">
-              Made by ORB IT Solutions.
+            <a className="content is-small is-sr-only" href="//orbitsolutions.dev">
+              Developed by ORB IT Solutions.
             </a>
           </div>
+        </div>
+      </div>
+      <div className="container columns">
+        <div className="column has-text-centered">
+          <p>&copy; {props.copyrightOwner}. A church proudly serving Jesus in Hamilton, Ohio since 2020.</p>
         </div>
       </div>
     </section>

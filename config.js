@@ -19,7 +19,8 @@ module.exports = {
   twitter: "", // Twitter Username
   linkedIn: "", // LinkedIn username
   facebook: "InspiringHopeChurch", // Facebook site name
-  facebookUrl: "https://www.facebook.com/inspiringhopechurch/", // Facebook site URL
+  facebookUrl: "https://www.facebook.com/inspiringhopechurch/",
+  spotifyUrl: "https://www.facebook.com/inspiringhopechurch/", // Facebook site URL
   gaTrackingId: "UA-198062991-1", // 🤮
   trackingCookieName: "inspiring-hope-analytics",
   matomoUrl: "https://analytics.orbitsolutions.dev", // Matomo URL
