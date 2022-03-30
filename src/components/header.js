@@ -79,10 +79,9 @@ const Header = ({ location }) => {
               >
                 Home
               </Link>
-              {false && <Link
-                className={`navbar-item has-text-weight-bold ${
-                  location.pathname === easterUrl ? "is-active-page" : ""
-                }`}
+              {true && <Link
+                className={`navbar-item has-text-weight-bold ${location.pathname === easterUrl ? "is-active-page" : ""
+                  }`}
                 to={easterUrl}
                 state={{ prevPath: location.pathname }}
               >
