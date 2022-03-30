@@ -7,6 +7,8 @@ import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
 import FancyHeading from "../components/fancyHeading";
 import SEO from "../components/seo";
+import easterBg from "../assets/Easter2022_Web_BG_02.jpg";
+import easterBgOverlay from "../assets/Easter2022_Web_EASTERLOGO_02.png";
 import "./page.sass";
 
 /**
@@ -117,11 +119,13 @@ const Page = ({ data, location }) => {
       />
 
       <section className="generated-page fade-in hero is-halfheight">
-        <div className="hero-body" style={{
+        <div className="hero-body" style={(page.featureImageSharp?.publicURL || isEasterPage) ? {
           background: `url(${page.featureImageSharp?.publicURL})`,
-          backgroundSize: "cover",
-          backgroundPosition: "center"
-        }}>
+          backgroundImage: `${isEasterPage ? `url(${easterBgOverlay}) , url(${easterBg})` : ""}`,
+          backgroundSize: `${isEasterPage ? "contain, cover" : "cover"}`,
+          backgroundPosition: `${isEasterPage ? "center, center" : "center"}`,
+          backgroundRepeat: `${isEasterPage ? "no-repeat" : ""}`,
+        } : {}}>
           {!isEasterPage && (
             <div className="container has-text-centered">
               <FancyHeading heading={pageTitle} />
