@@ -76,6 +76,17 @@ exports[`Header should render without crashing 1`] = `
             Home
           </mockConstructor>
           <mockConstructor
+            className="navbar-item has-text-weight-bold "
+            state={
+              Object {
+                "prevPath": "/",
+              }
+            }
+            to="/events/easter-sunday-2022"
+          >
+            Easter 2022
+          </mockConstructor>
+          <mockConstructor
             className="navbar-item "
             state={
               Object {

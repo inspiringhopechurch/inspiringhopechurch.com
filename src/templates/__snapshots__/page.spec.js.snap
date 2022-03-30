@@ -15,6 +15,13 @@ exports[`Page should render without crashing 1`] = `
   >
     <div
       className="hero-body"
+      style={
+        Object {
+          "background": "url(undefined)",
+          "backgroundPosition": "center",
+          "backgroundSize": "cover",
+        }
+      }
     >
       <div
         className="container has-text-centered"

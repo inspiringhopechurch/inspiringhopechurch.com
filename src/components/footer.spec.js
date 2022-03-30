@@ -15,7 +15,7 @@ describe("Footer", () => {
   it("should render without crashing", () => {
     const myFooter = mount(<Footer />);
     expect(myFooter.prop("copyrightOwner")).toBe(defaultOwner);
-    expect(myFooter.find(".navbar-end.is-flex a")).toHaveLength(5);
+    expect(myFooter.find(".footer .content.is-small a")).toHaveLength(6);
     expect(myFooter).toMatchSnapshot();
   });
 
