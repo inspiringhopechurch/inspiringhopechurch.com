@@ -1,11 +1,17 @@
-import React from "react";
-import { Link } from "gatsby";
+import React, { useLayoutEffect } from "react";
+import { Link, navigate } from "gatsby";
 import FancyHeading from "../components/fancyHeading";
 import SEO from "../components/seo";
 import "./404.sass";
 
-const NotFound = () => (
-  <> {/* eslint-disable react/jsx-pascal-case */}
+const NotFound = ({ location }) => {
+  useLayoutEffect(() => {
+    if (location.pathname === '/easter-sunday-2022') {
+      navigate('/events/easter-sunday-2022', { replace: true })
+    }
+  });
+
+  return <> {/* eslint-disable react/jsx-pascal-case */}
     <SEO title="Page Not Found" />
     <section className="not-found-page fade-in hero is-halfheight">
       <div className="hero-body">
@@ -29,7 +35,7 @@ const NotFound = () => (
       </div>
     </section>
   </>
-);
+};
 
 // Default export is rendered when user visits page.
 export default NotFound;
