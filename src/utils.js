@@ -44,7 +44,7 @@ export function cleanHtml(markup) {
         path: ["d", "fill"],
         g: ["fill"],
         "*": ["class", "id", "data-*"],
-        iframe: ['src', 'title', 'referrerpolicy', 'scrolling']
+        iframe: ['src', 'title', 'referrerpolicy', 'scrolling', 'allow', 'allowfullscreen']
       },
       allowedIframeHostnames: ['www.youtube.com', 'stream.inspiringhopechurch.com'],
       transformTags: {

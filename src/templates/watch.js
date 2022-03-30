@@ -60,10 +60,10 @@ const Watch = ({ pageContext }) => {
                 class="has-ratio"
                 src="https://stream.inspiringhopechurch.com/embed/video"
                 title="Stream Sunday Messages from Inspiring Hope Church"
-                referrerPolicy="origin"
+                referrerpolicy="origin"
                 scrolling="no"
                 allow="fullscreen"
-                allowFullScreen="true" />
+                allowfullScreen="true" />
             </figure>
             `}
           />
