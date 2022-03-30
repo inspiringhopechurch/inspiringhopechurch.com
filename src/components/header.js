@@ -85,7 +85,7 @@ const Header = ({ location }) => {
                 to={easterUrl}
                 state={{ prevPath: location.pathname }}
               >
-                Easter 2022
+                Easter
               </Link>}
               <Link
                 className={`navbar-item ${
