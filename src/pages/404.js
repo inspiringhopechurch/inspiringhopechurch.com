@@ -6,7 +6,7 @@ import "./404.sass";
 
 const NotFound = ({ location }) => {
   useLayoutEffect(() => {
-    if (location.pathname === '/easter-sunday-2022') {
+    if (location.pathname === '/easter-sunday-2022' || location.pathname === '/easter-sunday-2022/') {
       navigate('/events/easter-sunday-2022', { replace: true })
     }
   });
