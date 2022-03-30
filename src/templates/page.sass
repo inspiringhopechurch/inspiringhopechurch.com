@@ -7,9 +7,18 @@ $plyr-color-main: $turquoise
 @import "../../node_modules/plyr/src/sass/plyr.scss"
 
 .generated-page
-    .kg-width-full
-        margin-left: -22rem
-        margin-right: -22rem
     .content dd
         margin-bottom: 2rem
 
+.easter-page
+    .kg-width-full
+        margin: 0 -1rem
+    @include from($tablet)
+        .kg-width-full
+            margin: 0 -10rem
+    @include from($desktop)
+        .kg-width-full
+            margin: 0 -15rem
+    @include from($fullhd)
+        .kg-width-full
+            margin: 0 -22rem

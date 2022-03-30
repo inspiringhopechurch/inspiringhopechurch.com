@@ -134,7 +134,7 @@ const Page = ({ data, location }) => {
         </div>
       </section>
 
-      <section className="generated-page section container">
+      <section className={`${isEasterPage ? 'easter-page ' : ''}generated-page section container`}>
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
           {isBeliefPage ?
