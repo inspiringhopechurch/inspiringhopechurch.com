@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import { cleanHtml, cleanHtmlForVideo, generateVideoSnippet } from "../utils";
+import { cleanHtml, cleanHtmlForVideo, findGhostSection, generateVideoSnippet } from "../utils";
 import { RefTagger } from "../components/reftagger";
 import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
@@ -17,6 +17,7 @@ import "./page.sass";
  */
 const Page = ({ data, location }) => {
   const page = data.ghostPage;
+  const pages = data.allGhostPage.edges;
   const pageTitle = page.title;
   const isBeliefPage = location?.pathname.includes("/about/beliefs");
   const isMissionPage = location?.pathname.includes("/about/mission");
@@ -27,6 +28,19 @@ const Page = ({ data, location }) => {
   let pageHeading = "";
   let videoList = [];
   const isBrowser = typeof document !== "undefined";
+
+  const kidsSection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering-inspire-kids")
+  )?.node;
+  const youthSection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering-inspire-youth")
+  )?.node;
+  const serveSundaySection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering-serve-sundays")
+  )?.node;
+  const inspireGroupsSection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering-inspire-groups")
+  )?.node;
 
   // Since we don't have access to the DOM when server-side rendering,
   // only run the code below if in the browser.
@@ -136,6 +150,26 @@ const Page = ({ data, location }) => {
           {location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
 
+        {isEasterPage && (
+          <div className="columns content is-medium is-centered">
+            <div className="column is-two-thirds">
+              <section className="easter-page groups-section">
+                {kidsSection && (
+                  <div className="columns container" dangerouslySetInnerHTML={cleanHtml(kidsSection.html)} />
+                )}
+                {youthSection && (
+                  <div className="columns container" dangerouslySetInnerHTML={cleanHtml(youthSection.html)} />
+                )}
+                {serveSundaySection && (
+                  <div className="columns container" dangerouslySetInnerHTML={cleanHtml(serveSundaySection.html)} />
+                )}
+                {inspireGroupsSection && (
+                  <div className="columns container" dangerouslySetInnerHTML={cleanHtml(inspireGroupsSection.html)} />
+                )}
+              </section>
+            </div>
+          </div>
+        )}
         {(location.pathname === "/get-connected" || location.pathname.startsWith("/events")) && (
           <div className="columns content is-medium is-centered">
             <div className={`column is-two-thirds`}>
@@ -169,6 +203,17 @@ export const postQuery = graphql`
   query ($slug: String!) {
     ghostPage(slug: { eq: $slug }) {
       ...GhostPageFields
+    }
+    allGhostPage(
+      filter: { tags: { elemMatch: { name: { eq: "Home Page" } } } }
+    ) {
+      edges {
+        node {
+          html
+          title
+          slug
+        }
+      }
     }
   }
 `;

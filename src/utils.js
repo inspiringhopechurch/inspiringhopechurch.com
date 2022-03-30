@@ -1,6 +1,17 @@
 import sanitizeHtml from "sanitize-html";
 import fs from 'fs';
 
+/**
+ * Finds the item in an array that contains a given slug. This slug
+ * corresponds to a particular slice of content in Ghost will will be
+ * used on this page.
+ * @param {Object} page - Object that represents a Gatsby page content.
+ * @param {string} query - string that corresponds to a Ghost slug.
+ */
+export function findGhostSection(page, query) {
+  return (page.node.slug === query) ? page.node : undefined;
+}
+
 /** Validates that an URL is of the correct type
  * @param {string} url string representation of URL
  * @returns {boolean} True if `url` is one of valid types, false otherwise

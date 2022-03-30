@@ -7,7 +7,7 @@ import BlogItem from "../components/blogItem";
 import Map from "../components/map";
 import SEO from "../components/seo";
 import FancyHeading from "../components/fancyHeading";
-import { cleanHtml } from "../utils";
+import { cleanHtml, findGhostSection } from "../utils";
 import easterText from "../assets/Easter2022_Web_TEXT_SMALL_02.png";
 import "./index.sass";
 
@@ -23,17 +23,6 @@ const HomePage = ({ data }) => {
   const posts = data.allGhostPost.edges;
   const pages = data.allGhostPage.edges;
 
-  /**
-   * Finds the item in an array that contains a given slug. This slug
-   * corresponds to a particular slice of content in Ghost will will be
-   * used on this page.
-   * @param {Object} page - Object that represents a Gatsby page content.
-   * @param {string} query - string that corresponds to a Ghost slug.
-   */
-  const findGhostSection = (page, query) => {
-    return (page.node.slug === query) ? page.node : undefined;
-  }
-
   const bibleVerseSection = pages.find(page =>
     findGhostSection(page, "home-page-verse")
   )?.node;
@@ -48,6 +37,12 @@ const HomePage = ({ data }) => {
   )?.node;
   const youthSection = pages.find(page =>
     findGhostSection(page, "home-weekly-gathering-inspire-youth")
+  )?.node;
+  const serveSundaySection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering-serve-sundays")
+  )?.node;
+  const inspireGroupsSection = pages.find(page =>
+    findGhostSection(page, "home-weekly-gathering-inspire-groups")
   )?.node;
   const whoWeAreSection = pages.find(page =>
     findGhostSection(page, "home-who-we-are")
@@ -373,14 +368,20 @@ const HomePage = ({ data }) => {
       )}
 
 
-    <section className="index-page kids-section section">
-      {kidsSection && (
-        <div className="columns container" dangerouslySetInnerHTML={cleanHtml(kidsSection.html)} />
-      )}
-      {youthSection && (
-        <div className="columns container" dangerouslySetInnerHTML={cleanHtml(youthSection.html)} />
-      )}
-        
+      <section className="index-page kids-section section">
+        {kidsSection && (
+          <div className="columns container" dangerouslySetInnerHTML={cleanHtml(kidsSection.html)} />
+        )}
+        {youthSection && (
+          <div className="columns container" dangerouslySetInnerHTML={cleanHtml(youthSection.html)} />
+        )}
+        {serveSundaySection && (
+          <div className="columns container" dangerouslySetInnerHTML={cleanHtml(serveSundaySection.html)} />
+        )}
+        {inspireGroupsSection && (
+          <div className="columns container" dangerouslySetInnerHTML={cleanHtml(inspireGroupsSection.html)} />
+        )}
+
         <div className="columns container">
           <div className="column is-full">
             <div className="control has-text-centered my-3">
@@ -390,7 +391,7 @@ const HomePage = ({ data }) => {
             </div>
           </div>
         </div>
-    </section>
+      </section>
 
       <section className={`index-page blog-section section`}>
         <div className={`columns content`}>
