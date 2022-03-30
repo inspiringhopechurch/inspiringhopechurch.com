@@ -12,7 +12,7 @@ exports[`Index should render without crashing 1`] = `
     title="Inspiring Hope Church"
   />
   <section
-    className="index-page fade-in hero is-large"
+    className="index-page fade-in hero is-small"
   >
     <div
       className="hero-body"
@@ -24,8 +24,14 @@ exports[`Index should render without crashing 1`] = `
           className="columns is-vcentered"
         >
           <div
-            className="column"
-          />
+            className="column has-text-centered"
+          >
+            <img
+              alt="He is Risen"
+              className="hero-image"
+              src="test-file-stub"
+            />
+          </div>
         </div>
       </div>
     </div>
@@ -289,7 +295,7 @@ exports[`Index should render without crashing 1`] = `
       </div>
     </div>
   </section>
-  <Map
+  <Component
     latitude={39.399}
     longitude={-84.565}
   />
