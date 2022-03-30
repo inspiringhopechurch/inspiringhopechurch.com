@@ -9,14 +9,14 @@ const Map = ({ latitude, longitude }) => {
   mapboxgl.accessToken = mapboxApiKey;
 
   useEffect(() => {
-    let options = { root: document.querySelector("main"),  };
+    let options = { root: document.querySelector("main"), };
     let observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach((entry) => {
-          if (entry.isIntersecting === true) {
-            map.easeTo({ bearing: 40, duration: 5000, pitch: 0, zoom: 17 })
-          }
-        });
-      }, options);
+      entries.forEach((entry) => {
+        if (entry.isIntersecting === true) {
+          map.easeTo({ bearing: 40, duration: 5000, pitch: 0, zoom: 17 })
+        }
+      });
+    }, options);
     observer.observe(mapContainerRef.current);
 
     const coordinates = [longitude, latitude];

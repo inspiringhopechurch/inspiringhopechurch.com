@@ -11,13 +11,15 @@ import "./fancyHeading.sass";
  */
 const FancyHeading = ({ className, heading, splitHeading }) => {
   const [firstWord, ...remainingWords] = heading.split(" ");
+  const headingId = heading.trim().toLowerCase().replace(/ /g, '-')
 
+  // TODO - check in unit test that id gets slugified properly.
   const formattedHeading = splitHeading ? (
-    <h2 className={`two-line-heading${className ? " " + className : ""}`}>
+    <h2 id={headingId} className={`two-line-heading${className ? " " + className : ""}`}>
       <span className="first-word">{firstWord}</span> {remainingWords.join(" ")}
     </h2>
   ) : (
-    <h1 className={`fancy-heading ${className ? className : ""}`}>
+    <h1 id={headingId} className={`fancy-heading${className ? ` ${className}` : ""}`}>
       <span className="first-word">{firstWord}</span>{" "}
       <span className="decorated">{remainingWords.join(" ")}</span>
     </h1>
