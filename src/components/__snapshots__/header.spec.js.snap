@@ -84,7 +84,7 @@ exports[`Header should render without crashing 1`] = `
             }
             to="/events/easter-sunday-2022"
           >
-            Easter 2022
+            Easter
           </mockConstructor>
           <mockConstructor
             className="navbar-item "
