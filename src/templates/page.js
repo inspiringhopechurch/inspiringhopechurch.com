@@ -171,6 +171,7 @@ const Page = ({ data, location }) => {
                   <div className="columns container" dangerouslySetInnerHTML={cleanHtml(inspireGroupsSection.html)} />
                 )}
               </section>
+              <hr />
             </div>
           </div>
         )}
