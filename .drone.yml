@@ -112,6 +112,7 @@ steps:
   when:
     event:
     - tag
+    - custom
     status:
     - success
 
