@@ -47,6 +47,7 @@ steps:
   when:
     ref:
     - refs/tags/v*
+    - refs/heads/main
     event:
     - push
     - tag
