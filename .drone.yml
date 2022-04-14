@@ -4,7 +4,7 @@ type: docker
 name: inspiringhopechurch
 
 steps:
-- name: build site
+- name: build development site
   image: mastrbennett/node-gatsby
   environment:
     GHOST_API_URL:
@@ -21,7 +21,6 @@ steps:
   - GATSBY_CPU_COUNT=2 gatsby build
   when:
     ref:
-    - refs/heads/main
     - refs/heads/develop
     event:
     - push
