@@ -78,7 +78,7 @@ const Header = ({ location }) => {
               >
                 Home
               </Link>
-              {true && <Link
+              {false && <Link
                 className={`navbar-item has-text-weight-bold ${location.pathname === easterUrl ? "is-active-page" : ""
                   }`}
                 to={easterUrl}
