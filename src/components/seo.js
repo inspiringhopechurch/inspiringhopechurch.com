@@ -26,7 +26,9 @@ const SEO = ({ title, desc, banner, page, pathname, article }) => (
       }
     }) => {
       const seo = {
-        title: title ? `${title} | ${defaultTitle}` : defaultTitle,
+        title: title ?
+          title.trim() === defaultTitle.trim() ? title : `${title} | ${defaultTitle}` :
+          defaultTitle,
         description: desc || defaultDescription,
         image: `${url}${pathPrefix}${banner || defaultBanner}`,
         url: `${url}${article ? '/blog/' : pathPrefix}${pathname || ''}`,

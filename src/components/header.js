@@ -27,7 +27,6 @@ const Header = ({ location }) => {
     <header>
       <nav
         className={`navbar is-fixed-top`}
-        role="navigation"
         aria-label="main navigation"
       >
         <div className={`container px-2`}>
