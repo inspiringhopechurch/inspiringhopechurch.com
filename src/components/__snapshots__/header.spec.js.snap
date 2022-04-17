@@ -5,7 +5,6 @@ exports[`Header should render without crashing 1`] = `
   <nav
     aria-label="main navigation"
     className="navbar is-fixed-top"
-    role="navigation"
   >
     <div
       className="container px-2"
@@ -74,17 +73,6 @@ exports[`Header should render without crashing 1`] = `
             to="/"
           >
             Home
-          </mockConstructor>
-          <mockConstructor
-            className="navbar-item has-text-weight-bold "
-            state={
-              Object {
-                "prevPath": "/",
-              }
-            }
-            to="/events/easter-sunday-2022"
-          >
-            Easter
           </mockConstructor>
           <mockConstructor
             className="navbar-item "
