@@ -12,7 +12,7 @@ jobs:
     env:
       NODE_ENV: production
       # Don't install cypress binary
-      CYPRESS_INSTALL_BINARY: 0
+      # CYPRESS_INSTALL_BINARY: 0
     steps:
       - name: Checkout
         uses: actions/checkout@v2
