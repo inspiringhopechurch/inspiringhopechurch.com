@@ -173,11 +173,11 @@ const HomePage = ({ data }) => {
             <div className="container">
               <ul>
                 <li className="pr-6">
-                  <Link
+                  <a
                     className="button is-link is-size-4-tablet"
-                    to="#">
-                    <span>Kids Camp Signup - TBD</span>
-                  </Link>
+                    href="https://inspiringhopechurch.churchcenter.com/registrations/events/1255291">
+                    <span>Kids Camp Registration</span>
+                  </a>
                 </li>
                 <li>
                   <Link
