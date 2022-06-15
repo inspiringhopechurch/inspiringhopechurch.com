@@ -169,27 +169,23 @@ const HomePage = ({ data }) => {
           </div>
         </div>
         <div className="hero-foot pb-6">
-          <nav className="tabs is-centered">
-            <div className="container">
-              <ul>
-                <li className="pr-6">
-                  <a
-                    className="button is-link is-size-4-tablet"
-                    href="https://inspiringhopechurch.churchcenter.com/registrations/events/1255291">
-                    <span>Kids Camp Registration</span>
-                  </a>
-                </li>
-                <li>
-                  <Link
-                    className="button is-link is-size-4-tablet"
-                    to="/watch">
-                    <span className="icon is-medium">
-                      <FontAwesomeIcon icon={["fas", "video"]} size="1x" />
-                    </span>
-                    <span>{`Watch ${isSunday && isMorning ? "Live" : "Messages"}`}</span>
-                  </Link>
-                </li>
-              </ul>
+          <nav className="level">
+            <div className="level-item has-text-centered">
+              <a
+                className="button is-link is-size-4-tablet"
+                href="https://inspiringhopechurch.churchcenter.com/registrations/events/1255291">
+                <span>Kids Camp Registration</span>
+              </a>
+            </div>
+            <div className="level-item has-text-centered">
+              <Link
+                className="button is-link is-size-4-tablet"
+                to="/watch">
+                <span className="icon is-medium">
+                  <FontAwesomeIcon icon={["fas", "video"]} size="1x" />
+                </span>
+                <span>{`Watch ${isSunday && isMorning ? "Live" : "Messages"}`}</span>
+              </Link>
             </div>
           </nav>
         </div>
