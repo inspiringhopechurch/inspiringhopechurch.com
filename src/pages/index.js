@@ -170,13 +170,13 @@ const HomePage = ({ data }) => {
         </div>
         <div className="hero-foot pb-6">
           <nav className="level">
-            <div className="level-item has-text-centered">
+            {/* <div className="level-item has-text-centered">
               <a
                 className="button is-link is-size-4-tablet"
                 href="https://inspiringhopechurch.churchcenter.com/registrations/events/1255291">
                 <span>Kids Camp Registration</span>
               </a>
-            </div>
+            </div> */}
             <div className="level-item has-text-centered">
               <Link
                 className="button is-link is-size-4-tablet"
