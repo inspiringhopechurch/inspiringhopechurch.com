@@ -33,70 +33,66 @@ exports[`Index should render without crashing 1`] = `
       className="hero-foot pb-6"
     >
       <nav
-        className="tabs is-centered"
+        className="level"
       >
         <div
-          className="container"
+          className="level-item has-text-centered"
         >
-          <ul>
-            <li
-              className="pr-6"
+          <a
+            className="button is-link is-size-4-tablet"
+            href="https://inspiringhopechurch.churchcenter.com/registrations/events/1255291"
+          >
+            <span>
+              Kids Camp Registration
+            </span>
+          </a>
+        </div>
+        <div
+          className="level-item has-text-centered"
+        >
+          <mockConstructor
+            className="button is-link is-size-4-tablet"
+            to="/watch"
+          >
+            <span
+              className="icon is-medium"
             >
-              <mockConstructor
-                className="button is-link is-size-4-tablet"
-                to="#"
-              >
-                <span>
-                  Kids Camp Signup - TBD
-                </span>
-              </mockConstructor>
-            </li>
-            <li>
-              <mockConstructor
-                className="button is-link is-size-4-tablet"
-                to="/watch"
-              >
-                <span
-                  className="icon is-medium"
-                >
-                  <FontAwesomeIcon
-                    beat={false}
-                    beatFade={false}
-                    border={false}
-                    bounce={false}
-                    className=""
-                    fade={false}
-                    fixedWidth={false}
-                    flip={null}
-                    icon={
-                      Array [
-                        "fas",
-                        "video",
-                      ]
-                    }
-                    inverse={false}
-                    listItem={false}
-                    mask={null}
-                    maskId={null}
-                    pull={null}
-                    pulse={false}
-                    rotation={null}
-                    shake={false}
-                    size="1x"
-                    spin={false}
-                    swapOpacity={false}
-                    symbol={false}
-                    title=""
-                    titleId={null}
-                    transform={null}
-                  />
-                </span>
-                <span>
-                  Watch Messages
-                </span>
-              </mockConstructor>
-            </li>
-          </ul>
+              <FontAwesomeIcon
+                beat={false}
+                beatFade={false}
+                border={false}
+                bounce={false}
+                className=""
+                fade={false}
+                fixedWidth={false}
+                flip={null}
+                icon={
+                  Array [
+                    "fas",
+                    "video",
+                  ]
+                }
+                inverse={false}
+                listItem={false}
+                mask={null}
+                maskId={null}
+                pull={null}
+                pulse={false}
+                rotation={null}
+                shake={false}
+                size="1x"
+                spin={false}
+                swapOpacity={false}
+                symbol={false}
+                title=""
+                titleId={null}
+                transform={null}
+              />
+            </span>
+            <span>
+              Watch Messages
+            </span>
+          </mockConstructor>
         </div>
       </nav>
     </div>
