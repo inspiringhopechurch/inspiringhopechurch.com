@@ -20,7 +20,7 @@ module.exports = {
   linkedIn: "", // LinkedIn username
   facebook: "InspiringHopeChurch", // Facebook site name
   facebookUrl: "https://www.facebook.com/inspiringhopechurch/",
-  spotifyUrl: "https://open.spotify.com/playlist/1xDbvYkcIfBhl2NreHg9dp?si=0825348cec5b4b1b", // Facebook site URL
+  spotifyUrl: "https://open.spotify.com/playlist/4dz9af2T1a5PjD1trK6IJK?si=f95a6d2e02f64c0d", // Facebook site URL
   gaTrackingId: "UA-198062991-1", // 🤮
   trackingCookieName: "inspiring-hope-analytics",
   matomoUrl: "https://analytics.orbitsolutions.dev", // Matomo URL
