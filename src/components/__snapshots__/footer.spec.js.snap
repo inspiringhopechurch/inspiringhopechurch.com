@@ -245,7 +245,7 @@ exports[`Footer should render without crashing 1`] = `
             </a>
             <a
               className="button is-link mr-3"
-              href="https://open.spotify.com/playlist/1xDbvYkcIfBhl2NreHg9dp?si=0825348cec5b4b1b"
+              href="https://open.spotify.com/playlist/4dz9af2T1a5PjD1trK6IJK?si=f95a6d2e02f64c0d"
               title="Link to Inspiring Hope Church Spotify page"
             >
               <span
