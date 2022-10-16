@@ -19,15 +19,17 @@ const Pagination = ({ destination, currentPage, totalPages }) => {
   }
 
   return (
-    <nav className="pagination" role="navigation" aria-label="pagination">
+    <nav className="pagination" role="navigation" aria-label="Pagination navigation">
       <Link
         className={`pagination-previous${isFirstPage ? ' is-static button' : ''}`}
         title="Go to the previous page"
+        aria-label="Go to the previous page"
         aria-disabled={isFirstPage}
         to={`${destination}/${getPreviousPage()}`}>Previous</Link>
       <Link
         className={`pagination-next${isLastPage ? ' is-static button' : ''}`}
         title="Go to the next page"
+        aria-label="Go to the next page"
         aria-disabled={isLastPage}
         to={`${destination}/${isLastPage ? '#' : currentPage + 1}`}>Next page</Link>
       <ul className="pagination-list">
@@ -38,8 +40,8 @@ const Pagination = ({ destination, currentPage, totalPages }) => {
             <li key={`page-${pageNum}`}>
               <Link
                 className={`pagination-link ${isCurrentPage ? "is-current" : ""}`}
-                aria-label={isCurrentPage ? `Page ${pageNum}` : `Go to page ${pageNum}`}
-                aria-current={isCurrentPage ? "page" : null}
+                aria-label={isCurrentPage ? `Current Page, Page ${pageNum}` : `Go to page ${pageNum}`}
+                aria-current={isCurrentPage ? "true" : null}
                 to={`${destination}/${page === 0 ? '' : pageNum}`}>{`${pageNum}`}</Link>
             </li>
           )
