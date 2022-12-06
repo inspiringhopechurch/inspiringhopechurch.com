@@ -49,7 +49,7 @@ const MediaItem = ({
               : <div className="column is-7 post-img">
                 <VideoPlayer
                   enCaption={{ src: `/assets/${renderVideo.videoId}.en.vtt` }}
-                  mp4Src={`/assets/${renderVideo.videoId}.mp4`}
+                  mp4Src={`//ihc-video-storage.us-east-1.linodeobjects.com/assets/${renderVideo.videoId}.mp4`}
                   // posterImg={`/assets/${renderVideo.videoId}.jpg`}
                   id={renderVideo.videoId}
                   preload
