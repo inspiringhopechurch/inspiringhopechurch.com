@@ -20,7 +20,7 @@ jobs:
           lfs: true
 
       - name: Install deps
-        uses: cypress-io/github-action@v4.2.2
+        uses: cypress-io/github-action@v3.1.0
         with:
           runTests: false
           config-file: cypress.config.ts
