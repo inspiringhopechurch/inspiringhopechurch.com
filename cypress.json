@@ -1,9 +1,0 @@
-{
-  "baseUrl": "http://localhost:9000",
-  "projectId": "cfiju4",
-  "video": false,
-  "retries": {
-    "runMode": 2,
-    "openMode": 0
-  }
-}
