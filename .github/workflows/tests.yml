@@ -15,12 +15,12 @@ jobs:
       # CYPRESS_INSTALL_BINARY: 0
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           lfs: true
 
       - name: Install deps
-        uses: cypress-io/github-action@v2.8.4
+        uses: cypress-io/github-action@v5.0.0
         with:
           runTests: false
       - name: Build site 🏗
@@ -29,7 +29,7 @@ jobs:
           # Ghost API urls
           GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
           GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_CONTENT_API_KEY }}
-      - uses: actions/upload-artifact@v2
+      - uses: actions/upload-artifact@v3
         if: success()
         with:
           name: website
@@ -50,10 +50,10 @@ jobs:
         containers: [1, 2, 3, 4]
     steps:
       - name: Checkout
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
         with:
           lfs: true
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: website
           path: public
@@ -80,12 +80,12 @@ jobs:
     runs-on: ubuntu-latest
     if: success() && github.ref == 'refs/heads/develop'
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: website
           path: public
       - name: Deploy Dev Site
-        uses: appleboy/scp-action@v0.1.1
+        uses: appleboy/scp-action@v0.1.2
         with:
           host: inspiringhopechurch.com
           port: 22
@@ -102,12 +102,12 @@ jobs:
     runs-on: ubuntu-latest
     if: success() && startsWith(github.ref, 'refs/tags/v')
     steps:
-      - uses: actions/download-artifact@v2
+      - uses: actions/download-artifact@v3
         with:
           name: website
           path: public
       - name: Deploy Prod Site
-        uses: appleboy/scp-action@v0.1.1
+        uses: appleboy/scp-action@v0.1.2
         with:
           host: inspiringhopechurch.com
           port: 22
