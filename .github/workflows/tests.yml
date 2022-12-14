@@ -2,7 +2,7 @@ name: Cypress tests
 on:
   push:
     tags: [v*]
-    branches: [ main, develop ]
+    branches: [main, develop]
   repository_dispatch:
   workflow_dispatch:
 jobs:
@@ -61,9 +61,9 @@ jobs:
         uses: cypress-io/github-action@v2.8.4
         with:
           # install-command: npm ci
-          record: ${{github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop'}}
+          record: ${{github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v')}}
           parallel: true
-          group: 'Github CI'
+          group: "Github CI"
           start: npx http-server -p 9000
           wait-on: http://localhost:9000
         env:
@@ -117,4 +117,3 @@ jobs:
           rm: true
           source: "public/*"
           strip_components: 1
-
