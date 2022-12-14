@@ -20,7 +20,7 @@ jobs:
           lfs: true
 
       - name: Install deps
-        uses: cypress-io/github-action@v5.0.0
+        uses: cypress-io/github-action@v4.2.2
         with:
           runTests: false
       - name: Build site 🏗
@@ -58,7 +58,7 @@ jobs:
           name: website
           path: public
       - name: Test site 🧪
-        uses: cypress-io/github-action@v5.0.0
+        uses: cypress-io/github-action@v4.2.2
         with:
           # install-command: npm ci
           record: ${{github.ref == 'refs/heads/main' || github.ref == 'refs/heads/develop' || startsWith(github.ref, 'refs/tags/v')}}
