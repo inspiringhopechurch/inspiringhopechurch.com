@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
-import { Link } from "gatsby";
+// import { Link } from "gatsby";
 import VideoPlayer from "../components/videoPlayer";
-import { cleanHtml, cleanHtmlForVideo } from "../utils";
+import { cleanHtml } from "../utils";
 
 /**
  * Component that shows a block of media, such as audio or video, that can be played by the user.
@@ -18,16 +18,16 @@ import { cleanHtml, cleanHtmlForVideo } from "../utils";
 const MediaItem = ({
   title,
   description,
-  link,
+  // link,
   category = "Sunday Message",
-  imgSrc = "https://cdn.emk.dev/templates/featured-image.png",
+  imgSrc = "/assets/ghost-featured-image.png",
   vidSrc,
   timestamp
 }) => {
   const [renderVideo, setRenderVideo] = useState({ nativeMarkup: true, videoId: '' })
   const videoEl = useRef(null)
   const ifIsVideo = !!vidSrc; // should check if file ext is mp4, webm or av1 (or heic?)
-  const ifIsAudio = false; // check if file ext is mp3
+  // const ifIsAudio = false; // check if file ext is mp3
   const isLive = vidSrc.includes('inspiringhopechurch.com');
 
   useEffect(() => {
@@ -45,7 +45,7 @@ const MediaItem = ({
         {ifIsVideo
           ? (
             renderVideo.nativeMarkup
-              ? <div className="column is-7 post-img" dangerouslySetInnerHTML={vidSrc && isLive ? cleanHtml(vidSrc) : cleanHtmlForVideo(vidSrc)} />
+              ? <div className="column is-7 post-img" dangerouslySetInnerHTML={vidSrc ? cleanHtml(vidSrc, isLive) : { __html: '' }} />
               : <div className="column is-7 post-img">
                 <VideoPlayer
                   enCaption={{ src: `/assets/${renderVideo.videoId}.en.vtt` }}

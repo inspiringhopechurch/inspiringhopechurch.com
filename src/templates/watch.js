@@ -12,6 +12,7 @@ const Watch = ({ pageContext }) => {
   const { watchPages } = pageContext;
   const videoList = {};
 
+  const useObjectStorage = true
   watchPages.forEach(({ node }, i) => {
     if (node && i < pageContext.limit) {
       const search = /data-id=["|'](.*?)["|']/gm; // Look for file name within data-id attribute
@@ -29,7 +30,7 @@ const Watch = ({ pageContext }) => {
 
       videoList[node.id].forEach(file => {
         const videoPlaceholder = `<div class="container" data-id="${file}"></div>`;
-        const videoSnippet = generateVideoSnippet(file, "");
+        const videoSnippet = generateVideoSnippet(file, "", useObjectStorage);
         node.html = node.html.replace(videoPlaceholder, videoSnippet);
       })
     }

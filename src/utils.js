@@ -1,6 +1,6 @@
 import sanitizeHtml from "sanitize-html";
 import fs from 'fs';
-
+import { objectStoreHost } from '../config';
 /**
  * Finds the item in an array that contains a given slug. This slug
  * corresponds to a particular slice of content in Ghost will will be
@@ -42,29 +42,49 @@ export function doesFileExist(pathToFile) {
 /** Sanitizes html markup that is passed in. This should be used on any
  * content that is user modifiable.
  * @param {string} markup string representation of html from untrusted source
+ * @param {boolean=} isVideo indicates if content being cleaned has video-specific tags
  */
-export function cleanHtml(markup) {
+export function cleanHtml(markup, isVideo) {
+  const commonTags = ["a", "button", "img"]
+  const tagsToClean = isVideo ?
+    [...commonTags, "source", "track", "video"] :
+    [...commonTags, "iframe", "svg", "circle", "path", "g", "defs", "title"]
+
+  const customAttributes = isVideo ?
+    {
+      source: ["src", "type"],
+      track: ["kind", "src", "srclang", "label"],
+      video: ["controls", "width", "height", "poster", "preload"],
+    } :
+    {
+      svg: ["xmlns", "viewBox"],
+      circle: ["cx", "cy", "r", "fill"],
+      path: ["d", "fill"],
+      g: ["fill"],
+      iframe: ['src', 'title', 'referrerpolicy', 'scrolling', 'allow', 'allowfullscreen']
+    }
+
+  const moreNonVideoOptions = isVideo ? {} : {
+    allowedIframeHostnames: ['www.youtube.com', 'stream.inspiringhopechurch.com'],
+    transformTags: {
+      'table': sanitizeHtml.simpleTransform('table', { class: 'table is-size-6 is-striped is-narrow' }),
+      'iframe': sanitizeHtml.simpleTransform('iframe', { class: 'has-ratio' }),
+    },
+    parser: {
+      lowerCaseAttributeNames: false // prevents xml attributes, e.g. viewBox, from being lowercased
+    }
+  }
+
   return {
     __html: sanitizeHtml(markup, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "iframe", "img", "svg", "circle", "path", "g", "defs", "title"]),
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(tagsToClean),
       allowedAttributes: {
+        "*": ["class", "id", "data-*"],
         a: ["href"],
         img: ["src", "srcset", "alt"],
-        svg: ["xmlns", "viewBox"],
-        circle: ["cx", "cy", "r", "fill"],
-        path: ["d", "fill"],
-        g: ["fill"],
-        "*": ["class", "id", "data-*"],
-        iframe: ['src', 'title', 'referrerpolicy', 'scrolling', 'allow', 'allowfullscreen']
+        ...customAttributes
       },
-      allowedIframeHostnames: ['www.youtube.com', 'stream.inspiringhopechurch.com'],
-      transformTags: {
-        'table': sanitizeHtml.simpleTransform('table', { class: 'table is-size-6 is-striped is-narrow' }),
-        'iframe': sanitizeHtml.simpleTransform('iframe', { class: 'has-ratio' }),
-      },
-      parser: {
-        lowerCaseAttributeNames: false // prevents xml attributes, e.g. viewBox, from being lowercased
-      }
+      ...moreNonVideoOptions
     }),
   };
 }
@@ -72,6 +92,7 @@ export function cleanHtml(markup) {
 /** Sanitizes html markup that is passed in and retains video specific tags.
  * This should be used on any content that is user modifiable.
  * @param {string} markup string representation of html from untrusted source
+ * @deprecated To be removed
  */
 export function cleanHtmlForVideo(markup) {
   return {
@@ -93,9 +114,10 @@ export function cleanHtmlForVideo(markup) {
  * @param {string} videoName name used for video file. Also used as prefix
  * for the caption file.
  * @param {string} posterName name of file used as image poster, including file extension.
+ * @param {boolean=} inObjectStore indicates that files are in object storage
  * @returns {string} HTML snippet for video playback. Assumes 16x9 video content.
  */
-export function generateVideoSnippet(videoName, posterName) {
+export function generateVideoSnippet(videoName, posterName, inObjectStore) {
   return `<div id="${videoName}" class="container" data-id="${videoName}">
       <video
         class="has-ratio"
@@ -106,8 +128,8 @@ export function generateVideoSnippet(videoName, posterName) {
         preload="metadata"
         poster="${posterName ? "/assets/" + posterName : ""}"
       >
-        <source src="/assets/${videoName}.webm" type="video/webm" />
-        <source src="/assets/${videoName}.mp4" type="video/mp4" />
+        <source src="${inObjectStore ? objectStoreHost : ""}/assets/${videoName}.webm" type="video/webm" />
+        <source src="${inObjectStore ? objectStoreHost : ""}/assets/${videoName}.mp4" type="video/mp4" />
         <track kind="captions"  srcLang="en" label="English" src="/assets/${videoName}.en.vtt" />
         <track kind="subtitles" srcLang="es" label="Español" src="/assets/${videoName}.es.vtt" />
         Unfortunately your browser is old and does not support embedded videos. Please consider upgrading.
