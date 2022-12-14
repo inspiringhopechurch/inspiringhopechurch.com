@@ -43,13 +43,15 @@ context("Beliefs", () => {
           cy.wrap($accordion)
             .find(".expanded")
             .should("not.exist");
-          cy.wrap($accordion).click();
+          cy.wrap($accordion)
+            .find("button").click();
           cy.wrap($accordion)
             .filter(".expanded")
             .should("exist");
         });
       cy.get(".accordion.expanded").each(($accordion) => {
-        cy.wrap($accordion).click();
+        cy.wrap($accordion)
+          .find("button").click();
         cy.wrap($accordion)
           .filter(".expanded")
           .should("not.exist");
