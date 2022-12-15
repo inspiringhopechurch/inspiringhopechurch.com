@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { graphql } from "gatsby";
-import { cleanHtml, findGhostSection, generateVideoSnippet } from "../utils";
+import { cleanHtml, cleanHtmlForVideo, findGhostSection, generateVideoSnippet } from "../utils";
 import { RefTagger } from "../components/reftagger";
 import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
@@ -149,8 +149,8 @@ const Page = ({ data, location }) => {
               </div> :
               <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
             ) :
-            <div className="column is-two-thirds" dangerouslySetInnerHTML={isGivePage ? cleanHtml(page.html, isGivePage) : cleanHtml(page.html)} />}
-          {/* When on the give page cleanHtml needs to remove video embed iframe so we pass second param. */}
+            <div className="column is-two-thirds" dangerouslySetInnerHTML={isGivePage ? cleanHtmlForVideo(page.html) : cleanHtml(page.html)} />}
+          {/* cleanHtmlForVideo is used explicitly on the give page to remove the video embed iframe during sanitization. */}
           {location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
 

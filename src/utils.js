@@ -42,49 +42,29 @@ export function doesFileExist(pathToFile) {
 /** Sanitizes html markup that is passed in. This should be used on any
  * content that is user modifiable.
  * @param {string} markup string representation of html from untrusted source
- * @param {boolean=} isVideo indicates if content being cleaned has video-specific tags
  */
-export function cleanHtml(markup, isVideo) {
-  const commonTags = ["a", "button", "img"]
-  const tagsToClean = isVideo ?
-    [...commonTags, "source", "track", "video"] :
-    [...commonTags, "iframe", "svg", "circle", "path", "g", "defs", "title"]
-
-  const customAttributes = isVideo ?
-    {
-      source: ["src", "type"],
-      track: ["kind", "src", "srclang", "label"],
-      video: ["controls", "width", "height", "poster", "preload"],
-    } :
-    {
-      svg: ["xmlns", "viewBox"],
-      circle: ["cx", "cy", "r", "fill"],
-      path: ["d", "fill"],
-      g: ["fill"],
-      iframe: ['src', 'title', 'referrerpolicy', 'scrolling', 'allow', 'allowfullscreen']
-    }
-
-  const moreNonVideoOptions = isVideo ? {} : {
-    allowedIframeHostnames: ['www.youtube.com', 'stream.inspiringhopechurch.com'],
-    transformTags: {
-      'table': sanitizeHtml.simpleTransform('table', { class: 'table is-size-6 is-striped is-narrow' }),
-      'iframe': sanitizeHtml.simpleTransform('iframe', { class: 'has-ratio' }),
-    },
-    parser: {
-      lowerCaseAttributeNames: false // prevents xml attributes, e.g. viewBox, from being lowercased
-    }
-  }
-
+export function cleanHtml(markup) {
   return {
     __html: sanitizeHtml(markup, {
-      allowedTags: sanitizeHtml.defaults.allowedTags.concat(tagsToClean),
+      allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "iframe", "img", "svg", "circle", "path", "g", "defs", "title"]),
       allowedAttributes: {
-        "*": ["class", "id", "data-*"],
         a: ["href"],
         img: ["src", "srcset", "alt"],
-        ...customAttributes
+        svg: ["xmlns", "viewBox"],
+        circle: ["cx", "cy", "r", "fill"],
+        path: ["d", "fill"],
+        g: ["fill"],
+        "*": ["class", "id", "data-*"],
+        iframe: ['src', 'title', 'referrerpolicy', 'scrolling', 'allow', 'allowfullscreen']
       },
-      ...moreNonVideoOptions
+      allowedIframeHostnames: ['www.youtube.com', 'stream.inspiringhopechurch.com'],
+      transformTags: {
+        'table': sanitizeHtml.simpleTransform('table', { class: 'table is-size-6 is-striped is-narrow' }),
+        'iframe': sanitizeHtml.simpleTransform('iframe', { class: 'has-ratio' }),
+      },
+      parser: {
+        lowerCaseAttributeNames: false // prevents xml attributes, e.g. viewBox, from being lowercased
+      }
     }),
   };
 }
@@ -92,7 +72,6 @@ export function cleanHtml(markup, isVideo) {
 /** Sanitizes html markup that is passed in and retains video specific tags.
  * This should be used on any content that is user modifiable.
  * @param {string} markup string representation of html from untrusted source
- * @deprecated To be removed
  */
 export function cleanHtmlForVideo(markup) {
   return {

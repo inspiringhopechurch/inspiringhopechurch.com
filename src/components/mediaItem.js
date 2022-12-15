@@ -2,7 +2,7 @@ import React, { useEffect, useRef, useState } from "react";
 import PropTypes from "prop-types";
 // import { Link } from "gatsby";
 import VideoPlayer from "../components/videoPlayer";
-import { cleanHtml } from "../utils";
+import { cleanHtml, cleanHtmlForVideo } from "../utils";
 
 /**
  * Component that shows a block of media, such as audio or video, that can be played by the user.
@@ -45,7 +45,7 @@ const MediaItem = ({
         {ifIsVideo
           ? (
             renderVideo.nativeMarkup
-              ? <div className="column is-7 post-img" dangerouslySetInnerHTML={vidSrc ? cleanHtml(vidSrc, isLive) : { __html: '' }} />
+              ? <div className="column is-7 post-img" dangerouslySetInnerHTML={vidSrc && isLive ? cleanHtml(vidSrc) : cleanHtmlForVideo(vidSrc)} />
               : <div className="column is-7 post-img">
                 <VideoPlayer
                   enCaption={{ src: `/assets/${renderVideo.videoId}.en.vtt` }}
