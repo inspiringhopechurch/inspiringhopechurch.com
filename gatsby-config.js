@@ -3,7 +3,7 @@ const config = require("./config");
 let ghostConfig;
 
 try {
-  ghostConfig = require(`./.ghost`);
+  ghostConfig = require(`./.ghost.secret.json`);
 } catch (e) {
   ghostConfig = {
     production: {
