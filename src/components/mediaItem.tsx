@@ -15,11 +15,16 @@ const MediaItem = ({
   vidSrc,
   timestamp
 }: MediaItemProps) => {
-  const [renderVideo, setRenderVideo] = useState({ nativeMarkup: true, videoId: '' })
-  const videoEl = useRef<HTMLElement | null>(null)
+  const [renderVideo, setRenderVideo] = useState({ nativeMarkup: true, videoId: '' });
+  const videoEl = useRef<HTMLElement | null>(null);
   const ifIsVideo = !!vidSrc; // should check if file ext is mp4, webm or av1 (or heic?)
   // const ifIsAudio = false; // check if file ext is mp3
-  const isLive = vidSrc ? vidSrc.includes('inspiringhopechurch.com') : false;
+
+  // Fix potential vulnerability found by CodeQL: inspiringhopechurch.com/security/code-scanning/5
+  const allowedHosts = ['inspiringhopechurch.com', 'dev.inspiringhopechurch.com', 'stream.inspiringhopechurch.com'];
+  const urlRegexp = /((\w+:\/\/)[-a-zA-Z0-9:@;?&=\/%\+\.\*!'\(\),\$_\{\}\^~\[\]`#|]+)/g
+  const vidSrcUrls = vidSrc?.match(urlRegexp) ?? []
+  const isLive = vidSrcUrls.length ? vidSrcUrls.some(url => allowedHosts.includes(new URL(url).host)) : false
 
   useEffect(() => {
     const videoId = videoEl?.current?.children[0].children[0].id
