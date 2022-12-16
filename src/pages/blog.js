@@ -45,7 +45,7 @@ const Blog = ({ data }) => {
 
 export const query = graphql`
   query BlogPostQuery {
-    allGhostPost(sort: { order: DESC, fields: [published_at] }) {
+    allGhostPost(sort: { published_at: DESC }) {
       edges {
         node {
           ...GhostPostFields

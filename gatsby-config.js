@@ -126,7 +126,7 @@ module.exports = {
             name: `feed`, // name of feed file. e.g. feed.json or feed.xml
             query: `
           {
-            allGhostPost(sort: { order: DESC, fields: published_at }, limit: 100) {
+            allGhostPost(sort: { published_at: DESC }, limit: 100) {
               edges {
                 node {
                   title

@@ -26,14 +26,14 @@ exports.createPages = async ({ graphql, actions }) => {
   const nonProdFilterString = "WIP"
   const result = await graphql(`
     {
-      allGhostPost(sort: { order: ASC, fields: published_at }) {
+      allGhostPost(sort: { published_at: ASC }) {
         edges {
           node {
             slug
           }
         }
       }
-      allGhostTag(sort: { order: ASC, fields: name }) {
+      allGhostTag(sort: { name: ASC }) {
         edges {
           node {
             slug
@@ -42,7 +42,7 @@ exports.createPages = async ({ graphql, actions }) => {
           }
         }
       }
-      allGhostAuthor(sort: { order: ASC, fields: name }) {
+      allGhostAuthor(sort: { name: ASC }) {
         edges {
           node {
             slug
@@ -52,7 +52,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       allGhostPage(
-        sort: { order: ASC, fields: published_at }
+        sort: { published_at: ASC }
         filter: { primary_tag: { name: { ne: "Sunday Message" } } }
       ) {
         edges {
@@ -67,7 +67,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       watchPages: allGhostPage(
-        sort: { order: DESC, fields: [published_at] }
+        sort: { published_at: DESC }
         filter: { tags: { elemMatch: { name: { eq: "Sunday Message", ne: "${nonProdFilterString}" } } } }
       ) {
         edges {
