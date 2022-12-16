@@ -64,6 +64,9 @@
   },
   "devDependencies": {
     "@babel/compat-data": "^7.16.4",
+    "@types/node": "^18.11.15",
+    "@types/react": "^18.0.26",
+    "@types/react-dom": "^18.0.9",
     "@types/sanitize-html": "^2.6.2",
     "@wojtekmaj/enzyme-adapter-react-17": "^0.6.6",
     "axe-core": "^4.4.1",

@@ -1,13 +1,30 @@
 {
   "compilerOptions": {
-    "module": "system",
-    "moduleResolution": "node",
-    "noEmit": true,
+    "allowJs": true,
     "checkJs": true,
-    "sourceMap": true,
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
+    "module": "ESNext",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
     "jsx": "react",
-    "allowJs": true
+    "noEmit": true,
+    "sourceMap": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "target": "ESNext",
   },
-  "include": ["src/**/*"],
-  "exclude": ["node_modules", "**/*.spec.js"]
+  "include": [
+    "./src/**/*",
+    "./gatsby-node.ts",
+    "./gatsby-config.ts",
+    "./plugins/**/*"
+  ],
+  "exclude": [
+    "node_modules",
+    "**/*.spec.js"
+  ]
 }
