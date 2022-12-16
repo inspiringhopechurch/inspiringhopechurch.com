@@ -79,5 +79,5 @@ cypress/videos
 cypress/screenshots
 
 # Ghost API access config
-.ghost.json
+.ghost.*json
 static/assets/*202[0-9]*.mp4
