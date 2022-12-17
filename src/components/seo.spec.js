@@ -1,7 +1,7 @@
 import React from "react";
 import { mount } from "enzyme";
-import SEO from "./seo";
-import { StaticQuery } from "gatsby";
+import { SEO } from "../components";
+import { useStaticQuery } from "gatsby";
 import data from "../fixtures/data";
 
 describe("SEO", () => {
@@ -9,7 +9,7 @@ describe("SEO", () => {
     const buildTime_ = data.data.site.buildTime,
       siteMetaD = data.data.site.siteMetadata;
     // mock StaticQuery for tests
-    StaticQuery.mockImplementationOnce(({ render }) =>
+    useStaticQuery.mockImplementationOnce(({ render }) =>
       render({
         site: {
           buildTime: buildTime_,
