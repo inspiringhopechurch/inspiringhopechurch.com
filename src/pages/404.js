@@ -1,7 +1,6 @@
 import React, { useLayoutEffect } from "react";
 import { Link, navigate } from "gatsby";
-import FancyHeading from "../components/fancyHeading";
-import SEO from "../components/seo";
+import { FancyHeading, SEO } from "../components";
 import "./404.sass";
 
 const NotFound = ({ location }) => {
@@ -11,8 +10,7 @@ const NotFound = ({ location }) => {
     }
   });
 
-  return <> {/* eslint-disable react/jsx-pascal-case */}
-    <SEO title="Page Not Found" />
+  return <>
     <section className="not-found-page fade-in hero is-halfheight">
       <div className="hero-body">
         <div className="container has-text-centered">
@@ -39,3 +37,5 @@ const NotFound = ({ location }) => {
 
 // Default export is rendered when user visits page.
 export default NotFound;
+
+export const Head = () => <SEO title="Page Not Found" />

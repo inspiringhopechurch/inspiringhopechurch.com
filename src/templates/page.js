@@ -6,7 +6,7 @@ import { RefTagger } from "../components/reftagger";
 import ContactForm from "../components/contactForm";
 import Accordion from "../components/accordion";
 import FancyHeading from "../components/fancyHeading";
-import SEO from "../components/seo";
+import { SEO } from "../components";
 import easterBg from "../assets/Easter2022_Web_BG_02.jpg";
 import easterBgOverlay from "../assets/Easter2022_Web_EASTERLOGO_02.png";
 import "./page.sass";

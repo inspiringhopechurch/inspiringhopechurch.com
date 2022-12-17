@@ -1,15 +1,12 @@
 import React from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import ContactForm from "../components/contactForm";
-import FancyHeading from "../components/fancyHeading";
-import SEO from "../components/seo";
+import { ContactForm, FancyHeading, SEO } from "../components";
 import { validUrl } from "../utils";
 import { facebookUrl } from "../../config";
 import "./contact.sass";
 
 const Contact = () => (
   <> {/* eslint-disable react/jsx-pascal-case */}
-    <SEO title="Contact Us" />
     <section className={`contact-page fade-in hero is-halfheight`}>
       <div className={`hero-body`}>
         <div className={`container has-text-centered`}>
@@ -61,3 +58,5 @@ const Contact = () => (
 
 // Default export is rendered when user visits page.
 export default Contact;
+
+export const Head = () => <SEO title="Contact Us" />

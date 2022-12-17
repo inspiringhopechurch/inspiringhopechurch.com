@@ -1,6 +1,6 @@
 import React from "react";
 import config from "../../config";
-import SEO from "../components/seo";
+import { SEO } from "../components";
 import Pagination from "../components/pagination";
 import MediaItem from "../components/mediaItem";
 import FancyHeading from "../components/fancyHeading";

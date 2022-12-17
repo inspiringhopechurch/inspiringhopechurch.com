@@ -2,9 +2,7 @@ import React from "react";
 import { graphql } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import config from "../../config";
-import SEO from "../components/seo";
-import BlogItem from "../components/blogItem";
-import FancyHeading from "../components/fancyHeading";
+import { BlogItem, FancyHeading, SEO } from "../components";
 import "./blog.sass";
 
 const Blog = ({ data }) => {
@@ -12,7 +10,6 @@ const Blog = ({ data }) => {
 
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
-      <SEO title="Inspiring Moments" />
       <section className={`fade-in hero is-halfheight`}>
         <div className={`hero-body`}>
           <div className={`container has-text-centered`}>
@@ -57,3 +54,5 @@ export const query = graphql`
 
 // Default export is rendered when user visits page.
 export default Blog;
+
+export const Head = () => <SEO title="Inspiring Moments" />

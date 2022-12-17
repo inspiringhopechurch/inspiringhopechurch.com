@@ -3,13 +3,8 @@ import { graphql, Link } from "gatsby";
 import { getImage } from "gatsby-plugin-image";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import config from "../../config";
-import BlogItem from "../components/blogItem";
-import Map from "../components/map";
-import SEO from "../components/seo";
-import FancyHeading from "../components/fancyHeading";
+import { BlogItem, FancyHeading, Map, SEO } from "../components";
 import { cleanHtml, findGhostSection } from "../utils";
-// import easterText from "../assets/Easter2022_Web_TEXT_SMALL_02.png";
-// import kidsCamp from "../assets/2022_Kids_Camp_WEB_03.jpg";
 import "./index.sass";
 
 const HomePage = ({ data }) => {
@@ -133,7 +128,6 @@ const HomePage = ({ data }) => {
 
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
-      <SEO title="Inspiring Hope Church" page="Index" />
       <section className="index-page fade-in hero is-large">
         <div className="hero-underlay">
           <div className="hero-body">
@@ -517,3 +511,5 @@ export const query = graphql`
     }
   }
 `;
+
+export const Head = () => <SEO title="Inspiring Hope Church" page="Index" />

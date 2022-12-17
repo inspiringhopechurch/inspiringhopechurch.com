@@ -1,7 +1,7 @@
 import React from "react";
 import { graphql } from "gatsby";
 import { cleanHtml } from "../utils";
-import SEO from "../components/seo";
+import { SEO } from "../components";
 import "./post.sass";
 
 // Default export is rendered when user visits page.
