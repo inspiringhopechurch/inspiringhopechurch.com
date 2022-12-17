@@ -1,5 +1,4 @@
 import React from "react";
-import SEO from "../components/seo";
 import Header from "../components/header";
 import Footer from "../components/footer";
 // Import fontawesome library files
@@ -10,7 +9,6 @@ const Layout = ({ children, location }) => {
 
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
-      <SEO />
 
       <Header location={location} />
 
@@ -24,4 +22,5 @@ const Layout = ({ children, location }) => {
     </>
   );
 };
+
 export default Layout;

@@ -1,5 +1,4 @@
 import React from "react";
-import Helmet from "react-helmet";
 import { graphql, useStaticQuery } from "gatsby";
 import { validUrl } from "../utils";
 
@@ -22,7 +21,7 @@ type TStaticQuery = {
   }
 }
 
-const SEO = ({ title, desc, banner, page, pathname, article = false }: SEOProps) => {
+const SEO = ({ children, title, desc, banner, page, pathname, article = false }: SEOProps) => {
   const query = graphql`
     query SEO {
       site {
@@ -104,9 +103,9 @@ const SEO = ({ title, desc, banner, page, pathname, article = false }: SEOProps)
       "@type": string,
       "@id": string
     }
-  }[]
+  }
 
-  let schemaOrgJSONLD: TSchemaOrgJSONLD = [
+  let schemaOrgJSONLD: TSchemaOrgJSONLD[] = [
     {
       "@context": "http://schema.org",
       "@type": "WebSite",
@@ -142,7 +141,7 @@ const SEO = ({ title, desc, banner, page, pathname, article = false }: SEOProps)
           name: author,
           logo: {
             "@type": "ImageObject",
-            url: url + pathPrefix + logo
+            url: `${url}${pathPrefix}${logo}`
           }
         },
         isPartOf: url,
@@ -156,57 +155,57 @@ const SEO = ({ title, desc, banner, page, pathname, article = false }: SEOProps)
 
   return (
     <>
-      {/* Using defer={false} in the helmet to make sure title is updated
-            if browser loads page in background */}
-      <Helmet title={seo.title} defer={false}>
-        <html lang={siteLanguage} className="has-navbar-fixed-top" />
-        <meta name="description" content={seo.description} />
-        <meta name="image" content={seo.image} />
-        <meta name="apple-mobile-web-app-title" content={shortName} />
-        <meta name="application-name" content={shortName} />
-        <script type="application/ld+json">
-          {JSON.stringify(schemaOrgJSONLD)}
-        </script>
+      {/* Using defer={false} in the helmet to make sure title is updated if browser loads page in background */}
+      <title>{seo.title}</title>
+      <html lang={siteLanguage} className="has-navbar-fixed-top" />
+      <meta name="description" content={seo.description} />
+      <meta name="image" content={seo.image} />
+      <meta name="apple-mobile-web-app-title" content={shortName} />
+      <meta name="application-name" content={shortName} />
+      <script type="application/ld+json">
+        {JSON.stringify(schemaOrgJSONLD)}
+      </script>
 
-        {/* OpenGraph  */}
-        <meta property="og:site_name" content={seo.title} />
-        <meta
-          property="og:url"
-          content={validUrl(seo.url) ? seo.url : ""}
-        />
-        <meta
-          property="og:type"
-          content={article ? "article" : "website"}
-        />
-        <meta property="og:title" content={seo.title} />
-        <meta property="og:description" content={seo.description} />
-        <meta property="og:image" content={seo.image} />
+      {/* OpenGraph  */}
+      <meta property="og:site_name" content={seo.title} />
+      <meta
+        property="og:url"
+        content={validUrl(seo.url) ? seo.url : ""}
+      />
+      <meta
+        property="og:type"
+        content={article ? "article" : "website"}
+      />
+      <meta property="og:title" content={seo.title} />
+      <meta property="og:description" content={seo.description} />
+      <meta property="og:image" content={seo.image} />
 
-        {/* Twitter Card */}
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content={seo.title} />
-        <meta name="twitter:description" content={seo.description} />
-        <meta name="twitter:image" content={seo.image} />
+      {/* Twitter Card */}
+      <meta name="twitter:card" content="summary_large_image" />
+      <meta name="twitter:title" content={seo.title} />
+      <meta name="twitter:description" content={seo.description} />
+      <meta name="twitter:image" content={seo.image} />
+      <meta
+        name="twitter:url"
+        content={validUrl(seo.url) ? seo.url : ""}
+      />
+      {twitter && <meta name="twitter:creator" content={twitter} />}
+      {twitter && (
         <meta
-          name="twitter:url"
-          content={validUrl(seo.url) ? seo.url : ""}
+          name="twitter:site"
+          content={`https://twitter.com/${twitter.replace(/^@/, ``)}/`}
         />
-        {twitter && <meta name="twitter:creator" content={twitter} />}
-        {twitter && (
-          <meta
-            name="twitter:site"
-            content={`https://twitter.com/${twitter.replace(/^@/, ``)}/`}
-          />
-        )}
+      )}
 
-        {page === "Index" && <link rel="stylesheet" href="/assets/mapbox-gl.css" />}
-        <link rel="canonical" href={validUrl(seo.url) ? seo.url : ""} />
-      </Helmet>
+      {page === "Index" && <link rel="stylesheet" href="/assets/mapbox-gl.css" />}
+      <link rel="canonical" href={validUrl(seo.url) ? seo.url : ""} />
+      {children}
     </>
   );
 };
 
 type SEOProps = {
+  children?: React.ReactElement
   title?: string,
   desc?: string,
   banner?: string,
