@@ -1,4 +1,4 @@
-import React, { useState, useEffect, PropsWithChildren } from "react";
+import React, { useState, useEffect, type PropsWithChildren } from "react";
 import "./accordion.sass";
 
 export const invalidChars = /^[^a-zA-Z]+|[^\w:.-]+/g;

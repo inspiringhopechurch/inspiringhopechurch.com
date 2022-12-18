@@ -1,5 +1,5 @@
 import React from "react";
-import { GatsbyImage, IGatsbyImageData } from "gatsby-plugin-image"
+import { GatsbyImage, type IGatsbyImageData } from "gatsby-plugin-image"
 import { Link } from "gatsby";
 import "./blogItem.sass";
 
