@@ -1,10 +1,9 @@
 import React from "react";
-import PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./promotion.sass";
 
-const Promotion = ({ promoEndDate, promoDiscount }) => {
-  const discountSection = (discount, month) => (
+const Promotion = ({ promoEndDate, promoDiscount }: PromotionProps) => {
+  const discountSection = (discount: PromotionProps["promoDiscount"], month: PromotionProps["promoEndDate"]) => (
     <div className={`notification is-link`}>
       <div className={`columns is-vcentered is-centered`}>
         <div className={`column is-one-quarter`}>
@@ -22,14 +21,14 @@ const Promotion = ({ promoEndDate, promoDiscount }) => {
   const currentDate = Date.now(),
     promoDate = new Date(promoEndDate),
     promoMonth = promoDate.toLocaleString("en-us", { month: "long" }),
-    showDiscount = promoDate > currentDate;
+    showDiscount = promoDate.getDate() > currentDate;
 
   return showDiscount ? discountSection(promoDiscount, promoMonth) : null;
 };
 
-Promotion.propTypes = {
-  promoEndDate: PropTypes.string.isRequired,
-  promoDiscount: PropTypes.number.isRequired,
+type PromotionProps = {
+  promoEndDate: string,
+  promoDiscount: number,
 };
 
 export default Promotion;

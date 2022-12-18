@@ -1,4 +1,5 @@
 import React, { useEffect, useRef } from "react";
+// @ts-expect-error
 import mapboxgl from "!mapbox-gl";
 import { mapboxApiKey, title } from "../../config";
 import "./map.sass";

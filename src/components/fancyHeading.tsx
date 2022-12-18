@@ -1,15 +1,11 @@
 import React from "react";
-import * as PropTypes from "prop-types";
 import "./fancyHeading.sass";
 
 /**
  * Component which takes text and renders it as a fancy heading.
  * @param {object} props - information used to render this heading
- * @param {string=} props.className - class name to use for the heading element
- * @param {string} props.heading - Text to use for the heading
- * @param {boolean=} props.splitHeading - If true, generates alternate heading style
  */
-const FancyHeading = ({ className, heading, splitHeading }) => {
+const FancyHeading = ({ className, heading, splitHeading }: FancyHeadingProps) => {
   const [firstWord, ...remainingWords] = heading.split(" ");
   const headingId = heading.trim().toLowerCase().replace(/ /g, '-')
 
@@ -28,10 +24,13 @@ const FancyHeading = ({ className, heading, splitHeading }) => {
   return formattedHeading;
 };
 
-FancyHeading.propTypes = {
-  className: PropTypes.string,
-  heading: PropTypes.string.isRequired,
-  splitHeading: PropTypes.bool
+type FancyHeadingProps = {
+  /** Text to use for the heading */
+  heading: string,
+  /** css class name to use for the heading element */
+  className?: string,
+  /** If true, generates alternate heading style */
+  splitHeading?: boolean
 };
 
 export default FancyHeading;

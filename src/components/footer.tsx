@@ -1,5 +1,4 @@
 import React from "react";
-import * as PropTypes from "prop-types";
 import CookieConsent from 'react-cookie-consent';
 import { trackingCookieName } from "../../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -7,7 +6,7 @@ import { validUrl } from "../utils";
 import { facebookUrl, spotifyUrl, title } from "../../config";
 import "./footer.sass";
 
-const Footer = (props) => (
+const Footer = ({ copyrightOwner = title }: FooterProps) => (
   <footer className="footer">
     <CookieConsent
       location="bottom"
@@ -54,19 +53,15 @@ const Footer = (props) => (
       </div>
       <div className="container columns">
         <div className="column has-text-centered">
-          <p>&copy; {props.copyrightOwner}. A church proudly serving Jesus in Hamilton, Ohio since 2020.</p>
+          <p>&copy; {copyrightOwner}. A church proudly serving Jesus in Hamilton, Ohio since 2020.</p>
         </div>
       </div>
     </section>
   </footer>
 );
 
-Footer.propTypes = {
-  copyrightOwner: PropTypes.string.isRequired
-};
-
-Footer.defaultProps = {
-  copyrightOwner: title
+type FooterProps = {
+  copyrightOwner: string
 };
 
 export default Footer;

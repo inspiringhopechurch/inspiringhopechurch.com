@@ -1,28 +1,21 @@
 import React, { useState } from "react";
 import { withPrefix } from "gatsby";
-import * as PropTypes from "prop-types";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import FancyHeading from "../components/fancyHeading";
+import { FancyHeading } from "../components";
 import "./contactForm.sass";
 
 /**
  * Renders a contact form and with a title and submission button
  * @param {object} props - information used to render this form
- * @param {string=} props.formTitle
- * @param {string=} props.submitButtonTitle
- * @param {string} props.nameValidationMsg
- * @param {string} props.emailValidationMsg
- * @param {string} props.subjectValidationMsg
- * @param {string} props.bodyValidationMsg
  */
 const ContactForm = ({
-  formTitle,
-  submitButtonTitle,
-  nameValidationMsg,
-  emailValidationMsg,
-  subjectValidationMsg,
-  bodyValidationMsg
-}) => {
+  formTitle = "Get in touch",
+  submitButtonTitle = "Send Message",
+  nameValidationMsg = "Please enter your full name",
+  emailValidationMsg = "Please enter your email",
+  subjectValidationMsg = "Tell us why you're reaching out.",
+  bodyValidationMsg = "Tell us how we can help you."
+}: ContactFormProps) => {
   const [formData, setFormData] = useState({
     fullName: "",
     fullNameDirty: false,
@@ -38,22 +31,25 @@ const ContactForm = ({
     formMessage: ""
   });
 
+  type TFormData = typeof formData
+  type TFormDataKeys = keyof Omit<typeof formData, `${string}Dirty` | `form${string}` | "showNotification">
+
   /**
    * Handles changes to the form's inputs. Should be passed to an input's
    * onChange prop.
    * @param {React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>} event - Provides the value for the input being changed
    */
-  const handleChange = (event) => {
+  const handleChange = (event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const target = event.target;
     //! Changing the user's actual (typed) input here. It's possible this is undesirable.
     //! But instead of doing it silently in the background, I want to hear about
     //! any issues that may arise from doing this. So we let the users see it too.
-    const value = target.type === "checkbox" ? /** @type {HTMLInputElement} */ (target).checked : target.value;
-    const name = target.name;
-    const nameDirty = target.name + "Dirty";
+    const value = target.type === "checkbox" ? (target as HTMLInputElement).checked : target.value;
+    const name = target.name as TFormDataKeys;
+    const nameDirty = target.name + "Dirty" as Extract<keyof typeof formData, `${string}Dirty`>;
 
-    const newData = {};
-    newData[name] = value;
+    const newData = {} as Partial<TFormData>;
+    newData[name] = typeof value === 'string' ? value : String(value);
 
     // 'Dirty' fields are used to indicate whether the submit button should
     // be enabled or not. Since we only enable submitting when all fields are dirty,
@@ -75,7 +71,7 @@ const ContactForm = ({
    * Once the response is obtained, should update page with the server's response.
    * @param {React.SyntheticEvent<HTMLFormElement>} event - Used to override the browser's default 'submit' behavior
    */
-  const handleSubmit = async (event) => {
+  const handleSubmit = async (event: React.SyntheticEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     const {
@@ -112,7 +108,7 @@ const ContactForm = ({
 
       submitMSG(data, !response.ok);
     } else {
-      const newData = {};
+      const newData = {} as Partial<TFormData>;
       newData.formSubmissionAttempt = true;
       setFormData({ ...formData, ...newData });
     }
@@ -129,7 +125,7 @@ const ContactForm = ({
    * }} An object containing flags set to their initial state
    */
   const resetForm = () => {
-    const newData = {};
+    const newData = {} as Partial<TFormData>;
     newData.fullName = "";
     newData.fullNameDirty = false;
     newData.email = "";
@@ -149,7 +145,7 @@ const ContactForm = ({
    * and showNotification flags
    */
   const clearNotification = () => {
-    const newData = {};
+    const newData = {} as Partial<TFormData>;
     newData.formMessage = "";
     newData.formSubmissionError = false;
     // The only spot where we should clear this flag, except for initialization
@@ -163,8 +159,8 @@ const ContactForm = ({
    * @param {Response} response - Reply received from server after form submission
    * @param {boolean} error - Indicates if server response was caused by an error
    */
-  const submitMSG = (response, error) => {
-    const newData = {};
+  const submitMSG = (response: Response, error: boolean) => {
+    const newData = {} as Partial<TFormData>;
     newData.formSubmissionError = error;
     newData.showNotification = true;
     newData.formMessage =
@@ -182,9 +178,8 @@ const ContactForm = ({
       <FancyHeading className="has-text-centered" heading={formTitle} />
 
       <div
-        className={`notification ${
-          formData.showNotification ? (formData.formSubmissionError ? "is-danger" : "is-success") : ""
-        }`}
+        className={`notification ${formData.showNotification ? (formData.formSubmissionError ? "is-danger" : "is-success") : ""
+          }`}
       >
         <button
           className={`delete`}
@@ -332,22 +327,13 @@ const ContactForm = ({
   );
 };
 
-ContactForm.propTypes = {
-  formTitle: PropTypes.string,
-  submitButtonTitle: PropTypes.string,
-  nameValidationMsg: PropTypes.string.isRequired,
-  emailValidationMsg: PropTypes.string.isRequired,
-  subjectValidationMsg: PropTypes.string.isRequired,
-  bodyValidationMsg: PropTypes.string.isRequired
-};
-
-ContactForm.defaultProps = {
-  formTitle: "Get in touch",
-  submitButtonTitle: "Send Message",
-  nameValidationMsg: "Please enter your full name",
-  emailValidationMsg: "Please enter your email",
-  subjectValidationMsg: "Tell us why you're reaching out.",
-  bodyValidationMsg: "Tell us how we can help you."
+type ContactFormProps = {
+  formTitle?: string,
+  submitButtonTitle?: string,
+  nameValidationMsg?: string,
+  emailValidationMsg?: string,
+  subjectValidationMsg?: string,
+  bodyValidationMsg?: string
 };
 
 export default ContactForm;
