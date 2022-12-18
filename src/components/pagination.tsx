@@ -1,10 +1,9 @@
 import React from "react";
-import * as PropTypes from "prop-types";
 import { Link } from "gatsby";
 
 import "./pagination.sass";
 
-const Pagination = ({ destination, currentPage, totalPages }) => {
+const Pagination = ({ destination, currentPage, totalPages }: PaginationProps) => {
   const isFirstPage = currentPage === 1;
   const isLastPage = currentPage === totalPages;
 
@@ -41,7 +40,7 @@ const Pagination = ({ destination, currentPage, totalPages }) => {
               <Link
                 className={`pagination-link ${isCurrentPage ? "is-current" : ""}`}
                 aria-label={isCurrentPage ? `Current Page, Page ${pageNum}` : `Go to page ${pageNum}`}
-                aria-current={isCurrentPage ? "true" : null}
+                aria-current={isCurrentPage ? "true" : undefined}
                 to={`${destination}/${page === 0 ? '' : pageNum}`}>{`${pageNum}`}</Link>
             </li>
           )
@@ -51,10 +50,10 @@ const Pagination = ({ destination, currentPage, totalPages }) => {
   )
 }
 
-Pagination.propTypes = {
-  currentPage: PropTypes.number.isRequired,
-  destination: PropTypes.string.isRequired,
-  totalPages: PropTypes.number.isRequired
+type PaginationProps = {
+  currentPage: number,
+  destination: string,
+  totalPages: number
 };
 
 export default Pagination;

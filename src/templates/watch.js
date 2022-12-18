@@ -1,9 +1,6 @@
 import React from "react";
 import config from "../../config";
-import { SEO } from "../components";
-import Pagination from "../components/pagination";
-import MediaItem from "../components/mediaItem";
-import FancyHeading from "../components/fancyHeading";
+import { FancyHeading, MediaItem, SEO, Pagination } from "../components";
 import { generateVideoSnippet } from "../utils";
 
 import "./watch.sass";
@@ -39,7 +36,6 @@ const Watch = ({ pageContext }) => {
 
   return (
     <> {/* eslint-disable react/jsx-pascal-case */}
-      <SEO title="Encouraging Messages" />
       <section className="hero fade-in is-halfheight">
         <div className="hero-body">
           <div className="container has-text-centered">
@@ -95,3 +91,5 @@ const Watch = ({ pageContext }) => {
 
 // Default export is rendered when user visits page.
 export default Watch;
+
+export const Head = () => <SEO title="Encouraging Messages" />

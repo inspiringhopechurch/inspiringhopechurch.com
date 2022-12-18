@@ -1,11 +1,10 @@
 import React, { useEffect, useRef } from "react";
-import * as PropTypes from "prop-types";
 import mapboxgl from "!mapbox-gl";
 import { mapboxApiKey, title } from "../../config";
 import "./map.sass";
 
-const Map = ({ latitude, longitude }) => {
-  const mapContainerRef = useRef(null);
+const Map = ({ latitude, longitude }: MapProps) => {
+  const mapContainerRef = useRef<HTMLElement>(null);
   mapboxgl.accessToken = mapboxApiKey;
 
   useEffect(() => {
@@ -17,7 +16,7 @@ const Map = ({ latitude, longitude }) => {
         }
       });
     }, options);
-    observer.observe(mapContainerRef.current);
+    mapContainerRef.current && observer.observe(mapContainerRef.current);
 
     const coordinates = [longitude, latitude];
     const map = new mapboxgl.Map({
@@ -58,9 +57,9 @@ const Map = ({ latitude, longitude }) => {
   return <section ref={mapContainerRef} className="map-container" />;
 };
 
-Map.propTypes = {
-  latitude: PropTypes.number.isRequired,
-  longitude: PropTypes.number.isRequired,
+type MapProps = {
+  latitude: number,
+  longitude: number,
 };
 
 export { Map };

@@ -1,7 +1,8 @@
 // Code taken from https://github.com/Faithlife/react-reftagger
 import { useState, useEffect } from "react";
+import type { RefTaggerSettings } from "..";
 
-const addScript = (setScriptAdded) => {
+const addScript = (setScriptAdded: React.Dispatch<React.SetStateAction<boolean>>) => {
   setScriptAdded(true);
   const el = document.createElement("script");
   el.type = "text/javascript";
@@ -10,7 +11,7 @@ const addScript = (setScriptAdded) => {
   document.getElementsByTagName("body")[0].appendChild(el);
 };
 
-const addRefTagger = (props) => {
+const addRefTagger = (props: RefTaggerSettings) => {
   window.refTagger = {
     settings: {
       bibleVersion: props.bibleVersion,
@@ -22,7 +23,7 @@ const addRefTagger = (props) => {
   };
 };
 
-export const RefTagger = (props) => {
+export const RefTagger = (props: RefTaggerSettings) => {
   const [scriptAdded, setScriptAdded] = useState(false);
 
   useEffect(() => {

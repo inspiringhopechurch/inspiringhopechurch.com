@@ -1,24 +1,22 @@
 import React, { useState } from "react";
-import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import config from "../../config";
 import "./header.sass";
-// import logo from "../assets/logo_icon.svg";
 
-const Header = ({ location }) => {
+const Header = ({ location }: HeaderProps) => {
   const [menuIsMobile, setMenuIsMobile] = useState(false);
 
   const toggleMenu = () => setMenuIsMobile(!menuIsMobile);
   const hideMenu = () => setMenuIsMobile(false);
 
   const homeUrl = "/",
-    blogUrl      = config.postPrefix,
-    aboutUrl     = "/about",
-    missionUrl   = "/about/mission",
-    beliefsUrl   = "/about/beliefs",
-    partnersUrl  = "/about/partners",
-    contactUrl   = "/contact",
-    giveUrl      = "/give",
+    blogUrl = config.postPrefix,
+    aboutUrl = "/about",
+    missionUrl = "/about/mission",
+    beliefsUrl = "/about/beliefs",
+    partnersUrl = "/about/partners",
+    contactUrl = "/contact",
+    giveUrl = "/give",
     watchUrl = "/watch",
     getConnected = "/get-connected",
     easterUrl = "/events/easter-sunday-2022";
@@ -70,9 +68,8 @@ const Header = ({ location }) => {
               onKeyPress={hideMenu}
             >
               <Link
-                className={`navbar-item ${
-                  location.pathname === homeUrl ? "is-active-page" : ""
-                }`}
+                className={`navbar-item ${location.pathname === homeUrl ? "is-active-page" : ""
+                  }`}
                 to={homeUrl}
                 state={{ prevPath: location.pathname }}
               >
@@ -87,20 +84,18 @@ const Header = ({ location }) => {
                 Easter
               </Link>}
               <Link
-                className={`navbar-item ${
-                  location.pathname.includes(getConnected)
-                    ? "is-active-page"
-                    : ""
-                }`}
+                className={`navbar-item ${location.pathname.includes(getConnected)
+                  ? "is-active-page"
+                  : ""
+                  }`}
                 to={getConnected}
                 state={{ prevPath: location.pathname }}
               >
                 Get Connected
               </Link>
               <div
-                className={`navbar-item ${
-                  location.pathname.includes(aboutUrl) ? "is-active-page" : ""
-                } has-dropdown is-hoverable`}
+                className={`navbar-item ${location.pathname.includes(aboutUrl) ? "is-active-page" : ""
+                  } has-dropdown is-hoverable`}
               >
                 <Link
                   className="navbar-link"
@@ -157,9 +152,8 @@ const Header = ({ location }) => {
                 Blog
               </Link>
               <Link
-                className={`navbar-item ${
-                  location.pathname.includes(contactUrl) ? "is-active-page" : ""
-                }`}
+                className={`navbar-item ${location.pathname.includes(contactUrl) ? "is-active-page" : ""
+                  }`}
                 to={contactUrl}
                 state={{ prevPath: location.pathname }}
               >
@@ -173,9 +167,8 @@ const Header = ({ location }) => {
               onKeyPress={hideMenu}
             >
               <Link
-                className={`navbar-item ${
-                  location.pathname.includes(giveUrl) ? "is-active-page" : ""
-                }`}
+                className={`navbar-item ${location.pathname.includes(giveUrl) ? "is-active-page" : ""
+                  }`}
                 to={giveUrl}
                 state={{ prevPath: location.pathname }}
               >
@@ -189,19 +182,8 @@ const Header = ({ location }) => {
   );
 };
 
-Header.propTypes = {
-  location: PropTypes.shape({
-    pathname: PropTypes.string.isRequired,
-    search: PropTypes.string,
-    hash: PropTypes.string,
-    host: PropTypes.string,
-    hostname: PropTypes.string,
-    href: PropTypes.string,
-    key: PropTypes.string,
-    origin: PropTypes.string,
-    port: PropTypes.string,
-    protocol: PropTypes.string
-  }).isRequired
+type HeaderProps = {
+  location: Location;
 };
 
 export default Header;

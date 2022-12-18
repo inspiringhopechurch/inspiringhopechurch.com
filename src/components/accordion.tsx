@@ -1,10 +1,9 @@
-import React, { useState, useEffect } from "react";
-import * as PropTypes from "prop-types";
+import React, { useState, useEffect, PropsWithChildren } from "react";
 import "./accordion.sass";
 
 export const invalidChars = /^[^a-zA-Z]+|[^\w:.-]+/g;
 
-const Accordion = ({ title, children, isExpanded }) => {
+const Accordion = ({ title, children, isExpanded = false }: AccordionProps) => {
   const [expanded, setExpanded] = useState(isExpanded);
   const [accordionHeight, setAccordionHeight] = useState(0);
 
@@ -33,7 +32,9 @@ const Accordion = ({ title, children, isExpanded }) => {
 
   // Check for document being available first to prevent error during
   // Gatsby SSR build step: https://www.gatsbyjs.com/docs/debugging-html-builds/
-  const accordionContent = typeof document !== `undefined` && document.querySelector(`[data-id='${accordionId}']`);
+  const accordionContent = typeof document !== `undefined` ?
+    document.querySelector(`[data-id='${accordionId}']`) :
+    null
 
   // We make sure to not reset accordionHeight to a value that's less than its initial value.
   // It will be on static pages whose data will not change, so there should never be 'less'
@@ -62,12 +63,9 @@ const Accordion = ({ title, children, isExpanded }) => {
   );
 };
 
-Accordion.propTypes = {
-  title: PropTypes.string.isRequired
-};
-
-Accordion.defaultProps = {
-  isExpanded: false
-};
+type AccordionProps = {
+  title: string;
+  isExpanded?: boolean
+} & PropsWithChildren;
 
 export default Accordion;
