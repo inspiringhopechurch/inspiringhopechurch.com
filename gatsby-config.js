@@ -16,7 +16,7 @@ try {
     },
   };
 } finally {
-  const { apiUrl, contentApiKey } =
+  const { apiUrl, contentApiKey } = // @ts-expect-error - Variable is assigned before use
     process.env.NODE_ENV === `development` ? ghostConfig.development : ghostConfig.production;
 
   if (!apiUrl || !contentApiKey || contentApiKey.match(/<key>/)) {
@@ -32,7 +32,7 @@ if (process.env.NODE_ENV === `production` && config.siteUrl === `http://localhos
 module.exports = {
   trailingSlash: "never",
   siteMetadata: {
-    ...config, // Will be used be SEO component
+    ...config,
   },
   pathPrefix: config.pathPrefix,
   plugins: [
@@ -168,8 +168,6 @@ module.exports = {
       },
     },
     `gatsby-plugin-robots-txt`,
-    `gatsby-plugin-react-helmet`,
   ],
 };
 //    `gatsby-plugin-prettier-build`,
-// `@wardpeet/gatsby-plugin-static-site`,
