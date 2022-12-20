@@ -55,7 +55,7 @@ type BlogItemProps = {
   blogDate?: string,
   blogImage?: string,
   blogImageObj?: IGatsbyImageData,
-  blogAuthor?: string,
+  blogAuthor?: string | null,
   blogReadingTime?: number,
   isFirstItem?: boolean,
   onBlogIndex?: boolean,

@@ -31,7 +31,7 @@ const Blog = ({ data }: PageProps<Queries.BlogPostQuery>) => {
               blogDate={node.published_at_pretty ?? undefined}
               blogExcerpt={node.excerpt ?? ''}
               blogLink={`${config.postPrefix}/${node.slug}`}
-              blogAuthor={node.primary_author?.name ?? 'Inspiring Hope Church'}
+              blogAuthor={node.primary_author?.name}
               blogReadingTime={node.reading_time ?? undefined}
               onBlogIndex={true}
               key={node.id}

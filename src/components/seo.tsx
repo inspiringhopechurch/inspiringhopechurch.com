@@ -43,7 +43,7 @@ const SEO = ({ children, title, desc, banner, page, pathname, article = false }:
     }
   `;
 
-  const { site }: TStaticQuery = useStaticQuery(query);
+  const { site } = useStaticQuery<TStaticQuery>(query);
 
   const {
     buildTime,

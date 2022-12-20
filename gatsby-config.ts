@@ -1,6 +1,19 @@
+import type { GatsbyConfig } from "gatsby";
+
 const config = require("./config");
 
-let ghostConfig;
+type TGhostConfig = {
+  production: {
+    apiUrl?: string,
+    contentApiKey?: string,
+  },
+  development: {
+    apiUrl?: string,
+    contentApiKey?: string,
+  }
+}
+
+let ghostConfig: TGhostConfig;
 
 try {
   ghostConfig = require(`./.ghost.secret.json`);

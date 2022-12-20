@@ -1,6 +1,13 @@
 import sanitizeHtml from "sanitize-html";
-import fs from 'fs';
 import { objectStoreHost } from '../config';
+
+type TPage = {
+  readonly node: {
+    readonly html: string | null;
+    readonly title: string | null;
+    readonly slug: string | null;
+  };
+}
 /**
  * Finds the item in an array that contains a given slug. This slug
  * corresponds to a particular slice of content in Ghost will will be
@@ -8,7 +15,7 @@ import { objectStoreHost } from '../config';
  * @param {Object} page - Object that represents a Gatsby page content.
  * @param {string} query - string that corresponds to a Ghost slug.
  */
-export function findGhostSection(page, query) {
+export function findGhostSection(page: TPage, query: string) {
   return (page.node.slug === query) ? page.node : undefined;
 }
 
@@ -16,34 +23,17 @@ export function findGhostSection(page, query) {
  * @param {string} url string representation of URL
  * @returns {boolean} True if `url` is one of valid types, false otherwise
  */
-export function validUrl(url) {
+export function validUrl(url: string) {
   const myUrl = new URL(url);
   return ["https:", "http:", "mailto:"].includes(myUrl.protocol);
 }
 
-/**
- * Check if the file exists on the filesystem. Used to
- * determine whether to include subtitles or not.
- *
- * @param {String} pathToFile Path of the file
- */
-export function doesFileExist(pathToFile) {
-  try {
-    return fs.statSync(pathToFile).isFile()
-  } catch (e) {
-    if (e.code === `ENOENT`) {
-      return false
-    } else {
-      throw e
-    }
-  }
-}
-
 /** Sanitizes html markup that is passed in. This should be used on any
  * content that is user modifiable.
- * @param {string} markup string representation of html from untrusted source
+ * @param {string | null} markup string representation of html from untrusted source
  */
-export function cleanHtml(markup) {
+export function cleanHtml(markup: string | null) {
+  if (!markup) { return { __html: '' } }
   return {
     __html: sanitizeHtml(markup, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "iframe", "img", "svg", "circle", "path", "g", "defs", "title"]),
@@ -73,7 +63,7 @@ export function cleanHtml(markup) {
  * This should be used on any content that is user modifiable.
  * @param {string} markup string representation of html from untrusted source
  */
-export function cleanHtmlForVideo(markup) {
+export function cleanHtmlForVideo(markup: string) {
   return {
     __html: sanitizeHtml(markup, {
       allowedTags: sanitizeHtml.defaults.allowedTags.concat(["a", "button", "img", "source", "track", "video"]),
@@ -96,7 +86,7 @@ export function cleanHtmlForVideo(markup) {
  * @param {boolean=} inObjectStore indicates that files are in object storage
  * @returns {string} HTML snippet for video playback. Assumes 16x9 video content.
  */
-export function generateVideoSnippet(videoName, posterName, inObjectStore) {
+export function generateVideoSnippet(videoName: string, posterName: string, inObjectStore?: boolean) {
   return `<div id="${videoName}" class="container" data-id="${videoName}">
       <video
         class="has-ratio"
