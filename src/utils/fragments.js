@@ -285,10 +285,6 @@ export const ghostSettingsFields = graphql`
     coverImageSharp {
       base
       publicURL
-      imageMeta {
-        width
-        height
-      }
       childImageSharp {
         gatsbyImageData(quality: 90, formats: [AUTO, WEBP], layout: FULL_WIDTH)
       }

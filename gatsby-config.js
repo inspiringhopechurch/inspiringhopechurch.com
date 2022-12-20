@@ -34,6 +34,7 @@ module.exports = {
   siteMetadata: {
     ...config,
   },
+  graphqlTypegen: true,
   pathPrefix: config.pathPrefix,
   plugins: [
     {

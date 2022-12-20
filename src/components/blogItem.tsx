@@ -6,6 +6,7 @@ import "./blogItem.sass";
 /**
  * Takes text input and formats it for display as a blog item card
  * @param {object} props - Information that will be used to create blog card
+ * TODO: show publish date
  */
 const BlogItem = ({ onBlogIndex = false, ...props }: BlogItemProps) => (
   <div
@@ -50,8 +51,8 @@ const BlogItem = ({ onBlogIndex = false, ...props }: BlogItemProps) => (
 type BlogItemProps = {
   blogExcerpt: string,
   blogTitle: string,
-  blogDate: string,
   blogLink: string,
+  blogDate?: string,
   blogImage?: string,
   blogImageObj?: IGatsbyImageData,
   blogAuthor?: string,
