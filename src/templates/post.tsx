@@ -13,6 +13,7 @@ const Post = ({ data }: PageProps<Queries.TemplatePostQuery>) => {
   };
 
   const {
+    featureImageSharp,
     html,
     reading_time,
     title
@@ -27,7 +28,7 @@ const Post = ({ data }: PageProps<Queries.TemplatePostQuery>) => {
         <div
           className={"hero-body"}
           style={{
-            background: "url('${featureImageSharp?.publicURL}') center top",
+            background: `url('${featureImageSharp?.publicURL}') center top`,
             backgroundSize: "cover"
           }}
         >
