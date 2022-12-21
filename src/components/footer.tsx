@@ -1,9 +1,8 @@
 import React from "react";
 import CookieConsent from 'react-cookie-consent';
-import { trackingCookieName } from "../../config";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { validUrl } from "../utils";
-import { facebookUrl, spotifyUrl, title } from "../../config";
+import { facebookUrl, spotifyUrl, title, trackingCookieName } from "../../config";
 import "./footer.sass";
 
 const Footer = ({ copyrightOwner = title }: FooterProps) => (

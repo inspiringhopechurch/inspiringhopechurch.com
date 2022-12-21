@@ -9,7 +9,7 @@ import "./index.sass";
 
 const HomePage = ({ data }: PageProps<Queries.GhostPostsQuery>) => {
   const SUNDAY = 0;
-  const defaultMsg = "Get Inspiring Hope's latest updates." || <></>;
+  const defaultMsg = "Get Inspiring Hope's latest updates.";
   const today = new Date();
   const isSunday = today.getDay() === SUNDAY;
   const [message, setMessage] = useState<ReactNode>(defaultMsg);

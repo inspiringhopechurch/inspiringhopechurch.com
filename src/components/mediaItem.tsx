@@ -8,7 +8,7 @@ import { cleanHtml, cleanHtmlForVideo } from "../utils";
  */
 const MediaItem = ({
   title,
-  description,
+  description = "",
   // link,
   category = "Sunday Message",
   imgSrc = "/assets/ghost-featured-image.png",
@@ -73,7 +73,7 @@ const MediaItem = ({
 type MediaItemProps = {
   title: string,
   category?: string,
-  description: string,
+  description?: string,
   link?: string,
   imgSrc?: string,
   vidSrc?: string,
