@@ -1,11 +1,10 @@
-import React from "react";
-import Header from "../components/header";
-import Footer from "../components/footer";
+import React, { type ReactNode } from "react";
+import { Header, Footer } from "../components";
 // Import fontawesome library files
 import "../components/icons";
 
 const Layout = ({ children, location }: {
-  children: React.ReactNode;
+  children: ReactNode;
   location: Location
 }) => {
   const currentPage = location?.pathname;

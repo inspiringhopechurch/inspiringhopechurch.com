@@ -61,7 +61,7 @@ const Footer = ({ copyrightOwner = title }: FooterProps) => (
 );
 
 type FooterProps = {
-  copyrightOwner: string
+  copyrightOwner?: string
 };
 
 export default Footer;

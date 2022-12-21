@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 // import { Link } from "gatsby";
-import VideoPlayer from "./videoPlayer";
+import { VideoPlayer } from "./";
 import { cleanHtml, cleanHtmlForVideo } from "../utils";
 
 /**
