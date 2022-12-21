@@ -49,7 +49,7 @@ const gatsbyConfig: GatsbyConfig = {
   siteMetadata: {
     ...config,
   },
-  graphqlTypegen: true,
+  graphqlTypegen: false,
   pathPrefix: config.pathPrefix,
   plugins: [
     {
