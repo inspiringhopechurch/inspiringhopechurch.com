@@ -171,7 +171,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     createPage({
       path: node.url,
-      component: path.resolve("./src/templates/post.js"),
+      component: path.resolve("./src/templates/post.tsx"),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
