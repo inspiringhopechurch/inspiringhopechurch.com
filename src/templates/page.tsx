@@ -1,30 +1,30 @@
 import React, { useEffect } from "react";
-import PropTypes from "prop-types";
-import { graphql } from "gatsby";
+import { graphql, type HeadProps, type PageProps } from "gatsby";
 import { cleanHtml, cleanHtmlForVideo, findGhostSection, generateVideoSnippet } from "../utils";
 import { Accordion, ContactForm, FancyHeading, RefTagger, SEO } from "../components";
 import easterBg from "../assets/Easter2022_Web_BG_02.jpg";
 import easterBgOverlay from "../assets/Easter2022_Web_EASTERLOGO_02.png";
 import "./page.sass";
 
+type PageDataProps = {
+  ghostPage: Queries.GhostPage
+  allGhostPage: Queries.GhostPageConnection
+};
+
 /**
  * Single page (/:slug)
- *
- * This file renders a single page and loads all the content.
- *
+ * This file renders a single page and loads all its content.
  */
-const Page = ({ data, location }) => {
+const Page = ({ data, location }: PageProps<PageDataProps>) => {
   const page = data.ghostPage;
   const pages = data.allGhostPage.edges;
-  const pageTitle = page.title;
   const isBeliefPage = location?.pathname.includes("/about/beliefs");
   const isMissionPage = location?.pathname.includes("/about/mission");
   const isGivePage = location?.pathname.includes("/give");
-  const isBlogPage = location?.pathname.includes("/blog");
   const isEasterPage = location?.pathname.includes("/easter-sunday");
-  let pageContent = {};
+  let pageContent = {} as Record<string, string>;
   let pageHeading = "";
-  let videoList = [];
+  let videoList: string[] = [];
   const isBrowser = typeof document !== "undefined";
 
   const kidsSection = pages.find(page =>
@@ -40,6 +40,11 @@ const Page = ({ data, location }) => {
     findGhostSection(page, "home-weekly-gathering-inspire-groups")
   )?.node;
 
+  if (!page.title || !page.html) {
+    throw new Error("No page title, or page content provided.")
+  }
+  const pageTitle = page.title;
+
   // Since we don't have access to the DOM when server-side rendering,
   // only run the code below if in the browser.
   if (isBeliefPage && isBrowser) {
@@ -49,14 +54,14 @@ const Page = ({ data, location }) => {
     // Skip the first entry (0) because its empty
     for (let idx = 1; idx < beliefsList.length; idx++) {
       temporaryEl.innerHTML = cleanHtml(beliefsList[idx]).__html;
-      if (idx === 1 && temporaryEl.firstElementChild.tagName.toLowerCase() === "h1") {
-        pageHeading = temporaryEl.firstElementChild.innerHTML;
-      } else if (temporaryEl.firstElementChild.tagName.toLowerCase() === "h2") {
+      const el = temporaryEl.firstElementChild;
+
+      if (idx === 1 && el && el.tagName.toLowerCase() === "h1") {
+        pageHeading = el.innerHTML;
+      } else if (el && el.textContent && el.tagName.toLowerCase() === "h2") {
         // Increment the beliefsList index because, the way this is set up in Ghost,
         // we *should* have an h2 tag, followed directly by the accordion content in a div.
-        pageContent[temporaryEl.firstElementChild.textContent.trim()] = cleanHtml(
-          beliefsList[++idx]
-        ).__html;
+        pageContent[el.textContent.trim()] = cleanHtml(beliefsList[++idx]).__html;
       }
     }
   }
@@ -65,7 +70,7 @@ const Page = ({ data, location }) => {
   // replacing a placeholder container with our native video playback code.
   if (isGivePage) {
     const search = /data-id=["|'](.*?)["|']/gm; // Look for file name within data-id attribute
-    const filenameList = [];
+    const filenameList: string[] = [];
     let filenameMatch = search.exec(page.html);
     filenameMatch && filenameList.push(filenameMatch[1])
 
@@ -81,6 +86,7 @@ const Page = ({ data, location }) => {
     filenameList.forEach(file => {
       const videoPlaceholder = `<div class="container" data-id="${file}"></div>`;
       const videoSnippet = generateVideoSnippet(file, `${file}.jpg`);
+      // @ts-expect-error
       page.html = page.html.replace(videoPlaceholder, videoSnippet);
     })
   }
@@ -104,16 +110,7 @@ const Page = ({ data, location }) => {
   })
 
   return (
-    <> {/* eslint-disable react/jsx-pascal-case */}
-      <SEO
-        title={page.meta_title || page.title}
-        desc={page.meta_description || page.excerpt}
-        banner={page.featureImageSharp?.publicURL}
-        page={isEasterPage ? "Easter" : undefined}
-        pathname={page.slug}
-        article={isBlogPage}
-      />
-
+    <>
       <section className="generated-page fade-in hero is-halfheight">
         <div className="hero-body" style={(page.featureImageSharp?.publicURL || isEasterPage) ? {
           background: `url(${page.featureImageSharp?.publicURL})`,
@@ -186,19 +183,32 @@ const Page = ({ data, location }) => {
   );
 };
 
-Page.propTypes = {
-  data: PropTypes.shape({
-    ghostPage: PropTypes.shape({
-      codeinjection_styles: PropTypes.object,
-      title: PropTypes.string.isRequired,
-      html: PropTypes.string.isRequired,
-      feature_image: PropTypes.string,
-    }).isRequired,
-  }).isRequired,
-  location: PropTypes.object.isRequired,
-};
-
 export default Page;
+
+export const Head = ({ data, location }: HeadProps<PageDataProps>) => {
+  const page = data.ghostPage,
+    isBlogPage = location.pathname.includes("/blog"),
+    isEasterPage = location.pathname.includes("/easter-sunday"),
+    {
+      excerpt,
+      slug,
+      featureImageSharp,
+      meta_description,
+      meta_title,
+      title
+    } = page;
+
+  return (
+    <SEO
+      title={(meta_title || title) ?? undefined}
+      desc={(meta_description || excerpt) ?? undefined}
+      banner={featureImageSharp?.publicURL ?? undefined}
+      page={isEasterPage ? "Easter" : undefined}
+      pathname={slug ?? undefined}
+      article={isBlogPage}
+    />
+  )
+}
 
 export const postQuery = graphql`
   query ($slug: String!) {

@@ -2,7 +2,7 @@ import { CreatePagesArgs, CreateWebpackConfigArgs } from "gatsby";
 import createSchemaCustomization from "./ghost-schema-customization";
 
 // following GatsbyJS tutorial
-const path = require("path");
+import path from "path";
 import siteConfig from "./config";
 
 // Webpack config
@@ -142,16 +142,16 @@ export const createPages = async ({ graphql, actions }: CreatePagesArgs) => {
     // This part here defines our pages' permalink pattern. e.g `/:category/:slug`.
     // If the 1st part of the slug before the '-' matches the tag's slug,
     // we'll set this as the url prefix. This is a way to automatically build urls
-    // TESTME! This bit is testable. Prime unit test fodder.
+    // TODO: TESTME! This bit is testable. Prime unit test fodder.
     const pageSlug = node.primary_tag?.slug;
-    if (!node.slug || !pageSlug || !node.url) {
+    if (!node.slug || !node.url) {
       throw new Error('Node info not found.');
     }
-    const slugUrl = node.slug.split(`${pageSlug}-`)[1];
+    const slugUrl = pageSlug ? node.slug.split(`${pageSlug}-`)[1] : '';
     const slugCategory = node.slug.split(`-${slugUrl}`)[0];
     let newUrl = "";
 
-    if (pageSlug && pageSlug === slugCategory) {
+    if (pageSlug === slugCategory) {
       newUrl = slugUrl ? `${slugCategory}/${slugUrl}` : slugCategory;
     } else {
       newUrl = node.slug;
@@ -163,7 +163,7 @@ export const createPages = async ({ graphql, actions }: CreatePagesArgs) => {
 
     createPage({
       path: newUrl,
-      component: path.resolve(`./src/templates/page.js`),
+      component: path.resolve(`./src/templates/page.tsx`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
