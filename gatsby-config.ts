@@ -1,15 +1,17 @@
 import type { GatsbyConfig } from "gatsby";
-
-const config = require("./config");
+import config from "./config";
 
 type TGhostConfig = {
-  production: {
-    apiUrl?: string,
-    contentApiKey?: string,
-  },
-  development: {
-    apiUrl?: string,
-    contentApiKey?: string,
+  [x in "production" | "development"]: {
+    apiUrl?: string;
+    contentApiKey?: string;
+  }
+}
+
+type TFeedQuery = {
+  query: {
+    site: Queries.Site,
+    allGhostPost: Queries.GhostPostConnection
   }
 }
 
@@ -38,11 +40,11 @@ try {
 }
 
 if (process.env.NODE_ENV === `production` && config.siteUrl === `http://localhost:8000` && !process.env.SITEURL) {
-  throw new Error(`siteUrl can't be localhost and needs to be configured in siteConfig. Check the README.`); // eslint-disable-line
+  throw new Error(`siteUrl can't be localhost and needs to be configured in siteConfig. Check the README.`);
 }
 
 /** Further info 👉🏼 https://www.gatsbyjs.org/docs/gatsby-config/ */
-module.exports = {
+const gatsbyConfig: GatsbyConfig = {
   trailingSlash: "never",
   siteMetadata: {
     ...config,
@@ -79,9 +81,8 @@ module.exports = {
             imgTags: [`cover_image`],
           },
         ],
-        // Additional condition to exclude nodes
-        // Takes precedence over lookup
-        exclude: (node) => node.ghostId === undefined,
+        // Additional condition to exclude nodes, takes precedence over lookup
+        exclude: (node: { ghostId?: string }) => node.ghostId === undefined,
         // Additional information messages useful for debugging
         verbose: false,
         // Option to disable the module
@@ -123,47 +124,47 @@ module.exports = {
         rss: true,
         json: true,
         siteQuery: `
-        {
-          site {
-            siteMetadata {
-              title
-              description
-              siteUrl
-              author
-              postPrefix
+          {
+            site {
+              siteMetadata {
+                title
+                description
+                siteUrl
+                author
+                postPrefix
+              }
             }
           }
-        }
-      `,
+        `,
         feeds: [
           {
             name: `feed`, // name of feed file. e.g. feed.json or feed.xml
             query: `
-          {
-            allGhostPost(sort: { published_at: DESC }, limit: 100) {
-              edges {
-                node {
-                  title
-                  published_at
-                  slug
-                  tags {
-                    name
+              {
+                allGhostPost(sort: { published_at: DESC }, limit: 100) {
+                  edges {
+                    node {
+                      title
+                      published_at
+                      slug
+                      tags {
+                        name
+                      }
+                      html
+                    }
                   }
-                  html
                 }
               }
-            }
-          }
-          `,
-            normalize: ({ query: { site, allGhostPost } }) => {
-              return allGhostPost.edges.map(edge => {
-                return {
+            `,
+            normalize: ({ query: { site, allGhostPost } }: TFeedQuery) => {
+              return allGhostPost.edges.map((edge) => (
+                {
                   title: edge.node.title,
                   date: edge.node.published_at,
                   html: edge.node.html,
-                  url: `${site.siteMetadata.siteUrl}${site.siteMetadata.postPrefix}/${edge.node.slug}`
+                  url: `${site.siteMetadata?.siteUrl}${site.siteMetadata?.postPrefix}/${edge.node.slug}`
                 }
-              })
+              ))
             },
           }
         ]
@@ -183,5 +184,7 @@ module.exports = {
     },
     `gatsby-plugin-robots-txt`,
   ],
+  //    `gatsby-plugin-prettier-build`,
 };
-//    `gatsby-plugin-prettier-build`,
+
+module.exports = gatsbyConfig
