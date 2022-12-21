@@ -1,9 +1,12 @@
+import { CreatePagesArgs, CreateWebpackConfigArgs } from "gatsby";
+import createSchemaCustomization from "./ghost-schema-customization";
+
 // following GatsbyJS tutorial
 const path = require("path");
-const config = require("./config");
+import siteConfig from "./config";
 
 // Webpack config
-exports.onCreateWebpackConfig = ({ actions }) => {
+export const onCreateWebpackConfig = ({ actions }: CreateWebpackConfigArgs) => {
   actions.setWebpackConfig({
     resolve: {
       alias: {
@@ -18,14 +21,20 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 }
 
 // Explicitly typed schema
-exports.createSchemaCustomization = require(`./ghost-schema-customization`)
+export { createSchemaCustomization }
 
-exports.createPages = async ({ graphql, actions }) => {
+type TGraphNodeQuery = {
+  allGhostPage: Queries.GhostPageConnection;
+  allGhostPost: Queries.GhostPostConnection;
+  watchPages: Queries.GhostPageConnection;
+}
+
+export const createPages = async ({ graphql, actions }: CreatePagesArgs) => {
   const { createPage } = actions;
   // GraphQL function call returns a promise
   const nonProdFilterString = "WIP"
-  const result = await graphql(`
-    {
+  const result = await graphql<TGraphNodeQuery>(`
+    query GatsbyNode {
       allGhostPost(sort: { published_at: ASC }) {
         edges {
           node {
@@ -67,7 +76,7 @@ exports.createPages = async ({ graphql, actions }) => {
         }
       }
       watchPages: allGhostPage(
-        sort: { published_at: DESC }
+        sort: { published_at: DESC },
         filter: { tags: { elemMatch: { name: { eq: "Sunday Message", ne: "${nonProdFilterString}" } } } }
       ) {
         edges {
@@ -95,31 +104,32 @@ exports.createPages = async ({ graphql, actions }) => {
   // Extract query results
   // const tags = result.data.allGhostTag.edges;
   // const authors = result.data.allGhostAuthor.edges;
-  const pages = result.data.allGhostPage.edges;
-  const posts = result.data.allGhostPost.edges;
+  const pages = result.data?.allGhostPage.edges;
+  const posts = result.data?.allGhostPost.edges;
+  const watchPages = result.data?.watchPages.edges;
 
-  /** @type {Array<object>} watchPages - Array of graphql objects */
-  const watchPages = result.data.watchPages.edges;
-  const videosPerWatchPage = 6;
-  const numWatchPages = Math.ceil(watchPages.length / videosPerWatchPage)
+  if (!posts || !pages || !watchPages) {
+    throw new Error("Data not found for graphql query")
+  }
+
+  const VIDEOS_PER_PAGE = 6;
+  const numWatchPages = Math.ceil(watchPages.length / VIDEOS_PER_PAGE)
   // Create watch pages
   Array.from({ length: numWatchPages }).forEach((_, i) => {
-    // Was split into watchPagelist and filteredWatchPages to ease debugging.
     const watchPagelist = watchPages.map((item, j) => {
-      if (i === 0 && j < videosPerWatchPage) {
+      if (i === 0 && j < VIDEOS_PER_PAGE) {
         return item;
-      } else if (i > 0 && j >= (i * videosPerWatchPage) && j < (i * videosPerWatchPage) + videosPerWatchPage) {
+      } else if (i > 0 && j >= (i * VIDEOS_PER_PAGE) && j < (i * VIDEOS_PER_PAGE) + VIDEOS_PER_PAGE) {
         return item;
       }
     }).filter(item => item !== undefined);
-    // const filteredWatchPages = watchPagelist.filter(item => item !== undefined);
 
     createPage({
       path: i === 0 ? `/watch` : `/watch/${i + 1}`,
-      component: path.resolve("./src/templates/watch.js"),
+      component: path.resolve("./src/templates/watch.tsx"),
       context: {
-        limit: videosPerWatchPage,
-        skip: i * videosPerWatchPage,
+        limit: VIDEOS_PER_PAGE,
+        skip: i * VIDEOS_PER_PAGE,
         numPages: numWatchPages,
         currentPage: i + 1,
         watchPages: watchPagelist
@@ -129,20 +139,22 @@ exports.createPages = async ({ graphql, actions }) => {
 
   // Create pages
   pages.forEach(({ node }) => {
-    // This part here defines our pages' permalink
-    // pattern. e.g `/:category/:slug`.
-    // If the 1st part of the slug before the '-' matches
-    // the tag's slug, we'll set this as the url prefix.
-    // this is a way to automatically build urls
+    // This part here defines our pages' permalink pattern. e.g `/:category/:slug`.
+    // If the 1st part of the slug before the '-' matches the tag's slug,
+    // we'll set this as the url prefix. This is a way to automatically build urls
     // TESTME! This bit is testable. Prime unit test fodder.
     const pageSlug = node.primary_tag?.slug;
+    if (!node.slug || !pageSlug || !node.url) {
+      throw new Error('Node info not found.');
+    }
     const slugUrl = node.slug.split(`${pageSlug}-`)[1];
     const slugCategory = node.slug.split(`-${slugUrl}`)[0];
+    let newUrl = "";
 
     if (pageSlug && pageSlug === slugCategory) {
-      node.url = slugUrl ? `${slugCategory}/${slugUrl}` : slugCategory;
+      newUrl = slugUrl ? `${slugCategory}/${slugUrl}` : slugCategory;
     } else {
-      node.url = node.slug;
+      newUrl = node.slug;
     }
 
     if (pageSlug === "home-page" || node.slug === "authors" || node.slug === "newsletter") {
@@ -150,7 +162,7 @@ exports.createPages = async ({ graphql, actions }) => {
     }
 
     createPage({
-      path: node.url,
+      path: newUrl,
       component: path.resolve(`./src/templates/page.js`),
       context: {
         // Data passed to context is available
@@ -164,13 +176,13 @@ exports.createPages = async ({ graphql, actions }) => {
   posts.forEach(({ node }, idx) => {
     // This part here defines, that our posts will use
     // a `/blog/:slug` permalink.
-    node.url = `${config.postPrefix}/${node.slug}`;
+    const url = `${siteConfig.postPrefix}/${node.slug}`;
     // Setup for pagination
     const prev = idx === 0 ? null : posts[idx - 1].node;
     const next = idx === posts.length - 1 ? null : posts[idx + 1].node;
 
     createPage({
-      path: node.url,
+      path: url,
       component: path.resolve("./src/templates/post.tsx"),
       context: {
         // Data passed to context is available
