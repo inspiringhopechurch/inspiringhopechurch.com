@@ -81,8 +81,7 @@ const Watch = ({ pageContext }: TPageContext) => {
             `}
           />
           {watchPages.map(({ node }, i) => {
-            if (node && i < pageContext.limit &&
-              node.feature_image) {
+            if (node && i < pageContext.limit) {
               return (
                 <MediaItem
                   key={node.id}
