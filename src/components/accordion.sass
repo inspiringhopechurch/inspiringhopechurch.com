@@ -44,7 +44,8 @@
 
 // Progressive enhancement for pages w/out JS
 section .column
-    .accordion
+    h1 + .accordion,
+    .accordion-content + .accordion
         &:target
             > a:before, > a:hover:before
                 transform: rotate(90deg)
