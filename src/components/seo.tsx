@@ -157,7 +157,6 @@ const SEO = ({ children, title, desc, banner, page, pathname, article = false }:
     <>
       {/* Using defer={false} in the helmet to make sure title is updated if browser loads page in background */}
       <title>{seo.title}</title>
-      <html lang={siteLanguage} className="has-navbar-fixed-top" />
       <meta name="description" content={seo.description} />
       <meta name="image" content={seo.image} />
       <meta name="apple-mobile-web-app-title" content={shortName} />
