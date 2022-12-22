@@ -52,7 +52,7 @@ const Post = ({ data }: PageProps<Queries.TemplatePostQuery>) => {
 
 export default Post;
 
-export const Head = ({ data }: PageProps<Queries.TemplatePostQuery>) => {
+export const Head = ({ data, location }: PageProps<Queries.TemplatePostQuery>) => {
   const post = data.ghostPost;
 
   if (!post) {
@@ -61,7 +61,6 @@ export const Head = ({ data }: PageProps<Queries.TemplatePostQuery>) => {
 
   const {
     excerpt,
-    slug,
     featureImageSharp,
     meta_description,
     meta_title,
@@ -73,7 +72,7 @@ export const Head = ({ data }: PageProps<Queries.TemplatePostQuery>) => {
       title={meta_title ?? title ?? undefined}
       desc={meta_description ?? excerpt ?? undefined}
       banner={featureImageSharp?.publicURL ?? undefined}
-      pathname={slug ?? undefined}
+      pathname={location.pathname}
       article
     />
   )

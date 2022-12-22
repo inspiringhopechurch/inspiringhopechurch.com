@@ -191,7 +191,6 @@ export const Head = ({ data, location }: HeadProps<PageDataProps>) => {
     isEasterPage = location.pathname.includes("/easter-sunday"),
     {
       excerpt,
-      slug,
       featureImageSharp,
       meta_description,
       meta_title,
@@ -204,7 +203,7 @@ export const Head = ({ data, location }: HeadProps<PageDataProps>) => {
       desc={(meta_description || excerpt) ?? undefined}
       banner={featureImageSharp?.publicURL ?? undefined}
       page={isEasterPage ? "Easter" : undefined}
-      pathname={slug ?? undefined}
+      pathname={location.pathname}
       article={isBlogPage}
     />
   )
