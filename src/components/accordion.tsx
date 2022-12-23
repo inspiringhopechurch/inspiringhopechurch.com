@@ -1,4 +1,5 @@
-import React, { useState, useEffect, type PropsWithChildren } from "react";
+import { navigate } from "gatsby";
+import React, { useState, useEffect, type MouseEvent, type PropsWithChildren } from "react";
 import "./accordion.sass";
 
 export const invalidChars = /^[^a-zA-Z]+|[^\w:.-]+/g;
@@ -6,8 +7,11 @@ export const invalidChars = /^[^a-zA-Z]+|[^\w:.-]+/g;
 const Accordion = ({ title, children, isExpanded = false }: AccordionProps) => {
   const [expanded, setExpanded] = useState(isExpanded);
   const [accordionHeight, setAccordionHeight] = useState(0);
+  const isBrowser = typeof document !== "undefined";
 
-  const toggleAccordion = () => {
+  const toggleAccordion = (ev: MouseEvent<HTMLAnchorElement>) => {
+    ev.preventDefault();
+
     expanded && accordionContent && accordionContent.removeAttribute("style");
     setExpanded(!expanded);
   };
@@ -47,15 +51,20 @@ const Accordion = ({ title, children, isExpanded = false }: AccordionProps) => {
 
   return (
     <>
-      <h2 id={accordionId} className={`accordion is-size-4 is-uppercase${expanded ? " expanded" : ""}`}>
-        <button aria-expanded={expanded ? "true" : "false"} onClick={toggleAccordion}>
-          {title}
-        </button>
-      </h2>
+      {isBrowser ? /* This is set up this way to allow the accordion to toggle with css only, or js */
+        <h2 id={accordionId} aria-expanded={expanded ? "true" : "false"} className={`accordion is-size-4 is-uppercase${expanded ? " expanded" : ""}`}>
+          <a href={`#`} onClick={toggleAccordion}>{title}</a>
+        </h2> :
+        <h2 id={accordionId} className={`accordion is-size-4 is-uppercase${expanded ? " expanded" : ""}`}>
+          <a href={`#${accordionId}`}>{title}</a>
+        </h2>
+      }
       <div
         className="accordion-content"
-        data-id={accordionId} // @ts-ignore custom css property "--accordion-max-height"
-        style={expanded && accordionHeight > 1 ? { "--accordion-max-height": `${accordionHeight}px` } : {}}
+        data-id={accordionId}
+        style={expanded && accordionHeight > 1 ? // @ts-ignore custom css property "--accordion-max-height"
+          { "--accordion-max-height": `${accordionHeight}px` } :
+          { "--accordion-max-height": `` }}
       >
         {children}
       </div>
@@ -65,7 +74,7 @@ const Accordion = ({ title, children, isExpanded = false }: AccordionProps) => {
 
 type AccordionProps = {
   title: string;
-  isExpanded?: boolean
+  isExpanded?: boolean;
 } & PropsWithChildren;
 
 export default Accordion;

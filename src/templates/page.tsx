@@ -26,7 +26,6 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
   let pageHeading = "";
   let pageHtmlMod = "";
   let videoList: string[] = [];
-  const isBrowser = typeof document !== "undefined";
 
   const kidsSection = pages.find(page =>
     findGhostSection(page, "home-weekly-gathering-inspire-kids")
@@ -76,10 +75,6 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
         // we *should* have an h2 tag, followed directly by the accordion content in a div.
         pageContent[tagContentMatch.trim()] = cleanHtml(beliefsList[++idx]).__html;
       }
-    }
-
-    if (!isBrowser && pageHeading !== "") {
-      pageHtmlMod = page.html.replace(beliefsList[1], pageHeading);
     }
   }
 
@@ -150,17 +145,14 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
         <div className="columns content is-medium is-centered">
           {/* The main page content */}
           {isBeliefPage ?
-            (isBrowser ?
-              <div className="column is-two-thirds">
-                {<FancyHeading className="has-text-centered" heading={pageHeading} />}
-                {Object.keys(pageContent).map((title, idx) => (
-                  <Accordion key={title} title={title} isExpanded={idx === 0 ? true : false}>
-                    <div dangerouslySetInnerHTML={{ __html: pageContent[title] }} />
-                  </Accordion>
-                ))}
-              </div> :
-              <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(pageHTML)} />
-            ) :
+            <div className="column is-two-thirds">
+              {<FancyHeading className="has-text-centered" heading={pageHeading} />}
+              {Object.keys(pageContent).map((title, idx) => (
+                <Accordion key={title} title={title} isExpanded={idx === 0 ? true : false}>
+                  <div dangerouslySetInnerHTML={{ __html: pageContent[title] }} />
+                </Accordion>
+              ))}
+            </div> :
             <div className="column is-two-thirds" dangerouslySetInnerHTML={isGivePage ? cleanHtmlForVideo(pageHTML) : cleanHtml(pageHTML)} />}
           {/* cleanHtmlForVideo is used explicitly on the give page to remove the video embed iframe during sanitization. */}
           {location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
