@@ -5,6 +5,18 @@
   "version": "0.2.0",
   "configurations": [
     {
+      "command": "npm start",
+      "name": "Run npm start",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
+      "command": "npm run build",
+      "name": "Run npm build",
+      "request": "launch",
+      "type": "node-terminal"
+    },
+    {
       "type": "firefox",
       "request": "launch",
       "reAttach": true,
@@ -25,7 +37,7 @@
     {
       "name": "Launch Chrome",
       "request": "launch",
-      "type": "pwa-chrome",
+      "type": "chrome",
       "url": "http://localhost:8000",
       "webRoot": "${workspaceFolder}"
     },
@@ -34,12 +46,5 @@
       "request": "attach",
       "name": "Attach"
     },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Launch Program",
-      "skipFiles": ["<node_internals>/**"],
-      "program": "${workspaceFolder}/develop"
-    }
   ]
 }
