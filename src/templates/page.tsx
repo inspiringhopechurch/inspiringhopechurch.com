@@ -24,6 +24,7 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
   const isEasterPage = location?.pathname.includes("/easter-sunday");
   let pageContent = {} as Record<string, string>;
   let pageHeading = "";
+  let pageHtmlMod = "";
   let videoList: string[] = [];
   const isBrowser = typeof document !== "undefined";
 
@@ -45,24 +46,40 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
   }
   const pageTitle = page.title;
 
+  const findContentInTag = (markup: string) => {
+    const contentRegex = new RegExp(/([^>\s])[^<>]+(?=[<])/);
+    const initialMatch = markup.match(contentRegex);
+
+    return initialMatch ? initialMatch[0] : initialMatch;
+  }
+
   // Since we don't have access to the DOM when server-side rendering,
   // only run the code below if in the browser.
-  if (isBeliefPage && isBrowser) {
+  if (isBeliefPage) {
+    pageHtmlMod = page.html;
     const beliefsList = page.html.split(/<!--kg-card-begin: .*?-->/);
 
-    let temporaryEl = document.createElement("div");
     // Skip the first entry (0) because its empty
     for (let idx = 1; idx < beliefsList.length; idx++) {
-      temporaryEl.innerHTML = cleanHtml(beliefsList[idx]).__html;
-      const el = temporaryEl.firstElementChild;
+      const tmpEl = cleanHtml(beliefsList[idx]).__html;
 
-      if (idx === 1 && el && el.tagName.toLowerCase() === "h1") {
-        pageHeading = el.innerHTML;
-      } else if (el && el.textContent && el.tagName.toLowerCase() === "h2") {
+      if (idx === 1 && tmpEl.toLowerCase().startsWith("<h1")) {
+        // Matches content within outermost tag
+        const tagContentMatch = findContentInTag(tmpEl);
+        if (tagContentMatch) {
+          pageHeading = tagContentMatch;
+        }
+      } else if (tmpEl.toLowerCase().startsWith("<h2")) {
+        const tagContentMatch = findContentInTag(tmpEl);
+        if (!tagContentMatch || !tagContentMatch.trim()) { return };
         // Increment the beliefsList index because, the way this is set up in Ghost,
         // we *should* have an h2 tag, followed directly by the accordion content in a div.
-        pageContent[el.textContent.trim()] = cleanHtml(beliefsList[++idx]).__html;
+        pageContent[tagContentMatch.trim()] = cleanHtml(beliefsList[++idx]).__html;
       }
+    }
+
+    if (!isBrowser && pageHeading !== "") {
+      pageHtmlMod = page.html.replace(beliefsList[1], pageHeading);
     }
   }
 
@@ -72,24 +89,27 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
     const search = /data-id=["|'](.*?)["|']/gm; // Look for file name within data-id attribute
     const filenameList: string[] = [];
     let filenameMatch = search.exec(page.html);
-    filenameMatch && filenameList.push(filenameMatch[1])
+    filenameMatch && filenameList.push(filenameMatch[1]);
 
     // We don't get ALL the matches, just the first one. So we loop until
     // no more are returned
     while (filenameMatch != null) {
       filenameMatch = search.exec(page.html);
-      filenameMatch && filenameList.push(filenameMatch[1])
+      filenameMatch && filenameList.push(filenameMatch[1]);
     }
 
     videoList = filenameList;
+    pageHtmlMod = page.html;
 
     filenameList.forEach(file => {
       const videoPlaceholder = `<div class="container" data-id="${file}"></div>`;
       const videoSnippet = generateVideoSnippet(file, `${file}.jpg`);
-      // @ts-expect-error
-      page.html = page.html.replace(videoPlaceholder, videoSnippet);
+      pageHtmlMod = pageHtmlMod.replace(videoPlaceholder, videoSnippet);
     })
   }
+
+  /** Original, or modified html markup */
+  const pageHTML = pageHtmlMod || page.html;
 
 
   useEffect(() => {
@@ -102,12 +122,11 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
             disableContextMenu: false,
             enabled: true,
             fullscreen: { enabled: true, fallback: true, }
-          })
-          )
+          }));
         });
-      }).catch(error => console.log("Could not load video player because: ", error))
+      }).catch(error => console.log("Could not load video player because: ", error));
     }
-  })
+  });
 
   return (
     <>
@@ -118,7 +137,7 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
           backgroundSize: `${isEasterPage ? "contain, cover" : "cover"}`,
           backgroundPosition: `${isEasterPage ? "center, center" : "center"}`,
           backgroundRepeat: `${isEasterPage ? "no-repeat" : ""}`,
-        } : {}}>
+        } : undefined}>
           {!isEasterPage && (
             <div className="container has-text-centered">
               <FancyHeading heading={pageTitle} />
@@ -140,9 +159,9 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
                   </Accordion>
                 ))}
               </div> :
-              <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(page.html)} />
+              <div className="column is-two-thirds" dangerouslySetInnerHTML={cleanHtml(pageHTML)} />
             ) :
-            <div className="column is-two-thirds" dangerouslySetInnerHTML={isGivePage ? cleanHtmlForVideo(page.html) : cleanHtml(page.html)} />}
+            <div className="column is-two-thirds" dangerouslySetInnerHTML={isGivePage ? cleanHtmlForVideo(pageHTML) : cleanHtml(pageHTML)} />}
           {/* cleanHtmlForVideo is used explicitly on the give page to remove the video embed iframe during sanitization. */}
           {location && (isBeliefPage || isMissionPage) && <RefTagger bibleVersion="HCSB" />}
         </div>
@@ -199,8 +218,8 @@ export const Head = ({ data, location }: HeadProps<PageDataProps>) => {
 
   return (
     <SEO
-      title={(meta_title || title) ?? undefined}
-      desc={(meta_description || excerpt) ?? undefined}
+      title={(meta_title ?? title) ?? undefined}
+      desc={(meta_description ?? excerpt) ?? undefined}
       banner={featureImageSharp?.publicURL ?? undefined}
       page={isEasterPage ? "Easter" : undefined}
       pathname={location.pathname}
