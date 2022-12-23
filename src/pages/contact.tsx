@@ -6,7 +6,7 @@ import { facebookUrl } from "../../config";
 import "./contact.sass";
 
 const Contact = () => (
-  <> {/* eslint-disable react/jsx-pascal-case */}
+  <>
     <section className={`contact-page fade-in hero is-halfheight`}>
       <div className={`hero-body`}>
         <div className={`container has-text-centered`}>
