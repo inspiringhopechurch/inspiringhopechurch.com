@@ -16,7 +16,7 @@ steps:
       NODE_ENV: "production"
     commands:
       - git pull origin ${DRONE_COMMIT_REF}
-      - npm ci # install cypress npm package without installing the binary
+      - npm ci --legacy-peer-deps # install cypress npm package without installing the binary
       # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
       # - GATSBY_CPU_COUNT=2 gatsby build
       - gatsby build
@@ -40,7 +40,7 @@ steps:
       NODE_ENV: "production"
     commands:
       - git pull origin ${DRONE_COMMIT_REF}
-      - npm ci # install cypress npm package without installing the binary
+      - npm ci --legacy-peer-deps # install cypress npm package without installing the binary
       # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
       # - GATSBY_CPU_COUNT=2 gatsby build
       - gatsby build
@@ -66,7 +66,7 @@ steps:
         from_secret: cypress_record_key
       CI: "true"
     commands:
-      - npm i
+      - npm i --legacy-peer-deps
       - gatsby serve --no-color &
       - $(npm bin)/cypress install
       - npm run integration -- --record
