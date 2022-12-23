@@ -44,14 +44,14 @@ context("Beliefs", () => {
             .find(".expanded")
             .should("not.exist");
           cy.wrap($accordion)
-            .find("button").click();
+            .find("a").click();
           cy.wrap($accordion)
             .filter(".expanded")
             .should("exist");
         });
       cy.get(".accordion.expanded").each(($accordion) => {
         cy.wrap($accordion)
-          .find("button").click();
+          .find("a").click();
         cy.wrap($accordion)
           .filter(".expanded")
           .should("not.exist");
