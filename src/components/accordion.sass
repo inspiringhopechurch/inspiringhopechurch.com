@@ -26,13 +26,14 @@
             width: 1.625rem
             height: .25rem
 
-    &.expanded > button, &:target > a
+    &.expanded > a, &:target > a
         &:before
             transform: rotate(90deg)
         &:after
             transform: rotate(180deg)
 
-    & + .accordion-content
+    & + .accordion-content,
+    &:target:has([aria-expanded="false"]) + .accordion-content
         max-height: 0
         opacity: 0
         overflow: hidden
@@ -46,6 +47,7 @@
 section .column
     h1 + .accordion,
     .accordion-content + .accordion
+        &.expanded,
         &:target
             > a:before, > a:hover:before
                 transform: rotate(90deg)
