@@ -422,7 +422,7 @@ const HomePage = ({ data }: PageProps<Queries.GhostPostsQuery>) => {
               // @ts-expect-error
               blogImageObj={getImage(node.featureImageSharp)}
               blogDate={node.published_at_pretty ?? undefined}
-              blogAuthor={node.primary_author?.name}
+              blogAuthor={node.primary_author?.name ?? undefined}
               blogReadingTime={node.reading_time ?? undefined}
               blogExcerpt={node.excerpt ?? ''}
               blogLink={`${config.postPrefix}/${node.slug}`}

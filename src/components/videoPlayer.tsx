@@ -4,7 +4,7 @@ import React, { useEffect, useRef } from "react";
  * Video Player component
  */
 const VideoPlayer = ({ id, caption, src, preload, posterImg }: VPProps) => {
-  const vidRef = useRef(null)
+  const vidRef = useRef<HTMLVideoElement>(null)
 
   useEffect(() => {
     let player;

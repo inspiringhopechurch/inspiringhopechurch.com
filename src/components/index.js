@@ -11,4 +11,17 @@ import { RefTagger } from "./reftagger";
 import SEO from "./seo";
 import VideoPlayer from "./videoPlayer";
 
-export { Accordion, BlogItem, ContactForm, FancyHeading, Footer, Header, Map, MediaItem, Pagination, RefTagger, SEO, VideoPlayer }
+export {
+  Accordion,
+  BlogItem,
+  ContactForm,
+  FancyHeading,
+  Footer,
+  Header,
+  Map,
+  MediaItem,
+  Pagination,
+  RefTagger,
+  SEO,
+  VideoPlayer,
+};
