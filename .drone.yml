@@ -18,13 +18,13 @@ steps:
       - git pull origin ${DRONE_COMMIT_REF}
       - npm ci # install cypress npm package without installing the binary
       # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
-      - GATSBY_CPU_COUNT=2 gatsby build
+      # - GATSBY_CPU_COUNT=2 gatsby build
+      - gatsby build
     when:
       ref:
         - refs/heads/develop
       event:
         - push
-        - tag
         - merge
         - custom
 
@@ -42,7 +42,8 @@ steps:
       - git pull origin ${DRONE_COMMIT_REF}
       - npm ci # install cypress npm package without installing the binary
       # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
-      - GATSBY_CPU_COUNT=2 gatsby build
+      # - GATSBY_CPU_COUNT=2 gatsby build
+      - gatsby build
     when:
       ref:
         - refs/tags/v*
