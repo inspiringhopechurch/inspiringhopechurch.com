@@ -4,6 +4,7 @@ import terminalLog from "../support/terminalLog";
 context("Beliefs", () => {
   beforeEach(() => {
     cy.visit("/about/beliefs");
+    cy.get("#rcc-decline-button").trigger("click");
   });
 
   describe("Beliefs Page", () => {
@@ -44,14 +45,14 @@ context("Beliefs", () => {
             .find(".expanded")
             .should("not.exist");
           cy.wrap($accordion)
-            .find("a").click();
+            .find("a").trigger("click");
           cy.wrap($accordion)
             .filter(".expanded")
             .should("exist");
         });
       cy.get(".accordion.expanded").each(($accordion) => {
         cy.wrap($accordion)
-          .find("a").click();
+          .find("a").trigger("click");
         cy.wrap($accordion)
           .filter(".expanded")
           .should("not.exist");
