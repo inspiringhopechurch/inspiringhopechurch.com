@@ -4,7 +4,6 @@ import terminalLog from "../support/terminalLog";
 context("Beliefs", () => {
   beforeEach(() => {
     cy.visit("/about/beliefs");
-    cy.get("#rcc-decline-button").trigger("click");
   });
 
   describe("Beliefs Page", () => {

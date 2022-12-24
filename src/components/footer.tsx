@@ -1,22 +1,11 @@
 import React from "react";
-import CookieConsent from 'react-cookie-consent';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { validUrl } from "../utils";
-import { facebookUrl, spotifyUrl, title, trackingCookieName } from "../../config";
+import { facebookUrl, spotifyUrl, title } from "../../config";
 import "./footer.sass";
 
 const Footer = ({ copyrightOwner = title }: FooterProps) => (
   <footer className="footer">
-    <CookieConsent
-      location="bottom"
-      buttonText="Accept"
-      declineButtonText="Decline"
-      enableDeclineButton={true}
-      cookieName={trackingCookieName}
-    >
-      <p>Our website would like to store cookies on your computer for the purpose of collecting analytics.</p>
-      <p>If you decline, your information will not be provided to Google Analytics, and we will not be able to use it to improve our website.</p>
-    </CookieConsent>
     <section className="copyright">
       <div className="container columns">
         <div className="column has-text-centered">

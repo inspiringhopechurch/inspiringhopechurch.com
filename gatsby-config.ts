@@ -170,18 +170,6 @@ const gatsbyConfig: GatsbyConfig = {
         ]
       }
     },
-    {
-      resolve: `gatsby-plugin-gdpr-cookies`,
-      options: {
-        googleAnalytics: {
-          anonymize: true,
-          allowAdFeatures: false,
-          cookieName: config.trackingCookieName,
-          trackingId: config.gaTrackingId,
-        },
-        environments: ['production']
-      },
-    },
     `gatsby-plugin-robots-txt`,
   ],
   //    `gatsby-plugin-prettier-build`,

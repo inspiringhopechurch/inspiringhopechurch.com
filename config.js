@@ -21,8 +21,6 @@ module.exports = {
   facebook: "InspiringHopeChurch", // Facebook site name
   facebookUrl: "https://www.facebook.com/inspiringhopechurch/",
   spotifyUrl: "https://open.spotify.com/playlist/4dz9af2T1a5PjD1trK6IJK?si=f95a6d2e02f64c0d", // Facebook site URL
-  gaTrackingId: "UA-198062991-1", // 🤮
-  trackingCookieName: "inspiring-hope-analytics",
   matomoUrl: "https://analytics.orbitsolutions.dev", // Matomo URL
   matomoSiteId: "16", // Matomo URL
   mapboxApiKey: "pk.eyJ1IjoiaWxsb2dpYy1hbCIsImEiOiJQbEhGaWdFIn0.zcXDcfBMp6CwnzyKAZku2Q",
