@@ -252,7 +252,7 @@ const HomePage = ({ data }: PageProps<Queries.GhostPostsQuery>) => {
         </section>
       )}
 
-      <Map longitude={-84.565} latitude={39.399} />
+      <Map longitude={-84.5785} latitude={39.4222} />
 
       {careSection && (
         <section className="index-page caring-section section">
