@@ -5,7 +5,7 @@ name: inspiringhopechurch
 
 steps:
   - name: build development site
-    image: mastrbennett/node-gatsby
+    image: mastrbennett/cypress-browsers:node18-chrome105-ff104
     environment:
       GHOST_API_URL:
         from_secret: ghost_api_url
@@ -15,6 +15,7 @@ steps:
         from_secret: npm_auth_token
       NODE_ENV: "production"
     commands:
+      - git config pull.rebase false
       - git pull origin ${DRONE_COMMIT_REF}
       - npm ci --legacy-peer-deps # install cypress npm package without installing the binary
       # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
@@ -29,7 +30,7 @@ steps:
         - custom
 
   - name: build production site
-    image: mastrbennett/node-gatsby
+    image: mastrbennett/cypress-browsers:node18-chrome105-ff104
     environment:
       GHOST_API_URL:
         from_secret: ghost_api_url
@@ -39,6 +40,7 @@ steps:
         from_secret: npm_auth_token
       NODE_ENV: "production"
     commands:
+      - git config pull.rebase false
       - git pull origin ${DRONE_COMMIT_REF}
       - npm ci --legacy-peer-deps # install cypress npm package without installing the binary
       # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
@@ -54,7 +56,7 @@ steps:
         - custom
 
   - name: test site
-    image: mastrbennett/node-gatsby
+    image: mastrbennett/cypress-browsers:node18-chrome105-ff104
     environment:
       GHOST_API_URL:
         from_secret: ghost_api_url
