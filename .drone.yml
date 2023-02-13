@@ -69,7 +69,7 @@ steps:
       - npm i --legacy-peer-deps
       - gatsby serve --no-color &
       - $(npm bin)/cypress install
-      - npm run integration -- --record
+      - npm run integration -- --browser firefox --record
     when:
       event:
         exclude:
