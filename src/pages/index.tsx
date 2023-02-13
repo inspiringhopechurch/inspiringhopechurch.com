@@ -153,7 +153,7 @@ const HomePage = ({ data }: PageProps<Queries.GhostPostsQuery>) => {
                         <span className="icon is-medium">
                           <FontAwesomeIcon icon={["fas", "video"]} size="1x" />
                         </span>
-                        <span>{`Watch ${isSunday && isMorning ? "Live" : "Messages"}`}</span>
+                        <span className="has-text-white">{`Watch ${isSunday && isMorning ? "Live" : "Messages"}`}</span>
                       </Link>
                     </div>
                   </nav>
