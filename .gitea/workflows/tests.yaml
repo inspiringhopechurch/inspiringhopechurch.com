@@ -1,0 +1,66 @@
+name: Biuld, Test and Deploy
+on: [push]
+
+env:
+  # Ghost API urls
+  GHOST_API_URL: ${{ secrets.GHOST_API_URL }}
+  GHOST_CONTENT_API_KEY: ${{ secrets.GHOST_CONTENT_API_KEY }}
+jobs:
+  build_site:
+    name: Build Site
+    runs-on: ubuntu-22.04
+    container:
+      image: mastrbennett/cypress-browsers:node18-chrome105-ff104
+    env:
+      NODE_ENV: production
+      # Don't install cypress binary
+      # CYPRESS_INSTALL_BINARY: 0
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+        # with:
+        #   lfs: true
+      # - name: Setup Node 18
+      #   uses: actions/setup-node@v3
+      #   with:
+      #     node-version: 18
+      - name: Install deps
+        run: npm ci --legacy-peer-deps
+      - name: Build site 🏗
+        run: npm run build
+      - name: Test site 🧪
+        env:
+          NODE_ENV: test
+          # pass the Dashboard record key and project ID as an environment variables
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          npm ci --legacy-peer-deps
+          npm run serve &
+          sleep 5 && npm run integration -- --browser chrome --record
+      - name: Deploy Dev Site
+        if: success() && github.ref == 'refs/heads/develop'
+        uses: https://github.com/appleboy/scp-action@v0.1.2
+        with:
+          host: inspiringhopechurch.com
+          port: 22
+          username: ${{secrets.DEPLOY_USER}}
+          key: ${{secrets.DEPLOY_KEY}}
+          target: /var/www/inspiringhope.gatsby/public
+          rm: true
+          source: "public/*"
+          strip_components: 1
+      - name: Deploy Prod Site
+        if: success() && startsWith(github.ref, 'refs/tags/v')
+        uses: https://github.com/appleboy/scp-action@v0.1.2
+        with:
+          host: inspiringhopechurch.com
+          port: 22
+          username: ${{secrets.DEPLOY_USER}}
+          key: ${{secrets.DEPLOY_KEY}}
+          target: /var/www/inspiringhopechurch.com/public
+          rm: true
+          source: "public/*"
+          strip_components: 1
