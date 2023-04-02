@@ -39,7 +39,7 @@ jobs:
         run: |
           npm ci --legacy-peer-deps
           npm run serve &
-          sleep 5 && npm run integration -- --browser chrome --record
+          sleep 5 && npm run integration -- --browser electron --record
       - name: Deploy Dev Site
         if: success() && github.ref == 'refs/heads/develop'
         uses: https://github.com/appleboy/scp-action@v0.1.2
