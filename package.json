@@ -50,7 +50,7 @@
     "graphql": "16.6.0",
     "lodash": "^4.17.21",
     "mapbox-gl": "^2.7.1",
-    "plyr": "3.7.3",
+    "plyr": "3.7.8",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-refresh": "0.14.0",
