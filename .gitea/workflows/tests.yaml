@@ -24,11 +24,11 @@ jobs:
       #   uses: actions/setup-node@v3
       #   with:
       #     node-version: 18
-      - name: Install deps
-        run: npm ci --legacy-peer-deps
-      - name: Build site 🏗
-        run: npm run build
-      - name: Test site 🧪
+      # - name: Install deps
+      #   run: npm ci --legacy-peer-deps
+      # - name: Build site 🏗
+      #   run: npm run build
+      - name: Install, Build 🏗 and Test site 🧪
         env:
           NODE_ENV: test
           # pass the Dashboard record key and project ID as an environment variables
@@ -38,6 +38,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm ci --legacy-peer-deps
+          npm run build
           npm run serve &
           sleep 5 && npm run integration -- --browser electron --record
       - name: Deploy Dev Site
