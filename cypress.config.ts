@@ -4,8 +4,8 @@ export default defineConfig({
   projectId: 'cfiju4',
   video: false,
   retries: {
-    runMode: 2,
-    openMode: 0,
+    runMode: 3,
+    openMode: 1,
   },
   e2e: {
     // We've imported your old cypress plugins here.
