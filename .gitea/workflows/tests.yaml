@@ -1,5 +1,9 @@
 name: Biuld, Test and Deploy
-on: [push]
+on:
+  push:
+    branches:
+      - main
+      - develop
 
 env:
   # Ghost API urls
@@ -13,21 +17,9 @@ jobs:
       image: mastrbennett/cypress-browsers:node18-chrome105-ff104
     env:
       NODE_ENV: production
-      # Don't install cypress binary
-      # CYPRESS_INSTALL_BINARY: 0
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-        # with:
-        #   lfs: true
-      # - name: Setup Node 18
-      #   uses: actions/setup-node@v3
-      #   with:
-      #     node-version: 18
-      # - name: Install deps
-      #   run: npm ci --legacy-peer-deps
-      # - name: Build site 🏗
-      #   run: npm run build
       - name: Install, Build 🏗 and Test site 🧪
         env:
           NODE_ENV: test
