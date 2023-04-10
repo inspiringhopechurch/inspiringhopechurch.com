@@ -57,3 +57,15 @@ jobs:
           rm: true
           source: "public/*"
           strip_components: 1
+      - name: Send mail
+        if: always()
+        uses: https://github.com/dawidd6/action-send-mail@v2
+        with:
+          server_address: smtp.mailgun.org
+          server_port: 465
+          username: ${{ secrets.EMAIL_USERNAME }}
+          password: ${{ secrets.EMAIL_PASSWORD }}
+          subject: ${{ github.repository }} website deployment is a ${{ job.status }}
+          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          to: admin@inspiringhopechurch.com,ben@inspiringhopechurch.com
+          from: gitea@inspiringhopechurch.com
