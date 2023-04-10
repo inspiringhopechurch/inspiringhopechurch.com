@@ -19,7 +19,7 @@ steps:
       - git pull origin ${DRONE_COMMIT_REF}
       - npm ci --legacy-peer-deps # install cypress npm package without installing the binary
       # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
-      - GATSBY_CPU_COUNT=2 gatsby build
+      - npm run build
     when:
       ref:
         - refs/heads/develop
@@ -29,7 +29,7 @@ steps:
         - custom
 
   - name: build production site
-    image: mastrbennett/cypress-browsers:node18-chrome105-ff104
+    image: mastrbennett/cypress-base
     environment:
       GHOST_API_URL:
         from_secret: ghost_api_url
@@ -43,7 +43,7 @@ steps:
       - git pull origin ${DRONE_COMMIT_REF}
       - npm ci --legacy-peer-deps # install cypress npm package without installing the binary
       # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
-      - GATSBY_CPU_COUNT=2 gatsby build
+      - npm run build
     when:
       ref:
         - refs/tags/v*
