@@ -1,10 +1,5 @@
-name: Biuld, Test and Deploy
-on:
-  push:
-    branches:
-      - main
-      - develop
-    tags: v*
+name: Build, Test and Deploy
+on: [push]
 
 env:
   # Ghost API urls
@@ -67,6 +62,6 @@ jobs:
           username: ${{ secrets.EMAIL_USERNAME }}
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: ${{ github.repository }} website deployment is a ${{ job.status }}
-          body: ${{ github.job }} job in worflow ${{ github.workflow }} of ${{ github.repository }} has ${{ job.status }}
+          body: ${{ github.workflow }} of repository ${{ github.repository }} was a ${{ job.status }}
           to: admin@inspiringhopechurch.com,ben@inspiringhopechurch.com
           from: gitea@inspiringhopechurch.com
