@@ -17,8 +17,7 @@ steps:
     commands:
       - git config pull.rebase false
       - git pull origin ${DRONE_COMMIT_REF}
-      - npm ci --legacy-peer-deps # install cypress npm package without installing the binary
-      # Set GATSBY_CPU_COUNT to low number to combat OOM failures with gatsby v4 + drone VPS
+      - npm ci --legacy-peer-deps
       - npm run build
     when:
       ref:
@@ -66,8 +65,9 @@ steps:
         from_secret: cypress_record_key
       CI: "true"
     commands:
-      - npm i --legacy-peer-deps
-      - gatsby serve --no-color &
+      - npm ci --legacy-peer-deps
+      - npm run serve &
+      - sleep 5
       - $(npm bin)/cypress install
       - npm run integration -- --browser electron --record
     when:
