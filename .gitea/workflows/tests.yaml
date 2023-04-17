@@ -63,5 +63,5 @@ jobs:
           password: ${{ secrets.EMAIL_PASSWORD }}
           subject: ${{ github.repository }} website deployment is a ${{ job.status }}
           body: ${{ github.workflow }} of repository ${{ github.repository }} was a ${{ job.status }}
-          to: admin@inspiringhopechurch.com,ben@inspiringhopechurch.com
+          to: admin@inspiringhopechurch.com
           from: gitea@inspiringhopechurch.com
