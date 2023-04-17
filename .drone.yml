@@ -23,8 +23,6 @@ steps:
       ref:
         - refs/heads/develop
       event:
-        - push
-        - merge
         - custom
 
   - name: build production site
@@ -48,32 +46,30 @@ steps:
         - refs/tags/v*
         - refs/heads/main
       event:
-        - push
-        - tag
         - custom
 
-  - name: test site
-    image: mastrbennett/cypress-base
-    environment:
-      GHOST_API_URL:
-        from_secret: ghost_api_url
-      GHOST_CONTENT_API_KEY:
-        from_secret: ghost_content_api_key
-      NPM_AUTH_TOKEN:
-        from_secret: npm_auth_token
-      CYPRESS_RECORD_KEY:
-        from_secret: cypress_record_key
-      CI: "true"
-    commands:
-      - npm ci --legacy-peer-deps
-      - npm run serve &
-      - sleep 5
-      - $(npm bin)/cypress install
-      - npm run integration -- --browser electron --record
-    when:
-      event:
-        exclude:
-          - tag
+  # - name: test site
+  #   image: mastrbennett/cypress-base
+  #   environment:
+  #     GHOST_API_URL:
+  #       from_secret: ghost_api_url
+  #     GHOST_CONTENT_API_KEY:
+  #       from_secret: ghost_content_api_key
+  #     NPM_AUTH_TOKEN:
+  #       from_secret: npm_auth_token
+  #     CYPRESS_RECORD_KEY:
+  #       from_secret: cypress_record_key
+  #     CI: "true"
+  #   commands:
+  #     - npm ci --legacy-peer-deps
+  #     - npm run serve &
+  #     - sleep 5
+  #     - $(npm bin)/cypress install
+  #     - npm run integration -- --browser electron --record
+  #   when:
+  #     event:
+  #       exclude:
+  #         - tag
 
   # Deploy develop branch to development folder - dev.inspiringhopechurch.com
   - name: deploy development
@@ -132,30 +128,12 @@ steps:
         {{ repo.name }} website deployment is a {{ build.status }}
       recipients:
         - admin@inspiringhopechurch.com
-    when:
-      status:
-        - success
-        - failure
-
-  - name: notify stakeholders
-    image: drillster/drone-email
-    environment:
-      EMAIL_USERNAME:
-        from_secret: email_username
-      EMAIL_PASSWORD:
-        from_secret: email_password
-    settings:
-      host: smtp.mailgun.org
-      port: 465
-      from: drone@inspiringhopechurch.com
-      subject: >
-        {{ repo.name }} website deployment is a {{ build.status }}
-      recipients:
         - ben@inspiringhopechurch.com
         - mdharri2@gmail.com
     when:
       status:
         - success
+        - failure
 
 node:
   cypress: parallel
