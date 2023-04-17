@@ -132,12 +132,30 @@ steps:
         {{ repo.name }} website deployment is a {{ build.status }}
       recipients:
         - admin@inspiringhopechurch.com
+    when:
+      status:
+        - success
+        - failure
+
+  - name: notify stakeholders
+    image: drillster/drone-email
+    environment:
+      EMAIL_USERNAME:
+        from_secret: email_username
+      EMAIL_PASSWORD:
+        from_secret: email_password
+    settings:
+      host: smtp.mailgun.org
+      port: 465
+      from: drone@inspiringhopechurch.com
+      subject: >
+        {{ repo.name }} website deployment is a {{ build.status }}
+      recipients:
         - ben@inspiringhopechurch.com
         - mdharri2@gmail.com
     when:
       status:
         - success
-        - failure
 
 node:
   cypress: parallel
