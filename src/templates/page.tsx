@@ -179,16 +179,17 @@ const Page = ({ data, location }: PageProps<PageDataProps>) => {
             </div>
           </div>
         )}
-        {(location.pathname === "/get-connected" || location.pathname.startsWith("/events")) && (
-          <div className="columns content is-medium is-centered">
-            <div className={`column is-two-thirds`}>
-              <ContactForm
-                formTitle={"Get in Touch"}
-                submitButtonTitle={"Send Message"}
-              />
+        {(location.pathname === "/get-connected" || (!location.pathname.startsWith("/events/vbs")) &&
+          location.pathname.startsWith("/events")) && (
+            <div className="columns content is-medium is-centered">
+              <div className={`column is-two-thirds`}>
+                <ContactForm
+                  formTitle={"Get in Touch"}
+                  submitButtonTitle={"Send Message"}
+                />
+              </div>
             </div>
-          </div>
-        )}
+          )}
       </section>
     </>
   );
