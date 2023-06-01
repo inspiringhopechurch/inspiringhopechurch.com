@@ -19,7 +19,8 @@ const Header = ({ location }: HeaderProps) => {
     giveUrl = "/give",
     watchUrl = "/watch",
     getConnected = "/get-connected",
-    easterUrl = "/events/easter-sunday-2022";
+    easterUrl = "/events/easter-sunday-2022",
+    vbsUrl = "/events/vbs-2023";
 
   return (
     <header>
@@ -82,6 +83,14 @@ const Header = ({ location }: HeaderProps) => {
                 state={{ prevPath: location.pathname }}
               >
                 Easter
+              </Link>}
+              {true && <Link
+                className={`navbar-item has-text-weight-bold ${location.pathname === vbsUrl ? "is-active-page" : ""
+                  }`}
+                to={vbsUrl}
+                state={{ prevPath: location.pathname }}
+              >
+                VBS 2023
               </Link>}
               <Link
                 className={`navbar-item ${location.pathname.includes(getConnected)
