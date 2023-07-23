@@ -84,7 +84,7 @@ const Header = ({ location }: HeaderProps) => {
               >
                 Easter
               </Link>}
-              {true && <Link
+              {false && <Link
                 className={`navbar-item has-text-weight-bold ${location.pathname === vbsUrl ? "is-active-page" : ""
                   }`}
                 to={vbsUrl}
