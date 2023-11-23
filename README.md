@@ -1,3 +1,6 @@
+# ARCHIVED
+This repository is no longer being updated. New development will happen at https://code.orbitsolutions.dev/Inspiring-Hope/inspiringhopechurch.svelte.
+
 # Gatsby inspiringhopechurch.com website
 
 This repository contains the source code for the inspiringhopechurch.com website. It is a gatsby site based on the hello-world starter.
